@@ -42,7 +42,7 @@
         <p>{% trans 'You win if you guess the correct champion before running out of attempts' %}</p>
     </div>
     
-    <a href="{% url 'champions' %}" class="play-button">{% trans 'Play Now' %}</a>
+    <a href="{% url 'games' %}" class="play-button">{% trans 'Play Now' %}</a>
 </div>
 
 <style>
@@ -108,7 +108,7 @@
     }
     
     .indicator.correct { background: #27ae60; }
-    .indicator.wrong { background: #f1c40f; }
+    .indicator.wrong { background: #ff3c6d; }
     .indicator.high { background: #3498db; }
     .indicator.low { background: #8e44ad; }
     

@@ -1,0 +1,756 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>{% trans 'Game' %} <span>{% trans 'History' %}</span></h1>
+    {% if user_name %}
+    <p>{% trans 'Player' %}: <span class="highlight">{{ user_name }}</span></p>
+    {% endif %}
+</div>
+
+<div class="history-container">
+    {% if user_stat %}
+    <div class="history-stats">
+        <div class="stat-box">
+            <span class="stat-value">{{ user_stat.games_played }}</span>
+            <span class="stat-label">{% trans 'Games Played' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value">{{ user_stat.games_won }}</span>
+            <span class="stat-label">{% trans 'Games Won' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value">{% widthratio user_stat.games_won user_stat.games_played 100 %}%</span>
+            <span class="stat-label">{% trans 'Win Rate' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value">{{ user_stat.total_score }}</span>
+            <span class="stat-label">{% trans 'Total Score' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value">{{ user_stat.best_score }}</span>
+            <span class="stat-label">{% trans 'Best Score' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value">{{ user_stat.average_attempts|floatformat:1 }}</span>
+            <span class="stat-label">{% trans 'Avg. Attempts' %}</span>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="history-filter">
+        <div class="filter-group">
+            <label>{% trans 'Game Type' %}:</label>
+            <select id="game-type-filter">
+                <option value="champion" {% if game_type == 'champion' %}selected{% endif %}>{% trans 'Champion' %}</option>
+                <option value="ability" {% if game_type == 'ability' %}selected{% endif %}>{% trans 'Ability' %}</option>
+                <option value="item" {% if game_type == 'item' %}selected{% endif %}>{% trans 'Item' %}</option>
+            </select>
+        </div>
+    </div>
+    
+    <div id="history-list" class="history-list">
+        <!-- Games will be loaded here by JavaScript -->
+        <div id="loading-spinner" class="loading-spinner">
+            <div class="spinner"></div>
+            <p>{% trans 'Loading games...' %}</p>
+        </div>
+    </div>
+    
+    <div id="no-games" class="no-games hidden">
+        <p>{% trans 'No games found. Start playing to see your game history!' %}</p>
+        <a href="{% url 'games' %}" class="btn-primary">{% trans 'Play Now' %}</a>
+    </div>
+    
+    <div id="loading-more" class="loading-more hidden">
+        <div class="spinner small"></div>
+        <p>{% trans 'Loading more games...' %}</p>
+    </div>
+</div>
+
+<!-- CHAMPION DETAIL MODAL -->
+<div id="champion-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="champion-detail" id="champion-detail">
+            <!-- Champion details will be filled dynamically -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // DOM elements
+    const historyList = document.getElementById('history-list');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const noGames = document.getElementById('no-games');
+    const loadingMore = document.getElementById('loading-more');
+    const gameTypeFilter = document.getElementById('game-type-filter');
+    const championModal = document.getElementById('champion-modal');
+    const championDetail = document.getElementById('champion-detail');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Game history variables
+    let currentPage = 1;
+    let hasMoreGames = true;
+    let isLoading = false;
+    let gameType = '{{ game_type }}';
+    
+    // Modal events
+    closeModal.addEventListener('click', () => {
+        championModal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (event) => {
+        if (event.target === championModal) {
+            championModal.style.display = 'none';
+        }
+    });
+    
+    // Load initial games
+    document.addEventListener('DOMContentLoaded', () => {
+        loadGames();
+        
+        // Handle filter changes
+        gameTypeFilter.addEventListener('change', function() {
+            gameType = this.value;
+            // Reset and reload games
+            currentPage = 1;
+            hasMoreGames = true;
+            historyList.innerHTML = '<div id="loading-spinner" class="loading-spinner"><div class="spinner"></div><p>{% trans "Loading games..." %}</p></div>';
+            loadingSpinner.classList.remove('hidden');
+            noGames.classList.add('hidden');
+            loadingMore.classList.add('hidden');
+            loadGames();
+        });
+        
+        // Add scroll event listener for infinite scrolling
+        window.addEventListener('scroll', handleScroll);
+    });
+    
+    function handleScroll() {
+        if (isLoading || !hasMoreGames) return;
+        
+        // Check if we've scrolled to the bottom of the page
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+            // Load next page of games
+            loadMoreGames();
+        }
+    }
+    
+    async function loadGames() {
+        isLoading = true;
+        
+        try {
+            const response = await fetch(`/api/game-history?page=1&game_type=${gameType}`);
+            const data = await response.json();
+            
+            // Hide loading spinner
+            loadingSpinner.classList.add('hidden');
+            
+            if (data.games && data.games.length > 0) {
+                // Render games
+                historyList.innerHTML = '';
+                data.games.forEach(game => {
+                    historyList.appendChild(createGameCard(game));
+                });
+                
+                // Update hasMoreGames flag
+                hasMoreGames = data.has_more;
+                
+                // Show loading more indicator if there are more games
+                if (hasMoreGames) {
+                    loadingMore.classList.remove('hidden');
+                }
+            } else {
+                // Show no games message
+                noGames.classList.remove('hidden');
+                historyList.innerHTML = '';
+            }
+        } catch (error) {
+            console.error('Error loading games:', error);
+            loadingSpinner.classList.add('hidden');
+            historyList.innerHTML = `<div class="error-message">{% trans "Error loading games. Please try again later." %}</div>`;
+        }
+        
+        isLoading = false;
+    }
+    
+    async function loadMoreGames() {
+        if (isLoading || !hasMoreGames) return;
+        
+        isLoading = true;
+        loadingMore.classList.remove('hidden');
+        
+        try {
+            currentPage++;
+            const response = await fetch(`/api/game-history?page=${currentPage}&game_type=${gameType}`);
+            const data = await response.json();
+            
+            // Hide loading more indicator
+            loadingMore.classList.add('hidden');
+            
+            if (data.games && data.games.length > 0) {
+                // Append games to the list
+                data.games.forEach(game => {
+                    historyList.appendChild(createGameCard(game));
+                });
+                
+                // Update hasMoreGames flag
+                hasMoreGames = data.has_more;
+            } else {
+                // No more games
+                hasMoreGames = false;
+            }
+        } catch (error) {
+            console.error('Error loading more games:', error);
+            loadingMore.classList.add('hidden');
+            hasMoreGames = false;
+        }
+        
+        isLoading = false;
+    }
+    
+    function createGameCard(game) {
+        const card = document.createElement('div');
+        card.className = `game-card ${game.is_won ? 'win' : 'loss'}`;
+        
+        // Format date
+        const gameDate = new Date(game.created_at);
+        const formattedDate = `${gameDate.toLocaleDateString()} ${gameDate.toLocaleTimeString()}`;
+        
+        // Create card content
+        let cardContent = `
+            <div class="game-card-header">
+                <div class="game-result ${game.is_won ? 'win' : 'loss'}">
+                    ${game.is_won ? '{% trans "Victory" %}' : '{% trans "Defeat" %}'}
+                </div>
+                <div class="game-date">${formattedDate}</div>
+            </div>
+            <div class="game-card-content">`;
+        
+        // Champion image and info
+        if (game.target_champion) {
+            cardContent += `
+                <div class="game-champion">
+                    <div class="champion-image">
+                        <img src="${game.target_champion.image_main}" alt="${game.target_champion.name}">
+                    </div>
+                    <div class="champion-info">
+                        <div class="champion-name">${game.target_champion.name}</div>
+                        <button class="btn-view-details" data-champion='${JSON.stringify(game.target_champion)}'>
+                            {% trans "Details" %}
+                        </button>
+                    </div>
+                </div>`;
+        } else if (game.last_guess) {
+            cardContent += `
+                <div class="game-champion">
+                    <div class="champion-image wrong">
+                        <img src="${game.last_guess.image}" alt="${game.last_guess.name}">
+                    </div>
+                    <div class="champion-info">
+                        <div class="champion-name">${game.last_guess.name}</div>
+                        <div class="wrong-guess">{% trans "Wrong Guess" %}</div>
+                    </div>
+                </div>`;
+        }
+        
+        // Game stats
+        cardContent += `
+                <div class="game-stats">
+                    <div class="game-stat">
+                        <span class="stat-label">{% trans "Difficulty" %}</span>
+                        <span class="stat-value">${game.difficulty}</span>
+                    </div>
+                    <div class="game-stat">
+                        <span class="stat-label">{% trans "Attempts" %}</span>
+                        <span class="stat-value">${game.attempts_used}/${game.max_attempts}</span>
+                    </div>
+                    ${game.is_won ? `
+                    <div class="game-stat">
+                        <span class="stat-label">{% trans "Score" %}</span>
+                        <span class="stat-value">${game.score}</span>
+                    </div>` : ''}
+                </div>
+            </div>
+        `;
+        
+        card.innerHTML = cardContent;
+        
+        // Add event listener to view details button
+        setTimeout(() => {
+            const detailsButton = card.querySelector('.btn-view-details');
+            if (detailsButton) {
+                detailsButton.addEventListener('click', function() {
+                    const championData = JSON.parse(this.getAttribute('data-champion'));
+                    showChampionDetails(championData);
+                });
+            }
+        }, 0);
+        
+        return card;
+    }
+    
+    function showChampionDetails(champion) {
+        // Fill the champion details in the modal
+        championDetail.innerHTML = `
+            <div class="detail-header">
+                <span class="subheading">${champion.title || ''}</span>
+                <h2 class="champion-name">${champion.name}</h2>
+                <p class="description">${champion.lore || ''}</p>
+            </div>
+            <div class="detail-image">
+                <img src="${champion.splash_art || champion.image_main}" alt="${champion.name}">
+            </div>
+            <ul class="detail-stats">
+                <li><span class="label">{% trans "Gender" %}</span> ${champion.gender || ''}</li>
+                <li><span class="label">{% trans "Resource" %}</span> ${champion.resource || ''}</li>
+                <li><span class="label">{% trans "Position" %}</span> ${champion.position || ''}</li>
+                <li><span class="label">{% trans "Species" %}</span> ${champion.species || ''}</li>
+                <li><span class="label">{% trans "Range" %}</span> ${champion.combat_range || ''}</li>
+                <li><span class="label">{% trans "Region" %}</span> ${champion.region || ''}</li>
+                <li><span class="label">{% trans "Release" %}</span> ${champion.release_year || ''}</li>
+            </ul>
+        `;
+        
+        // Show the modal
+        championModal.style.display = 'block';
+    }
+    
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+
+<style>
+    .history-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    
+    .history-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+    .stat-box {
+        width: 120px;
+        text-align: center;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #d4af37;
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 5px;
+        display: block;
+    }
+    
+    .history-filter {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .filter-group {
+        margin: 0 15px;
+    }
+    
+    .filter-group label {
+        margin-right: 10px;
+        color: #aaa;
+    }
+    
+    .filter-group select {
+        background-color: #151823;
+        color: #fff;
+        border: 1px solid #333;
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+    
+    .history-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .game-card {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #222;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .game-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .game-card.win {
+        border-left: 4px solid #27ae60;
+    }
+    
+    .game-card.loss {
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .game-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        border-bottom: 1px solid #222;
+    }
+    
+    .game-result {
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .game-result.win {
+        color: #27ae60;
+    }
+    
+    .game-result.loss {
+        color: #e74c3c;
+    }
+    
+    .game-date {
+        font-size: 12px;
+        color: #888;
+    }
+    
+    .game-card-content {
+        display: flex;
+        padding: 15px;
+    }
+    
+    .game-champion {
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+    
+    .champion-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-right: 15px;
+        position: relative;
+    }
+    
+    .champion-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .champion-image.wrong::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(231, 76, 60, 0.5);
+    }
+    
+    .champion-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .champion-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    
+    .wrong-guess {
+        font-size: 12px;
+        color: #e74c3c;
+    }
+    
+    .btn-view-details {
+        background: transparent;
+        border: 1px solid #d4af37;
+        color: #d4af37;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: fit-content;
+    }
+    
+    .btn-view-details:hover {
+        background: rgba(212, 175, 55, 0.1);
+    }
+    
+    .game-stats {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .game-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-stat .stat-label {
+        font-size: 11px;
+        color: #888;
+        margin-bottom: 5px;
+    }
+    
+    .game-stat .stat-value {
+        font-size: 16px;
+        font-weight: 600;
+        color: #d4af37;
+    }
+    
+    .loading-spinner, .loading-more {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 0;
+        color: #888;
+    }
+    
+    .loading-more {
+        padding: 20px 0;
+    }
+    
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #d4af37;
+        animation: spin 1s linear infinite;
+        margin-bottom: 10px;
+    }
+    
+    .spinner.small {
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
+        margin-bottom: 5px;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .no-games {
+        text-align: center;
+        padding: 40px 0;
+        color: #888;
+    }
+    
+    .no-games p {
+        margin-bottom: na10px;
+    }
+    
+    .no-games .btn-primary {
+        display: inline-block;
+        background: #d4af37;
+        color: #000;
+        padding: 8px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+    
+    .error-message {
+        text-align: center;
+        padding: 20px;
+        color: #e74c3c;
+    }
+    
+    .hidden {
+        display: none !important;
+    }
+    
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        overflow-y: auto;
+    }
+    
+    .modal-content {
+        background-color: #151823;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        animation: fade-in 0.3s ease;
+        position: relative;
+    }
+    
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .close-modal {
+        color: #aaa;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+    }
+    
+    .close-modal:hover {
+        color: #d4af37;
+    }
+    
+    /* Champion Detail Styles */
+    .champion-detail {
+        color: #fff;
+    }
+    
+    .detail-header {
+        padding: 20px 0;
+    }
+    
+    .subheading {
+        font-size: 14px;
+        color: #d4af37;
+        text-transform: uppercase;
+    }
+    
+    .champion-name {
+        font-size: 32px;
+        margin: 10px 0;
+        color: #fff;
+    }
+    
+    .description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+    
+    .detail-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 5px;
+        max-height: 300px;
+    }
+    
+    .detail-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    .detail-stats li {
+        flex: 1 1 120px;
+        background: rgba(0,0,0,0.2);
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 14px;
+        color: #ddd;
+    }
+    
+    .detail-stats .label {
+        display: block;
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 4px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .game-card-content {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .game-stats {
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            width: 100%;
+        }
+        
+        .stat-box {
+            width: 100px;
+            padding: 10px;
+        }
+        
+        .game-champion {
+            width: 100%;
+        }
+        
+        .modal-content {
+            width: 95%;
+        }
+    }
+</style>
+{% endblock %}

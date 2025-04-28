@@ -8,17 +8,19 @@
 
 {% block content %}
     <div class="hero">
-        <h1>{% trans 'Champion' %} <span>{% trans 'Guessing' %}</span></h1>
         <p>{% trans 'Difficulty' %}: <span class="highlight">{{ difficulty|title }}</span></p>
+        {% if user_name %}
+        <p>{% trans 'Player' %}: <span class="highlight">{{ user_name }}</span></p>
+        {% endif %}
     </div>
 
     <!-- ARAMA & DURUM BİLGİSİ -->
     <div class="search-container">
         <input type="text" id="search-input" placeholder="{% trans 'Type champion name...' %}">
         <div class="attempt-info">
-            <span class="step">{% trans 'Step' %}: <strong id="current-attempt">1</strong>/{{ max_attempts }}</span>
-            <span class="wrong" id="attempts-wrong">0</span>
-            <span class="correct" id="attempts-left">{{ max_attempts }}</span>
+            <span class="step">{% trans 'Step' %}: <strong id="current-attempt">{{ attempts_used|add:1 }}</strong>/{{ max_attempts }}</span>
+            <span class="wrong" id="attempts-wrong">{{ attempts_used }}</span>
+            <span class="correct" id="attempts-left">{{ attempts_left }}</span>
             <span class="text">{% trans 'Attempts Left' %}</span>
             <button class="btn-search" id="btn-search"><i class="fas fa-search"></i></button>
         </div>
@@ -33,7 +35,7 @@
     <!-- ŞAMPİYON TABLOSU -->
     <section class="champion-table" id="champion-table">
         <!-- Rows will be added dynamically by JavaScript -->
-        <div id="no-guesses" class="no-results">
+        <div id="no-guesses" class="no-results {% if previous_guesses %}hidden{% endif %}">
             {% trans 'No guesses yet. Start typing a champion name!' %}
         </div>
     </section>
@@ -46,19 +48,42 @@
         <div><span class="icon low"></span>{% trans 'Lower' %}</div>
     </div>
 
-    <!-- OYUN BİTTİ EKRANI (hidden at start) -->
-    <section id="result-screen" class="hidden">
-        <div class="result-banner">
-            <img src="{% static 'img/zafer.png' %}" id="result-image" style="width: 400px; height: auto">
-        </div>
-        <button id="btn-restart"><i class="fa fa-undo"></i> {% trans 'Play Again' %}</button>
-        <div class="champion-detail" id="champion-detail">
-            <!-- Champion details will be filled dynamically -->
+    <!-- RESULT BANNER - Now a smaller notification that shows the modal -->
+    <section id="result-banner" class="hidden">
+        <div class="result-content">
+            <img src="{% static 'img/zafer.png' %}" id="result-image" class="result-small-img">
+            <div class="result-text">
+                <div class="score-info" id="score-info">
+                    <span class="score-value" id="score-value">0</span>
+                    <span class="score-label">{% trans 'POINTS' %}</span>
+                </div>
+                <div class="player-info" id="player-info">
+                    <span class="player-label">{% trans 'Player' %}:</span>
+                    <span class="player-name" id="player-name"></span>
+                </div>
+                <div class="result-buttons">
+                    <button id="btn-view-champion" class="btn-secondary"><i class="fas fa-info-circle"></i> {% trans 'View Champion' %}</button>
+                    <button id="btn-restart" class="btn-primary"><i class="fas fa-redo"></i> {% trans 'Play Again' %}</button>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- CHAMPION DETAIL MODAL -->
+    <div id="champion-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="champion-detail" id="champion-detail">
+                <!-- Champion details will be filled dynamically -->
+            </div>
+        </div>
+    </div>
+
     <input type="hidden" id="game-id" value="{{ game_id }}">
     <input type="hidden" id="max-attempts" value="{{ max_attempts }}">
+    <input type="hidden" id="previous-guesses" value="{{ previous_guesses|default_if_none:'[]' }}">
+    <input type="hidden" id="attempts-used-initial" value="{{ attempts_used }}">
+    <input type="hidden" id="attempts-left-initial" value="{{ attempts_left }}">
 {% endblock %}
 
 {% block extra_js %}
@@ -66,10 +91,13 @@
     // Game variables
     let gameId = document.getElementById('game-id').value;
     let maxAttempts = parseInt(document.getElementById('max-attempts').value);
-    let currentAttempt = 1;
+    let attemptsUsedInitial = parseInt(document.getElementById('attempts-used-initial').value || 0);
+    let attemptsLeftInitial = parseInt(document.getElementById('attempts-left-initial').value || maxAttempts);
+    let currentAttempt = attemptsUsedInitial + 1;
     let gameCompleted = false;
-    let guessCount = 0;
-    
+    let guessCount = attemptsUsedInitial;
+    let userName = '';
+
     // DOM elements
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -81,16 +109,56 @@
     const currentAttemptEl = document.getElementById('current-attempt');
     const attemptsWrongEl = document.getElementById('attempts-wrong');
     const attemptsLeftEl = document.getElementById('attempts-left');
-    const resultScreen = document.getElementById('result-screen');
+    const resultBanner = document.getElementById('result-banner');
     const resultImage = document.getElementById('result-image');
     const championDetail = document.getElementById('champion-detail');
     const btnRestart = document.getElementById('btn-restart');
-    
+    const btnViewChampion = document.getElementById('btn-view-champion');
+    const scoreInfo = document.getElementById('score-info');
+    const scoreValue = document.getElementById('score-value');
+    const playerInfo = document.getElementById('player-info');
+    const playerName = document.getElementById('player-name');
+    const championModal = document.getElementById('champion-modal');
+    const closeModal = document.querySelector('.close-modal');
+
+    // Modal events
+    btnViewChampion.addEventListener('click', () => {
+        championModal.style.display = 'block';
+    });
+
+    closeModal.addEventListener('click', () => {
+        championModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === championModal) {
+            championModal.style.display = 'none';
+        }
+    });
+
+    // Load previous guesses if available
+    document.addEventListener('DOMContentLoaded', function() {
+        const previousGuessesJson = document.getElementById('previous-guesses').value;
+        if (previousGuessesJson && previousGuessesJson !== '[]') {
+            try {
+                const previousGuesses = JSON.parse(previousGuessesJson);
+                // Add previous guesses to the table
+                previousGuesses.forEach(feedback => {
+                    addGuessToTable(feedback);
+                });
+                // Hide no guesses message
+                noGuesses.classList.add('hidden');
+            } catch (error) {
+                console.error('Error loading previous guesses:', error);
+            }
+        }
+    });
+
     // Event listeners
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     btnSearch.addEventListener('click', handleSearchButtonClick);
     btnRestart.addEventListener('click', handleRestart);
-    
+
     // Functions
     function debounce(func, wait) {
         let timeout;
@@ -103,19 +171,19 @@
             }, wait);
         };
     }
-    
+
     async function handleSearch() {
         const query = searchInput.value.trim();
-        
+
         if (query.length < 2) {
             searchResults.classList.add('hidden');
             return;
         }
-        
+
         try {
             const response = await fetch(`/api/search-champions?query=${encodeURIComponent(query)}`);
             const data = await response.json();
-            
+
             if (data.champions && data.champions.length > 0) {
                 renderSearchResults(data.champions);
                 searchResults.classList.remove('hidden');
@@ -129,16 +197,16 @@
             console.error('Error searching champions:', error);
         }
     }
-    
+
     function renderSearchResults(champions) {
         searchList.innerHTML = '';
-        
+
         champions.forEach(champion => {
             const searchItem = document.createElement('div');
             searchItem.className = 'search-item';
             searchItem.setAttribute('data-id', champion.id);
             searchItem.setAttribute('data-name', champion.name);
-            
+
             searchItem.innerHTML = `
                 <div class="img-wrapper">
                     <img src="${champion.image}" alt="${champion.name}">
@@ -148,18 +216,18 @@
                     <div class="search-attrs">${champion.position || ''}</div>
                 </div>
             `;
-            
+
             searchItem.addEventListener('click', () => selectChampion(champion));
             searchList.appendChild(searchItem);
         });
     }
-    
+
     function selectChampion(champion) {
         makeGuess(champion.id);
         searchResults.classList.add('hidden');
         searchInput.value = '';
     }
-    
+
     function handleSearchButtonClick() {
         // If there's only one search result, select it
         const searchItems = searchList.querySelectorAll('.search-item');
@@ -168,12 +236,12 @@
             makeGuess(id);
         }
     }
-    
+
     async function makeGuess(championId) {
         if (gameCompleted || currentAttempt > maxAttempts) {
             return;
         }
-        
+
         try {
             const response = await fetch('/api/make-guess', {
                 method: 'POST',
@@ -186,31 +254,36 @@
                     game_id: gameId
                 })
             });
-            
+
             const data = await response.json();
-            
+
             if (response.ok) {
                 // Hide no guesses message if it's the first guess
                 if (guessCount === 0) {
                     noGuesses.classList.add('hidden');
                 }
                 guessCount++;
-                
+
                 // Update the game state
                 gameCompleted = data.game_completed;
                 currentAttempt = data.attempts_used + 1;
-                
+
                 // Update the attempt counters
                 currentAttemptEl.textContent = currentAttempt;
                 attemptsWrongEl.textContent = data.attempts_used;
                 attemptsLeftEl.textContent = maxAttempts - data.attempts_used;
-                
+
+                // Save user name if available
+                if (data.user) {
+                    userName = data.user;
+                }
+
                 // Add the guess to the table
                 addGuessToTable(data.feedback);
-                
+
                 // Check if game is completed
                 if (data.game_completed) {
-                    handleGameCompleted(data.is_correct, data.target_champion);
+                    handleGameCompleted(data.is_correct, data.target_champion, data.score || 0);
                 }
             } else {
                 console.error('Error making guess:', data.error);
@@ -219,12 +292,12 @@
             console.error('Error making guess:', error);
         }
     }
-    
+
     function addGuessToTable(feedback) {
         // Create new row for the guess
         const row = document.createElement('div');
         row.className = 'row';
-        
+
         // Champion cell
         const championCell = document.createElement('div');
         championCell.className = 'cell champion';
@@ -244,26 +317,31 @@
             row.appendChild(createFeedbackCell('{% trans "Gender" %}', feedback.gender.value, feedback.gender.status));
         }
 
+         // Kaynak tipi hücresi - YENİ EKLENEN
+        if (feedback.resource) {
+            row.appendChild(createFeedbackCell('{% trans "Resource" %}', feedback.resource.value, feedback.resource.status));
+        }
+
         // Position cell
         if (feedback.position) {
             row.appendChild(createFeedbackCell('{% trans "Position" %}', feedback.position.value, feedback.position.status));
         }
-        
+
         // Species cell
         if (feedback.species) {
             row.appendChild(createFeedbackCell('{% trans "Species" %}', feedback.species.value, feedback.species.status));
         }
-        
+
         // Combat range cell
         if (feedback.combat_range) {
             row.appendChild(createFeedbackCell('{% trans "Range" %}', feedback.combat_range.value, feedback.combat_range.status));
         }
-        
+
         // Region cell
         if (feedback.region) {
             row.appendChild(createFeedbackCell('{% trans "Region" %}', feedback.region.value, feedback.region.status));
         }
-        
+
         // Release year cell
         if (feedback.release_year) {
             let icon = '';
@@ -272,14 +350,14 @@
             } else if (feedback.release_year.status === 'low') {
                 icon = '<i class="fas fa-arrow-down"></i>';
             }
-            
+
             row.appendChild(createFeedbackCell('{% trans "Release" %}', `${icon}${feedback.release_year.value}`, feedback.release_year.status));
         }
-        
+
         // Add the row to the table
         championTable.appendChild(row);
     }
-    
+
     function createFeedbackCell(label, value, status) {
         const cell = document.createElement('div');
         cell.className = 'cell';
@@ -289,17 +367,33 @@
         `;
         return cell;
     }
-    
-    function handleGameCompleted(isWon, targetChampion) {
-        // Display the result screen
-        resultScreen.classList.remove('hidden');
-        
+
+    function handleGameCompleted(isWon, targetChampion, score) {
+        // Display the result banner
+        resultBanner.classList.remove('hidden');
+
         // Set the appropriate result image
-        resultImage.src = isWon ? 
-            "{% static 'img/zafer.png' %}" : 
+        resultImage.src = isWon ?
+            "{% static 'img/zafer.png' %}" :
             "{% static 'img/defeat.png' %}";
-        
-        // Fill the champion details
+
+        // Show score info if game is won
+        if (isWon) {
+            scoreInfo.style.display = 'block';
+            scoreValue.textContent = score;
+        } else {
+            scoreInfo.style.display = 'none';
+        }
+
+        // Show player name
+        if (userName) {
+            playerInfo.style.display = 'block';
+            playerName.textContent = userName;
+        } else {
+            playerInfo.style.display = 'none';
+        }
+
+        // Fill the champion details in the modal
         championDetail.innerHTML = `
             <div class="detail-header">
                 <span class="subheading">${targetChampion.title || ''}</span>
@@ -311,6 +405,7 @@
             </div>
             <ul class="detail-stats">
                 <li><span class="label">{% trans "Gender" %}</span> ${targetChampion.gender || ''}</li>
+                <li><span class="label">{% trans "Resource" %}</span> ${targetChampion.resource || ''}</li>
                 <li><span class="label">{% trans "Position" %}</span> ${targetChampion.position || ''}</li>
                 <li><span class="label">{% trans "Species" %}</span> ${targetChampion.species || ''}</li>
                 <li><span class="label">{% trans "Range" %}</span> ${targetChampion.combat_range || ''}</li>
@@ -319,7 +414,7 @@
             </ul>
         `;
     }
-    
+
     async function handleRestart() {
         try {
             const response = await fetch('/api/new-game', {
@@ -330,9 +425,9 @@
                 },
                 body: `difficulty=${encodeURIComponent('{{ difficulty }}')}`
             });
-            
+
             const data = await response.json();
-            
+
             if (response.ok) {
                 // Reset game state
                 gameId = data.game_id;
@@ -340,27 +435,25 @@
                 currentAttempt = 1;
                 gameCompleted = false;
                 guessCount = 0;
-                
+
                 // Update DOM
                 document.getElementById('game-id').value = gameId;
                 document.getElementById('max-attempts').value = maxAttempts;
                 currentAttemptEl.textContent = '1';
                 attemptsWrongEl.textContent = '0';
                 attemptsLeftEl.textContent = maxAttempts;
-                
+
                 // Clear the table
-                while (championTable.firstChild) {
-                    if (championTable.firstChild.id === 'no-guesses') {
-                        break;
-                    }
-                    championTable.removeChild(championTable.firstChild);
-                }
-                
+                clearChampionTable();
+
                 // Show the no guesses message
                 noGuesses.classList.remove('hidden');
-                
-                // Hide result screen
-                resultScreen.classList.add('hidden');
+
+                // Hide result banner
+                resultBanner.classList.add('hidden');
+
+                // Hide modal if open
+                championModal.style.display = 'none';
             } else {
                 console.error('Error starting new game:', data.error);
             }
@@ -368,7 +461,17 @@
             console.error('Error starting new game:', error);
         }
     }
-    
+
+    function clearChampionTable() {
+        // Get all rows except the no-guesses div
+        const rows = championTable.querySelectorAll('.row');
+
+        // Remove each row
+        rows.forEach(row => {
+            row.remove();
+        });
+    }
+
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -384,4 +487,254 @@
         return cookieValue;
     }
 </script>
+
+<style>
+    /* Add this CSS for the score display */
+    .score-info {
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .score-value {
+        font-size: 36px;
+        font-weight: 700;
+        color: #d4af37;
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+
+    .score-label {
+        font-size: 14px;
+        color: #d4af37;
+        display: block;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    /* Player info display */
+    .player-info {
+        margin: 5px auto 10px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .player-label {
+        font-weight: 600;
+        margin-right: 5px;
+    }
+
+    .player-name {
+        color: #d4af37;
+        font-weight: 600;
+    }
+
+    /* Result Banner */
+    #result-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        background: rgba(21, 24, 35, 0.95);
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        z-index: 100;
+        animation: slide-up 0.5s ease;
+    }
+
+    @keyframes slide-up {
+        from { transform: translate(-50%, 100px); opacity: 0; }
+        to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    .result-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .result-small-img {
+        width: 80px;
+        height: auto;
+        margin-right: 15px;
+    }
+
+    .result-text {
+        flex: 1;
+    }
+
+    .result-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+        background: #d4af37;
+        color: #000;
+    }
+
+    .btn-secondary {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-primary:hover {
+        background: #e5c249;
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        background-color: #151823;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        animation: fade-in 0.3s ease;
+        position: relative;
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+        color: #aaa;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .close-modal:hover {
+        color: #d4af37;
+    }
+
+    /* Champion Detail Styles */
+    .champion-detail {
+        color: #fff;
+    }
+
+    .detail-header {
+        padding: 20px 0;
+    }
+
+    .subheading {
+        font-size: 14px;
+        color: #d4af37;
+        text-transform: uppercase;
+    }
+
+    .champion-name {
+        font-size: 32px;
+        margin: 10px 0;
+        color: #fff;
+    }
+
+    .description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .detail-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 5px;
+        max-height: 300px;
+    }
+
+    .detail-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .detail-stats li {
+        flex: 1 1 120px;
+        background: rgba(0,0,0,0.2);
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 14px;
+        color: #ddd;
+    }
+
+    .detail-stats .label {
+        display: block;
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 4px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .result-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .result-small-img {
+            margin: 0 auto 10px;
+        }
+
+        .modal-content {
+            margin: 10% auto;
+            width: 95%;
+            padding: 15px;
+        }
+
+        .detail-stats li {
+            flex: 1 1 100px;
+        }
+
+        .result-buttons {
+            flex-direction: column;
+        }
+    }
+</style>
 {% endblock %}

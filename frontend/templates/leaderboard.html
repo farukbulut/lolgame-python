@@ -1,0 +1,237 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>{% trans 'Leaderboard' %}</h1>
+    <p>{% trans 'See who ranks at the top of the champion guessing game!' %}</p>
+</div>
+
+<div class="leaderboard-container">
+    <div class="leaderboard-filters">
+        <div class="filter-group">
+            <label>{% trans 'Game Type' %}:</label>
+            <select id="game-type-filter">
+                <option value="champion" {% if game_type == 'champion' %}selected{% endif %}>{% trans 'Champion' %}</option>
+                <option value="ability" {% if game_type == 'ability' %}selected{% endif %}>{% trans 'Ability' %}</option>
+                <option value="item" {% if game_type == 'item' %}selected{% endif %}>{% trans 'Item' %}</option>
+            </select>
+        </div>
+    </div>
+
+    {% if user_stat %}
+    <div class="user-stats">
+        <h3>{% trans 'Your Stats' %}</h3>
+        <div class="user-stats-content">
+            <div class="user-stat-box">
+                <span class="stat-value">{{ user_rank }}</span>
+                <span class="stat-label">{% trans 'Rank' %}</span>
+            </div>
+            <div class="user-stat-box">
+                <span class="stat-value">{{ user_stat.total_score }}</span>
+                <span class="stat-label">{% trans 'Total Score' %}</span>
+            </div>
+            <div class="user-stat-box">
+                <span class="stat-value">{{ user_stat.best_score }}</span>
+                <span class="stat-label">{% trans 'Best Score' %}</span>
+            </div>
+            <div class="user-stat-box">
+                <span class="stat-value">{{ user_stat.games_played }}</span>
+                <span class="stat-label">{% trans 'Games Played' %}</span>
+            </div>
+            <div class="user-stat-box">
+                <span class="stat-value">{{ user_stat.games_won }}</span>
+                <span class="stat-label">{% trans 'Games Won' %}</span>
+            </div>
+            <div class="user-stat-box">
+                <span class="stat-value">{{ user_stat.average_attempts|floatformat:1 }}</span>
+                <span class="stat-label">{% trans 'Avg. Attempts' %}</span>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="leaderboard-table">
+        <h3>{% trans 'Top Players' %}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans 'Rank' %}</th>
+                    <th>{% trans 'Player' %}</th>
+                    <th>{% trans 'Score' %}</th>
+                    <th>{% trans 'Best Score' %}</th>
+                    <th>{% trans 'Games' %}</th>
+                    <th>{% trans 'Win Rate' %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in top_players %}
+                <tr {% if player.user.username == request.user.username or player.user.username == 'anon_'|add:request.session.session_id|slice:":8" %}class="highlight-row"{% endif %}>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ player.user.username }}</td>
+                    <td>{{ player.total_score }}</td>
+                    <td>{{ player.best_score }}</td>
+                    <td>{{ player.games_played }}</td>
+                    <td>{{ player.games_won|floatformat:0 }}%</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="no-data">{% trans 'No data available' %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .leaderboard-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    .leaderboard-filters {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    
+    .filter-group {
+        margin: 0 15px;
+    }
+    
+    .filter-group label {
+        margin-right: 10px;
+        color: #aaa;
+    }
+    
+    .filter-group select {
+        background-color: #151823;
+        color: #fff;
+        border: 1px solid #333;
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+    
+    .user-stats {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #d4af37;
+        border-radius: 10px;
+        padding: a2px;
+        margin-bottom: 30px;
+    }
+    
+    .user-stats h3 {
+        text-align: center;
+        padding: 15px 0;
+        color: #d4af37;
+        font-size: 18px;
+        border-bottom: 1px solid #222;
+    }
+    
+    .user-stats-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+    
+    .user-stat-box {
+        width: 120px;
+        text-align: center;
+        margin: 10px;
+    }
+    
+    .stat-value {
+        font-size: 28px;
+        font-weight: 600;
+        color: #d4af37;
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 14px;
+        color: #aaa;
+        margin-top: 5px;
+        display: block;
+    }
+    
+    .leaderboard-table {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+    .leaderboard-table h3 {
+        text-align: center;
+        padding-bottom: 15px;
+        color: #d4af37;
+        font-size: 18px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    thead th {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: #d4af37;
+        padding: 12px;
+        text-align: left;
+        font-weight: 600;
+    }
+    
+    tbody td {
+        padding: 12px;
+        border-top: 1px solid #222;
+        color: #ddd;
+    }
+    
+    .highlight-row {
+        background-color: rgba(212, 175, 55, 0.1);
+    }
+    
+    .no-data {
+        text-align: center;
+        color: #777;
+        padding: 20px 0;
+    }
+    
+    @media (max-width: 768px) {
+        .leaderboard-table {
+            overflow-x: auto;
+        }
+        
+        .user-stat-box {
+            width: 90px;
+        }
+        
+        .stat-value {
+            font-size: 22px;
+        }
+    }
+</style>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const gameTypeFilter = document.getElementById('game-type-filter');
+        
+        // Handle filter changes
+        gameTypeFilter.addEventListener('change', function() {
+            const gameType = this.value;
+            window.location.href = `{% url 'leaderboard' %}?game_type=${gameType}`;
+        });
+    });
+</script>
+{% endblock %}

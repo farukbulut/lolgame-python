@@ -1,0 +1,1132 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>{% trans 'Champions' %}</h1>
+    <p>{% trans 'Explore all League of Legends champions and their details' %}</p>
+</div>
+
+<div class="champions-container">
+    <!-- SEARCH BAR -->
+    <div class="search-bar">
+        <div class="search-input-wrapper">
+            <input type="text" id="champion-search" placeholder="{% trans 'Search champions...' %}">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="filter-toggle">
+            <button id="toggle-filters"><i class="fas fa-filter"></i> {% trans 'Filters' %}</button>
+        </div>
+    </div>
+    
+    <!-- FILTERS PANEL -->
+    <div class="filters-panel" id="filters-panel">
+        <div class="filters-header">
+            <h3>{% trans 'Filter Champions' %}</h3>
+            <button class="close-filters"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="filters-content">
+            <div class="filter-section">
+                <h4>{% trans 'Position' %}</h4>
+                <select id="position-filter">
+                    <option value="">{% trans 'All Positions' %}</option>
+                    {% for position in positions %}
+                    <option value="{{ position.id }}">{{ position.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h4>{% trans 'Region' %}</h4>
+                <select id="region-filter">
+                    <option value="">{% trans 'All Regions' %}</option>
+                    {% for region in regions %}
+                    <option value="{{ region.id }}">{{ region.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h4>{% trans 'Species' %}</h4>
+                <select id="species-filter">
+                    <option value="">{% trans 'All Species' %}</option>
+                    {% for sp in species %}
+                    <option value="{{ sp.id }}">{{ sp.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h4>{% trans 'Resource' %}</h4>
+                <select id="resource-filter">
+                    <option value="">{% trans 'All Resources' %}</option>
+                    {% for resource in resources %}
+                    <option value="{{ resource.id }}">{{ resource.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h4>{% trans 'Combat Range' %}</h4>
+                <select id="combat-range-filter">
+                    <option value="">{% trans 'All Ranges' %}</option>
+                    {% for cr in combat_ranges %}
+                    <option value="{{ cr.id }}">{{ cr.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h4>{% trans 'Gender' %}</h4>
+                <select id="gender-filter">
+                    <option value="">{% trans 'All Genders' %}</option>
+                    {% for gender in genders %}
+                    <option value="{{ gender.id }}">{{ gender.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h4>{% trans 'Release Year' %}</h4>
+                <div class="year-range">
+                    <!-- Input alanları -->
+                    <div class="year-inputs">
+                        <input type="number" id="min-year-input" min="{{ min_year }}" max="{{ max_year }}" value="{{ min_year }}" class="year-input">
+                        <span>-</span>
+                        <input type="number" id="max-year-input" min="{{ min_year }}" max="{{ max_year }}" value="{{ max_year }}" class="year-input">
+                    </div>
+
+                    <!-- Slider'lar -->
+                    <div class="dual-slider">
+                        <div class="slider-track"></div>
+                        <input type="range" id="min-year-slider" min="{{ min_year }}" max="{{ max_year }}" value="{{ min_year }}" class="slider">
+                        <input type="range" id="max-year-slider" min="{{ min_year }}" max="{{ max_year }}" value="{{ max_year }}" class="slider">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-buttons">
+                <button id="apply-filters" class="btn-primary">{% trans 'Apply Filters' %}</button>
+                <button id="reset-filters" class="btn-secondary">{% trans 'Reset' %}</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SORTING CONTROLS -->
+    <div class="sorting-container">
+        <div class="champion-count">
+            <span id="champion-count-display">{% trans 'Showing' %} <span id="showing-count">0</span> {% trans 'of' %} {{ champion_count }} {% trans 'champions' %}</span>
+        </div>
+        <div class="sorting-controls">
+            <label for="sort-by">{% trans 'Sort by:' %}</label>
+            <select id="sort-by">
+                <option value="name" data-dir="asc">{% trans 'Name (A-Z)' %}</option>
+                <option value="name" data-dir="desc">{% trans 'Name (Z-A)' %}</option>
+                <option value="release_year" data-dir="desc">{% trans 'Newest First' %}</option>
+                <option value="release_year" data-dir="asc">{% trans 'Oldest First' %}</option>
+                <option value="difficulty" data-dir="asc">{% trans 'Easiest First' %}</option>
+                <option value="difficulty" data-dir="desc">{% trans 'Hardest First' %}</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- CHAMPIONS GRID -->
+    <div class="champions-grid" id="champions-grid">
+        <!-- Champions will be loaded here by JavaScript -->
+    </div>
+    
+    <!-- LOADING SPINNER -->
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+        <p>{% trans 'Loading champions...' %}</p>
+    </div>
+    
+    <!-- PAGINATION -->
+    <div class="pagination" id="pagination">
+        <button id="load-more" class="btn-primary">{% trans 'Load More Champions' %}</button>
+    </div>
+    
+    <!-- NO RESULTS -->
+    <div class="no-results hidden" id="no-results">
+        <i class="fas fa-search fa-3x"></i>
+        <p>{% trans 'No champions match your search criteria.' %}</p>
+        <button id="clear-filters" class="btn-secondary">{% trans 'Clear Filters' %}</button>
+    </div>
+</div>
+
+<!-- CHAMPION DETAIL MODAL -->
+<div id="champion-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="champion-detail" id="champion-detail">
+            <!-- Champion details will be filled dynamically -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // DOM Elements
+    const championSearch = document.getElementById('champion-search');
+    const searchButton = document.getElementById('search-button');
+    const toggleFiltersBtn = document.getElementById('toggle-filters');
+    const filtersPanel = document.getElementById('filters-panel');
+    const closeFiltersBtn = document.querySelector('.close-filters');
+    const minYearSlider = document.getElementById('min-year-slider');
+    const maxYearSlider = document.getElementById('max-year-slider');
+    const yearRangeDisplay = document.getElementById('year-range-display');
+    const applyFiltersBtn = document.getElementById('apply-filters');
+    const resetFiltersBtn = document.getElementById('reset-filters');
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    const sortBySelect = document.getElementById('sort-by');
+    const championsGrid = document.getElementById('champions-grid');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const pagination = document.getElementById('pagination');
+    const loadMoreBtn = document.getElementById('load-more');
+    const noResults = document.getElementById('no-results');
+    const championCountDisplay = document.getElementById('showing-count');
+    const championModal = document.getElementById('champion-modal');
+    const championDetail = document.getElementById('champion-detail');
+    const closeModal = document.querySelector('.close-modal');
+    const minYearInput = document.getElementById('min-year-input');
+    const maxYearInput = document.getElementById('max-year-input');
+    // Filter Select Elements
+    const positionFilter = document.getElementById('position-filter');
+    const regionFilter = document.getElementById('region-filter');
+    const speciesFilter = document.getElementById('species-filter');
+    const resourceFilter = document.getElementById('resource-filter');
+    const combatRangeFilter = document.getElementById('combat-range-filter');
+    const genderFilter = document.getElementById('gender-filter');
+
+    // State variables
+    let currentPage = 1;
+    let totalPages = 1;
+    let currentFilters = {};
+    let currentSort = {
+        by: 'name',
+        dir: 'asc'
+    };
+    let isLoading = false;
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        loadChampions();
+
+        // Toggle filters panel
+        toggleFiltersBtn.addEventListener('click', () => {
+            filtersPanel.classList.toggle('open');
+        });
+
+        closeFiltersBtn.addEventListener('click', () => {
+            filtersPanel.classList.remove('open');
+        });
+
+        // Year range sliders
+        minYearSlider.addEventListener('input', updateYearRangeDisplay);
+        maxYearSlider.addEventListener('input', updateYearRangeDisplay);
+
+        // Apply filters
+        applyFiltersBtn.addEventListener('click', () => {
+            getFiltersFromInputs();
+            currentPage = 1;
+            loadChampions(true);
+            filtersPanel.classList.remove('open');
+        });
+
+        // Reset filters
+        resetFiltersBtn.addEventListener('click', resetFilters);
+        clearFiltersBtn.addEventListener('click', resetFilters);
+
+        // Sort change
+        sortBySelect.addEventListener('change', () => {
+            const selectedOption = sortBySelect.options[sortBySelect.selectedIndex];
+            currentSort.by = selectedOption.value;
+            currentSort.dir = selectedOption.dataset.dir || 'asc';
+            currentPage = 1;
+            loadChampions(true);
+        });
+
+        // Search
+        championSearch.addEventListener('keyup', debounce(handleSearch, 300));
+        searchButton.addEventListener('click', handleSearch);
+
+        // Load more
+        loadMoreBtn.addEventListener('click', loadMoreChampions);
+
+        // Modal
+        closeModal.addEventListener('click', () => {
+            championModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === championModal) {
+                championModal.style.display = 'none';
+            }
+        });
+    });
+
+    // Helper Functions
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            const context = this;
+            const args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                func.apply(context, args);
+            }, wait);
+        };
+    }
+
+    // Eski fonksiyonu değiştir
+    function updateYearRangeDisplay() {
+        let minYear = parseInt(minYearSlider.value);
+        let maxYear = parseInt(maxYearSlider.value);
+
+        console.log("Slider değerleri değişti:", minYear, maxYear);
+
+        // Make sure min doesn't exceed max
+        if (minYear > maxYear) {
+            if (this === minYearSlider) {
+                maxYearSlider.value = minYear;
+                maxYear = minYear;
+            } else {
+                minYearSlider.value = maxYear;
+                minYear = maxYear;
+            }
+        }
+
+        // Input değerlerini güncelle
+        minYearInput.value = minYear;
+        maxYearInput.value = maxYear;
+    }
+
+    // Input değerleri değiştiğinde slider'ları güncelle
+    minYearInput.addEventListener('change', function() {
+        let value = parseInt(this.value);
+        const min = parseInt(minYearSlider.min);
+        const max = parseInt(maxYearInput.value);
+
+        // Değer kontrolü
+        if (isNaN(value)) value = min;
+        if (value < min) value = min;
+        if (value > max) value = max;
+
+        // Değeri güncelle ve slider'a yansıt
+        this.value = value;
+        minYearSlider.value = value;
+
+        console.log("Min yıl input değişti:", value);
+    });
+
+    maxYearInput.addEventListener('change', function() {
+        let value = parseInt(this.value);
+        const min = parseInt(minYearInput.value);
+        const max = parseInt(maxYearSlider.max);
+
+        // Değer kontrolü
+        if (isNaN(value)) value = max;
+        if (value < min) value = min;
+        if (value > max) value = max;
+
+        // Değeri güncelle ve slider'a yansıt
+        this.value = value;
+        maxYearSlider.value = value;
+
+        console.log("Max yıl input değişti:", value);
+    });
+
+    // getFiltersFromInputs fonksiyonunu güncelle - şu anki değerleri input'lardan alsın
+    function getFiltersFromInputs() {
+        // Diğer filtreler aynı kalabilir
+
+        currentFilters = {
+            position: positionFilter.value || "",
+            region: regionFilter.value || "",
+            species: speciesFilter.value || "",
+            resource: resourceFilter.value || "",
+            combat_range: combatRangeFilter.value || "",
+            gender: genderFilter.value || "",
+            // Input değerlerini kullan slider yerine
+            min_year: minYearInput.value,
+            max_year: maxYearInput.value,
+            search: championSearch.value.trim()
+        };
+
+        console.log("Current filters:", currentFilters);
+    }
+
+    function resetFilters() {
+        // Reset all filter inputs
+        positionFilter.value = '';
+        regionFilter.value = '';
+        speciesFilter.value = '';
+        resourceFilter.value = '';
+        combatRangeFilter.value = '';
+        genderFilter.value = '';
+
+        minYearSlider.value = minYearSlider.min;
+        maxYearSlider.value = maxYearSlider.max;
+        updateYearRangeDisplay();
+
+        championSearch.value = '';
+
+        // Reset filters state
+        currentFilters = {};
+        currentPage = 1;
+
+        // Reload champions
+        loadChampions(true);
+
+        // Close filters panel if open
+        filtersPanel.classList.remove('open');
+    }
+
+    function handleSearch() {
+        currentFilters.search = championSearch.value.trim();
+        currentPage = 1;
+        loadChampions(true);
+    }
+
+    async function loadChampions(resetGrid = false) {
+        if (isLoading) return;
+
+        isLoading = true;
+        loadingSpinner.classList.remove('hidden');
+
+        if (resetGrid) {
+            championsGrid.innerHTML = '';
+        }
+
+        try {
+            // Build query string from filters and sort
+            const params = new URLSearchParams();
+            params.append('page', currentPage);
+            params.append('sort_by', currentSort.by);
+            params.append('sort_dir', currentSort.dir);
+
+            // Log sort parameters
+            console.log("Sorting by:", currentSort.by, "Direction:", currentSort.dir);
+
+            // Add filters
+            for (const [key, value] of Object.entries(currentFilters)) {
+                if (value !== undefined && value !== null && value !== "") {
+                    params.append(key, value);
+                    console.log(`Adding filter parameter: ${key}=${value}`);
+                }
+            }
+
+            const requestUrl = `/api/champions?${params.toString()}`;
+            console.log("Requesting URL:", requestUrl);
+
+            const response = await fetch(requestUrl);
+            const data = await response.json();
+
+            console.log("Received data:", data);
+
+            // Hide loading spinner
+            loadingSpinner.classList.add('hidden');
+
+            if (data.champions && data.champions.length > 0) {
+                // Eklenmiş şampiyonları takip etmek için bir Set kullanıyoruz
+                const addedChampionIds = new Set();
+
+                // Her şampiyonu tek sefer eklemek için kontrol ediyoruz
+                data.champions.forEach(champion => {
+                    if (!addedChampionIds.has(champion.id)) {
+                        championsGrid.appendChild(createChampionCard(champion));
+                        addedChampionIds.add(champion.id);
+                    }
+                });
+
+                // Update pagination
+                totalPages = data.total_pages;
+
+                if (currentPage >= totalPages) {
+                    pagination.classList.add('hidden');
+                } else {
+                    pagination.classList.remove('hidden');
+                }
+
+                // Update champion count
+                championCountDisplay.textContent = data.total_items;
+
+                // Hide no results
+                noResults.classList.add('hidden');
+            } else {
+                // Show no results
+                if (resetGrid) {
+                    noResults.classList.remove('hidden');
+                    pagination.classList.add('hidden');
+                    championCountDisplay.textContent = '0';
+                }
+            }
+        } catch (error) {
+            console.error('Error loading champions:', error);
+            loadingSpinner.classList.add('hidden');
+        }
+
+        isLoading = false;
+    }
+
+    function loadMoreChampions() {
+        if (currentPage >= totalPages || isLoading) return;
+
+        currentPage++;
+        loadChampions();
+    }
+
+    function createChampionCard(champion) {
+        const card = document.createElement('div');
+        card.className = 'champion-card';
+        card.setAttribute('data-id', champion.id);
+
+        // Difficulty class
+        let difficultyClass = '';
+        if (champion.difficulty === 'Easy') {
+            difficultyClass = 'easy';
+        } else if (champion.difficulty === 'Medium') {
+            difficultyClass = 'medium';
+        } else if (champion.difficulty === 'Hard') {
+            difficultyClass = 'hard';
+        }
+
+        card.innerHTML = `
+            <div class="champion-image">
+                <img src="${champion.image}" alt="${champion.name}">
+                <div class="champion-difficulty ${difficultyClass}">
+                    <span>${champion.difficulty || 'Unknown'}</span>
+                </div>
+            </div>
+            <div class="champion-info">
+                <h3 class="champion-name">${champion.name}</h3>
+                <div class="champion-title">${champion.title || ''}</div>
+                <div class="champion-attributes">
+                    ${champion.position ? `<div class="attribute"><i class="fas fa-map-marker-alt"></i> ${champion.position}</div>` : ''}
+                    ${champion.region ? `<div class="attribute"><i class="fas fa-globe-americas"></i> ${champion.region}</div>` : ''}
+                    ${champion.release_year ? `<div class="attribute"><i class="fas fa-calendar-alt"></i> ${champion.release_year}</div>` : ''}
+                </div>
+                <button class="btn-view-details" data-id="${champion.id}">View Details</button>
+            </div>
+        `;
+
+        // Add event listener to view details button
+        setTimeout(() => {
+            const detailsButton = card.querySelector('.btn-view-details');
+            if (detailsButton) {
+                detailsButton.addEventListener('click', function() {
+                    const championId = this.getAttribute('data-id');
+                    viewChampionDetails(championId);
+                });
+            }
+        }, 0);
+
+        return card;
+    }
+</script>
+
+<style>
+    .champions-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+        position: relative;
+    }
+    
+    /* SEARCH BAR */
+    .search-bar {
+        display: flex;
+        margin-bottom: 20px;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .search-input-wrapper {
+        flex: 1;
+        position: relative;
+    }
+    
+    #champion-search {
+        width: 100%;
+        padding: 12px 45px 12px 15px;
+        border-radius: 30px;
+        border: 1px solid #333;
+        background: rgba(21, 24, 35, 0.8);
+        color: #fff;
+        font-size: 16px;
+    }
+    
+    #search-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #d4af37;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    .filter-toggle button {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #333;
+        border-radius: 30px;
+        padding: 12px 20px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .filter-toggle button:hover {
+        background: rgba(21, 24, 35, 1);
+        border-color: #d4af37;
+    }
+    
+    /* FILTERS PANEL */
+    .filters-panel {
+        position: fixed;
+        top: 0;
+        right: -350px;
+        width: 350px;
+        height: 100%;
+        background: rgba(21, 24, 35, 0.95);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+    }
+
+    .filters-panel.open {
+        right: 0;
+    }
+
+    .filters-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    .filters-header h3 {
+        color: #d4af37;
+        margin: 0;
+    }
+
+    .close-filters {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .filters-content {
+        padding: 20px;
+    }
+
+    .filter-section {
+        margin-bottom: 20px;
+    }
+
+    .filter-section h4 {
+        margin: 0 0 10px 0;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .filter-section select {
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid #333;
+        border-radius: 5px;
+        color: #fff;
+    }
+    
+        .year-range {
+        margin: 15px 0;
+    }
+
+    .year-inputs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        gap: 10px;
+    }
+
+    .year-input {
+        width: 80px;
+        padding: 8px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid #444;
+        border-radius: 5px;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .dual-slider {
+        position: relative;
+        height: 40px;
+        margin-top: 15px;
+    }
+
+    .slider-track {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #333;
+        border-radius: 2px;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        top: 8px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #d4af37;
+        cursor: pointer;
+        border: 2px solid #222;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 2;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #d4af37;
+        cursor: pointer;
+        border: 2px solid #222;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 2;
+    }
+
+    .filter-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-primary {
+        background: #d4af37;
+        color: #000;
+        border: none;
+    }
+    
+    .btn-secondary {
+        background: transparent;
+        color: #fff;
+        border: 1px solid #555;
+    }
+    
+    .btn-primary:hover {
+        background: #e5c249;
+    }
+    
+    .btn-secondary:hover {
+        border-color: #d4af37;
+    }
+    
+    /* SORTING CONTROLS */
+    .sorting-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(21, 24, 35, 0.8);
+        border-radius: 10px;
+    }
+    
+    .champion-count {
+        color: #aaa;
+    }
+    
+    .champion-count span {
+        color: #d4af37;
+        font-weight: 600;
+    }
+    
+    .sorting-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .sorting-controls label {
+        color: #aaa;
+    }
+    
+    .sorting-controls select {
+        padding: 8px 12px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid #333;
+        border-radius: 5px;
+        color: #fff;
+    }
+    
+    /* CHAMPIONS GRID */
+    .champions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .champion-card {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #333;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .champion-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-color: #d4af37;
+    }
+    
+    .champion-image {
+        position: relative;
+        height: 170px;
+        overflow: hidden;
+    }
+    
+    .champion-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .champion-card:hover .champion-image img {
+        transform: scale(1.05);
+    }
+    
+    .champion-difficulty {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .champion-difficulty.easy {
+        background: #27ae60;
+        color: #fff;
+    }
+    
+    .champion-difficulty.medium {
+        background: #f39c12;
+        color: #fff;
+    }
+    
+    .champion-difficulty.hard {
+        background: #e74c3c;
+        color: #fff;
+    }
+    
+    .champion-info {
+        padding: 15px;
+    }
+    
+    .champion-name {
+        margin: 0 0 5px 0;
+        font-size: 18px;
+        color: #fff;
+    }
+    
+    .champion-title {
+        color: #d4af37;
+        font-size: 14px;
+        margin-bottom: 10px;
+        height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .champion-attributes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .attribute {
+        font-size: 12px;
+        color: #aaa;
+    }
+    
+    .attribute i {
+        margin-right: 5px;
+        color: #d4af37;
+    }
+    
+    .btn-view-details {
+        background: transparent;
+        border: 1px solid #d4af37;
+        color: #d4af37;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 100%;
+    }
+    
+    .btn-view-details:hover {
+        background: rgba(212, 175, 55, 0.1);
+    }
+    
+    /* LOADING SPINNER */
+    .loading-spinner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+    }
+    
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #d4af37;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .loading-spinner p {
+        color: #aaa;
+    }
+    
+    /* PAGINATION */
+    .pagination {
+        text-align: center;
+        margin: 30px 0;
+    }
+    
+    /* NO RESULTS */
+    .no-results {
+        text-align: center;
+        padding: 50px 0;
+        color: #aaa;
+    }
+    
+    .no-results i {
+        margin-bottom: 20px;
+        color: #555;
+    }
+    
+    .no-results p {
+        margin-bottom: 20px;
+    }
+    
+    /* MODAL STYLES */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        overflow-y: auto;
+    }
+    
+    .modal-content {
+        background-color: #151823;
+        margin: 5% auto;
+        padding: 25px;
+        border: 1px solid #333;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 900px;
+        animation: fade-in 0.3s ease;
+        position: relative;
+    }
+    
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .close-modal {
+        color: #aaa;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+    }
+    
+    .close-modal:hover {
+        color: #d4af37;
+    }
+    
+    /* CHAMPION DETAIL STYLES */
+    .champion-detail {
+        color: #fff;
+    }
+    
+    .detail-header {
+        padding: 20px 0;
+    }
+    
+    .subheading {
+        font-size: 14px;
+        color: #d4af37;
+        text-transform: uppercase;
+    }
+    
+    .champion-name {
+        font-size: 32px;
+        margin: 10px 0;
+        color: #fff;
+    }
+    
+    .description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #ccc;
+        margin-bottom: 20px;
+    }
+    
+    .detail-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 5px;
+        max-height: 400px;
+    }
+    
+    .detail-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    .detail-stats li {
+        flex: 1 1 calc(25% - 10px);
+        background: rgba(0,0,0,0.2);
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 14px;
+        color: #ddd;
+    }
+    
+    .detail-stats .label {
+        display: block;
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 4px;
+    }
+    
+    .play-now-buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .play-now-buttons .btn-primary {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    
+    .error-message {
+        text-align: center;
+        padding: 30px 0;
+        color: #e74c3c;
+    }
+    
+    .hidden {
+        display: none !important;
+    }
+    
+    /* RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+        .search-bar {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .filter-toggle button {
+            width: 100%;
+        }
+        
+        .sorting-container {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+        
+        .champions-grid {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+        
+        .filters-panel {
+            width: 85%;
+            right: -85%;
+        }
+        
+        .detail-stats li {
+            flex: 1 1 calc(50% - 10px);
+        }
+    }
+</style>
+{% endblock %}

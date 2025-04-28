@@ -27,7 +27,7 @@
     .top-nav .menu { display:flex; gap:30px; list-style-type: none; }
     .top-nav .menu a { color:#fff; font-size:16px; text-decoration: none }
     .nav-icons i { margin-left:20px; cursor:pointer; }
-    .hero { text-align:center; padding:40px 20px; }
+    .hero { text-align:center; padding:10px; }
     .hero h1 { font-family:'Planet Gamers'; font-size:60px; line-height:1; color:#d4af37; }
     .hero h1 span { display:block; margin-top:-10px; }
     .hero p { margin-top:20px; font-size:18px; color:#aaa; line-height:1.4; }
@@ -87,7 +87,7 @@
     /* 5) TAHMİN TABLOSU */
     .champion-table { max-width:1000px; margin:auto; padding:10px 20px; border-radius: 10px; border: 1px solid #d4af37;}
     .row {
-        display:grid; grid-template-columns:200px repeat(6,1fr);
+        display:grid; grid-template-columns:200px repeat(7,1fr);
         gap:10px; align-items:center;
         background:#151823; border:1px solid #222;
         border-radius:10px; padding:12px 20px; margin-bottom:12px;
@@ -99,7 +99,7 @@
         padding:4px 10px; border-radius:6px; color:#fff;
     }
     .status.correct { background:#27ae60; }
-    .status.wrong   { background:#f1c40f; }
+    .status.wrong   { background:#ff3c6d; }
     .status.high    { background:#3498db; }
     .status.low     { background:#8e44ad; }
     /* champion hücresi */
@@ -119,7 +119,7 @@
         width:12px; height:12px; border-radius:50%;
     }
     .legend .icon.correct { background:#27ae60; }
-    .legend .icon.wrong   { background:#f1c40f; }
+    .legend .icon.wrong   { background:#ff3c6d; }
     .legend .icon.high    { background:#3498db; }
     .legend .icon.low     { background:#8e44ad; }
 
@@ -191,4 +191,98 @@
         .champion-table { overflow-x:auto; padding:0 10px; }
         .row { grid-template-columns:100px repeat(3,1fr); }
         .legend { padding:0 10px; }
+    }
+
+.game-options {
+        max-width: 900px;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .game-options h2 {
+        font-size: 24px;
+        color: #d4af37;
+        margin-bottom: 20px;
+    }
+
+    .difficulty-options {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .difficulty-card {
+        width: 200px;
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .difficulty-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-color: #d4af37;
+    }
+
+    .diff-icon {
+        font-size: 32px;
+        color: #d4af37;
+        margin-bottom: 15px;
+    }
+
+    .difficulty-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .difficulty-card p {
+        font-size: 14px;
+        color: #aaa;
+        margin-bottom: 10px;
+    }
+
+    .max-points {
+        font-size: 13px;
+        color: #d4af37;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 5px 0;
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .leaderboard-link {
+        margin-top: 30px;
+    }
+
+    .leaderboard-button {
+        display: inline-block;
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #d4af37;
+        color: #d4af37;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .leaderboard-button:hover {
+        background: rgba(212, 175, 55, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .leaderboard-button i {
+        margin-right: 8px;
     }

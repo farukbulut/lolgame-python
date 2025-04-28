@@ -13,36 +13,11 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="logo">
-            <a href="{% url 'front_home' %}">
-                <img src="{% static 'img/logo.png' %}" alt="LoL Wordle" height="40">
-            </a>
-        </div>
-        <ul class="menu">
-            <li><a href="{% url 'champions' %}">{% trans 'Play' %}</a></li>
-            <li><a href="{% url 'how_to_play' %}">{% trans 'How to Play' %}</a></li>
-        </ul>
-        <div class="nav-icons">
-            <form action="{% url 'set_language' %}" method="post" id="lang-form">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ request.path }}">
-                <select name="language" id="language-select" onchange="document.getElementById('lang-form').submit()">
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                            {{ language.name_local }}
-                        </option>
-                    {% endfor %}
-                </select>
-            </form>
-        </div>
-    </nav>
-
+    {% include 'partial/header.html' %}
     {% block content %}{% endblock %}
 
     <script src="{% static 'js/app.js' %}"></script>
     {% block extra_js %}{% endblock %}
+    {% include 'partial/footer.html' %}
 </body>
 </html>

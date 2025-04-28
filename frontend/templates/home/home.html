@@ -4,27 +4,34 @@
 
 {% block content %}
 <div class="hero">
-    <h1>LoL <span>Wordle</span></h1>
-    <p>{% trans 'Can you guess the League of Legends champion?' %}</p>
+    <h1>{% trans 'CHAMPION' %}<br><span>{% trans "PREDICTION GAME" %}</span></h1>
 </div>
-
 <div class="game-options">
     <h2>{% trans 'Select Difficulty' %}</h2>
     <div class="difficulty-options">
-        <a href="{% url 'champions' %}?difficulty=easy" class="difficulty-card">
+        <a href="{% url 'games' %}?difficulty=easy" class="difficulty-card">
             <div class="diff-icon"><i class="fas fa-child"></i></div>
             <h3>{% trans 'Easy' %}</h3>
             <p>10 {% trans 'attempts' %}</p>
+            <div class="max-points">{% trans 'Max' %} 20 {% trans 'points' %}</div>
         </a>
-        <a href="{% url 'champions' %}?difficulty=medium" class="difficulty-card">
+        <a href="{% url 'games' %}?difficulty=medium" class="difficulty-card">
             <div class="diff-icon"><i class="fas fa-user"></i></div>
             <h3>{% trans 'Medium' %}</h3>
             <p>8 {% trans 'attempts' %}</p>
+            <div class="max-points">{% trans 'Max' %} 28 {% trans 'points' %}</div>
         </a>
-        <a href="{% url 'champions' %}?difficulty=hard" class="difficulty-card">
+        <a href="{% url 'games' %}?difficulty=hard" class="difficulty-card">
             <div class="diff-icon"><i class="fas fa-dragon"></i></div>
             <h3>{% trans 'Hard' %}</h3>
             <p>6 {% trans 'attempts' %}</p>
+            <div class="max-points">{% trans 'Max' %} 36 {% trans 'points' %}</div>
+        </a>
+    </div>
+
+    <div class="leaderboard-link">
+        <a href="{% url 'leaderboard' %}" class="leaderboard-button">
+            <i class="fas fa-trophy"></i> {% trans 'View Leaderboard' %}
         </a>
     </div>
 </div>

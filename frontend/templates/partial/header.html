@@ -1,8 +1,13 @@
+{% load i18n %}
 <header>
     <nav class="top-nav">
         <ul class="menu">
-            <li><a href="{% url 'champions' %}">Şampiyonlar</a></li>
-            <li><a href="{% url 'how_to_play' %}">Nasıl Oynanır?</a></li>
+            <li><a href="{% url 'front_home' %}">{% trans 'Home' %}</a></li>
+            <li><a href="{% url 'games' %}">{% trans 'Games' %}</a></li>
+            <li><a href="{% url 'champions_page' %}">{% trans 'Champions' %}</a></li>
+            <li><a href="{% url 'how_to_play' %}">{% trans 'How To Play' %}</a></li>
+            <li><a href="{% url 'game_history_page' %}">{% trans 'Game History' %}</a></li>
+            <li><a href="{% url 'leaderboard' %}">{% trans 'Leaderboard' %}</a></li>
         </ul>
         <div class="nav-icons">
             <i class="fab fa-whatsapp"></i>
@@ -10,9 +15,4 @@
             <i class="fas fa-share-alt"></i>
         </div>
     </nav>
-    <div class="hero">
-        <h1>ŞAMPİYON<br><span>TAHMİN OYUNU</span></h1>
-        <p>Hangi <span class="highlight">LoL</span> şampiyonunu tahmin ettiğimi bilmek ister misin?<br>
-            Şampiyon ismini yaz ve beni 10 adımda yenmeye çalış.</p>
-    </div>
 </header>

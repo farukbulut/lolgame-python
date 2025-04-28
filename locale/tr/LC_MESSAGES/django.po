@@ -26,6 +26,12 @@ msgstr "LoL Şampiyon Tahmin Oyunu"
 msgid "Guess the Champion"
 msgstr "Şampiyonu Tahmin Et"
 
+msgid "CHAMPION"
+msgstr "ŞAMPİYON"
+
+msgid "PREDICTION GAME"
+msgstr "TAHMİN OYUNU"
+
 #: frontend/controller/index.py:70
 msgid "How to Play"
 msgstr "Nasıl Oynanır"
@@ -33,6 +39,9 @@ msgstr "Nasıl Oynanır"
 #: templates/frontend/champion_game.html:9
 msgid "Champion"
 msgstr "Şampiyon"
+
+msgid "Champions"
+msgstr "Şampiyonlar"
 
 #: templates/frontend/champion_game.html:9
 msgid "Guessing"

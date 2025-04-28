@@ -406,6 +406,8 @@ class UserStat(models.Model):
     games_played = models.IntegerField(default=0)
     games_won = models.IntegerField(default=0)
     average_attempts = models.FloatField(default=0)
+    total_score = models.IntegerField(default=0)  # New field for total score
+    best_score = models.IntegerField(default=0)   # New field for best single game score
 
     class Meta:
         db_table = 'user_stats'
