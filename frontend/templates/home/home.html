@@ -1,0 +1,86 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="hero">
+    <h1>LoL <span>Wordle</span></h1>
+    <p>{% trans 'Can you guess the League of Legends champion?' %}</p>
+</div>
+
+<div class="game-options">
+    <h2>{% trans 'Select Difficulty' %}</h2>
+    <div class="difficulty-options">
+        <a href="{% url 'champions' %}?difficulty=easy" class="difficulty-card">
+            <div class="diff-icon"><i class="fas fa-child"></i></div>
+            <h3>{% trans 'Easy' %}</h3>
+            <p>10 {% trans 'attempts' %}</p>
+        </a>
+        <a href="{% url 'champions' %}?difficulty=medium" class="difficulty-card">
+            <div class="diff-icon"><i class="fas fa-user"></i></div>
+            <h3>{% trans 'Medium' %}</h3>
+            <p>8 {% trans 'attempts' %}</p>
+        </a>
+        <a href="{% url 'champions' %}?difficulty=hard" class="difficulty-card">
+            <div class="diff-icon"><i class="fas fa-dragon"></i></div>
+            <h3>{% trans 'Hard' %}</h3>
+            <p>6 {% trans 'attempts' %}</p>
+        </a>
+    </div>
+</div>
+
+<style>
+    .game-options {
+        max-width: 900px;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .game-options h2 {
+        font-size: 24px;
+        color: #d4af37;
+        margin-bottom: 20px;
+    }
+
+    .difficulty-options {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .difficulty-card {
+        width: 200px;
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .difficulty-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-color: #d4af37;
+    }
+
+    .diff-icon {
+        font-size: 32px;
+        color: #d4af37;
+        margin-bottom: 15px;
+    }
+
+    .difficulty-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .difficulty-card p {
+        font-size: 14px;
+        color: #aaa;
+    }
+</style>
+{% endblock %}

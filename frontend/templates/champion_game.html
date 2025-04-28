@@ -1,0 +1,387 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <h1>{% trans 'Champion' %} <span>{% trans 'Guessing' %}</span></h1>
+        <p>{% trans 'Difficulty' %}: <span class="highlight">{{ difficulty|title }}</span></p>
+    </div>
+
+    <!-- ARAMA & DURUM BİLGİSİ -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="{% trans 'Type champion name...' %}">
+        <div class="attempt-info">
+            <span class="step">{% trans 'Step' %}: <strong id="current-attempt">1</strong>/{{ max_attempts }}</span>
+            <span class="wrong" id="attempts-wrong">0</span>
+            <span class="correct" id="attempts-left">{{ max_attempts }}</span>
+            <span class="text">{% trans 'Attempts Left' %}</span>
+            <button class="btn-search" id="btn-search"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <!-- SEARCH RESULTS -->
+    <section id="search-results" class="search-results hidden">
+        <div id="search-list"></div>
+        <div id="search-no-results" class="no-results hidden">{% trans 'Champion not found.' %}</div>
+    </section>
+
+    <!-- ŞAMPİYON TABLOSU -->
+    <section class="champion-table" id="champion-table">
+        <!-- Rows will be added dynamically by JavaScript -->
+        <div id="no-guesses" class="no-results">
+            {% trans 'No guesses yet. Start typing a champion name!' %}
+        </div>
+    </section>
+
+    <!-- ALT LEGEND -->
+    <div class="legend">
+        <div><span class="icon correct"></span>{% trans 'Correct' %}</div>
+        <div><span class="icon wrong"></span>{% trans 'Wrong' %}</div>
+        <div><span class="icon high"></span>{% trans 'Higher' %}</div>
+        <div><span class="icon low"></span>{% trans 'Lower' %}</div>
+    </div>
+
+    <!-- OYUN BİTTİ EKRANI (hidden at start) -->
+    <section id="result-screen" class="hidden">
+        <div class="result-banner">
+            <img src="{% static 'img/zafer.png' %}" id="result-image" style="width: 400px; height: auto">
+        </div>
+        <button id="btn-restart"><i class="fa fa-undo"></i> {% trans 'Play Again' %}</button>
+        <div class="champion-detail" id="champion-detail">
+            <!-- Champion details will be filled dynamically -->
+        </div>
+    </section>
+
+    <input type="hidden" id="game-id" value="{{ game_id }}">
+    <input type="hidden" id="max-attempts" value="{{ max_attempts }}">
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Game variables
+    let gameId = document.getElementById('game-id').value;
+    let maxAttempts = parseInt(document.getElementById('max-attempts').value);
+    let currentAttempt = 1;
+    let gameCompleted = false;
+    let guessCount = 0;
+    
+    // DOM elements
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchList = document.getElementById('search-list');
+    const searchNoResults = document.getElementById('search-no-results');
+    const championTable = document.getElementById('champion-table');
+    const noGuesses = document.getElementById('no-guesses');
+    const btnSearch = document.getElementById('btn-search');
+    const currentAttemptEl = document.getElementById('current-attempt');
+    const attemptsWrongEl = document.getElementById('attempts-wrong');
+    const attemptsLeftEl = document.getElementById('attempts-left');
+    const resultScreen = document.getElementById('result-screen');
+    const resultImage = document.getElementById('result-image');
+    const championDetail = document.getElementById('champion-detail');
+    const btnRestart = document.getElementById('btn-restart');
+    
+    // Event listeners
+    searchInput.addEventListener('input', debounce(handleSearch, 300));
+    btnSearch.addEventListener('click', handleSearchButtonClick);
+    btnRestart.addEventListener('click', handleRestart);
+    
+    // Functions
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            const context = this;
+            const args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                func.apply(context, args);
+            }, wait);
+        };
+    }
+    
+    async function handleSearch() {
+        const query = searchInput.value.trim();
+        
+        if (query.length < 2) {
+            searchResults.classList.add('hidden');
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/search-champions?query=${encodeURIComponent(query)}`);
+            const data = await response.json();
+            
+            if (data.champions && data.champions.length > 0) {
+                renderSearchResults(data.champions);
+                searchResults.classList.remove('hidden');
+                searchNoResults.classList.add('hidden');
+            } else {
+                searchList.innerHTML = '';
+                searchResults.classList.remove('hidden');
+                searchNoResults.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error searching champions:', error);
+        }
+    }
+    
+    function renderSearchResults(champions) {
+        searchList.innerHTML = '';
+        
+        champions.forEach(champion => {
+            const searchItem = document.createElement('div');
+            searchItem.className = 'search-item';
+            searchItem.setAttribute('data-id', champion.id);
+            searchItem.setAttribute('data-name', champion.name);
+            
+            searchItem.innerHTML = `
+                <div class="img-wrapper">
+                    <img src="${champion.image}" alt="${champion.name}">
+                </div>
+                <div class="search-text">
+                    <div class="search-name">${champion.name}</div>
+                    <div class="search-attrs">${champion.position || ''}</div>
+                </div>
+            `;
+            
+            searchItem.addEventListener('click', () => selectChampion(champion));
+            searchList.appendChild(searchItem);
+        });
+    }
+    
+    function selectChampion(champion) {
+        makeGuess(champion.id);
+        searchResults.classList.add('hidden');
+        searchInput.value = '';
+    }
+    
+    function handleSearchButtonClick() {
+        // If there's only one search result, select it
+        const searchItems = searchList.querySelectorAll('.search-item');
+        if (searchItems.length === 1) {
+            const id = searchItems[0].getAttribute('data-id');
+            makeGuess(id);
+        }
+    }
+    
+    async function makeGuess(championId) {
+        if (gameCompleted || currentAttempt > maxAttempts) {
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/make-guess', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    champion_id: championId,
+                    game_id: gameId
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Hide no guesses message if it's the first guess
+                if (guessCount === 0) {
+                    noGuesses.classList.add('hidden');
+                }
+                guessCount++;
+                
+                // Update the game state
+                gameCompleted = data.game_completed;
+                currentAttempt = data.attempts_used + 1;
+                
+                // Update the attempt counters
+                currentAttemptEl.textContent = currentAttempt;
+                attemptsWrongEl.textContent = data.attempts_used;
+                attemptsLeftEl.textContent = maxAttempts - data.attempts_used;
+                
+                // Add the guess to the table
+                addGuessToTable(data.feedback);
+                
+                // Check if game is completed
+                if (data.game_completed) {
+                    handleGameCompleted(data.is_correct, data.target_champion);
+                }
+            } else {
+                console.error('Error making guess:', data.error);
+            }
+        } catch (error) {
+            console.error('Error making guess:', error);
+        }
+    }
+    
+    function addGuessToTable(feedback) {
+        // Create new row for the guess
+        const row = document.createElement('div');
+        row.className = 'row';
+        
+        // Champion cell
+        const championCell = document.createElement('div');
+        championCell.className = 'cell champion';
+        championCell.innerHTML = `
+            <div class="img-wrapper">
+                <img src="${feedback.image || ''}" alt="${feedback.champion_name}">
+            </div>
+            <div class="text">
+                <span class="label">{% trans 'Champion' %}</span>
+                <span class="value">${feedback.champion_name}</span>
+            </div>
+        `;
+        row.appendChild(championCell);
+
+           // Cinsiyet hücresi - YENİ EKLENEN
+        if (feedback.gender) {
+            row.appendChild(createFeedbackCell('{% trans "Gender" %}', feedback.gender.value, feedback.gender.status));
+        }
+
+        // Position cell
+        if (feedback.position) {
+            row.appendChild(createFeedbackCell('{% trans "Position" %}', feedback.position.value, feedback.position.status));
+        }
+        
+        // Species cell
+        if (feedback.species) {
+            row.appendChild(createFeedbackCell('{% trans "Species" %}', feedback.species.value, feedback.species.status));
+        }
+        
+        // Combat range cell
+        if (feedback.combat_range) {
+            row.appendChild(createFeedbackCell('{% trans "Range" %}', feedback.combat_range.value, feedback.combat_range.status));
+        }
+        
+        // Region cell
+        if (feedback.region) {
+            row.appendChild(createFeedbackCell('{% trans "Region" %}', feedback.region.value, feedback.region.status));
+        }
+        
+        // Release year cell
+        if (feedback.release_year) {
+            let icon = '';
+            if (feedback.release_year.status === 'high') {
+                icon = '<i class="fas fa-arrow-up"></i>';
+            } else if (feedback.release_year.status === 'low') {
+                icon = '<i class="fas fa-arrow-down"></i>';
+            }
+            
+            row.appendChild(createFeedbackCell('{% trans "Release" %}', `${icon}${feedback.release_year.value}`, feedback.release_year.status));
+        }
+        
+        // Add the row to the table
+        championTable.appendChild(row);
+    }
+    
+    function createFeedbackCell(label, value, status) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.innerHTML = `
+            <span class="label">${label}</span>
+            <span class="status ${status}">${value}</span>
+        `;
+        return cell;
+    }
+    
+    function handleGameCompleted(isWon, targetChampion) {
+        // Display the result screen
+        resultScreen.classList.remove('hidden');
+        
+        // Set the appropriate result image
+        resultImage.src = isWon ? 
+            "{% static 'img/zafer.png' %}" : 
+            "{% static 'img/defeat.png' %}";
+        
+        // Fill the champion details
+        championDetail.innerHTML = `
+            <div class="detail-header">
+                <span class="subheading">${targetChampion.title || ''}</span>
+                <h2 class="champion-name">${targetChampion.name}</h2>
+                <p class="description">${targetChampion.lore || ''}</p>
+            </div>
+            <div class="detail-image">
+                <img src="${targetChampion.splash_art || targetChampion.image_main}" alt="${targetChampion.name}">
+            </div>
+            <ul class="detail-stats">
+                <li><span class="label">{% trans "Gender" %}</span> ${targetChampion.gender || ''}</li>
+                <li><span class="label">{% trans "Position" %}</span> ${targetChampion.position || ''}</li>
+                <li><span class="label">{% trans "Species" %}</span> ${targetChampion.species || ''}</li>
+                <li><span class="label">{% trans "Range" %}</span> ${targetChampion.combat_range || ''}</li>
+                <li><span class="label">{% trans "Region" %}</span> ${targetChampion.region || ''}</li>
+                <li><span class="label">{% trans "Release" %}</span> ${targetChampion.release_year || ''}</li>
+            </ul>
+        `;
+    }
+    
+    async function handleRestart() {
+        try {
+            const response = await fetch('/api/new-game', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: `difficulty=${encodeURIComponent('{{ difficulty }}')}`
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Reset game state
+                gameId = data.game_id;
+                maxAttempts = data.max_attempts;
+                currentAttempt = 1;
+                gameCompleted = false;
+                guessCount = 0;
+                
+                // Update DOM
+                document.getElementById('game-id').value = gameId;
+                document.getElementById('max-attempts').value = maxAttempts;
+                currentAttemptEl.textContent = '1';
+                attemptsWrongEl.textContent = '0';
+                attemptsLeftEl.textContent = maxAttempts;
+                
+                // Clear the table
+                while (championTable.firstChild) {
+                    if (championTable.firstChild.id === 'no-guesses') {
+                        break;
+                    }
+                    championTable.removeChild(championTable.firstChild);
+                }
+                
+                // Show the no guesses message
+                noGuesses.classList.remove('hidden');
+                
+                // Hide result screen
+                resultScreen.classList.add('hidden');
+            } else {
+                console.error('Error starting new game:', data.error);
+            }
+        } catch (error) {
+            console.error('Error starting new game:', error);
+        }
+    }
+    
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+{% endblock %}

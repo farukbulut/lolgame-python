@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: frontend/controller/index.py:20
+msgid "LoL Champion Guessing Game"
+msgstr "LoL Şampiyon Tahmin Oyunu"
+
+#: frontend/controller/index.py:59
+msgid "Guess the Champion"
+msgstr "Şampiyonu Tahmin Et"
+
+#: frontend/controller/index.py:70
+msgid "How to Play"
+msgstr "Nasıl Oynanır"
+
+#: templates/frontend/champion_game.html:9
+msgid "Champion"
+msgstr "Şampiyon"
+
+#: templates/frontend/champion_game.html:9
+msgid "Guessing"
+msgstr "Tahmin"
+
+#: templates/frontend/champion_game.html:10
+msgid "Difficulty"
+msgstr "Zorluk"
+
+#: templates/frontend/champion_game.html:15
+msgid "Type champion name..."
+msgstr "Şampiyon adını yazın..."
+
+#: templates/frontend/champion_game.html:17
+msgid "Step"
+msgstr "Adım"
+
+#: templates/frontend/champion_game.html:19
+msgid "Attempts Left"
+msgstr "Kalan Hak"
+
+#: templates/frontend/champion_game.html:29
+msgid "Champion not found."
+msgstr "Şampiyon bulunamadı."
+
+#: templates/frontend/champion_game.html:35
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "Henüz tahmin yok. Bir şampiyon adı yazmaya başlayın!"
+
+#: templates/frontend/champion_game.html:41
+msgid "Correct"
+msgstr "Doğru"
+
+#: templates/frontend/champion_game.html:42
+msgid "Wrong"
+msgstr "Yanlış"
+
+#: templates/frontend/champion_game.html:43
+msgid "Higher"
+msgstr "Daha Yüksek"
+
+#: templates/frontend/champion_game.html:44
+msgid "Lower"
+msgstr "Daha Düşük"
+
+#: templates/frontend/champion_game.html:52
+msgid "Play Again"
+msgstr "Tekrar Oyna"
+
+#: templates/frontend/home.html:9
+msgid "Can you guess the League of Legends champion?"
+msgstr "League of Legends şampiyonunu tahmin edebilir misin?"
+
+#: templates/frontend/home.html:13
+msgid "Select Difficulty"
+msgstr "Zorluk Seç"
+
+#: templates/frontend/home.html:17
+msgid "Easy"
+msgstr "Kolay"
+
+#: templates/frontend/home.html:18 templates/frontend/home.html:23 templates/frontend/home.html:28
+msgid "attempts"
+msgstr "hak"
+
+#: templates/frontend/home.html:22
+msgid "Medium"
+msgstr "Orta"
+
+#: templates/frontend/home.html:27
+msgid "Hard"
+msgstr "Zor"
+
+#: templates/frontend/how_to_play.html:9
+msgid "How to"
+msgstr "Nasıl"
+
+#: templates/frontend/how_to_play.html:9
+msgid "Play"
+msgstr "Oynanır"
+
+#: templates/frontend/how_to_play.html:15
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "Kolay (10 hak), Orta (8 hak) veya Zor (6 hak) arasından seçim yapın"
+
+#: templates/frontend/how_to_play.html:21
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "Şampiyon adını yazın ve açılır listeden seçin veya arama düğmesine basın"
+
+#: templates/frontend/how_to_play.html:27
+msgid "After each guess, you'll see colored indicators:"
+msgstr "Her tahminden sonra, renkli göstergeler göreceksiniz:"
+
+#: templates/frontend/how_to_play.html:29
+msgid "Green means correct"
+msgstr "Yeşil doğru demektir"
+
+#: templates/frontend/how_to_play.html:30
+msgid "Yellow means wrong"
+msgstr "Sarı yanlış demektir"
+
+#: templates/frontend/how_to_play.html:31
+msgid "Blue means the target value is higher"
+msgstr "Mavi, hedef değerin daha yüksek olduğu anlamına gelir"
+
+#: templates/frontend/how_to_play.html:32
+msgid "Purple means the target value is lower"
+msgstr "Mor, hedef değerin daha düşük olduğu anlamına gelir"
+
+#: templates/frontend/how_to_play.html:39
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "Hakların bitmeden önce doğru şampiyonu tahmin edersen kazanırsın"
+
+#: templates/frontend/how_to_play.html:42
+msgid "Play Now"
+msgstr "Şimdi Oyna"
+
+#: templates/partial/base.html:23
+msgid "English"
+msgstr "İngilizce"
+
+#: templates/partial/base.html:24
+msgid "German"
+msgstr "Almanca"
+
+#: templates/partial/base.html:25
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: templates/partial/base.html:26
+msgid "Spanish"
+msgstr "İspanyolca"
+
+#: templates/partial/base.html:27
+msgid "Italian"
+msgstr "İtalyanca"
+
+#: templates/partial/base.html:28
+msgid "Dutch"
+msgstr "Hollandaca"
+
+#: templates/partial/base.html:29
+msgid "Portuguese"
+msgstr "Portekizce"
+
+#: templates/partial/base.html:30
+msgid "French"
+msgstr "Fransızca"
+
+#: templates/partial/base.html:31
+msgid "Russian"
+msgstr "Rusça"
+
+#: templates/partial/base.html:32
+msgid "Brazilian Portuguese"
+msgstr "Brezilya Portekizcesi"
+
+#: templates/partial/base.html:42
+msgid "Position"
+msgstr "Pozisyon"
+
+#: templates/partial/base.html:43
+msgid "Species"
+msgstr "Tür"
+
+#: templates/partial/base.html:44
+msgid "Range"
+msgstr "Menzil"
+
+#: templates/partial/base.html:45
+msgid "Region"
+msgstr "Bölge"
+
+#: templates/partial/base.html:46
+msgid "Release"
+msgstr "Çıkış"

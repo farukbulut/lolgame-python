@@ -1,0 +1,26 @@
+{% load static %}
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJB6WD3Y49"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KJB6WD3Y49');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7162841792368646"
+        crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- CSS -->
+<link rel="stylesheet" href="">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<title>{{ title }} | {{ seo_title }}</title>
+<meta name="description" content="{{ seo_desc }}">
+<meta name="robots" content="{% if index %}{{ index }}{% else %}index,follow{% endif %}">

@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: frontend/controller/index.py:18
+msgid "LoL Champion Guessing Game"
+msgstr ""
+
+#: frontend/controller/index.py:70
+msgid "Guess the Champion"
+msgstr ""
+
+#: frontend/controller/index.py:80 frontend/templates/partial/base.html:24
+msgid "How to Play"
+msgstr ""
+
+#: frontend/templates/champion_game.html:11
+#: frontend/templates/champion_game.html:236
+msgid "Champion"
+msgstr ""
+
+#: frontend/templates/champion_game.html:11
+msgid "Guessing"
+msgstr ""
+
+#: frontend/templates/champion_game.html:12
+msgid "Difficulty"
+msgstr ""
+
+#: frontend/templates/champion_game.html:17
+msgid "Type champion name..."
+msgstr ""
+
+#: frontend/templates/champion_game.html:19
+msgid "Step"
+msgstr ""
+
+#: frontend/templates/champion_game.html:22
+msgid "Attempts Left"
+msgstr ""
+
+#: frontend/templates/champion_game.html:30
+msgid "Champion not found."
+msgstr ""
+
+#: frontend/templates/champion_game.html:37
+msgid "No guesses yet. Start typing a champion name!"
+msgstr ""
+
+#: frontend/templates/champion_game.html:43
+msgid "Correct"
+msgstr ""
+
+#: frontend/templates/champion_game.html:44
+msgid "Wrong"
+msgstr ""
+
+#: frontend/templates/champion_game.html:45
+msgid "Higher"
+msgstr ""
+
+#: frontend/templates/champion_game.html:46
+msgid "Lower"
+msgstr ""
+
+#: frontend/templates/champion_game.html:54
+msgid "Play Again"
+msgstr ""
+
+#: frontend/templates/champion_game.html:244
+#: frontend/templates/champion_game.html:308
+msgid "Position"
+msgstr ""
+
+#: frontend/templates/champion_game.html:249
+#: frontend/templates/champion_game.html:309
+msgid "Species"
+msgstr ""
+
+#: frontend/templates/champion_game.html:254
+#: frontend/templates/champion_game.html:310
+msgid "Range"
+msgstr ""
+
+#: frontend/templates/champion_game.html:259
+#: frontend/templates/champion_game.html:311
+msgid "Region"
+msgstr ""
+
+#: frontend/templates/champion_game.html:271
+#: frontend/templates/champion_game.html:312
+msgid "Release"
+msgstr ""
+
+#: frontend/templates/home/home.html:8
+msgid "Can you guess the League of Legends champion?"
+msgstr ""
+
+#: frontend/templates/home/home.html:12 frontend/templates/how_to_play.html:17
+msgid "Select Difficulty"
+msgstr ""
+
+#: frontend/templates/home/home.html:16
+msgid "Easy"
+msgstr ""
+
+#: frontend/templates/home/home.html:17 frontend/templates/home/home.html:22
+#: frontend/templates/home/home.html:27
+msgid "attempts"
+msgstr ""
+
+#: frontend/templates/home/home.html:21
+msgid "Medium"
+msgstr ""
+
+#: frontend/templates/home/home.html:26
+msgid "Hard"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:11
+msgid "How to"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:11
+#: frontend/templates/partial/base.html:23
+msgid "Play"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:18
+msgid ""
+"Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:23
+msgid "Guess a Champion"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:24
+msgid ""
+"Type a champion name and select from the dropdown or press the search button"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:29
+msgid "Check the Feedback"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:30
+msgid "After each guess, you\\"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:32
+msgid "Green means correct"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:33
+msgid "Yellow means wrong"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:34
+msgid "Blue means the target value is higher"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:35
+msgid "Purple means the target value is lower"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:41
+msgid "Win or Lose"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:42
+msgid ""
+"You win if you guess the correct champion before running out of attempts"
+msgstr ""
+
+#: frontend/templates/how_to_play.html:45
+msgid "Play Now"
+msgstr ""
+
+#: lolgame/settings.py:134
+msgid "English"
+msgstr ""
+
+#: lolgame/settings.py:135
+msgid "German"
+msgstr ""
+
+#: lolgame/settings.py:136
+msgid "Turkish"
+msgstr ""
+
+#: lolgame/settings.py:137
+msgid "Spanish"
+msgstr ""
+
+#: lolgame/settings.py:138
+msgid "Italian"
+msgstr ""
+
+#: lolgame/settings.py:139
+msgid "Dutch"
+msgstr ""
+
+#: lolgame/settings.py:140
+msgid "Portuguese"
+msgstr ""
+
+#: lolgame/settings.py:141
+msgid "French"
+msgstr ""
+
+#: lolgame/settings.py:142
+msgid "Russian"
+msgstr ""
+
+#: lolgame/settings.py:143
+msgid "Brazilian Portuguese"
+msgstr ""

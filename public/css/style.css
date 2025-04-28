@@ -1,0 +1,194 @@
+/* 1) RESET & GENEL */
+    @font-face {
+        font-family: 'Planet Gamers';
+        src: url('../font/planet-gamers/Planet Gamers DEMO.otf') format('otf');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        /* önce resmi, sonra renk atıyoruz */
+        background-image: url('../img/home.png');
+        background-color: rgba(0,0,0,0.87);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /* resimle rengi overlay olarak karıştır */
+        background-blend-mode: overlay;
+        color: #fff;
+    }
+    .hidden { display:none !important; }
+
+    /* 2) NAV & HERO (öncekilerle aynı) */
+    .top-nav { max-width:1200px; margin:auto; padding:20px; display:flex; justify-content:space-between; align-items:center; }
+    .top-nav .menu { display:flex; gap:30px; list-style-type: none; }
+    .top-nav .menu a { color:#fff; font-size:16px; text-decoration: none }
+    .nav-icons i { margin-left:20px; cursor:pointer; }
+    .hero { text-align:center; padding:40px 20px; }
+    .hero h1 { font-family:'Planet Gamers'; font-size:60px; line-height:1; color:#d4af37; }
+    .hero h1 span { display:block; margin-top:-10px; }
+    .hero p { margin-top:20px; font-size:18px; color:#aaa; line-height:1.4; }
+    .highlight { color:#d4af37; font-weight:600; }
+
+    /* 3) ARAMA & DURUM */
+    .search-container {
+        max-width:800px; margin:20px auto; display:flex; align-items:center;
+        border:1px solid #222; border-radius:50px; padding:8px 20px; background:rgba(255,255,255,0.05);
+    }
+    .search-container input {
+        flex:1; background:transparent; border:none; outline:none;
+        color:#fff; font-size:16px; padding:10px 0;
+    }
+    .search-container input::placeholder { color:#555; }
+    .attempt-info { display:flex; align-items:center; gap:8px; font-size:14px; }
+    .attempt-info .step { color:#fff; }
+    .attempt-info .step strong { font-weight:600; }
+    .attempt-info .wrong,
+    .attempt-info .correct {
+        width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+        border-radius:6px; color:#fff; font-weight:600;
+    }
+    .attempt-info .wrong { background:#e74c3c; }
+    .attempt-info .correct { background:#27ae60; }
+    .attempt-info .text { color:#fff; }
+    .btn-search { background:none; border:none; cursor:pointer; font-size:18px; color:#fff; }
+
+    /* 4) SEARCH RESULTS */
+    .search-results {
+        max-width:1000px; margin:20px auto; padding:20px;
+        border:1px solid #d4af37; border-radius:10px;
+    }
+    .search-item {
+        display:flex; align-items:center; padding:12px 0;
+        border-bottom:1px solid #222;
+    }
+    .search-item:last-child { border-bottom:none; }
+    .search-item .img-wrapper {
+        width:40px; height:40px; border-radius:6px; overflow:hidden; margin-right:12px;
+    }
+    .search-item .img-wrapper img {
+        width:100%; height:100%; object-fit:cover;
+    }
+    .search-text { display:flex; flex-direction:column; }
+    .search-name {
+        font-size:16px; font-weight:600; margin-bottom:6px;
+    }
+    .search-attrs {
+        display:flex; flex-wrap:wrap; gap:6px;
+        font-size:14px; color:#aaa;
+    }
+    .no-results {
+        padding:12px; text-align:center; color:#aaa; font-size:16px;
+    }
+
+    /* 5) TAHMİN TABLOSU */
+    .champion-table { max-width:1000px; margin:auto; padding:10px 20px; border-radius: 10px; border: 1px solid #d4af37;}
+    .row {
+        display:grid; grid-template-columns:200px repeat(6,1fr);
+        gap:10px; align-items:center;
+        background:#151823; border:1px solid #222;
+        border-radius:10px; padding:12px 20px; margin-bottom:12px;
+    }
+    .cell { display:flex; flex-direction:column; align-items:center; }
+    .cell .label { font-size:12px; color:#777; margin-bottom:6px; }
+    .cell .status {
+        display:flex; align-items:center; font-size:14px; font-weight:500;
+        padding:4px 10px; border-radius:6px; color:#fff;
+    }
+    .status.correct { background:#27ae60; }
+    .status.wrong   { background:#f1c40f; }
+    .status.high    { background:#3498db; }
+    .status.low     { background:#8e44ad; }
+    /* champion hücresi */
+    .cell.champion { flex-direction:row; align-items:center; }
+    .img-wrapper {
+        width:40px; height:40px; border-radius:6px; overflow:hidden; margin-right:10px;
+    }
+    .img-wrapper img { width:100%; height:100%; object-fit:cover; }
+    .cell.champion .value { font-size:16px; font-weight:600; color:#fff; }
+
+    /* 6) ALT LEGEND */
+    .legend {
+        max-width:900px; margin:40px auto; display:flex; justify-content:center; gap:40px;
+    }
+    .legend div { display:flex; align-items:center; gap:6px; font-size:14px; color:#fff; }
+    .legend .icon {
+        width:12px; height:12px; border-radius:50%;
+    }
+    .legend .icon.correct { background:#27ae60; }
+    .legend .icon.wrong   { background:#f1c40f; }
+    .legend .icon.high    { background:#3498db; }
+    .legend .icon.low     { background:#8e44ad; }
+
+    /* 5) OYUN BİTTİ EKRANI */
+    #result-screen {
+        max-width:900px; margin:40px auto; text-align:center;
+    }
+    .result-banner {
+        font-family:'Cinzel', serif;
+        font-size:48px; color:#d4af37;
+        margin-bottom:20px;
+        height: 200px;
+    }
+    #btn-restart {
+        background:transparent; border:1px solid #d4af37;
+        border-radius:30px; padding:10px 25px;
+        font-size:16px; color:#d4af37; cursor:pointer;
+    }
+    #btn-restart i {
+        margin-right: 5px;
+    }
+    .champion-detail {
+        background:#151823; border:1px solid #222;
+        border-radius:10px; overflow:hidden;
+    }
+    .detail-header {
+        padding:30px; text-align:left;
+    }
+    .subheading {
+        font-size:14px; color:#d4af37; text-transform:uppercase;
+    }
+    .champion-name {
+        font-size:32px; margin:10px 0; color:#fff;
+    }
+    .description {
+        font-size:15px; line-height:1.6; color:#ccc;
+    }
+    .detail-image img {
+        width:100%; display:block;
+        object-fit:cover; max-height:400px;
+    }
+    .detail-stats {
+        display:flex; flex-wrap:wrap;
+        border-top:1px solid #222; padding:20px;
+        gap:10px;
+        list-style-type: none;
+    }
+
+    .detail-stats li {
+        flex:1 1 120px;
+        background:#0b0e17; border:1px solid #333;
+        border-radius:6px; padding:8px;
+        font-size:14px; color:#ddd;
+    }
+    .detail-stats .label {
+        display:block; font-size:12px; color:#777; margin-bottom:4px;
+    }
+
+    /* 7) RESPONSIVE */
+    @media (max-width:768px) {
+        .top-nav { flex-direction:column; gap:10px; }
+        .hero h1 { font-size:40px; }
+        .hero p  { font-size:16px; }
+        .search-container {
+            flex-direction:column; padding:12px; gap:10px;
+        }
+        .attempt-info { flex-wrap:wrap; justify-content:center; }
+        .search-results,
+        .champion-table { overflow-x:auto; padding:0 10px; }
+        .row { grid-template-columns:100px repeat(3,1fr); }
+        .legend { padding:0 10px; }
+    }

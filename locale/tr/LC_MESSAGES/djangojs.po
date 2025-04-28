@@ -1,0 +1,2070 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-19 18:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: ipgmbh/settings.py:117
+msgid "English"
+msgstr ""
+
+#: ipgmbh/settings.py:118
+msgid "German"
+msgstr ""
+
+#: ipgmbh/settings.py:119
+msgid "Turkish"
+msgstr ""
+
+msgid "dashboard"
+msgstr "Dashboard"
+
+msgid "dealer_list"
+msgstr "Galeri Listesi"
+
+msgid "Home Page"
+msgstr "Ana Sayfa"
+
+msgid "Contact"
+msgstr "İletişim"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Back"
+msgstr "Geri"
+
+# Home page
+
+msgid "Door"
+msgstr "Kapı"
+
+msgid "choose"
+msgstr "seçiniz"
+
+msgid "sedan"
+msgstr "Sedan"
+
+msgid "station"
+msgstr "Station Wagon"
+
+msgid "small"
+msgstr "Küçük Araç"
+
+msgid "suv"
+msgstr "SUV / Arazi Aracı / Pikap"
+
+msgid "cabrio"
+msgstr "Cabrio / Roadster"
+
+msgid "sport"
+msgstr "Spor Araç / Kupé"
+
+msgid "van"
+msgstr "Van / Minibüs"
+
+msgid "other"
+msgstr "Diğer"
+
+msgid "start_sell"
+msgstr "Satışa Başla"
+
+msgid "get_offer"
+msgstr "Teklif Al"
+
+msgid "get_offer_now"
+msgstr "Hemen Teklif Al"
+
+msgid "Home_page Sell ​​in 3 Steps title"
+msgstr "3 Adımda Satın"
+
+msgid "Home_page Step 1 title"
+msgstr "Ücretsiz ve bağlayıcı olmayan bir fiyat teklifi isteyin"
+
+msgid "Home_page Step 1 text"
+msgstr "Talep edilmesi halinde 24 saat içinde hızlı işlem ve ödeme"
+
+msgid "Home_page Step 2 title"
+msgstr "Yakınınızdaki online satın alma randevusunu kolayca ayarlayabilirsiniz"
+
+msgid "Home_page Step 2 text"
+msgstr "Aracınızın kaydını derhal sileceğiz ve tüm formaliteleri tamamlayacağız"
+
+msgid "Home_page Step 3 title"
+msgstr "Teklif beklentilerinizi karşılıyorsa doğrudan satış yapabilir ve paranızı anında alabilirsiniz"
+
+msgid "Home_page Step 3 text"
+msgstr "Sertifikalı bir ortak tarafından güvenli işlem!"
+
+msgid "advantages_sub_1"
+msgstr "Profesyonel Hizmet"
+
+msgid "advantages_sub_2"
+msgstr "Verimli Süreç"
+
+msgid "advantages_sub_3"
+msgstr "Onaylı Bayiler"
+
+msgid "sell_section_title_1"
+msgstr "Aracınızın değerlendirilmesi"
+
+msgid "sell_section_desc_1"
+msgstr "Fordern Sie die kostenlose und unverbindliche Preisbewertung Ihres Autos an. Bei der Berechnung des Online-Richtpreises berücksichtigen wir sowohl Ihre Basis-Fahrzeugdaten als auch den handelsüblichen Preis vergleichbarer Modelle. Die Abgabe eines endgültigen Preises ist erst nach persönlicher Besichtigung möglich. Dabei können Faktoren wie technischer Zustand, allgemeiner Zustand, Sonderausstattungen oder aktuelle Marktnachfrage, den Preis sowohl nach unten, als auch nach oben, verändern."
+
+msgid "sell_section_title_2"
+msgstr "Randevu al"
+
+msgid "sell_section_desc_2"
+msgstr "Um den aktuellen und korrekten Marktwert Ihres Fahrzeuges zu erfahren, vereinbaren Sie mit ein paar Klicks ganz einfach, bequem und online einen Termin bei einem unserer Partner, ganz in Ihrer Nähe. Deutschlandweit haben wir über 500 Ankaufstationen, wo ein Experte für Sie bereit steht – sicherlich befinden sich einige davon auch in Ihrer Region. Sie können dort Ihr Fahrzeug kostenlos begutachten lassen. Das Beste dabei ist, dass der gesamte Service für Sie komplett gebührenfrei ist! Oft ist Ihr Fahrzeug schon innerhalb von 24 Stunden verkauft."
+
+msgid "sell_section_title_3"
+msgstr "Satın alma sözleşmesi ve ödeme"
+
+msgid "sell_section_desc_3"
+msgstr "Die Ankaufstation nimmt Ihr Fahrzeug „unter die Lupe“ und bewertet dieses unter Berücksichtigung sämtlicher technischer Aspekte sowie der Sonderaustattungen und des allgemeinen Zustandes Ihres Fahrzeuges. Anschließend erhalten Sie sofort ein realistisches Angebot, mit einer entsprechenden Erklärung, wie der Betrag zustande kommt. Werden Sie sich preislich einig, können Sie mit unserem Partner sofort den Kaufvertrag in Schriftform abschlieβen und Ihr Auto direkt verkaufen. In Absprache mit dem Ankäufer erhalten Sie Ihr Geld in bar oder per Banküberweisung."
+
+msgid "Coming Soon"
+msgstr "Çok Yakında Sizinle"
+
+msgid "Our Mobile App"
+msgstr "Mobil Uygulamamız"
+
+msgid "Mobile_App_Desc"
+msgstr "Araç satmak isteyen müşterilerimize şubelerimizden randevu alma imkânı sunan mobil uygulamamız yapım aşamasında. En kısa sürede hizmetinizde olacak!"
+
+msgid "Client"
+msgstr "Müşteri"
+
+# Footer
+
+# Footer tab 1
+msgid "Number 1 in Germany"
+msgstr "Almanya'nın 1 Numarası"
+
+msgid "The Largest Auto Dealer Network"
+msgstr "En Büyük Galeri Ağı"
+
+# Footer tab 2
+msgid "Fast & Secure Sale"
+msgstr "Hızlı ve Güvenli Satış"
+
+msgid "Over 1000+ registered dealers"
+msgstr "1000+ kayıtlı galeri"
+
+# Footer tab 3
+msgid "Best Service"
+msgstr "En İyi Hizmet"
+
+msgid "Free appointment scheduling"
+msgstr "Ücretsiz randevu alın"
+
+# Footer tab 4
+msgid "Smart & Simple"
+msgstr "Basit ve Kolay"
+
+msgid "Find dealers near you"
+msgstr "Yakınınızdaki galeriyi bulun"
+
+msgid "Dealers"
+msgstr "Bayiler"
+
+msgid "Show"
+msgstr "Göster"
+
+msgid "entries"
+msgstr "kayıt"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "Total Cars"
+msgstr "Araç Sayısı"
+
+msgid "Actions"
+msgstr "İşlemler"
+
+msgid "Edit"
+msgstr "Düzenle"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Inactive Dealer"
+msgstr "Pasif Bayi"
+
+msgid "Potential"
+msgstr "Potansiyel"
+
+msgid "Inactive Potential"
+msgstr "Pasif Potansiyel"
+
+msgid "Are you sure?"
+msgstr "Emin misiniz?"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "recall_date"
+msgstr "Hatırlatma Tarihi"
+
+msgid "select_date"
+msgstr "Tarih seçin"
+
+msgid "Select Time"
+msgstr "Saat Seç"
+
+msgid "Time"
+msgstr "Saat"
+
+msgid "Hour"
+msgstr "Saat"
+
+msgid "Minute"
+msgstr "Dakika"
+
+msgid "Now"
+msgstr "Şimdi"
+
+msgid "Done"
+msgstr "Tamam"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Previous"
+msgstr "Önceki"
+
+msgid "Next"
+msgstr "Sonraki"
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "January"
+msgstr "Ocak"
+
+msgid "February"
+msgstr "Şubat"
+
+msgid "March"
+msgstr "Mart"
+
+msgid "April"
+msgstr "Nisan"
+
+msgid "May"
+msgstr "Mayıs"
+
+msgid "June"
+msgstr "Haziran"
+
+msgid "July"
+msgstr "Temmuz"
+
+msgid "August"
+msgstr "Ağustos"
+
+msgid "September"
+msgstr "Eylül"
+
+msgid "October"
+msgstr "Ekim"
+
+msgid "November"
+msgstr "Kasım"
+
+msgid "December"
+msgstr "Aralık"
+
+msgid "Jan"
+msgstr "Oca"
+
+msgid "Feb"
+msgstr "Şub"
+
+msgid "Mar"
+msgstr "Mar"
+
+msgid "Apr"
+msgstr "Nis"
+
+msgid "Jun"
+msgstr "Haz"
+
+msgid "Jul"
+msgstr "Tem"
+
+msgid "Aug"
+msgstr "Ağu"
+
+msgid "Sep"
+msgstr "Eyl"
+
+msgid "Oct"
+msgstr "Eki"
+
+msgid "Nov"
+msgstr "Kas"
+
+msgid "Dec"
+msgstr "Ara"
+
+msgid "Sunday"
+msgstr "Pazar"
+
+msgid "Monday"
+msgstr "Pazartesi"
+
+msgid "Tuesday"
+msgstr "Salı"
+
+msgid "Wednesday"
+msgstr "Çarşamba"
+
+msgid "Thursday"
+msgstr "Perşembe"
+
+msgid "Friday"
+msgstr "Cuma"
+
+msgid "Saturday"
+msgstr "Cumartesi"
+
+msgid "Sun"
+msgstr "Paz"
+
+msgid "Mon"
+msgstr "Pzt"
+
+msgid "Tue"
+msgstr "Sal"
+
+msgid "Wed"
+msgstr "Çar"
+
+msgid "Thu"
+msgstr "Per"
+
+msgid "Fri"
+msgstr "Cum"
+
+msgid "Sat"
+msgstr "Cmt"
+
+msgid "Su"
+msgstr "Pz"
+
+msgid "Mo"
+msgstr "Pt"
+
+msgid "Tu"
+msgstr "Sa"
+
+msgid "We"
+msgstr "Ça"
+
+msgid "Th"
+msgstr "Pe"
+
+msgid "Fr"
+msgstr "Cu"
+
+msgid "Sa"
+msgstr "Ct"
+
+msgid "Wk"
+msgstr "Hf"
+
+msgid "gallery_title"
+msgstr "Galeri Listesi"
+
+msgid "Action"
+msgstr "İşlemler"
+
+msgid "Detail"
+msgstr "Detay"
+
+msgid "Recall date updated successfully"
+msgstr "Geri çağırma tarihi başarıyla güncellendi"
+
+msgid "Select date"
+msgstr "Tarih seçin"
+
+msgid "missing_required_fields"
+msgstr "Gerekli alanlar eksik"
+
+msgid "recall_date_updated_successfully"
+msgstr "Hatırlatma tarihi başarıyla güncellendi"
+
+msgid "invalid_recall_date_format"
+msgstr "Geçersiz hatırlatma tarihi formatı"
+
+msgid "object_not_found"
+msgstr "Kayıt bulunamadı"
+
+msgid "recall_date_update_error"
+msgstr "Hatırlatma tarihi güncellenirken bir hata oluştu"
+
+msgid "dealer_detail_title"
+msgstr "Galeri Detayı"
+
+msgid "Update Dealer"
+msgstr "Galeri Güncelle"
+
+msgid "Dealer Information"
+msgstr "Galeri Bilgileri"
+
+msgid "Company Name"
+msgstr "Firma Adı"
+
+msgid "Please enter company name"
+msgstr "Lütfen firma adını giriniz"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Please enter a valid email"
+msgstr "Lütfen geçerli bir e-posta adresi giriniz"
+
+msgid "Invoice Email"
+msgstr "Fatura E-postası"
+
+msgid "First Name"
+msgstr "Ad"
+
+msgid "Please enter first name"
+msgstr "Lütfen adınızı giriniz"
+
+msgid "Last Name"
+msgstr "Soyad"
+
+msgid "Please enter last name"
+msgstr "Lütfen soyadınızı giriniz"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Please enter phone number"
+msgstr "Lütfen telefon numarası giriniz"
+
+msgid "Cell Phone"
+msgstr "Cep Telefonu"
+
+msgid "Tax Number"
+msgstr "Vergi Numarası"
+
+msgid "Website"
+msgstr "Web Sitesi"
+
+msgid "Google Maps Link"
+msgstr "Google Harita Linki"
+
+msgid "Google Rating"
+msgstr "Google Puanı"
+
+msgid "Mobile Rating Link"
+msgstr "Mobile.de Değerlendirme Linki"
+
+msgid "Mobile.de Link"
+msgstr "Mobile.de Linki"
+
+msgid "AutoScout24 Link"
+msgstr "AutoScout24 Linki"
+
+msgid "Reserved By"
+msgstr "Rezerve Eden"
+
+msgid "Recall Date"
+msgstr "Hatırlatma Tarihi"
+
+msgid "Special Request"
+msgstr "Özel İstek"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Update"
+msgstr "Güncelle"
+
+msgid "Success"
+msgstr "Başarılı"
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "An error occurred while updating the dealer"
+msgstr "Galeri güncellenirken bir hata oluştu"
+
+msgid "Invalid recall date format"
+msgstr "Geçersiz hatırlatma tarihi formatı"
+
+msgid "Please fill in all required fields"
+msgstr "Lütfen tüm zorunlu alanları doldurunuz"
+
+msgid "Dealer information updated successfully"
+msgstr "Galeri bilgileri başarıyla güncellendi"
+
+msgid "Dealer not found"
+msgstr "Galeri bulunamadı"
+
+msgid "An error occurred while updating dealer information"
+msgstr "Galeri bilgileri güncellenirken bir hata oluştu"
+
+msgid "Potential Deleted"
+msgstr "Potansiyel Silindi"
+
+msgid "Potential Inactive"
+msgstr "Potansiyel Pasif"
+
+msgid "Dealer"
+msgstr "Galeri"
+
+msgid "Dealer Inactive"
+msgstr "Galeri Pasif"
+
+msgid "Dealer Deleted"
+msgstr "Galeri Silindi"
+
+msgid "Create New Dealer"
+msgstr "Yeni Galeri Ekle"
+
+msgid "New Dealer Information"
+msgstr "Yeni Galeri Bilgileri"
+
+msgid "Create"
+msgstr "Oluştur"
+
+msgid "An error occurred while creating the dealer"
+msgstr "Galeri oluşturulurken bir hata oluştu"
+
+msgid "An error occurred"
+msgstr "Bir hata oluştu"
+
+msgid "Dealer created successfully"
+msgstr "Galeri başarıyla oluşturuldu"
+
+msgid "Clear Form"
+msgstr "Formu Temizle"
+
+msgid "Add Another Dealer"
+msgstr "Başka Galeri Ekle"
+
+msgid "Save and Add Another"
+msgstr "Kaydet ve Yenisini Ekle"
+
+msgid "Save and Continue Editing"
+msgstr "Kaydet ve Düzenlemeye Devam Et"
+
+msgid "Save and View Details"
+msgstr "Kaydet ve Detayları Görüntüle"
+
+msgid "Changes will be lost"
+msgstr "Değişiklikler kaybolacak"
+
+msgid "Are you sure you want to clear the form?"
+msgstr "Formu temizlemek istediğinizden emin misiniz?"
+
+msgid "Dealer has been created and you will be redirected to edit page"
+msgstr "Galeri oluşturuldu ve düzenleme sayfasına yönlendirileceksiniz"
+
+msgid "Creating dealer..."
+msgstr "Galeri oluşturuluyor..."
+
+msgid "Please wait while the dealer is being created"
+msgstr "Lütfen galeri oluşturulurken bekleyin"
+
+msgid "Basic Information"
+msgstr "Temel Bilgiler"
+
+msgid "Contact Details"
+msgstr "İletişim Detayları"
+
+msgid "Business Details"
+msgstr "İşletme Detayları"
+
+msgid "Online Properties"
+msgstr "Online Özellikler"
+
+msgid "Additional Details"
+msgstr "Ek Detaylar"
+
+# Tooltips and help texts
+msgid "Enter the official company name"
+msgstr "Resmi firma adını girin"
+
+msgid "Enter a valid business email"
+msgstr "Geçerli bir iş e-postası girin"
+
+msgid "Enter the tax/VAT number"
+msgstr "Vergi numarasını girin"
+
+msgid "Enter total number of cars in stock"
+msgstr "Stokta bulunan toplam araç sayısını girin"
+
+msgid "Enter the Google Maps listing URL"
+msgstr "Google Harita listesi URL'sini girin"
+
+msgid "Enter the Mobile.de dealer page URL"
+msgstr "Mobile.de bayi sayfası URL'sini girin"
+
+msgid "Enter the AutoScout24 dealer page URL"
+msgstr "AutoScout24 bayi sayfası URL'sini girin"
+
+msgid "Status updated successfully"
+msgstr "Durum başarıyla güncellendi"
+
+
+# Notes related messages
+msgid "note_added_successfully"
+msgstr "Not başarıyla eklendi"
+
+msgid "note_add_error"
+msgstr "Not eklenirken bir hata oluştu"
+
+msgid "note_deleted_successfully"
+msgstr "Not başarıyla silindi"
+
+msgid "note_not_found"
+msgstr "Not bulunamadı"
+
+msgid "note_delete_error"
+msgstr "Not silinirken bir hata oluştu"
+
+msgid "notes_fetch_error"
+msgstr "Notlar getirilirken bir hata oluştu"
+
+msgid "no_notes_found"
+msgstr "Not bulunamadı"
+
+# Note form and modal text
+msgid "Notes"
+msgstr "Notlar"
+
+msgid "Add Note"
+msgstr "Not Ekle"
+
+msgid "Note Text"
+msgstr "Not Metni"
+
+msgid "Enter note"
+msgstr "Not girin"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Are you sure to delete?"
+msgstr "Silmek istediğinizden emin misiniz?"
+
+msgid "Logout"
+msgstr "Çıkış Yap"
+
+msgid "Profile"
+msgstr "Hesabım"
+
+msgid "User List"
+msgstr "Kullanıcı Listesi"
+
+msgid "User"
+msgstr "Kullanıcı"
+
+msgid "Username"
+msgstr "Kullanıcı Adı"
+
+msgid "Name"
+msgstr "Adı"
+
+msgid "Surname"
+msgstr "Soyadı"
+
+msgid "User Role"
+msgstr "Kullanıcı Rolü"
+
+
+msgid "User Create Date"
+msgstr "Olusturma Tarihi"
+
+msgid "Last Login Date"
+msgstr "Son Giriş Tarihi"
+
+msgid "User Detail"
+msgstr "Kullanıcı Detayları"
+
+msgid "User Edit"
+msgstr "Kullanıcı Düzenle"
+
+msgid "Programmer"
+msgstr "Yazılımcı"
+
+msgid "An error occurred while updating"
+msgstr "Güncellenirken bir hata oluştu"
+
+msgid "Name Lastname"
+msgstr "Ad Soyad"
+
+msgid "Section"
+msgstr "Bölüm"
+
+msgid "Staff"
+msgstr "Personel"
+
+msgid "Email or phone is required"
+msgstr "E-posta veya telefon zorunludur"
+
+msgid "All fields are required"
+msgstr "Tüm alanlar zorunludur"
+
+msgid "Staff created successfully"
+msgstr "Personel başarıyla oluşturuldu"
+
+msgid "An error occurred while creating staff"
+msgstr "Personel oluşturulurken bir hata oluştu"
+
+msgid "Method not allowed"
+msgstr "İzin verilmeyen metod"
+
+msgid "Are you sure you want to delete this staff member?"
+msgstr "Bu personeli silmek istediğinizden emin misiniz?"
+
+msgid "Staff not found"
+msgstr "Personel bulunamadı"
+
+msgid "Staff updated successfully"
+msgstr "Personel başarıyla güncellendi"
+
+msgid "Staff deleted successfully"
+msgstr "Personel başarıyla silindi"
+
+msgid "You will not be able to recover this staff member!"
+msgstr "Bu personel kaydını geri getiremeyeceksiniz!"
+
+msgid "Yes, delete it!"
+msgstr "Evet, sil!"
+
+msgid "Deleted!"
+msgstr "Silindi!"
+
+msgid "Error!"
+msgstr "Hata!"
+
+msgid "Inactive"
+msgstr "Pasif"
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "New Password"
+msgstr "Yeni Şifre"
+
+msgid "Add New Password"
+msgstr "Yeni Şifre Girin"
+
+msgid "Your account is not active"
+msgstr "Hesabınız aktif değil"
+
+msgid "Invalid login information"
+msgstr "Geçersiz giriş bilgileri"
+
+msgid "edit_profile"
+msgstr "Profili Düzenle"
+
+msgid "Avatar"
+msgstr "Avatar"
+
+msgid "upload_a_new_avatar"
+msgstr "Yeni bir avatar yükleyin"
+
+msgid "choose_file"
+msgstr "Dosya seçin"
+
+msgid "avatar_error"
+msgstr "PNG, JPG, SVG boyut (400 * 400) maksimum dosya boyutu 4 mb'den fazla olmamalıdır"
+
+msgid "Registration successful"
+msgstr "Kayıt başarılı"
+
+msgid "Registration failed"
+msgstr "Kayıt başarısız"
+
+msgid "Login failed"
+msgstr "Giriş başarısız"
+
+msgid "Please login to access this page"
+msgstr "Bu sayfaya erişmek için lütfen giriş yapın"
+
+msgid "Display Name"
+msgstr "Görünen Ad"
+
+msgid "Login"
+msgstr "Giriş Yap"
+
+msgid "Your account is inactive. Please contact support."
+msgstr "Hesabınız pasif durumdadır. Lütfen destek ile iletişime geçin."
+
+msgid "Your account has been deleted. Please contact support."
+msgstr "Hesabınız silinmiştir. Lütfen destek ile iletişime geçin."
+
+msgid "Login successful"
+msgstr "Giriş başarılı"
+
+msgid "Your account has been upgraded to dealer status"
+msgstr "Hesabınız bayi statüsüne yükseltildi"
+
+msgid "Register"
+msgstr "Kayıt Ol"
+
+msgid "User name"
+msgstr "Kullanıcı Adı"
+
+msgid "User name is required"
+msgstr "Kullanıcı adı zorunludur"
+
+msgid "Email address"
+msgstr "E-posta Adresi"
+
+msgid "Phone is required"
+msgstr "Telefon numarası zorunludur"
+
+msgid "Invalid phone format"
+msgstr "Geçersiz telefon numarası formatı"
+
+msgid "Password is required"
+msgstr "Şifre zorunludur"
+
+msgid "Confirm password"
+msgstr "Şifre Tekrarı"
+
+msgid "Password confirmation is required"
+msgstr "Şifre tekrarı zorunludur"
+
+msgid "Passwords do not match"
+msgstr "Şifreler eşleşmiyor"
+
+msgid "Sign Up"
+msgstr "Kayıt Ol"
+
+msgid "Already have an account?"
+msgstr "Zaten hesabın var mı?"
+
+msgid "or Register with"
+msgstr "veya şununla kayıt ol"
+
+msgid "registration_failed_please_try_again"
+msgstr "Kayıt başarısız. Lütfen tekrar deneyin."
+
+msgid "Email already exists"
+msgstr "Bu e-posta adresi zaten kayıtlı"
+
+msgid "Company name is required"
+msgstr "Firma adı zorunludur"
+
+msgid "Email address is required"
+msgstr "E-posta adresi zorunludur"
+
+msgid "Invalid email format"
+msgstr "Geçersiz e-posta formatı"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Password must be at least 6 characters"
+msgstr "Şifre en az 6 karakter olmalıdır"
+
+msgid "Your email"
+msgstr "E-posta adresiniz"
+
+msgid "Your password"
+msgstr "Şifreniz"
+
+msgid "Forgot password"
+msgstr "Şifremi unuttum"
+
+msgid "Don't you have an account?"
+msgstr "Hesabınız yok mu?"
+
+msgid "or login with"
+msgstr "veya şununla giriş yapın"
+
+msgid "Please fill in all fields"
+msgstr "Lütfen tüm alanları doldurun"
+
+msgid "Login failed. Please try again."
+msgstr "Giriş başarısız. Lütfen tekrar deneyin."
+
+msgid "Welcome"
+msgstr "Hoş Geldiniz"
+
+msgid "My Profile"
+msgstr "Profilim"
+
+msgid "My Dashboard"
+msgstr "Panelim"
+
+msgid "Account Settings"
+msgstr "Hesap Ayarları"
+
+# Google mesajları
+msgid "Google login failed"
+msgstr "Google ile giriş başarısız"
+
+msgid "Information"
+msgstr "Bilgi"
+
+msgid "Please select a file"
+msgstr "Lütfen bir dosya seçin"
+
+msgid "File size must be less than 4MB"
+msgstr "Dosya boyutu 4MB'dan küçük olmalıdır"
+
+msgid "Phone number is required"
+msgstr "Telefon numarası zorunludur"
+
+msgid "Please enter a valid phone number (10-11 digits)"
+msgstr "Lütfen geçerli bir telefon numarası girin (10-11 haneli)"
+
+msgid "Phone number must be 10-11 digits"
+msgstr "Telefon numarası 10-11 haneli olmalıdır"
+
+msgid "Invalid phone number format"
+msgstr "Geçersiz telefon numarası formatı"
+
+msgid "Please enter a valid invoice email address"
+msgstr "Lütfen geçerli bir fatura e-posta adresi girin"
+
+msgid "Invalid invoice email format"
+msgstr "Geçersiz fatura e-posta formatı"
+
+msgid "First name must be at least 2 characters"
+msgstr "Ad en az 2 karakter olmalıdır"
+
+msgid "Last name must be at least 2 characters"
+msgstr "Soyad en az 2 karakter olmalıdır"
+
+msgid "Company name must be at least 3 characters"
+msgstr "Firma adı en az 3 karakter olmalıdır"
+
+msgid "First name contains invalid characters"
+msgstr "Ad geçersiz karakterler içeriyor"
+
+msgid "Last name contains invalid characters"
+msgstr "Soyad geçersiz karakterler içeriyor"
+
+msgid "Change passwords"
+msgstr "Şifre Değiştir"
+
+msgid "Old password"
+msgstr "Eski Şifre"
+
+msgid "New password"
+msgstr "Yeni Şifre"
+
+msgid "Profile updated successfully"
+msgstr "Profil başarıyla güncellendi"
+
+msgid "Invalid request method"
+msgstr "Geçersiz istek yöntemi"
+
+msgid "Current password is incorrect"
+msgstr "Mevcut şifre yanlış"
+
+msgid "Password must be at least 8 characters long"
+msgstr "Şifre en az 8 karakter uzunluğunda olmalıdır"
+
+msgid "Password updated successfully"
+msgstr "Şifre başarıyla güncellendi"
+
+msgid "Update failed. Please try again."
+msgstr "Güncelleme başarısız. Lütfen tekrar deneyin."
+
+msgid "Password update failed. Please try again."
+msgstr "Şifre güncelleme başarısız. Lütfen tekrar deneyin."
+
+msgid "Please meet all password requirements"
+msgstr "Lütfen tüm şifre gereksinimlerini karşılayın"
+
+msgid "One number"
+msgstr "Bir rakam"
+
+msgid "One lowercase character"
+msgstr "Bir küçük harf"
+
+msgid "One uppercase character"
+msgstr "Bir büyük harf"
+
+msgid "8 characters minimum"
+msgstr "En az 8 karakter"
+
+msgid "Emails sent"
+msgstr "Gönderilen Mailler"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Send Email"
+msgstr "E-posta Gönder"
+
+msgid "An error occurred while sending the email"
+msgstr "E-posta gönderilirken bir hata oluştu"
+
+msgid "Mail sent successfully"
+msgstr "E-posta başarıyla gönderildi"
+
+#dealer settings page
+
+msgid "Work Shift"
+msgstr "Çalışma Saatleri"
+
+msgid "No Break"
+msgstr "Mola Yok"
+
+msgid "Closed"
+msgstr "Kapalı"
+
+msgid "Opens at"
+msgstr "Açılış saati"
+
+msgid "Closes at"
+msgstr "Kapanış Saati"
+
+msgid "Break Start"
+msgstr "Mola Başlama"
+
+msgid "Break End"
+msgstr "Mola Bitiş"
+
+msgid "Time Schedule Format"
+msgstr "Zaman Çizelgesi Formatı"
+
+msgid "Hourly Schedule"
+msgstr "Tam Saat Çizelgesi"
+
+msgid "Half-Hour Schedule"
+msgstr "Yarım Saat Çizelgesi"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Addresses"
+msgstr "Adresler"
+
+msgid "Address Type"
+msgstr "Adres Tipi"
+
+msgid "Street"
+msgstr "Sokak"
+
+msgid "City"
+msgstr "Şehir"
+
+msgid "Postal Code"
+msgstr "Posta Kodu"
+
+msgid "Region"
+msgstr "Bölge"
+
+msgid "Country"
+msgstr "Ülke"
+
+msgid "Main Address"
+msgstr "Ana Adres"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Main"
+msgstr "Ana"
+
+msgid "Home"
+msgstr "Ev"
+
+msgid "Work"
+msgstr "İş"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Required fields are missing"
+msgstr "Zorunlu alanlar eksik"
+
+msgid "Address created successfully"
+msgstr "Adres başarıyla oluşturuldu"
+
+msgid "Address deleted successfully"
+msgstr "Adres başarıyla silindi"
+
+msgid "Address not found"
+msgstr "Adres bulunamadı"
+
+msgid "Address updated successfully"
+msgstr "Adres başarıyla güncellendi"
+
+msgid "An error occurred while creating address"
+msgstr "Adres oluşturulurken bir hata oluştu"
+
+msgid "An error occurred while updating address"
+msgstr "Adres güncellenirken bir hata oluştu"
+
+msgid "An error occurred while deleting address"
+msgstr "Adres silinirken bir hata oluştu"
+
+msgid "Main address updated successfully"
+msgstr "Ana adres başarıyla güncellendi"
+
+msgid "You won't be able to revert this!"
+msgstr "Bu işlemi geri alamayacaksınız!"
+
+msgid "Failed to load addresses"
+msgstr "Adresler yüklenirken hata oluştu"
+
+msgid "Invoice"
+msgstr "Fatura"
+
+msgid "Note has been deleted."
+msgstr "Not silindi."
+
+msgid "Lang"
+msgstr "Dil"
+
+msgid "No results"
+msgstr "Sonuç yok"
+
+msgid "Car Preferences"
+msgstr "Araç Tercihleri"
+
+msgid "Preferred Car Models"
+msgstr "Tercih Edilen Araç Modelleri"
+
+msgid "Brand"
+msgstr "Marka"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Select Brand"
+msgstr "Marka Seçin"
+
+msgid "Select Models"
+msgstr "Model Seçin"
+
+msgid "All Models"
+msgstr "Tüm Modeller"
+
+msgid "Add New"
+msgstr "Yeni Ekle"
+
+msgid "Interested"
+msgstr "İlgileniyorum"
+
+msgid "Not Interested"
+msgstr "İlgilenmiyorum"
+
+msgid "Settings updated successfully"
+msgstr "Ayarlar başarıyla güncellendi"
+
+msgid "Failed to update settings"
+msgstr "Ayarlar güncellenirken hata oluştu"
+
+msgid "Work hours saved successfully"
+msgstr "Çalışma saatleri başarıyla kaydedildi"
+
+msgid "Failed to save work hours"
+msgstr "Çalışma saatleri kaydedilemedi"
+
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+msgid "Processing..."
+msgstr "İşleniyor..."
+
+msgid "Failed to load models"
+msgstr "Modeller yüklenemedi"
+
+msgid "Failed to save preferences"
+msgstr "Tercihler kaydedilemedi"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Bu öğeyi silmek istediğinizden emin misiniz?"
+
+msgid "Changes saved successfully"
+msgstr "Değişiklikler başarıyla kaydedildi"
+
+# Dealer Settings sayfasındaki eksik çeviriler:
+msgid "Failed to get dealer settings"
+msgstr "Bayi ayarları alınamadı"
+
+msgid "Failed to get preferences"
+msgstr "Tercihler alınamadı"
+
+msgid "Error while getting models"
+msgstr "Modeller alınırken hata oluştu"
+
+msgid "Failed to get brand models"
+msgstr "Marka modelleri alınamadı"
+
+msgid "Error in dealer preferences"
+msgstr "Bayi tercihlerinde hata oluştu"
+
+msgid "Error while updating work shift"
+msgstr "Çalışma saatleri güncellenirken hata oluştu"
+
+# Exception mesajları için:
+msgid "An error occurred in dealer settings"
+msgstr "Bayi ayarlarında bir hata oluştu"
+
+msgid "Database error occurred"
+msgstr "Veritabanı hatası oluştu"
+
+msgid "Failed to process request"
+msgstr "İstek işlenemedi"
+
+# Form validation mesajları:
+msgid "Invalid brand ID"
+msgstr "Geçersiz marka ID'si"
+
+msgid "Invalid model ID"
+msgstr "Geçersiz model ID'si"
+
+msgid "Brand not found"
+msgstr "Marka bulunamadı"
+
+msgid "Model not found"
+msgstr "Model bulunamadı"
+
+msgid "Invalid preference data"
+msgstr "Geçersiz tercih verisi"
+
+# Success mesajları:
+msgid "Work shift updated successfully"
+msgstr "Çalışma saatleri başarıyla güncellendi"
+
+msgid "Brand models fetched successfully"
+msgstr "Marka modelleri başarıyla alındı"
+
+msgid "Settings loaded successfully"
+msgstr "Ayarlar başarıyla yüklendi"
+
+msgid "Preferences saved successfully"
+msgstr "Tercihler başarıyla kaydedildi"
+
+msgid "Search Settings"
+msgstr "Arama Ayarları"
+
+msgid "Vehicle Types"
+msgstr "Araç Tipleri"
+
+msgid "Fuel Types"
+msgstr "Yakıt Tipleri"
+
+msgid "Kilometer Range"
+msgstr "Kilometre Aralığı"
+
+msgid "Year Range"
+msgstr "Yıl Aralığı"
+
+msgid "Price Range"
+msgstr "Fiyat Aralığı"
+
+msgid "Distance (KM)"
+msgstr "Mesafe (KM)"
+
+# Input Placeholder'ları
+msgid "Min KM"
+msgstr "Min KM"
+
+msgid "Max KM"
+msgstr "Max KM"
+
+msgid "Min Year"
+msgstr "Min Yıl"
+
+msgid "Max Year"
+msgstr "Max Yıl"
+
+msgid "Min Price"
+msgstr "Min Fiyat"
+
+msgid "Max Price"
+msgstr "Max Fiyat"
+
+# Yakıt Tipleri
+msgid "Gasoline"
+msgstr "Benzin"
+
+msgid "Diesel"
+msgstr "Dizel"
+
+msgid "Hybrid"
+msgstr "Hibrit"
+
+msgid "Hybrid Diesel"
+msgstr "Hibrit Dizel"
+
+# Araç Tipleri
+msgid "Electric Vehicle"
+msgstr "Elektrikli Araç"
+
+msgid "Antique Car"
+msgstr "Klasik Araç"
+
+msgid "Accident Vehicle"
+msgstr "Hasarlı Araç"
+
+# Butonlar
+msgid "Save Settings"
+msgstr "Ayarları Kaydet"
+
+# Validasyon Mesajları
+msgid "Maximum 1,000,000 km allowed"
+msgstr "Maksimum 1.000.000 km izin verilir"
+
+msgid "Min KM cannot be greater than Max KM"
+msgstr "Minimum KM, Maksimum KM'den büyük olamaz"
+
+msgid "Minimum year is 1950"
+msgstr "Minimum yıl 1950 olmalıdır"
+
+msgid "Maximum year cannot exceed current year"
+msgstr "Maksimum yıl şu anki yıldan büyük olamaz"
+
+msgid "Min year cannot be greater than Max year"
+msgstr "Minimum yıl, Maksimum yıldan büyük olamaz"
+
+msgid "Price cannot be negative"
+msgstr "Fiyat negatif olamaz"
+
+msgid "Maximum price must be greater than minimum price"
+msgstr "Maksimum fiyat minimum fiyattan büyük olmalıdır"
+
+# Başarı/Hata Mesajları
+msgid "Settings saved successfully"
+msgstr "Ayarlar başarıyla kaydedildi"
+
+msgid "Failed to save settings"
+msgstr "Ayarlar kaydedilemedi"
+
+msgid "Settings not found"
+msgstr "Ayarlar bulunamadı"
+
+msgid "An error occurred while saving settings"
+msgstr "Ayarlar kaydedilirken bir hata oluştu"
+
+msgid "An error occurred while fetching settings"
+msgstr "Ayarlar alınırken bir hata oluştu"
+
+msgid "Invalid data provided"
+msgstr "Geçersiz veri gönderildi"
+
+msgid "Invalid price range"
+msgstr "Geçersiz fiyat aralığı"
+
+msgid "Invalid kilometer range"
+msgstr "Geçersiz kilometre aralığı"
+
+msgid "Invalid year range"
+msgstr "Geçersiz yıl aralığı"
+
+msgid "Invalid input values"
+msgstr "Geçersiz giriş değerleri"
+
+msgid "Error loading settings"
+msgstr "Ayarlar yüklenirken hata oluştu"
+
+msgid "Loading settings..."
+msgstr "Ayarlar yükleniyor..."
+
+msgid "Saving settings..."
+msgstr "Ayarlar kaydediliyor..."
+
+msgid "This field is required"
+msgstr "Bu alan zorunludur"
+
+msgid "Please enter a valid number"
+msgstr "Lütfen geçerli bir sayı girin"
+
+msgid "Value must be greater than or equal to 0"
+msgstr "Değer 0'dan büyük veya eşit olmalıdır"
+
+msgid "Please enter a valid year"
+msgstr "Lütfen geçerli bir yıl girin"
+
+msgid "Please enter a valid distance"
+msgstr "Lütfen geçerli bir mesafe girin"
+
+msgid "Value cannot exceed maximum limit"
+msgstr "Değer maksimum limiti aşamaz"
+
+# Genel Mesajlar
+msgid "Are you sure you want to reset settings?"
+msgstr "Ayarları sıfırlamak istediğinizden emin misiniz?"
+
+msgid "Confirm"
+msgstr "Onayla"
+
+msgid "agb_check_register"
+msgstr "Formu göndererek <a style='color:#FF7101' target='_blank' href='/agb'>Satıcı için Genel Şartlar ve Koşulları</a> okuduğumu ve bunları kabul ettiğimi onaylıyorum."
+
+msgid "privacy_policy_check_register"
+msgstr "Formu göndererek <a style='color:#FF7101' target='_blank' href='/datenschutz'>Gizlilik Politikası</a> okuduğumu ve bunu kabul ettiğimi onaylıyorum."
+
+msgid "Please accept the terms and conditions"
+msgstr "Lütfen şartları ve koşulları kabul edin"
+
+msgid "Please accept the privacy policy"
+msgstr "Lütfen gizlilik politikasını kabul edin"
+
+msgid "URL field cannot be empty"
+msgstr "URL alanı boş bırakılamaz"
+
+msgid "Please enter a valid URL"
+msgstr "Lütfen geçerli bir URL giriniz"
+
+msgid "URL must start with: %(schemes)s"
+msgstr "URL şu şekilde başlamalıdır: %(schemes)s"
+
+msgid "Invalid URL domain"
+msgstr "Geçersiz URL adresi"
+
+msgid "URL is too short"
+msgstr "URL çok kısa"
+
+msgid "URL is too long (maximum 2048 characters)"
+msgstr "URL çok uzun (maksimum 2048 karakter)"
+
+msgid "Invalid Mobile.de URL. URL must contain mobile.de domain"
+msgstr "Geçersiz Mobile.de URL'si. URL mobile.de alan adını içermelidir"
+
+msgid "Invalid AutoScout24 URL. URL must contain autoscout24.de domain"
+msgstr "Geçersiz AutoScout24 URL'si. URL autoscout24.de alan adını içermelidir"
+
+msgid "URL must be from mobile.de website"
+msgstr "URL mobile.de web sitesinden olmalıdır"
+
+msgid "URL must be from autoscout24.de website"
+msgstr "URL autoscout24.de web sitesinden olmalıdır"
+
+msgid "Please enter a valid mobile.de URL"
+msgstr "Lütfen geçerli bir mobile.de URL'si giriniz"
+
+msgid "Please enter a valid autoscout24.de URL"
+msgstr "Lütfen geçerli bir autoscout24.de URL'si giriniz"
+
+# Address Management
+msgid "Address Management"
+msgstr "Adres Yönetimi"
+
+msgid "Add New Address"
+msgstr "Yeni Adres Ekle"
+
+msgid "Select Type"
+msgstr "Tip Seçin"
+
+msgid "Office"
+msgstr "Ofis"
+
+msgid "Warehouse"
+msgstr "Depo"
+
+msgid "Branch"
+msgstr "Şube"
+
+msgid "Latitude"
+msgstr "Enlem"
+
+msgid "Longitude"
+msgstr "Boylam"
+
+msgid "Invoice Address"
+msgstr "Fatura Adresi"
+
+msgid "Edit Address"
+msgstr "Adresi Düzenle"
+
+msgid "Are you sure you want to delete this address?"
+msgstr "Bu adresi silmek istediğinizden emin misiniz?"
+
+msgid "Error adding address"
+msgstr "Adres eklenirken hata oluştu"
+
+msgid "Error updating address"
+msgstr "Adres güncellenirken hata oluştu"
+
+msgid "Error deleting address"
+msgstr "Adres silinirken hata oluştu"
+
+msgid "You won`t be able to revert this!"
+msgstr "Bu işlemi geri alamayacaksınız!"
+
+msgid "Contact us"
+msgstr "Bize ulaşın"
+
+msgid "Do you have a car in mind? Get in touch with us!"
+msgstr "Aklınızda bir araba mı var? Bizimle iletişime geçin!"
+
+msgid "contact_description"
+msgstr "Size yardımcı olmak ve sorularınızı yanıtlamak için buradayız. Sizden haber almak için sabırsızlanıyoruz. Yardıma ihtiyacınız olursa, lütfen bizimle iletişime geçin veya bir kahve içmek için ofisimizi ziyaret edin."
+
+msgid "Infomation"
+msgstr "Bilgi"
+
+msgid "contact_seo_desc"
+msgstr "Almanya'daki ikinci el otomobiller için en büyük çevrimiçi otomobil bayisine başvurun. ➤ WIVEDA otomobil ile ilgili tüm konularda yardımcı olur!"
+
+msgid "Working Hours"
+msgstr "Çalışma Saatleri"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Send Message"
+msgstr "Mesaj Gönder"
+
+msgid "Follow Us:"
+msgstr "Bizi Takip Edin:"
+
+msgid "About Us"
+msgstr "Hakkımızda"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "FAQ"
+msgstr "SSS"
+
+msgid "Advantages"
+msgstr "Avantajlar"
+
+msgid "Please enter a valid email address"
+msgstr "Lütfen geçerli bir e-posta adresi girin"
+
+
+# Türkçe çeviriler
+msgid "Dealer Module"
+msgstr "Bayi Modülü"
+
+msgid "Dealer Staff Module"
+msgstr "Bayi Personel Modülü"
+
+msgid "Users Module"
+msgstr "Kullanıcılar Modülü"
+
+msgid "Dashboard Module"
+msgstr "Panel Modülü"
+
+msgid "Page Permissions"
+msgstr "Sayfa İzinleri"
+
+msgid "Read"
+msgstr "Okuma"
+
+msgid "You do not have permission to perform this action"
+msgstr "Bu işlemi gerçekleştirmek için yetkiniz bulunmamaktadır"
+
+msgid "You do not have permission to access this page"
+msgstr "Bu sayfaya erişim yetkiniz bulunmamaktadır"
+
+msgid "Administrator"
+msgstr "Yönetici"
+
+msgid "Carexpress"
+msgstr "Carexpress"
+
+msgid "Dealer List"
+msgstr "Bayi Listesi"
+
+msgid "Dealer Create"
+msgstr "Yeni Bayi Oluştur"
+
+msgid "Dealer Edit"
+msgstr "Bayi Düzenle"
+
+msgid "Dealer Delete"
+msgstr "Bayi Sil"
+
+msgid "Staff List"
+msgstr "Personel Listesi"
+
+msgid "Staff Create"
+msgstr "Yeni Personel Oluştur"
+
+msgid "Staff Edit"
+msgstr "Personel Düzenle"
+
+msgid "Staff Delete"
+msgstr "Personel Sil"
+
+msgid "User Permissions"
+msgstr "Kullanıcı İzinleri"
+
+msgid "Permissions"
+msgstr "İzinler"
+
+msgid "Page"
+msgstr "Sayfa"
+
+msgid "Save Permissions"
+msgstr "İzinleri Kaydet"
+
+msgid "Permissions updated successfully"
+msgstr "İzinler başarıyla güncellendi"
+
+msgid "An error occurred while updating permissions"
+msgstr "İzinler güncellenirken bir hata oluştu"
+
+# Image Operations
+msgid "Image deleted successfully"
+msgstr "Resim başarıyla silindi"
+
+msgid "Failed to delete image"
+msgstr "Resim silinemedi"
+
+msgid "Information updated successfully"
+msgstr "Bilgiler başarıyla güncellendi"
+
+msgid "Failed to update information"
+msgstr "Bilgiler güncellenemedi"
+
+# Note Operations
+msgid "Note added successfully"
+msgstr "Not başarıyla eklendi"
+
+msgid "Failed to add note"
+msgstr "Not eklenemedi"
+
+# Address Operations
+msgid "Address saved successfully"
+msgstr "Adres başarıyla kaydedildi"
+
+msgid "Failed to save address"
+msgstr "Adres kaydedilemedi"
+
+msgid "Failed to delete address"
+msgstr "Adres silinemedi"
+
+msgid "No records found"
+msgstr "Kayıt bulunamadı"
+
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Toplam _TOTAL_ kayıttan _START_ ile _END_ arası gösteriliyor"
+
+msgid "Please wait..."
+msgstr "Lütfen bekleyin..."
+
+msgid "Warning"
+msgstr "Uyarı"
+
+msgid "Session Expired"
+msgstr "Oturum Süresi Doldu"
+
+msgid "Permission Denied"
+msgstr "Erişim Reddedildi"
+
+msgid "An unexpected error occurred"
+msgstr "Beklenmeyen bir hata oluştu"
+
+
+msgid "Enter your phone number"
+msgstr "Telefon numaranızı girin"
+
+msgid "Invalid phone number format. Format should be: +49 XXX XXXX XXX"
+msgstr "Geçersiz telefon numarası formatı. Format şu şekilde olmalıdır: +49 XXX XXXX XXX"
+
+# İsim validasyonu için
+msgid "First name is required"
+msgstr "Adınız gereklidir"
+
+msgid "Last name is required"
+msgstr "Soyadınız gereklidir"
+
+# Adres validasyonu için
+msgid "Street address is required"
+msgstr "Sokak adresi gereklidir"
+
+msgid "Postal code is required"
+msgstr "Posta kodu gereklidir"
+
+msgid "City is required"
+msgstr "Şehir gereklidir"
+
+msgid "Car Type"
+msgstr "Araç Tipi"
+
+msgid "Year of manufacture"
+msgstr "Üretim Yılı"
+
+msgid "Month"
+msgstr "Ay"
+
+msgid "Fuel Type"
+msgstr "Yakıt Türü"
+
+msgid "Model variant"
+msgstr "Model Varyantı"
+
+msgid "Vehicle Information"
+msgstr "Araç Bilgileri"
+
+msgid "Personal Information"
+msgstr "Kişisel Bilgiler"
+
+msgid "Car Photos"
+msgstr "Araç Fotoğrafları"
+
+msgid "Mileage"
+msgstr "Kilometre"
+
+msgid "Consumption"
+msgstr "Tüketim"
+
+msgid "Power (HP)"
+msgstr "Güç (HP)"
+
+msgid "Vehicle details"
+msgstr "Araç Detayları"
+
+msgid "Technical data"
+msgstr "Teknik Veriler"
+
+msgid "Exterior View"
+msgstr "Dış Görünüm"
+
+msgid "Interior"
+msgstr "İç Mekan"
+
+msgid "Damages"
+msgstr "Hasarlar"
+
+msgid "Others"
+msgstr "Diğerleri"
+
+# Araç Formu Mesajları
+msgid "No variants found for selected combination"
+msgstr "Seçilen kombinasyon için varyant bulunamadı."
+
+msgid "Year of manufacture: up to"
+msgstr "Üretim Yılı: En fazla"
+
+msgid "Personal Data"
+msgstr "Kişisel Veriler"
+
+# Başarı Mesajları
+msgid "Thank you for your request!"
+msgstr "Talebiniz için teşekkür ederiz!"
+
+msgid "Your data has been successfully transmitted."
+msgstr "Verileriniz başarıyla iletildi."
+
+msgid "Please confirm your email address via the link we just sent you."
+msgstr "Size gönderdiğimiz bağlantıyı kullanarak e-posta adresinizi onaylayın."
+
+msgid "Start New Request"
+msgstr "Yeni Talep Başlat"
+
+msgid "Electric"
+msgstr "Elektrikli"
+
+msgid "Plug-in Hybrid"
+msgstr "Plug-in Hibrit"
+
+msgid "Auto Gas"
+msgstr "Oto Gaz"
+
+# Yakıt Türü Açıklamaları
+msgid "Gasoline Engine"
+msgstr "Benzinli Motor"
+
+msgid "Diesel Engine"
+msgstr "Dizel Motor"
+
+msgid "Electric Motor"
+msgstr "Elektrik Motoru"
+
+msgid "Gasoline + Electric"
+msgstr "Benzin + Elektrik"
+
+msgid "Rechargeable"
+msgstr "Şarj Edilebilir"
+
+msgid "LPG"
+msgstr "LPG"
+
+msgid "Otto engine"
+msgstr "Otto Motor"
+
+msgid "Price"
+msgstr "Fiyat"
+
+msgid "Uploaded Photos"
+msgstr "Yüklenen Fotoğraflar"
+
+msgid "Thank you for your inquiry!"
+msgstr "Talebiniz için teşekkür ederiz!"
+
+msgid "Submit"
+msgstr "Gönder"
+
+msgid "Vehicle information saved successfully"
+msgstr "Araç bilgileri başarıyla kaydedildi"
+
+msgid "An error occurred while saving your data. Please try again."
+msgstr "Verileriniz kaydedilirken bir hata oluştu. Lütfen tekrar deneyin."
+
+msgid "We will contact you soon."
+msgstr "Yakında sizinle iletişime geçeceğiz."
+
+msgid "Maximum mileage is 1,000,000 km"
+msgstr "Maksimum kilometre 1.000.000 km'dir"
+
+msgid "Select gear type"
+msgstr "Vites türünü seçin"
+
+msgid "Select door type"
+msgstr "Kapı türünü seçin"
+
+
+msgid "Elektro"
+msgstr "Elektri̇k"
+
+msgid "Hybrid (Benzin/Elektro)"
+msgstr "Hibrit (Benzin/Elektri̇k)"
+
+msgid "Hybrid (Diesel/Elektro)"
+msgstr "Hibrit (Di̇zel/Elektri̇k)"
+
+msgid "Ethanol (FFV, E85 etc.)"
+msgstr "Etanol (FFV, E85 vb.)"
+
+msgid "Autogas (LPG)"
+msgstr "Otogaz (LPG)"
+
+msgid "Erdgas (CNG)"
+msgstr "Doğal gaz (CNG)"
+
+msgid "Wasserstoff"
+msgstr "Hidrojen"
+
+msgid "Plug-in-Hybrid"
+msgstr "Fişe takılabilir hibrit"
+
+msgid "Andere"
+msgstr "Diğer"
+
+msgid "Automatik"
+msgstr "Otomatik"
+
+msgid "Halbautomatik"
+msgstr "Yarı otomatik"
+
+msgid "Schaltgetriebe"
+msgstr "Manuel"
+
+msgid "Cabrio/Roadster"
+msgstr "Cabrio/Roadster"
+
+msgid "Kleinwagen"
+msgstr "Küçük araç"
+
+msgid "Limousine"
+msgstr "Sedan"
+
+msgid "Van/Minibus"
+msgstr "Kamyonet/minibüs"
+
+msgid "Geländewagen/Pickup/SUV"
+msgstr "Arazi aracı/Pikap/SUV"
+
+msgid "Kombi"
+msgstr "Kombi"
+
+msgid "Sportwagen/Coupé"
+msgstr "Spor araba/Coupe"
+
+msgid "Gear Type"
+msgstr "Vites Tipi"
+
+msgid "Door Type"
+msgstr "Kapı Tipi"
+
+msgid "Power (kW)"
+msgstr "Güç (kW)"
+
+msgid "Equivalent to"
+msgstr "Eşdeğer"
+
+msgid "Confirm Appointment"
+msgstr "Randevuyu Onaylayın"
+
+msgid "Available"
+msgstr "Müsait"
+
+msgid "km away"
+msgstr "km uzakta"
+
+msgid "Purchase Station"
+msgstr "Alım Noktası"
+
+msgid "Postal Code Short"
+msgstr "Posta Kodu"
+
+msgid "City Short"
+msgstr "Şehir"
+
+msgid "Please select a date."
+msgstr "Lütfen bir tarih seçin."
+
+msgid "Please select a time."
+msgstr "Lütfen bir saat seçin."
+
+msgid "The selected day is not available."
+msgstr "Seçilen gün müsait değil."
+
+msgid "Please select a purchase station."
+msgstr "Lütfen bir alım noktası seçin."
+
+msgid "Error retrieving available times"
+msgstr "Müsait saatler alınırken hata oluştu"
+
+msgid "No available appointments"
+msgstr "Müsait randevu bulunmamaktadır"
+
+msgid "Thank you very much for your efforts!"
+msgstr "Teşekkürler! Kaydınız Başarıyla Tamamlandı"
+
+msgid "form_success_message"
+msgstr "Kısa süre içinde e-posta adresinizi onaylayabileceğiniz bir e-posta alacaksınız. Onay işlemi tamamlandıktan sonra, bir sonraki adım ve süreç hakkında daha fazla bilgi alacaksınız."
+
+
+msgid "No file was uploaded"
+msgstr "Hiçbir dosya yüklenmedi"
+
+msgid "File size exceeds 10MB limit"
+msgstr "Dosya boyutu 10MB limitini aşıyor"
+
+msgid "Invalid file format. Please upload PDF, JPG, JPEG or PNG files only"
+msgstr "Geçersiz dosya formatı. Lütfen sadece PDF, JPG, JPEG veya PNG dosyaları yükleyin"
+
+msgid "Please select a file to upload"
+msgstr "Lütfen yüklemek için bir dosya seçin"
+
+msgid "File selected successfully"
+msgstr "Dosya başarıyla seçildi"
+
+msgid "Please select a file before submitting"
+msgstr "Lütfen göndermeden önce bir dosya seçin"
+
+msgid "Contract uploaded successfully"
+msgstr "Sözleşme başarıyla yüklendi"
+
+msgid "Upload failed"
+msgstr "Yükleme başarısız"
+
+msgid "An error occurred while uploading the contract"
+msgstr "Sözleşme yüklenirken bir hata oluştu"
+
+msgid "Drop file here"
+msgstr "Dosyayı buraya bırakın"
+
+msgid "File removed"
+msgstr "Dosya kaldırıldı"
+
+msgid "Uploading..."
+msgstr "Yükleniyor..."
+
+msgid "Info"
+msgstr "Bilgi"
+
+# Contract Upload UI
+msgid "Contract Upload"
+msgstr "Sözleşme Yükleme"
+
+msgid "Please upload your signed contract to activate your account"
+msgstr "Hesabınızı aktifleştirmek için imzalı sözleşmenizi yükleyin"
+
+msgid "Drag and drop your file here"
+msgstr "Dosyanızı buraya sürükleyip bırakın"
+
+msgid "Browse Files"
+msgstr "Dosya Seç"
+
+msgid "Accepted formats: PDF, JPG, JPEG, PNG"
+msgstr "Kabul edilen formatlar: PDF, JPG, JPEG, PNG"
+
+msgid "Maximum file size: 10MB"
+msgstr "Maksimum dosya boyutu: 10MB"
+
+msgid "Submit Contract"
+msgstr "Sözleşmeyi Gönder"
+
+msgid "Appointment status updated successfully"
+msgstr "Randevu durumu başarıyla güncellendi"
+
+msgid "Failed to update appointment status"
+msgstr "Randevu durumu güncellenirken hata oluştu"
+
+msgid "An error occurred while updating the status"
+msgstr "Durum güncellenirken bir hata oluştu"
+
+msgid "Pending"
+msgstr "Beklemede"
+
+msgid "Confirmed"
+msgstr "Onaylandı"
+
+msgid "Cancelled"
+msgstr "İptal Edildi"
+
+msgid "Completed"
+msgstr "Tamamlandı"
+
+msgid "Are you sure you want to update the status?"
+msgstr "Durumu güncellemek istediğinizden emin misiniz?"
+
+msgid "Yes, update it!"
+msgstr "Evet, güncelle!"
+
+msgid "You do not have permission to update appointments"
+msgstr "Randevuları güncelleme yetkiniz yok"
+
+msgid "Registration Date"
+msgstr "Kayıt Tarihi"
+
+msgid "Please select registration date"
+msgstr "Lütfen kayıt tarihini seçin"
+
+msgid "Invalid registration date"
+msgstr "Geçersiz kayıt tarihi"
+
+msgid "Registration date cannot be in the future"
+msgstr "Kayıt tarihi gelecekte olamaz"
+
+msgid "No Files Found"
+msgstr "Dosya Bulunamadı"
+
+msgid "Purchased"
+msgstr "Satın Alındı"
+
+msgid "Not Purchased"
+msgstr "Satın Alınmadı"

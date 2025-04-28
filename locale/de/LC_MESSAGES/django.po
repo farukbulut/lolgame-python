@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: frontend/controller/index.py:20
+msgid "LoL Champion Guessing Game"
+msgstr "LoL Champion-Ratespiel"
+
+#: frontend/controller/index.py:59
+msgid "Guess the Champion"
+msgstr "Rate den Champion"
+
+#: frontend/controller/index.py:70
+msgid "How to Play"
+msgstr "Spielanleitung"
+
+#: templates/frontend/champion_game.html:9
+msgid "Champion"
+msgstr "Champion"
+
+#: templates/frontend/champion_game.html:9
+msgid "Guessing"
+msgstr "Raten"
+
+#: templates/frontend/champion_game.html:10
+msgid "Difficulty"
+msgstr "Schwierigkeit"
+
+#: templates/frontend/champion_game.html:15
+msgid "Type champion name..."
+msgstr "Champion-Namen eingeben..."
+
+#: templates/frontend/champion_game.html:17
+msgid "Step"
+msgstr "Schritt"
+
+#: templates/frontend/champion_game.html:19
+msgid "Attempts Left"
+msgstr "Verbleibende Versuche"
+
+#: templates/frontend/champion_game.html:29
+msgid "Champion not found."
+msgstr "Champion nicht gefunden."
+
+#: templates/frontend/champion_game.html:35
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "Noch keine Rateversuche. Beginne mit der Eingabe eines Champion-Namens!"
+
+#: templates/frontend/champion_game.html:41
+msgid "Correct"
+msgstr "Richtig"
+
+#: templates/frontend/champion_game.html:42
+msgid "Wrong"
+msgstr "Falsch"
+
+#: templates/frontend/champion_game.html:43
+msgid "Higher"
+msgstr "Höher"
+
+#: templates/frontend/champion_game.html:44
+msgid "Lower"
+msgstr "Niedriger"
+
+#: templates/frontend/champion_game.html:52
+msgid "Play Again"
+msgstr "Nochmal spielen"
+
+#: templates/frontend/home.html:9
+msgid "Can you guess the League of Legends champion?"
+msgstr "Kannst du den League of Legends Champion erraten?"
+
+#: templates/frontend/home.html:13
+msgid "Select Difficulty"
+msgstr "Schwierigkeitsgrad wählen"
+
+#: templates/frontend/home.html:17
+msgid "Easy"
+msgstr "Leicht"
+
+#: templates/frontend/home.html:18 templates/frontend/home.html:23 templates/frontend/home.html:28
+msgid "attempts"
+msgstr "Versuche"
+
+#: templates/frontend/home.html:22
+msgid "Medium"
+msgstr "Mittel"
+
+#: templates/frontend/home.html:27
+msgid "Hard"
+msgstr "Schwer"
+
+#: templates/frontend/how_to_play.html:9
+msgid "How to"
+msgstr "Wie man"
+
+#: templates/frontend/how_to_play.html:9
+msgid "Play"
+msgstr "Spielt"
+
+#: templates/frontend/how_to_play.html:15
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "Wähle zwischen Leicht (10 Versuche), Mittel (8 Versuche) oder Schwer (6 Versuche)"
+
+#: templates/frontend/how_to_play.html:21
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "Gib einen Champion-Namen ein und wähle aus dem Dropdown oder drücke den Suchknopf"
+
+#: templates/frontend/how_to_play.html:27
+msgid "After each guess, you'll see colored indicators:"
+msgstr "Nach jedem Rateversuch siehst du farbige Indikatoren:"
+
+#: templates/frontend/how_to_play.html:29
+msgid "Green means correct"
+msgstr "Grün bedeutet richtig"
+
+#: templates/frontend/how_to_play.html:30
+msgid "Yellow means wrong"
+msgstr "Gelb bedeutet falsch"
+
+#: templates/frontend/how_to_play.html:31
+msgid "Blue means the target value is higher"
+msgstr "Blau bedeutet, der Zielwert ist höher"
+
+#: templates/frontend/how_to_play.html:32
+msgid "Purple means the target value is lower"
+msgstr "Lila bedeutet, der Zielwert ist niedriger"
+
+#: templates/frontend/how_to_play.html:39
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "Du gewinnst, wenn du den richtigen Champion errätst, bevor dir die Versuche ausgehen"
+
+#: templates/frontend/how_to_play.html:42
+msgid "Play Now"
+msgstr "Jetzt spielen"
+
+#: templates/partial/base.html:23
+msgid "English"
+msgstr "Englisch"
+
+#: templates/partial/base.html:24
+msgid "German"
+msgstr "Deutsch"
+
+#: templates/partial/base.html:25
+msgid "Turkish"
+msgstr "Türkisch"
+
+#: templates/partial/base.html:26
+msgid "Spanish"
+msgstr "Spanisch"
+
+#: templates/partial/base.html:27
+msgid "Italian"
+msgstr "Italienisch"
+
+#: templates/partial/base.html:28
+msgid "Dutch"
+msgstr "Niederländisch"
+
+#: templates/partial/base.html:29
+msgid "Portuguese"
+msgstr "Portugiesisch"
+
+#: templates/partial/base.html:30
+msgid "French"
+msgstr "Französisch"
+
+#: templates/partial/base.html:31
+msgid "Russian"
+msgstr "Russisch"
+
+#: templates/partial/base.html:32
+msgid "Brazilian Portuguese"
+msgstr "Brasilianisches Portugiesisch"
+
+#: templates/partial/base.html:42
+msgid "Position"
+msgstr "Position"
+
+#: templates/partial/base.html:43
+msgid "Species"
+msgstr "Spezies"
+
+#: templates/partial/base.html:44
+msgid "Range"
+msgstr "Reichweite"
+
+#: templates/partial/base.html:45
+msgid "Region"
+msgstr "Region"
+
+#: templates/partial/base.html:46
+msgid "Release"
+msgstr "Veröffentlichung"

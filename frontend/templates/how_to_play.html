@@ -1,0 +1,134 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>{% trans 'How to' %} <span>{% trans 'Play' %}</span></h1>
+</div>
+
+<div class="how-to-play">
+    <div class="instruction-card">
+        <div class="step-number">1</div>
+        <h3>{% trans 'Select Difficulty' %}</h3>
+        <p>{% trans 'Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)' %}</p>
+    </div>
+    
+    <div class="instruction-card">
+        <div class="step-number">2</div>
+        <h3>{% trans 'Guess a Champion' %}</h3>
+        <p>{% trans 'Type a champion name and select from the dropdown or press the search button' %}</p>
+    </div>
+    
+    <div class="instruction-card">
+        <div class="step-number">3</div>
+        <h3>{% trans 'Check the Feedback' %}</h3>
+        <p>{% trans 'After each guess, you\'ll see colored indicators:' %}</p>
+        <ul>
+            <li><span class="indicator correct"></span> {% trans 'Green means correct' %}</li>
+            <li><span class="indicator wrong"></span> {% trans 'Yellow means wrong' %}</li>
+            <li><span class="indicator high"></span> {% trans 'Blue means the target value is higher' %}</li>
+            <li><span class="indicator low"></span> {% trans 'Purple means the target value is lower' %}</li>
+        </ul>
+    </div>
+    
+    <div class="instruction-card">
+        <div class="step-number">4</div>
+        <h3>{% trans 'Win or Lose' %}</h3>
+        <p>{% trans 'You win if you guess the correct champion before running out of attempts' %}</p>
+    </div>
+    
+    <a href="{% url 'champions' %}" class="play-button">{% trans 'Play Now' %}</a>
+</div>
+
+<style>
+    .how-to-play {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    
+    .instruction-card {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    
+    .step-number {
+        position: absolute;
+        top: -15px;
+        left: 20px;
+        background: #d4af37;
+        color: #000;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    
+    .instruction-card h3 {
+        color: #d4af37;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    
+    .instruction-card p {
+        color: #ddd;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    
+    .instruction-card ul {
+        margin-left: 20px;
+        color: #ccc;
+    }
+    
+    .instruction-card li {
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .indicator {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    
+    .indicator.correct { background: #27ae60; }
+    .indicator.wrong { background: #f1c40f; }
+    .indicator.high { background: #3498db; }
+    .indicator.low { background: #8e44ad; }
+    
+    .play-button {
+        display: block;
+        width: 200px;
+        margin: 30px auto;
+        background: #d4af37;
+        color: #000;
+        text-align: center;
+        padding: 12px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+</style>
+{% endblock %}

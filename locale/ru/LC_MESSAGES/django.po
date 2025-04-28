@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: frontend/controller/index.py:20
+msgid "LoL Champion Guessing Game"
+msgstr "Игра в Угадывание Чемпионов LoL"
+
+#: frontend/controller/index.py:59
+msgid "Guess the Champion"
+msgstr "Угадай Чемпиона"
+
+#: frontend/controller/index.py:70
+msgid "How to Play"
+msgstr "Как Играть"
+
+#: templates/frontend/champion_game.html:9
+msgid "Champion"
+msgstr "Чемпион"
+
+#: templates/frontend/champion_game.html:9
+msgid "Guessing"
+msgstr "Угадывание"
+
+#: templates/frontend/champion_game.html:10
+msgid "Difficulty"
+msgstr "Сложность"
+
+#: templates/frontend/champion_game.html:15
+msgid "Type champion name..."
+msgstr "Введите имя чемпиона..."
+
+#: templates/frontend/champion_game.html:17
+msgid "Step"
+msgstr "Шаг"
+
+#: templates/frontend/champion_game.html:19
+msgid "Attempts Left"
+msgstr "Осталось Попыток"
+
+#: templates/frontend/champion_game.html:29
+msgid "Champion not found."
+msgstr "Чемпион не найден."
+
+#: templates/frontend/champion_game.html:35
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "Пока нет догадок. Начните вводить имя чемпиона!"
+
+#: templates/frontend/champion_game.html:41
+msgid "Correct"
+msgstr "Верно"
+
+#: templates/frontend/champion_game.html:42
+msgid "Wrong"
+msgstr "Неверно"
+
+#: templates/frontend/champion_game.html:43
+msgid "Higher"
+msgstr "Выше"
+
+#: templates/frontend/champion_game.html:44
+msgid "Lower"
+msgstr "Ниже"
+
+#: templates/frontend/champion_game.html:52
+msgid "Play Again"
+msgstr "Играть Снова"
+
+#: templates/frontend/home.html:9
+msgid "Can you guess the League of Legends champion?"
+msgstr "Сможешь угадать чемпиона League of Legends?"
+
+#: templates/frontend/home.html:13
+msgid "Select Difficulty"
+msgstr "Выберите Сложность"
+
+#: templates/frontend/home.html:17
+msgid "Easy"
+msgstr "Легко"
+
+#: templates/frontend/home.html:18 templates/frontend/home.html:23 templates/frontend/home.html:28
+msgid "attempts"
+msgstr "попыток"
+
+#: templates/frontend/home.html:22
+msgid "Medium"
+msgstr "Средне"
+
+#: templates/frontend/home.html:27
+msgid "Hard"
+msgstr "Сложно"
+
+#: templates/frontend/how_to_play.html:9
+msgid "How to"
+msgstr "Как"
+
+#: templates/frontend/how_to_play.html:9
+msgid "Play"
+msgstr "Играть"
+
+#: templates/frontend/how_to_play.html:15
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "Выберите между Легко (10 попыток), Средне (8 попыток) или Сложно (6 попыток)"
+
+#: templates/frontend/how_to_play.html:21
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "Введите имя чемпиона и выберите из выпадающего списка или нажмите кнопку поиска"
+
+#: templates/frontend/how_to_play.html:27
+msgid "After each guess, you'll see colored indicators:"
+msgstr "После каждой догадки вы увидите цветовые индикаторы:"
+
+#: templates/frontend/how_to_play.html:29
+msgid "Green means correct"
+msgstr "Зеленый означает правильно"
+
+#: templates/frontend/how_to_play.html:30
+msgid "Yellow means wrong"
+msgstr "Желтый означает неправильно"
+
+#: templates/frontend/how_to_play.html:31
+msgid "Blue means the target value is higher"
+msgstr "Синий означает, что целевое значение выше"
+
+#: templates/frontend/how_to_play.html:32
+msgid "Purple means the target value is lower"
+msgstr "Фиолетовый означает, что целевое значение ниже"
+
+#: templates/frontend/how_to_play.html:39
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "Вы выигрываете, если угадаете правильного чемпиона до исчерпания попыток"
+
+#: templates/frontend/how_to_play.html:42
+msgid "Play Now"
+msgstr "Играть Сейчас"
+
+#: templates/partial/base.html:23
+msgid "English"
+msgstr "Английский"
+
+#: templates/partial/base.html:24
+msgid "German"
+msgstr "Немецкий"
+
+#: templates/partial/base.html:25
+msgid "Turkish"
+msgstr "Турецкий"
+
+#: templates/partial/base.html:26
+msgid "Spanish"
+msgstr "Испанский"
+
+#: templates/partial/base.html:27
+msgid "Italian"
+msgstr "Итальянский"
+
+#: templates/partial/base.html:28
+msgid "Dutch"
+msgstr "Нидерландский"
+
+#: templates/partial/base.html:29
+msgid "Portuguese"
+msgstr "Португальский"
+
+#: templates/partial/base.html:30
+msgid "French"
+msgstr "Французский"
+
+#: templates/partial/base.html:31
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/partial/base.html:32
+msgid "Brazilian Portuguese"
+msgstr "Бразильский Португальский"
+
+#: templates/partial/base.html:42
+msgid "Position"
+msgstr "Позиция"
+
+#: templates/partial/base.html:43
+msgid "Species"
+msgstr "Вид"
+
+#: templates/partial/base.html:44
+msgid "Range"
+msgstr "Дальность"
+
+#: templates/partial/base.html:45
+msgid "Region"
+msgstr "Регион"
+
+#: templates/partial/base.html:46
+msgid "Release"
+msgstr "Выпуск"
