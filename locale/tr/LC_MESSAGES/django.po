@@ -29,6 +29,43 @@ msgstr "Şampiyonu Tahmin Et"
 msgid "CHAMPION"
 msgstr "ŞAMPİYON"
 
+msgid "Games"
+msgstr "Oyun"
+
+msgid "How To Play"
+msgstr "Nasıl Oynanır"
+
+msgid "Game History"
+msgstr "Oyun Geçmişi"
+
+msgid "Leaderboard"
+msgstr "Liderlik Tablosu"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Average"
+msgstr "Ortalama"
+
+msgid "Total"
+msgstr "Toplam"
+
+msgid "points"
+msgstr "Puan"
+
+msgid "View Leaderboard"
+msgstr "Liderlik Tablosunu Görüntüle"
+
+msgid "Gender"
+msgstr "Cinsiyet"
+
+msgid "Resource"
+msgstr "Kaynak"
+
+
 msgid "PREDICTION GAME"
 msgstr "TAHMİN OYUNU"
 
@@ -50,6 +87,57 @@ msgstr "Tahmin"
 #: templates/frontend/champion_game.html:10
 msgid "Difficulty"
 msgstr "Zorluk"
+
+msgid "easy"
+msgstr "Kolay"
+
+msgid "medium"
+msgstr "Orta"
+
+msgid "hard"
+msgstr "Zor"
+
+msgid "Showing"
+msgstr "Gösteriliyor"
+
+msgid "of"
+msgstr "için"
+
+msgid "champions"
+msgstr "şampiyonlar"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "Tüm League of Legends şampiyonlarını ve detaylarını keşfedin"
+
+msgid "Sort by:"
+msgstr "Sırala:"
+
+msgid "Name (A-Z)"
+msgstr "İsim (A-Z)"
+
+msgid "Name (Z-A)"
+msgstr "İsim (Z-A)"
+
+msgid "Newest First"
+msgstr "En Yeniler Önce"
+
+msgid "Oldest First"
+msgstr "En Eski Önce"
+
+msgid "Easiest First"
+msgstr "En Kolay Önce"
+
+msgid "Hardest First"
+msgstr "En Zor Önce"
+
+msgid "View Details"
+msgstr "Detayları Görüntüle"
+
+msgid "Load More Champions"
+msgstr "Daha Fazla Şampiyon Yükle"
+
+msgid "Search champions..."
+msgstr "Şampiyonları ara..."
 
 #: templates/frontend/champion_game.html:15
 msgid "Type champion name..."

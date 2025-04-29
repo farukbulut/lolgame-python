@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="hero">
-        <p>{% trans 'Difficulty' %}: <span class="highlight">{{ difficulty|title }}</span></p>
+        <p>{% trans 'Difficulty' %}: <span class="highlight">{{ difficulty_title }}</span></p>
         {% if user_name %}
         <p>{% trans 'Player' %}: <span class="highlight">{{ user_name }}</span></p>
         {% endif %}

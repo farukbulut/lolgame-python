@@ -131,6 +131,7 @@ def games(request):
     return render(request, 'champion_game.html', {
         'title': _('Guess the Champion'),
         'difficulty': difficulty,
+        'difficulty_title': _(difficulty),
         'max_attempts': max_attempts,
         'game_id': game.id if game else None,
         'attempts_used': attempts_used,
