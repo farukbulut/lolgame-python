@@ -3,18 +3,11 @@ from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from frontend.controller import index
 
+
 # API ve dil öneki olmayan URL'ler
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),  # Dil değiştirme görünümü
-
-    # API endpoint'leri - dil öneki OLMADAN
-    path('api/search-champions', index.search_champions, name='search_champions'),
-    path('api/make-guess', index.make_guess, name='make_guess'),
-    path('api/new-game', index.new_game, name='new_game'),
-    path('api/game-history', index.game_history, name='game_history_api'),
-    path('api/champions', index.champions_api, name='champions_api'),
-    path('api/champion-details', index.champion_details, name='champion_details_api'),
+    path('api/', include('api.urls')),
 ]
 
 
