@@ -229,18 +229,20 @@ class ChampionRegion(models.Model):
         return f"{self.champion.name} - {self.region.name}"
 
 
+# In your models.py file
 class Ability(models.Model):
     ABILITY_KEY_CHOICES = [
-        ('P', 'Passive'),
-        ('Q', 'Q'),
-        ('W', 'W'),
-        ('E', 'E'),
-        ('R', 'R'),
+        ('passive', 'Passive'),
+        ('q', 'Q'),
+        ('w', 'W'),
+        ('e', 'E'),
+        ('r', 'R'),
+        ('other', 'Other')
     ]
 
     champion = models.ForeignKey(Champion, on_delete=models.CASCADE, related_name='abilities')
     name = models.CharField(max_length=100)
-    ability_key = models.CharField(max_length=1, choices=ABILITY_KEY_CHOICES)
+    ability_key = models.CharField(max_length=10, choices=ABILITY_KEY_CHOICES)  # Changed from max_length=1
     description = models.TextField(blank=True, null=True)
     cooldown = models.CharField(max_length=50, blank=True, null=True)
     cost = models.CharField(max_length=50, blank=True, null=True)
@@ -477,3 +479,26 @@ class ChampionGender(models.Model):
 
     def __str__(self):
         return f"{self.champion.name} - {self.gender.name}"
+
+# models.py dosyasına ekleyin
+class ChampionSkin(models.Model):
+    champion = models.ForeignKey(Champion, on_delete=models.CASCADE, related_name='skins')
+    name = models.CharField(max_length=100)  # İngilizce adı (asıl ad)
+    image_url = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('champion', 'name')
+        db_table = 'champion_skins'  # Add this line to match your database
+
+class ChampionSkinTranslation(models.Model):
+    skin = models.ForeignKey(ChampionSkin, on_delete=models.CASCADE, related_name='translations')
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('skin', 'language')
+        db_table = 'champion_skin_translations'  # Add this line to match your database

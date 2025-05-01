@@ -18,7 +18,7 @@
     <div class="search-container">
         <input type="text" id="search-input" placeholder="{% trans 'Type champion name...' %}">
         <div class="attempt-info">
-            <span class="step">{% trans 'Step' %}: <strong id="current-attempt">{{ attempts_used|add:1 }}</strong>/{{ max_attempts }}</span>
+            <span class="step">{% trans 'Step' %}: <strong id="current-attempt">{{ attempts_used|add:0 }}</strong>/{{ max_attempts }}</span>
             <span class="wrong" id="attempts-wrong">{{ attempts_used }}</span>
             <span class="correct" id="attempts-left">{{ attempts_left }}</span>
             <span class="text">{% trans 'Attempts Left' %}</span>
@@ -266,7 +266,7 @@
 
                 // Update the game state
                 gameCompleted = data.game_completed;
-                currentAttempt = data.attempts_used + 1;
+                currentAttempt = data.attempts_used;
 
                 // Update the attempt counters
                 currentAttemptEl.textContent = currentAttempt;

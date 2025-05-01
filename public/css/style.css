@@ -85,7 +85,7 @@
     }
 
     /* 5) TAHMİN TABLOSU */
-    .champion-table { max-width:1000px; margin:auto; padding:10px 20px; border-radius: 10px; border: 1px solid #d4af37;}
+    .champion-table { max-width:1000px; margin:auto; padding:15px; border-radius: 10px; border: 1px solid #d4af37;}
     .row {
         display:grid; grid-template-columns:200px repeat(7,1fr);
         gap:10px; align-items:center;
@@ -142,8 +142,7 @@
         margin-right: 5px;
     }
     .champion-detail {
-        background:#151823; border:1px solid #222;
-        border-radius:10px; overflow:hidden;
+        background:#151823; overflow:hidden;
     }
     .detail-header {
         padding:30px; text-align:left;

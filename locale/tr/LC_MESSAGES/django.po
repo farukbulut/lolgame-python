@@ -38,6 +38,45 @@ msgstr "Nasıl Oynanır"
 msgid "Game History"
 msgstr "Oyun Geçmişi"
 
+msgid "Player:"
+msgstr "Oyuncu"
+
+msgid "POINTS"
+msgstr "PUAN"
+
+msgid "History"
+msgstr "Geçmişi"
+
+msgid "Your Stats"
+msgstr "İstatistiklerin"
+
+msgid "Your Game History"
+msgstr "Oyun Geçmişin"
+
+msgid "Top Players"
+msgstr "En İyi Oyuncular"
+
+msgid "Rank"
+msgstr "Sıralama"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "Şampiyon tahmin oyununda en üst sırada kimlerin olduğunu görün!"
+
+msgid "Player"
+msgstr "Oyuncu:"
+
+msgid "View Champion"
+msgstr "Şampiyonu Görüntüle"
+
+msgid "Details"
+msgstr "Detaylar"
+
+msgid "Victory"
+msgstr "Zafer"
+
+msgid "Defeat"
+msgstr "Bozgun"
+
 msgid "Leaderboard"
 msgstr "Liderlik Tablosu"
 
@@ -134,10 +173,58 @@ msgid "View Details"
 msgstr "Detayları Görüntüle"
 
 msgid "Load More Champions"
-msgstr "Daha Fazla Şampiyon Yükle"
+msgstr "Daha Fazla Şampiyon"
+
+msgid "Games Played"
+msgstr "Oynanan Oyunlar"
+
+msgid "Games Won"
+msgstr "Kazanılan Oyunlar"
+
+msgid "Win Rate"
+msgstr "Kazanma Oranı"
+
+msgid "Total Score"
+msgstr "Toplam Puan"
+
+msgid "Average Score"
+msgstr "Ortalama Puan"
+
+msgid "Best Score"
+msgstr "En İyi Puan"
+
+msgid "Avg. Attempts"
+msgstr "Ort. Deneme Sayısı"
+
+msgid "Game Type"
+msgstr "Oyun Türü"
+
+msgid "Attempts"
+msgstr "Deneme"
+
+msgid "Score"
+msgstr "Puan"
+
+msgid "Ability"
+msgstr "Yetenek"
+
+msgid "Item"
+msgstr "Eşya"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "Oyun bulunamadı. Oyun geçmişinizi görmek için oynamaya başlayın!"
 
 msgid "Search champions..."
 msgstr "Şampiyonları ara..."
+
+msgid "Game"
+msgstr "Oyun"
+
+msgid "Loading games..."
+msgstr "Oyunlar yükleniyor..."
+
+msgid "Loading champions..."
+msgstr "Şampiyonlar yükleniyor..."
 
 #: templates/frontend/champion_game.html:15
 msgid "Type champion name..."
