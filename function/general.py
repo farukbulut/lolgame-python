@@ -4,9 +4,20 @@ from frontend.models import ChampionTranslation, GenderTranslation, PositionTran
 
 def prepare_guess_feedback(target_champion, guessed_champion, language):
     """Compare the guessed champion with the target and prepare feedback"""
+    champion_name = guessed_champion.name
+
+    if language:
+        translation = ChampionTranslation.objects.filter(
+            champion=guessed_champion,
+            language=language
+        ).first()
+
+        if translation:
+            champion_name = translation.name
+
     feedback = {
-        'champion_name': guessed_champion.name,
-        'image': f"https://wiki.leagueoflegends.com/en-us/images/thumb/{guessed_champion.name}_OriginalSquare.png/128px-{guessed_champion.name}_OriginalSquare.png?54659",
+        'champion_name': champion_name,
+        'image': guessed_champion.image_main,
     }
 
     # Release year comparison
@@ -160,9 +171,21 @@ def prepare_guess_feedback(target_champion, guessed_champion, language):
 def get_champion_details(champion, language):
     """Get detailed information about a champion"""
     # Get champion translation if available
-    name = champion.name
-    title = champion.title
-    lore = champion.lore
+
+    if language:
+        translation = ChampionTranslation.objects.filter(
+            champion=champion,
+            language=language
+        ).first()
+
+        if translation:
+            name = translation.name
+            title = translation.title
+            lore = translation.title
+    else:
+        name = champion.name
+        title = champion.title
+        lore = champion.lore
 
     if language:
         translation = ChampionTranslation.objects.filter(
@@ -248,8 +271,8 @@ def get_champion_details(champion, language):
         'name': name,
         'title': title,
         'lore': lore,
-        'image_main': f"https://wiki.leagueoflegends.com/en-us/images/thumb/{name}_OriginalSquare.png/128px-{name}_OriginalSquare.png?54659",
-        'splash_art': f"https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_0.jpg",
+        'image_main': champion.image_main,
+        'splash_art': champion.splash_art,
         'release_year': champion.release_year,
         'gender': gender_name,
         'resource': resource_name,
@@ -348,7 +371,8 @@ def get_champion_summary(champion, language):
         'id': champion.id,
         'name': name,
         'title': title,
-        'image': f"https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{name}_0.jpg",
+        'image': champion.splash_art,
+        'slug': champion.slug,
         'position': position,
         'region': region,
         'gender': gender,

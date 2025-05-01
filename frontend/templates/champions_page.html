@@ -2,10 +2,6 @@
 {% load static %}
 {% load i18n %}
 
-{% block page_title %}
-    {{ title }}
-{% endblock %}
-
 {% block content %}
 <div class="hero">
     <h1>{% trans 'Champions' %}</h1>
@@ -204,7 +200,7 @@
     const resourceFilter = document.getElementById('resource-filter');
     const combatRangeFilter = document.getElementById('combat-range-filter');
     const genderFilter = document.getElementById('gender-filter');
-
+    const currentLanguage = window.location.pathname.split('/')[1];
     // State variables
     let currentPage = 1;
     let totalPages = 1;
@@ -423,7 +419,7 @@
                 }
             }
 
-            const requestUrl = `/api/champions?${params.toString()}`;
+            const requestUrl = `/${currentLanguage}/api/champions?${params.toString()}`;
             console.log("Requesting URL:", requestUrl);
 
             const response = await fetch(requestUrl);
@@ -483,6 +479,10 @@
         loadChampions();
     }
 
+     window.appUrls = {
+        championDetail: "{% url 'champion_detail' champion_slug='PLACEHOLDER' %}".replace('PLACEHOLDER', '')
+     };
+
     function createChampionCard(champion) {
         const card = document.createElement('div');
         card.className = 'champion-card';
@@ -513,7 +513,7 @@
                     ${champion.region ? `<div class="attribute"><i class="fas fa-globe-americas"></i> ${champion.region}</div>` : ''}
                     ${champion.release_year ? `<div class="attribute"><i class="fas fa-calendar-alt"></i> ${champion.release_year}</div>` : ''}
                 </div>
-                <button class="btn-view-details" data-id="${champion.id}">{% trans "View Details" %}</button>
+                <a href="${window.appUrls.championDetail}${champion.slug}" class="btn-view-details" data-id="${champion.id}">{% trans "View Details" %}</a>
             </div>
         `;
 
@@ -913,6 +913,10 @@
         cursor: pointer;
         transition: all 0.2s ease;
         width: 100%;
+        display: block; /* a elementini block elemente dönüştür */
+        text-align: center; /* İçeriği merkeze hizala */
+        text-decoration: none; /* Alt çizgiyi kaldır */
+        box-sizing: border-box; /* Border dahil genişlik hesaplama */
     }
     
     .btn-view-details:hover {

@@ -17,217 +17,402 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: frontend/controller/index.py:18
+
 msgid "LoL Champion Guessing Game"
-msgstr ""
+msgstr "LoL Kampioen Raadspel"
 
-#: frontend/controller/index.py:70
 msgid "Guess the Champion"
-msgstr ""
+msgstr "Raad de Kampioen"
 
-#: frontend/controller/index.py:80 frontend/templates/partial/base.html:24
-msgid "How to Play"
-msgstr ""
+msgid "CHAMPION"
+msgstr "KAMPIOEN"
 
-#: frontend/templates/champion_game.html:11
-#: frontend/templates/champion_game.html:236
+msgid "Games"
+msgstr "Spellen"
+
+msgid "How To Play"
+msgstr "Hoe te Spelen"
+
+msgid "Game History"
+msgstr "Spelgeschiedenis"
+
+msgid "Player:"
+msgstr "Speler:"
+
+msgid "POINTS"
+msgstr "PUNTEN"
+
+msgid "History"
+msgstr "Geschiedenis"
+
+msgid "Your Stats"
+msgstr "Jouw Statistieken"
+
+msgid "Your Game History"
+msgstr "Jouw Spelgeschiedenis"
+
+msgid "Top Players"
+msgstr "Topspelers"
+
+msgid "Rank"
+msgstr "Rang"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "Bekijk wie bovenaan staat in het kampioen raadspel!"
+
+msgid "Player"
+msgstr "Speler"
+
+msgid "View Champion"
+msgstr "Bekijk Kampioen"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Victory"
+msgstr "Overwinning"
+
+msgid "Defeat"
+msgstr "Nederlaag"
+
+msgid "Leaderboard"
+msgstr "Ranglijst"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Average"
+msgstr "Gemiddeld"
+
+msgid "Total"
+msgstr "Totaal"
+
+msgid "points"
+msgstr "punten"
+
+msgid "View Leaderboard"
+msgstr "Bekijk Ranglijst"
+
+msgid "Gender"
+msgstr "Geslacht"
+
+msgid "Resource"
+msgstr "Bron"
+
+msgid "PREDICTION GAME"
+msgstr "VOORSPELLINGSPEL"
+
 msgid "Champion"
-msgstr ""
+msgstr "Kampioen"
 
-#: frontend/templates/champion_game.html:11
+msgid "Champions"
+msgstr "Kampioenen"
+
 msgid "Guessing"
-msgstr ""
+msgstr "Raden"
 
-#: frontend/templates/champion_game.html:12
 msgid "Difficulty"
-msgstr ""
+msgstr "Moeilijkheid"
 
-#: frontend/templates/champion_game.html:17
-msgid "Type champion name..."
-msgstr ""
+msgid "easy"
+msgstr "gemakkelijk"
 
-#: frontend/templates/champion_game.html:19
-msgid "Step"
-msgstr ""
+msgid "medium"
+msgstr "gemiddeld"
 
-#: frontend/templates/champion_game.html:22
-msgid "Attempts Left"
-msgstr ""
+msgid "hard"
+msgstr "moeilijk"
 
-#: frontend/templates/champion_game.html:30
-msgid "Champion not found."
-msgstr ""
+msgid "Showing"
+msgstr "Weergeven"
 
-#: frontend/templates/champion_game.html:37
-msgid "No guesses yet. Start typing a champion name!"
-msgstr ""
-
-#: frontend/templates/champion_game.html:43
-msgid "Correct"
-msgstr ""
-
-#: frontend/templates/champion_game.html:44
-msgid "Wrong"
-msgstr ""
-
-#: frontend/templates/champion_game.html:45
-msgid "Higher"
-msgstr ""
-
-#: frontend/templates/champion_game.html:46
-msgid "Lower"
-msgstr ""
-
-#: frontend/templates/champion_game.html:54
-msgid "Play Again"
-msgstr ""
-
-#: frontend/templates/champion_game.html:244
-#: frontend/templates/champion_game.html:308
-msgid "Position"
-msgstr ""
-
-#: frontend/templates/champion_game.html:249
-#: frontend/templates/champion_game.html:309
-msgid "Species"
-msgstr ""
-
-#: frontend/templates/champion_game.html:254
-#: frontend/templates/champion_game.html:310
-msgid "Range"
-msgstr ""
-
-#: frontend/templates/champion_game.html:259
-#: frontend/templates/champion_game.html:311
-msgid "Region"
-msgstr ""
-
-#: frontend/templates/champion_game.html:271
-#: frontend/templates/champion_game.html:312
-msgid "Release"
-msgstr ""
-
-#: frontend/templates/home/home.html:8
-msgid "Can you guess the League of Legends champion?"
-msgstr ""
-
-#: frontend/templates/home/home.html:12 frontend/templates/how_to_play.html:17
-msgid "Select Difficulty"
-msgstr ""
-
-#: frontend/templates/home/home.html:16
-msgid "Easy"
-msgstr ""
-
-#: frontend/templates/home/home.html:17 frontend/templates/home/home.html:22
-#: frontend/templates/home/home.html:27
-msgid "attempts"
-msgstr ""
-
-#: frontend/templates/home/home.html:21
-msgid "Medium"
-msgstr ""
-
-#: frontend/templates/home/home.html:26
-msgid "Hard"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:11
-msgid "How to"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:11
-#: frontend/templates/partial/base.html:23
-msgid "Play"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:18
-msgid ""
-"Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:23
 msgid "Guess a Champion"
-msgstr ""
+msgstr "Raad een Kampioen"
 
-#: frontend/templates/how_to_play.html:24
-msgid ""
-"Type a champion name and select from the dropdown or press the search button"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:29
-msgid "Check the Feedback"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:30
-msgid "After each guess, you\\"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:32
-msgid "Green means correct"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:33
-msgid "Yellow means wrong"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:34
-msgid "Blue means the target value is higher"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:35
-msgid "Purple means the target value is lower"
-msgstr ""
-
-#: frontend/templates/how_to_play.html:41
 msgid "Win or Lose"
-msgstr ""
+msgstr "Winnen of Verliezen"
 
-#: frontend/templates/how_to_play.html:42
-msgid ""
-"You win if you guess the correct champion before running out of attempts"
-msgstr ""
+msgid "Check the Feedback"
+msgstr "Bekijk de Feedback"
 
-#: frontend/templates/how_to_play.html:45
+msgid "Overview"
+msgstr "Overzicht"
+
+msgid "Abilities"
+msgstr "Vaardigheden"
+
+msgid "Skins"
+msgstr "Skins"
+
+msgid "Think you know this champion?"
+msgstr "Denk je dat je deze kampioen kent?"
+
+msgid "Combat Range"
+msgstr "Gevechtsbereik"
+
+msgid "Release Year"
+msgstr "Uitgavejaar"
+
+msgid "of"
+msgstr "van"
+
+msgid "champions"
+msgstr "kampioenen"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "Ontdek alle League of Legends-kampioenen en hun details"
+
+msgid "Sort by:"
+msgstr "Sorteren op:"
+
+msgid "Name (A-Z)"
+msgstr "Naam (A-Z)"
+
+msgid "Name (Z-A)"
+msgstr "Naam (Z-A)"
+
+msgid "Newest First"
+msgstr "Nieuwste Eerst"
+
+msgid "Oldest First"
+msgstr "Oudste Eerst"
+
+msgid "Easiest First"
+msgstr "Gemakkelijkste Eerst"
+
+msgid "Hardest First"
+msgstr "Moeilijkste Eerst"
+
+msgid "View Details"
+msgstr "Bekijk Details"
+
+msgid "Load More Champions"
+msgstr "Meer Kampioenen Laden"
+
+msgid "Games Played"
+msgstr "Gespeelde Spellen"
+
+msgid "Games Won"
+msgstr "Gewonnen Spellen"
+
+msgid "Win Rate"
+msgstr "Winstpercentage"
+
+msgid "Total Score"
+msgstr "Totale Score"
+
+msgid "Average Score"
+msgstr "Gemiddelde Score"
+
+msgid "Best Score"
+msgstr "Beste Score"
+
+msgid "Avg. Attempts"
+msgstr "Gemiddeld Aantal Pogingen"
+
+msgid "Game Type"
+msgstr "Speltype"
+
+msgid "Attempts"
+msgstr "Pogingen"
+
+msgid "Score"
+msgstr "Score"
+
+msgid "Ability"
+msgstr "Vaardigheid"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "Geen spellen gevonden. Begin met spelen om je spelgeschiedenis te bekijken!"
+
+msgid "Search champions..."
+msgstr "Zoek kampioenen..."
+
+msgid "Game"
+msgstr "Spel"
+
+msgid "Loading games..."
+msgstr "Spellen laden..."
+
+msgid "Loading champions..."
+msgstr "Kampioenen laden..."
+
+msgid "Type champion name..."
+msgstr "Typ de naam van een kampioen..."
+
+msgid "Step"
+msgstr "Stap"
+
+msgid "Attempts Left"
+msgstr "Pogingen Over"
+
+msgid "Champion not found."
+msgstr "Kampioen niet gevonden."
+
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "Nog geen pogingen. Begin met het typen van een kampioen!"
+
+msgid "Correct"
+msgstr "Correct"
+
+msgid "Wrong"
+msgstr "Fout"
+
+msgid "Higher"
+msgstr "Hoger"
+
+msgid "Lower"
+msgstr "Lager"
+
+msgid "Play Again"
+msgstr "Opnieuw Spelen"
+
+msgid "Can you guess the League of Legends champion?"
+msgstr "Kun jij de League of Legends-kampioen raden?"
+
+msgid "Select Difficulty"
+msgstr "Selecteer Moeilijkheid"
+
+msgid "Easy"
+msgstr "Gemakkelijk"
+
+msgid "attempts"
+msgstr "pogingen"
+
+msgid "Medium"
+msgstr "Gemiddeld"
+
+msgid "Hard"
+msgstr "Moeilijk"
+
+msgid "How to"
+msgstr "Hoe"
+
+msgid "Play"
+msgstr "Spelen"
+
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "Kies tussen Gemakkelijk (10 pogingen), Gemiddeld (8 pogingen) of Moeilijk (6 pogingen)"
+
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "Typ een kampioensnaam en selecteer uit de lijst of druk op de zoekknop"
+
+msgid "After each guess, you'll see colored indicators:"
+msgstr "Na elke gok zie je gekleurde indicatoren:"
+
+msgid "Green means correct"
+msgstr "Groen betekent correct"
+
+msgid "Yellow means wrong"
+msgstr "Geel betekent fout"
+
+msgid "Blue means the target value is higher"
+msgstr "Blauw betekent dat de doelwaarde hoger is"
+
+msgid "Purple means the target value is lower"
+msgstr "Paars betekent dat de doelwaarde lager is"
+
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "Je wint als je de juiste kampioen raadt voordat je pogingen op zijn"
+
 msgid "Play Now"
-msgstr ""
+msgstr "Nu Spelen"
 
-#: lolgame/settings.py:134
 msgid "English"
-msgstr ""
+msgstr "Engels"
 
-#: lolgame/settings.py:135
 msgid "German"
-msgstr ""
+msgstr "Duits"
 
-#: lolgame/settings.py:136
 msgid "Turkish"
-msgstr ""
+msgstr "Turks"
 
-#: lolgame/settings.py:137
 msgid "Spanish"
-msgstr ""
+msgstr "Spaans"
 
-#: lolgame/settings.py:138
 msgid "Italian"
-msgstr ""
+msgstr "Italiaans"
 
-#: lolgame/settings.py:139
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlands"
 
-#: lolgame/settings.py:140
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugees"
 
-#: lolgame/settings.py:141
 msgid "French"
-msgstr ""
+msgstr "Frans"
 
-#: lolgame/settings.py:142
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
-#: lolgame/settings.py:143
 msgid "Brazilian Portuguese"
-msgstr ""
+msgstr "Braziliaans Portugees"
+
+msgid "Position"
+msgstr "Positie"
+
+msgid "Species"
+msgstr "Soort"
+
+msgid "Range"
+msgstr "Bereik"
+
+msgid "Region"
+msgstr "Regio"
+
+msgid "Release"
+msgstr "Uitgave"
+
+msgid "Biography"
+msgstr "Biografie"
+
+msgid "Champion Info"
+msgstr "Informatie over Kampioen"
+
+msgid "Home"
+msgstr "Startpagina"
+
+msgid "LoL Champion Details"
+msgstr "LoL Kampioen Details"
+
+msgid "Main Site Title"
+msgstr "LoL Kampioen Raadspel | Het Leukste League of Legends Quiz"
+
+msgid "Main Site Desc"
+msgstr "Test je kennis van League of Legends! Raad kampioenen met hints, verhoog je score en klim naar de top van de ranglijst!"
+
+msgid "Game Page Title"
+msgstr "Raad de LoL Kampioen | Gratis League of Legends Quiz"
+
+msgid "Game Page Desc"
+msgstr "Test je LoL-kennis! Raad kampioenen met aanwijzingen, verhoog je score en neem het op tegen andere fans. Speel nu gratis!"
+
+msgid "HowToPlay Page Title"
+msgstr "Hoe Speel Je het LoL Kampioen Raadspel? | Regels & Tips"
+
+msgid "HowToPlay Page Desc"
+msgstr "Leer hoe je het LoL kampioen raadspel speelt. Ontdek moeilijkheidsgraden, aanwijzingen, pogingen en het klassementsysteem."
+
+msgid "GameHistory Page Title"
+msgstr "LoL Kampioen Raadspel Geschiedenis | Bekijk Al Je Spellen"
+
+msgid "GameHistory Page Desc"
+msgstr "Bekijk je spelgeschiedenis van het LoL raadspel. Zie je overwinningen, scores en beste prestaties!"
+
+msgid "Leaderboard Page Title"
+msgstr "LoL Kampioen Raadspel Ranglijst | Topspelers"
+
+msgid "Leaderboard Page Desc"
+msgstr "Bekijk wie de hoogste scores behaalde in het LoL raadspel. Wie staat bovenaan? Bekijk nu de ranglijst!"
+
+msgid "Champions Page Title"
+msgstr "Alle LoL Kampioenen | Overzicht & Details van League of Legends Kampioenen"
+
+msgid "Champions Page Desc"
+msgstr "Ontdek alle kampioenen uit het League of Legends-universum. Bekijk vaardigheden, moeilijkheidsgraden, release data en meer!"

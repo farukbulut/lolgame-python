@@ -264,7 +264,7 @@ def update_champion_abilities(champion, language, champion_details):
 
                     img_downloaded = download_file(image_url, image_path)
                     if img_downloaded:
-                        ability.image_url = image_path
+                        ability.image_url = "/"+image_path
                         ability.save(update_fields=['image_url'])
                         print(f"✓ Saved ability image: {image_path}")
 
@@ -720,7 +720,7 @@ def update_champion_skins(champion, champion_details, is_primary=False):
                         champion=champion,
                         name=skin_name,
                         defaults={
-                            'image_url': file_path  # Use local path
+                            'image_url': "/" + file_path  # Use local path
                         }
                     )
 
@@ -761,103 +761,47 @@ def update_champion_skins(champion, champion_details, is_primary=False):
     return added_skins
 
 
-# Geliştirilmiş yetenek anahtarı normalizasyonu - Asya dillerini destekleyen versiyon
 def normalize_ability_key(ability_key_raw, language_code=None):
-    """Yetenek anahtarını standart forma dönüştürür (Çoklu dil desteği ile)"""
-
-    # Önce büyük harfe çevir ve boşlukları temizle
+    """Geliştirilmiş yetenek anahtarı normalizasyonu, özellikle Çince ve Japonca desteği."""
     ability_key_raw = ability_key_raw.upper().strip()
 
-    # P (Pasif) için kontrol - tüm dilleri kapsayacak şekilde
-    passive_patterns = [
-        # Latin alfabesi
-        'P', 'PAS', 'PASSIVE', 'PASSIF', 'PASIF', 'PASİF', 'PASIVA', 'PASSIVA',
-        # Çince (Basitleştirilmiş ve Geleneksel)
-        '被动', '被動', '天賦', '天赋',
-        # Japonca
-        'パッシブ', 'パシブ', '受動的',
-        # Korece
-        '패시브', '기본지속효과',
+    mapping = {
+        'P': ['P', 'PASSIVE', '被动', '被動', '天赋', '天賦', 'パッシブ', 'パシブ', '固有能力', '패시브', '기본지속효과', 'ПАССИВ'],
+        'Q': ['Q', 'Q技能', '快捷键：Q', 'Qスキル', 'Qスキル', 'Q技', 'К'],
+        'W': ['W', 'W技能', '快捷键：W', 'Wスキル', 'Wスキル', 'W技', 'В'],
+        'E': ['E', 'E技能', '快捷键：E', 'Eスキル', 'Eスキル', 'E技', 'Е'],
+        'R': ['R', 'R技能', '快捷键：R', 'Rスキル', 'Rスキル', 'R技', '终极技能', '終極技能', '大招', 'アルティメット', '궁극기', 'УЛЬТ', 'УЛЬТИМЕЙТ', 'Р']
+    }
 
-        'パッシブ', 'パシブ', '受動的', '固有能力',
-        # Rusça
-        'ПАССИВНАЯ', 'ПАССИВ'
-    ]
+    # Direkt eşleşme kontrolü
+    for key, patterns in mapping.items():
+        if any(pattern.upper() in ability_key_raw for pattern in patterns):
+            return key
 
-    # Q için kontrol
-    q_patterns = [
-        'Q', 'Q技能', 'Q技', 'Qスキル', 'Q스킬', 'К',  'Q', 'Q技能', 'Q技', 'Qスキル', 'Q스킬', 'К'
-    ]
-
-    # W için kontrol
-    w_patterns = [
-        'W', 'W技能', 'W技', 'Wスキル', 'W스킬', 'В'
-    ]
-
-    # E için kontrol
-    e_patterns = [
-        'E', 'E技能', 'E技', 'Eスキル', 'E스킬', 'Е'
-    ]
-
-    # R (Ultimate) için kontrol
-    ultimate_patterns = [
-        'R', 'ULT', 'ULTIMATE', 'ULTIME', 'DEFINITIVO',
-        # Çince
-        'R技能', 'R技', '大招', '终极技能', '終極技能',
-        # Japonca
-        'アルティメット', 'Rスキル', 'スキル', '必殺技',
-        # Korece
-        '궁극기', 'R스킬', '궁극',
-        # Rusça
-        'УЛЬТА', 'УЛЬТИМЕЙТ', 'Р'
-    ]
-
-    # Her bir pattern listesi için kontrol et
-    for pattern in passive_patterns:
-        if pattern in ability_key_raw:
-            return 'P'
-
-    for pattern in q_patterns:
-        if pattern in ability_key_raw:
-            return 'Q'
-
-    for pattern in w_patterns:
-        if pattern in ability_key_raw:
-            return 'W'
-
-    for pattern in e_patterns:
-        if pattern in ability_key_raw:
-            return 'E'
-
-    for pattern in ultimate_patterns:
-        if pattern in ability_key_raw:
-            return 'R'
-
-    # Dil bazlı pozisyonel kontrol
-    # Eğer dil kodu sağlanmışsa ve anahtar sadece 1 karakterse
-    if language_code and len(ability_key_raw) == 1:
-        # Rusça için Кириллик karakterleri kontrol et
-        if language_code in ['ru', 'ru-ru']:
-            russian_map = {'К': 'Q', 'В': 'W', 'Е': 'E', 'Р': 'R'}
-            if ability_key_raw in russian_map:
-                return russian_map[ability_key_raw]
-
-        # Çince için pozisyon bazlı kontrol
-        if language_code in ['zh-cn', 'zh-tw', 'zh']:
-            # Çince'de genellikle 1, 2, 3, 4 sıralaması kullanılır
-            position_map = {'1': 'Q', '2': 'W', '3': 'E', '4': 'R'}
-            if ability_key_raw in position_map:
-                return position_map[ability_key_raw]
-
-    # Hiçbir pattern eşleşmezse, kontrol et - belki sayısal değerdir
-    # Bazı diller 1,2,3,4 sıralaması kullanır
-    if ability_key_raw.isdigit():
-        # Varsayalım ki 1=Q, 2=W, 3=E, 4=R
+    # Çince özel pozisyonel kontrol
+    if language_code in ['zh-cn', 'zh-tw', 'zh']:
         position_map = {'1': 'Q', '2': 'W', '3': 'E', '4': 'R'}
         if ability_key_raw in position_map:
             return position_map[ability_key_raw]
 
-    # Hala eşleşme yoksa, bilinmeyen yetenek
+    # Japonca için sayı ile ifade edilen durumlar varsa
+    if language_code in ['ja', 'jp']:
+        position_map_jp = {'1': 'Q', '2': 'W', '3': 'E', '4': 'R'}
+        if ability_key_raw in position_map_jp:
+            return position_map_jp[ability_key_raw]
+
+    # Rusça için Kiril harfleri
+    if language_code == 'ru':
+        russian_map = {'К': 'Q', 'В': 'W', 'Е': 'E', 'Р': 'R'}
+        if ability_key_raw in russian_map:
+            return russian_map[ability_key_raw]
+
+    # Sayısal kontrol (genel fallback)
+    numeric_map = {'1': 'Q', '2': 'W', '3': 'E', '4': 'R'}
+    if ability_key_raw in numeric_map:
+        return numeric_map[ability_key_raw]
+
+    # Hiçbir eşleşme olmazsa bilinmeyen yetenek olarak dön
     return 'O'
 
 
@@ -934,7 +878,7 @@ def update_champion_media(champion, champion_details):
 
         try:
             # Explicitly update the image_main field
-            champion.image_main = icon_path
+            champion.image_main = "/"+icon_path
             champion.save(update_fields=['image_main'])
             print(f"✓ Updated champion.image_main: {icon_path}")
 
@@ -975,7 +919,7 @@ def update_champion_media(champion, champion_details):
                     }
 
                     # Update database
-                    champion.splash_art = splash_path
+                    champion.splash_art = "/" + splash_path
                     champion.save(update_fields=['splash_art'])
                     print(f"✓ Updated champion splash art: {splash_path}")
                 else:

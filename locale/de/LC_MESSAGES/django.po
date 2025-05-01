@@ -1,0 +1,415 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:45+0000\n"
+"PO-Revision-Date: 2025-05-01 12:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "LoL Champion Guessing Game"
+msgstr "LoL Champion-Ratespiel"
+
+msgid "Guess the Champion"
+msgstr "Rate den Champion"
+
+msgid "CHAMPION"
+msgstr "CHAMPION"
+
+msgid "Games"
+msgstr "Spiele"
+
+msgid "How To Play"
+msgstr "Spielanleitung"
+
+msgid "Game History"
+msgstr "Spielverlauf"
+
+msgid "Player:"
+msgstr "Spieler:"
+
+msgid "POINTS"
+msgstr "PUNKTE"
+
+msgid "History"
+msgstr "Verlauf"
+
+msgid "Your Stats"
+msgstr "Deine Statistik"
+
+msgid "Your Game History"
+msgstr "Dein Spielverlauf"
+
+msgid "Top Players"
+msgstr "Top-Spieler"
+
+msgid "Rank"
+msgstr "Rang"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "Sieh dir an, wer im Champion-Ratespiel ganz oben steht!"
+
+msgid "Player"
+msgstr "Spieler"
+
+msgid "View Champion"
+msgstr "Champion anzeigen"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Victory"
+msgstr "Sieg"
+
+msgid "Defeat"
+msgstr "Niederlage"
+
+msgid "Leaderboard"
+msgstr "Bestenliste"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Average"
+msgstr "Durchschnitt"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "points"
+msgstr "Punkte"
+
+msgid "View Leaderboard"
+msgstr "Bestenliste anzeigen"
+
+msgid "Gender"
+msgstr "Geschlecht"
+
+msgid "Resource"
+msgstr "Ressource"
+
+msgid "PREDICTION GAME"
+msgstr "VORHERSAGESPIEL"
+
+msgid "How to Play"
+msgstr "Wie man spielt"
+
+msgid "Champion"
+msgstr "Champion"
+
+msgid "Champions"
+msgstr "Champions"
+
+msgid "Guessing"
+msgstr "Raten"
+
+msgid "Difficulty"
+msgstr "Schwierigkeit"
+
+msgid "easy"
+msgstr "einfach"
+
+msgid "medium"
+msgstr "mittel"
+
+msgid "hard"
+msgstr "schwierig"
+
+msgid "Showing"
+msgstr "Anzeigen"
+
+msgid "Guess a Champion"
+msgstr "Rate einen Champion"
+
+msgid "Win or Lose"
+msgstr "Gewinnen oder Verlieren"
+
+msgid "Check the Feedback"
+msgstr "Feedback prüfen"
+
+msgid "Overview"
+msgstr "Übersicht"
+
+msgid "Abilities"
+msgstr "Fähigkeiten"
+
+msgid "Skins"
+msgstr "Skins"
+
+msgid "Think you know this champion?"
+msgstr "Glaubst du, diesen Champion zu kennen?"
+
+msgid "Combat Range"
+msgstr "Kampfreichweite"
+
+msgid "Release Year"
+msgstr "Erscheinungsjahr"
+
+msgid "of"
+msgstr "von"
+
+msgid "champions"
+msgstr "Champions"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "Entdecke alle League of Legends Champions und ihre Details"
+
+msgid "Sort by:"
+msgstr "Sortieren nach:"
+
+msgid "Name (A-Z)"
+msgstr "Name (A-Z)"
+
+msgid "Name (Z-A)"
+msgstr "Name (Z-A)"
+
+msgid "Newest First"
+msgstr "Neueste zuerst"
+
+msgid "Oldest First"
+msgstr "Älteste zuerst"
+
+msgid "Easiest First"
+msgstr "Einfachste zuerst"
+
+msgid "Hardest First"
+msgstr "Schwierigste zuerst"
+
+msgid "View Details"
+msgstr "Details anzeigen"
+
+msgid "Load More Champions"
+msgstr "Mehr Champions laden"
+
+msgid "Games Played"
+msgstr "Gespielte Spiele"
+
+msgid "Games Won"
+msgstr "Gewonnene Spiele"
+
+msgid "Win Rate"
+msgstr "Gewinnrate"
+
+msgid "Total Score"
+msgstr "Gesamtpunktzahl"
+
+msgid "Average Score"
+msgstr "Durchschnittliche Punktzahl"
+
+msgid "Best Score"
+msgstr "Beste Punktzahl"
+
+msgid "Avg. Attempts"
+msgstr "Durchschn. Versuche"
+
+msgid "Game Type"
+msgstr "Spieltyp"
+
+msgid "Attempts"
+msgstr "Versuche"
+
+msgid "Score"
+msgstr "Punkte"
+
+msgid "Ability"
+msgstr "Fähigkeit"
+
+msgid "Item"
+msgstr "Gegenstand"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "Keine Spiele gefunden. Starte ein Spiel, um deinen Verlauf zu sehen!"
+
+msgid "Search champions..."
+msgstr "Champions suchen..."
+
+msgid "Game"
+msgstr "Spiel"
+
+msgid "Loading games..."
+msgstr "Spiele werden geladen..."
+
+msgid "Loading champions..."
+msgstr "Champions werden geladen..."
+
+msgid "Type champion name..."
+msgstr "Champion-Name eingeben..."
+
+msgid "Step"
+msgstr "Schritt"
+
+msgid "Attempts Left"
+msgstr "Verbleibende Versuche"
+
+msgid "Champion not found."
+msgstr "Champion nicht gefunden."
+
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "Noch keine Vermutungen. Gib einen Champion-Namen ein!"
+
+msgid "Correct"
+msgstr "Richtig"
+
+msgid "Wrong"
+msgstr "Falsch"
+
+msgid "Higher"
+msgstr "Höher"
+
+msgid "Lower"
+msgstr "Niedriger"
+
+msgid "Play Again"
+msgstr "Erneut spielen"
+
+msgid "Can you guess the League of Legends champion?"
+msgstr "Kannst du den League of Legends Champion erraten?"
+
+msgid "Select Difficulty"
+msgstr "Schwierigkeit auswählen"
+
+msgid "Easy"
+msgstr "Einfach"
+
+msgid "attempts"
+msgstr "Versuche"
+
+msgid "Medium"
+msgstr "Mittel"
+
+msgid "Hard"
+msgstr "Schwierig"
+
+msgid "How to"
+msgstr "Wie man"
+
+msgid "Play"
+msgstr "spielt"
+
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "Wähle zwischen Einfach (10 Versuche), Mittel (8 Versuche) oder Schwierig (6 Versuche)"
+
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "Gib einen Champion-Namen ein und wähle aus der Liste oder drücke die Such-Taste"
+
+msgid "After each guess, you'll see colored indicators:"
+msgstr "Nach jedem Versuch siehst du farbige Indikatoren:"
+
+msgid "Green means correct"
+msgstr "Grün bedeutet richtig"
+
+msgid "Yellow means wrong"
+msgstr "Gelb bedeutet falsch"
+
+msgid "Blue means the target value is higher"
+msgstr "Blau bedeutet, der Zielwert ist höher"
+
+msgid "Purple means the target value is lower"
+msgstr "Lila bedeutet, der Zielwert ist niedriger"
+
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "Du gewinnst, wenn du den richtigen Champion errätst, bevor deine Versuche aufgebraucht sind"
+
+msgid "Play Now"
+msgstr "Jetzt spielen"
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Turkish"
+msgstr "Türkisch"
+
+msgid "Spanish"
+msgstr "Spanisch"
+
+msgid "Italian"
+msgstr "Italienisch"
+
+msgid "Dutch"
+msgstr "Niederländisch"
+
+msgid "Portuguese"
+msgstr "Portugiesisch"
+
+msgid "French"
+msgstr "Französisch"
+
+msgid "Russian"
+msgstr "Russisch"
+
+msgid "Brazilian Portuguese"
+msgstr "Brasilianisches Portugiesisch"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Species"
+msgstr "Spezies"
+
+msgid "Range"
+msgstr "Reichweite"
+
+msgid "Region"
+msgstr "Region"
+
+msgid "Release"
+msgstr "Veröffentlichung"
+
+msgid "Biography"
+msgstr "Biografie"
+
+msgid "Champion Info"
+msgstr "Champion-Info"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "LoL Champion Details"
+msgstr "LoL Champion-Details"
+
+msgid "Main Site Title"
+msgstr "LoL Champion Ratespiel | Das unterhaltsamste League of Legends Quiz"
+
+msgid "Main Site Desc"
+msgstr "Teste dein Wissen über League of Legends! Rate Champions anhand von Hinweisen, steigere deine Punktzahl und erklimme die Rangliste!"
+
+msgid "Game Page Title"
+msgstr "LoL Champion Raten | Kostenloses League of Legends Quizspiel"
+
+msgid "Game Page Desc"
+msgstr "Teste dein LoL-Wissen! Rate Champions anhand von Hinweisen, verbessere deine Punktzahl und tritt gegen andere Fans an. Jetzt kostenlos spielen!"
+
+msgid "HowToPlay Page Title"
+msgstr "Wie spielt man das LoL Champion Ratespiel? | Regeln & Tipps"
+
+msgid "HowToPlay Page Desc"
+msgstr "Erfahre, wie das LoL Champion Ratespiel funktioniert. Infos zu Schwierigkeitsgraden, Hinweisen, Versuchen und dem Ranglistensystem."
+
+msgid "GameHistory Page Title"
+msgstr "LoL Champion Ratespiel Verlauf | Alle Deine Spiele ansehen"
+
+msgid "GameHistory Page Desc"
+msgstr "Sieh dir deinen Verlauf im LoL Ratespiel an. Finde heraus, welche Spiele du gewonnen hast, deine Punktzahlen und Bestleistungen."
+
+msgid "Leaderboard Page Title"
+msgstr "LoL Champion Ratespiel Rangliste | Beste Spieler"
+
+msgid "Leaderboard Page Desc"
+msgstr "Sieh dir an, wer im LoL Champion Ratespiel die höchsten Punktzahlen erreicht hat. Wer ist an der Spitze? Jetzt Rangliste prüfen!"
+
+msgid "Champions Page Title"
+msgstr "Alle LoL Champions | Liste und Details zu League of Legends Champions"
+
+msgid "Champions Page Desc"
+msgstr "Entdecke alle Champions im League of Legends-Universum. Fähigkeiten, Schwierigkeitsgrade, Veröffentlichungsdaten und mehr!"

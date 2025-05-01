@@ -18,194 +18,401 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: frontend/controller/index.py:20
 msgid "LoL Champion Guessing Game"
-msgstr "Игра в Угадывание Чемпионов LoL"
+msgstr "Игра Угадай Чемпиона LoL"
 
-#: frontend/controller/index.py:59
 msgid "Guess the Champion"
 msgstr "Угадай Чемпиона"
 
-#: frontend/controller/index.py:70
-msgid "How to Play"
+msgid "CHAMPION"
+msgstr "ЧЕМПИОН"
+
+msgid "Games"
+msgstr "Игры"
+
+msgid "How To Play"
 msgstr "Как Играть"
 
-#: templates/frontend/champion_game.html:9
+msgid "Game History"
+msgstr "История Игр"
+
+msgid "Player:"
+msgstr "Игрок:"
+
+msgid "POINTS"
+msgstr "ОЧКИ"
+
+msgid "History"
+msgstr "История"
+
+msgid "Your Stats"
+msgstr "Ваша Статистика"
+
+msgid "Your Game History"
+msgstr "Ваша История Игр"
+
+msgid "Top Players"
+msgstr "Лучшие Игроки"
+
+msgid "Rank"
+msgstr "Ранг"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "Смотрите, кто в топе игры угадай чемпиона!"
+
+msgid "Player"
+msgstr "Игрок"
+
+msgid "View Champion"
+msgstr "Просмотр Чемпиона"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "Victory"
+msgstr "Победа"
+
+msgid "Defeat"
+msgstr "Поражение"
+
+msgid "Leaderboard"
+msgstr "Таблица Лидеров"
+
+msgid "Max"
+msgstr "Макс"
+
+msgid "Min"
+msgstr "Мин"
+
+msgid "Average"
+msgstr "Среднее"
+
+msgid "Total"
+msgstr "Итого"
+
+msgid "points"
+msgstr "очков"
+
+msgid "View Leaderboard"
+msgstr "Посмотреть Таблицу Лидеров"
+
+msgid "Gender"
+msgstr "Пол"
+
+msgid "Resource"
+msgstr "Ресурс"
+
+msgid "PREDICTION GAME"
+msgstr "ИГРА НА ПРЕДСКАЗАНИЕ"
+
 msgid "Champion"
 msgstr "Чемпион"
 
-#: templates/frontend/champion_game.html:9
+msgid "Champions"
+msgstr "Чемпионы"
+
 msgid "Guessing"
 msgstr "Угадывание"
 
-#: templates/frontend/champion_game.html:10
 msgid "Difficulty"
 msgstr "Сложность"
 
-#: templates/frontend/champion_game.html:15
+msgid "easy"
+msgstr "легко"
+
+msgid "medium"
+msgstr "средне"
+
+msgid "hard"
+msgstr "сложно"
+
+msgid "Showing"
+msgstr "Показано"
+
+msgid "Guess a Champion"
+msgstr "Угадай Чемпиона"
+
+msgid "Win or Lose"
+msgstr "Победа или Поражение"
+
+msgid "Check the Feedback"
+msgstr "Проверь Обратную Связь"
+
+msgid "Overview"
+msgstr "Обзор"
+
+msgid "Abilities"
+msgstr "Способности"
+
+msgid "Skins"
+msgstr "Облики"
+
+msgid "Think you know this champion?"
+msgstr "Думаешь, ты знаешь этого чемпиона?"
+
+msgid "Combat Range"
+msgstr "Дальность Боя"
+
+msgid "Release Year"
+msgstr "Год Выхода"
+
+msgid "of"
+msgstr "из"
+
+msgid "champions"
+msgstr "чемпионов"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "Изучите всех чемпионов League of Legends и их особенности"
+
+msgid "Sort by:"
+msgstr "Сортировать по:"
+
+msgid "Name (A-Z)"
+msgstr "Имя (А-Я)"
+
+msgid "Name (Z-A)"
+msgstr "Имя (Я-А)"
+
+msgid "Newest First"
+msgstr "Сначала Новые"
+
+msgid "Oldest First"
+msgstr "Сначала Старые"
+
+msgid "Easiest First"
+msgstr "Сначала Легкие"
+
+msgid "Hardest First"
+msgstr "Сначала Сложные"
+
+msgid "View Details"
+msgstr "Просмотреть Подробности"
+
+msgid "Load More Champions"
+msgstr "Загрузить Больше Чемпионов"
+
+msgid "Games Played"
+msgstr "Сыграно Игр"
+
+msgid "Games Won"
+msgstr "Выиграно Игр"
+
+msgid "Win Rate"
+msgstr "Процент Побед"
+
+msgid "Total Score"
+msgstr "Общий Счёт"
+
+msgid "Average Score"
+msgstr "Средний Счёт"
+
+msgid "Best Score"
+msgstr "Лучший Счёт"
+
+msgid "Avg. Attempts"
+msgstr "Ср. Попыток"
+
+msgid "Game Type"
+msgstr "Тип Игры"
+
+msgid "Attempts"
+msgstr "Попытки"
+
+msgid "Score"
+msgstr "Счёт"
+
+msgid "Ability"
+msgstr "Способность"
+
+msgid "Item"
+msgstr "Предмет"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "Игры не найдены. Начните играть, чтобы увидеть свою историю!"
+
+msgid "Search champions..."
+msgstr "Поиск чемпионов..."
+
+msgid "Game"
+msgstr "Игра"
+
+msgid "Loading games..."
+msgstr "Загрузка игр..."
+
+msgid "Loading champions..."
+msgstr "Загрузка чемпионов..."
+
 msgid "Type champion name..."
 msgstr "Введите имя чемпиона..."
 
-#: templates/frontend/champion_game.html:17
 msgid "Step"
 msgstr "Шаг"
 
-#: templates/frontend/champion_game.html:19
 msgid "Attempts Left"
-msgstr "Осталось Попыток"
+msgstr "Оставшиеся Попытки"
 
-#: templates/frontend/champion_game.html:29
 msgid "Champion not found."
 msgstr "Чемпион не найден."
 
-#: templates/frontend/champion_game.html:35
 msgid "No guesses yet. Start typing a champion name!"
 msgstr "Пока нет догадок. Начните вводить имя чемпиона!"
 
-#: templates/frontend/champion_game.html:41
 msgid "Correct"
-msgstr "Верно"
+msgstr "Правильно"
 
-#: templates/frontend/champion_game.html:42
 msgid "Wrong"
-msgstr "Неверно"
+msgstr "Неправильно"
 
-#: templates/frontend/champion_game.html:43
 msgid "Higher"
 msgstr "Выше"
 
-#: templates/frontend/champion_game.html:44
 msgid "Lower"
 msgstr "Ниже"
 
-#: templates/frontend/champion_game.html:52
 msgid "Play Again"
 msgstr "Играть Снова"
 
-#: templates/frontend/home.html:9
 msgid "Can you guess the League of Legends champion?"
 msgstr "Сможешь угадать чемпиона League of Legends?"
 
-#: templates/frontend/home.html:13
 msgid "Select Difficulty"
-msgstr "Выберите Сложность"
+msgstr "Выбери Сложность"
 
-#: templates/frontend/home.html:17
 msgid "Easy"
 msgstr "Легко"
 
-#: templates/frontend/home.html:18 templates/frontend/home.html:23 templates/frontend/home.html:28
 msgid "attempts"
 msgstr "попыток"
 
-#: templates/frontend/home.html:22
 msgid "Medium"
 msgstr "Средне"
 
-#: templates/frontend/home.html:27
 msgid "Hard"
 msgstr "Сложно"
 
-#: templates/frontend/how_to_play.html:9
 msgid "How to"
 msgstr "Как"
 
-#: templates/frontend/how_to_play.html:9
 msgid "Play"
 msgstr "Играть"
 
-#: templates/frontend/how_to_play.html:15
 msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
-msgstr "Выберите между Легко (10 попыток), Средне (8 попыток) или Сложно (6 попыток)"
+msgstr "Выберите Легко (10 попыток), Средне (8 попыток) или Сложно (6 попыток)"
 
-#: templates/frontend/how_to_play.html:21
 msgid "Type a champion name and select from the dropdown or press the search button"
-msgstr "Введите имя чемпиона и выберите из выпадающего списка или нажмите кнопку поиска"
+msgstr "Введите имя чемпиона и выберите из списка или нажмите кнопку поиска"
 
-#: templates/frontend/how_to_play.html:27
 msgid "After each guess, you'll see colored indicators:"
-msgstr "После каждой догадки вы увидите цветовые индикаторы:"
+msgstr "После каждой попытки вы увидите цветные индикаторы:"
 
-#: templates/frontend/how_to_play.html:29
 msgid "Green means correct"
-msgstr "Зеленый означает правильно"
+msgstr "Зелёный — правильно"
 
-#: templates/frontend/how_to_play.html:30
 msgid "Yellow means wrong"
-msgstr "Желтый означает неправильно"
+msgstr "Жёлтый — неправильно"
 
-#: templates/frontend/how_to_play.html:31
 msgid "Blue means the target value is higher"
-msgstr "Синий означает, что целевое значение выше"
+msgstr "Синий — значение цели выше"
 
-#: templates/frontend/how_to_play.html:32
 msgid "Purple means the target value is lower"
-msgstr "Фиолетовый означает, что целевое значение ниже"
+msgstr "Фиолетовый — значение цели ниже"
 
-#: templates/frontend/how_to_play.html:39
 msgid "You win if you guess the correct champion before running out of attempts"
-msgstr "Вы выигрываете, если угадаете правильного чемпиона до исчерпания попыток"
+msgstr "Вы победите, если угадаете чемпиона до окончания попыток"
 
-#: templates/frontend/how_to_play.html:42
 msgid "Play Now"
 msgstr "Играть Сейчас"
 
-#: templates/partial/base.html:23
 msgid "English"
 msgstr "Английский"
 
-#: templates/partial/base.html:24
 msgid "German"
 msgstr "Немецкий"
 
-#: templates/partial/base.html:25
 msgid "Turkish"
 msgstr "Турецкий"
 
-#: templates/partial/base.html:26
 msgid "Spanish"
 msgstr "Испанский"
 
-#: templates/partial/base.html:27
 msgid "Italian"
 msgstr "Итальянский"
 
-#: templates/partial/base.html:28
 msgid "Dutch"
 msgstr "Нидерландский"
 
-#: templates/partial/base.html:29
 msgid "Portuguese"
 msgstr "Португальский"
 
-#: templates/partial/base.html:30
 msgid "French"
 msgstr "Французский"
 
-#: templates/partial/base.html:31
 msgid "Russian"
 msgstr "Русский"
 
-#: templates/partial/base.html:32
 msgid "Brazilian Portuguese"
 msgstr "Бразильский Португальский"
 
-#: templates/partial/base.html:42
 msgid "Position"
 msgstr "Позиция"
 
-#: templates/partial/base.html:43
 msgid "Species"
 msgstr "Вид"
 
-#: templates/partial/base.html:44
 msgid "Range"
 msgstr "Дальность"
 
-#: templates/partial/base.html:45
 msgid "Region"
 msgstr "Регион"
 
-#: templates/partial/base.html:46
 msgid "Release"
-msgstr "Выпуск"
+msgstr "Выход"
+
+msgid "Biography"
+msgstr "Биография"
+
+msgid "Champion Info"
+msgstr "Информация о Чемпионе"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "LoL Champion Details"
+msgstr "Подробности о Чемпионе LoL"
+
+msgid "Main Site Title"
+msgstr "Игра Угадай Чемпиона LoL | Самый Весёлый Викторина по League of Legends"
+
+msgid "Main Site Desc"
+msgstr "Проверь свои знания о League of Legends! Угадывай чемпионов по подсказкам, набирай очки и поднимайся в рейтинге!"
+
+msgid "Game Page Title"
+msgstr "Угадай Чемпиона LoL | Бесплатная Викторина по League of Legends"
+
+msgid "Game Page Desc"
+msgstr "Проверь свои знания о LoL! Угадывай чемпионов по подсказкам, набирай очки и соревнуйся с другими фанатами. Играй бесплатно прямо сейчас!"
+
+msgid "HowToPlay Page Title"
+msgstr "Как играть в игру Угадай Чемпиона LoL? | Правила и Подсказки"
+
+msgid "HowToPlay Page Desc"
+msgstr "Узнайте, как играть в игру Угадай Чемпиона LoL. Уровни сложности, подсказки, количество попыток и система рейтинга."
+
+msgid "GameHistory Page Title"
+msgstr "История Игры Угадай Чемпиона LoL | Посмотреть Все Матчи"
+
+msgid "GameHistory Page Desc"
+msgstr "Просмотрите свою историю игр в угадывание чемпионов LoL. Победы, очки и лучшие результаты — всё здесь!"
+
+msgid "Leaderboard Page Title"
+msgstr "Таблица Лидеров Игры Угадай Чемпиона LoL | Топ Игроков"
+
+msgid "Leaderboard Page Desc"
+msgstr "Посмотрите, кто набрал наибольшее количество очков в игре Угадай Чемпиона. Кто на вершине? Изучите таблицу лидеров прямо сейчас!"
+
+msgid "Champions Page Title"
+msgstr "Все Чемпионы LoL | Список и Детали Чемпионов League of Legends"
+
+msgid "Champions Page Desc"
+msgstr "Исследуйте всех чемпионов во вселенной League of Legends. Способности, уровень сложности, даты выхода и многое другое!"

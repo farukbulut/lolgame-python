@@ -1,6 +1,7 @@
 from django.db.models import Min, Max, Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 import random
@@ -10,14 +11,15 @@ import uuid
 # Change this import to use frontend.models instead of lolgame.models
 from frontend.models import GameMode, Champion, Game, Language, ChampionTranslation, PositionTranslation, Guess, User, \
     UserStat, CombatRangeTranslation, RegionTranslation, SpeciesTranslation, GenderTranslation, ResourceTranslation, \
-    Region, Species, Resource, CombatRange, Gender, Position
+    Region, Species, Resource, CombatRange, Gender, Position, ChampionSkinTranslation, AbilityTranslation
 from function.general import get_champion_details, prepare_guess_feedback
 
 
 def main(request):
     """Home page view with game options"""
     return render(request, 'home/home.html', {
-        'title': _('LoL Champion Guessing Game')
+        'title': _('Main Site Title'),
+        'seo_desc': _('Main Site Desc')
     })
 
 def games(request):
@@ -129,7 +131,8 @@ def games(request):
     user_name = current_user.username if current_user else None
 
     return render(request, 'champion_game.html', {
-        'title': _('Guess the Champion'),
+        'title': _('Game Page Title'),
+        'seo_desc': _('Game Page Desc'),
         'difficulty': difficulty,
         'difficulty_title': _(difficulty),
         'max_attempts': max_attempts,
@@ -144,7 +147,8 @@ def games(request):
 def how_to_play(request):
     """How to play page"""
     return render(request, 'how_to_play.html', {
-        'title': _('How to Play')
+        'title': _('HowToPlay Page Title'),
+        'seo_desc': _('HowToPlay Page Desc')
     })
 
 
@@ -194,7 +198,8 @@ def leaderboard(request):
         user_rank = higher_scores + 1  # User's rank
 
     return render(request, 'leaderboard.html', {
-        'title': _('Leaderboard'),
+        'title': _('Leaderboard Page Title'),
+        'seo_desc': _('Leaderboard Page Desc'),
         'top_players': top_players,
         'user_stat': user_stat,
         'user_rank': user_rank,
@@ -235,7 +240,8 @@ def game_history_page(request):
         ).first()
 
     return render(request, 'game_history.html', {
-        'title': _('Game History'),
+        'title': _('GameHistory Page Title'),
+        'seo_desc': _('GameHistory Page Desc'),
         'game_type': game_type,
         'user_name': user_name,
         'user_stat': user_stat
@@ -349,7 +355,8 @@ def champions_page(request):
     champion_count = champions.count()
 
     return render(request, 'champions_page.html', {
-        'title': _('Champions'),
+        'title': _('Champions Page Title'),
+        'seo_desc': _('Champions Page Desc'),
         'positions': positions_translated,
         'regions': regions_translated,
         'species': species_translated,
@@ -359,4 +366,129 @@ def champions_page(request):
         'min_year': min_year,
         'max_year': max_year,
         'champion_count': champion_count
+    })
+
+def champion_detail(request, champion_slug):
+    """Champion detail page showing abilities, skins, and other information with SEO improvements"""
+    # Get current language
+    current_language = request.LANGUAGE_CODE
+    language = Language.objects.filter(code=current_language).first()
+
+    try:
+        # Get champion by slug
+        champion = Champion.objects.get(slug=champion_slug)
+    except Champion.DoesNotExist:
+        # If champion doesn't exist, redirect to champions page
+        return redirect('champions_page')
+
+    # Get champion details with translations
+    champion_data = get_champion_details(champion, language)
+
+    # Define the ability key order
+    ability_key_order = ['P', 'Q', 'W', 'E', 'R']
+
+    # Get champion abilities with translations, sorted in P, Q, W, E, R order
+    abilities = []
+    champion_abilities = champion.abilities.all()
+
+    # Sort abilities in the proper order
+    for key in ability_key_order:
+        for ability in champion_abilities:
+            if ability.ability_key == key:
+                ability_data = {
+                    'key': ability.ability_key,
+                    'name': ability.name,
+                    'description': ability.description,
+                    'image_url': ability.image_url,
+                    'video_url': f'/public/champions/videos/{champion.id}_{champion.name.lower().replace(" ", "_")}_{ability.ability_key}.mp4'
+                }
+
+                # Get translation if available
+                if language:
+                    ability_trans = AbilityTranslation.objects.filter(
+                        ability=ability,
+                        language=language
+                    ).first()
+                    if ability_trans:
+                        ability_data['name'] = ability_trans.name
+                        ability_data['description'] = ability_trans.description
+
+                abilities.append(ability_data)
+                break
+
+    # Get champion skins with translations
+    skins = []
+    for skin in champion.skins.all():
+        skin_data = {
+            'id': skin.id,
+            'name': skin.name,
+            'image_url': skin.image_url
+        }
+
+        # Get translation if available
+        if language:
+            skin_trans = ChampionSkinTranslation.objects.filter(
+                skin=skin,
+                language=language
+            ).first()
+            if skin_trans:
+                skin_data['name'] = skin_trans.name
+
+        skins.append(skin_data)
+
+    # Get or generate SEO meta description
+    meta_description = ""
+    if language:
+        # Try to get translated meta description
+        translation = ChampionTranslation.objects.filter(
+            champion=champion,
+            language=language
+        ).first()
+
+        if translation and translation.meta_description:
+            meta_description = translation.meta_description
+        else:
+            # Generate meta description based on lore if available
+            if translation and translation.lore:
+                meta_description = translation.lore[:160] + "..." if len(translation.lore) > 160 else translation.lore
+            elif champion_data['lore']:
+                meta_description = champion_data['lore'][:160] + "..." if len(champion_data['lore']) > 160 else \
+                champion_data['lore']
+            else:
+                # Fallback description
+                meta_description = f"{champion_data['name']} {champion_data['title']} - League of Legends champion details, abilities, and skins."
+    else:
+        # Fallback to English description if no translation
+        if champion.meta_description:
+            meta_description = champion.meta_description
+        elif champion.lore:
+            meta_description = champion.lore[:160] + "..." if len(champion.lore) > 160 else champion.lore
+        else:
+            meta_description = f"{champion.name} {champion.title} - League of Legends champion details, abilities, and skins."
+
+    # Prepare canonical URL (important for SEO)
+    canonical_url = request.build_absolute_uri(reverse('champion_detail', kwargs={'champion_slug': champion.slug}))
+
+    # Prepare structured data (JSON-LD) for better SEO
+    structured_data = {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "character": {
+            "@type": "Person",
+            "name": champion_data['name'],
+            "description": champion_data['lore'] if champion_data['lore'] else "",
+            "image": champion_data['splash_art']
+        },
+        "name": "League of Legends",
+        "publisher": "Riot Games"
+    }
+
+    return render(request, 'champion_detail.html', {
+        'title': champion_data['name'],
+        'champion': champion_data,
+        'abilities': abilities,
+        'skins': skins,
+        'meta_description': meta_description,
+        'canonical_url': canonical_url,
+        'structured_data': json.dumps(structured_data)
     })

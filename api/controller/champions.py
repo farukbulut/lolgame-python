@@ -51,7 +51,7 @@ def search_champions(request):
                 results.append({
                     'id': champion.id,
                     'name': name,
-                    'image': f"https://wiki.leagueoflegends.com/en-us/images/thumb/{name}_OriginalSquare.png/128px-{name}_OriginalSquare.png?54659",
+                    'image': champion.image_main,
                     'position': position_name
                 })
 
@@ -64,7 +64,7 @@ def search_champions(request):
                 results.append({
                     'id': champion.id,
                     'name': champion.name,
-                    'image': f"https://wiki.leagueoflegends.com/en-us/images/thumb/{champion.name}_OriginalSquare.png/128px-{champion.name}_OriginalSquare.png?54659",
+                    'image': champion.image_main,
 
                 })
             return JsonResponse({'champions': results})

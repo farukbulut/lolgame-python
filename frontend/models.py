@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Language(models.Model):
@@ -21,16 +22,24 @@ class Champion(models.Model):
     ]
 
     name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
     title = models.CharField(max_length=100, blank=True, null=True)
     release_year = models.IntegerField(blank=True, null=True)
     difficulty = models.CharField(max_length=10, choices=DIFFICULTY_CHOICES, blank=True, null=True)
     lore = models.TextField(blank=True, null=True)
+    meta_description = models.TextField(blank=True, null=True)  # Add this line
     image_main = models.CharField(max_length=255, blank=True, null=True)
     splash_art = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'champions'
+
+    def save(self, *args, **kwargs):
+        # Generate slug if it doesn't exist
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -42,6 +51,7 @@ class ChampionTranslation(models.Model):
     name = models.CharField(max_length=100)
     title = models.CharField(max_length=100, blank=True, null=True)
     lore = models.TextField(blank=True, null=True)
+    meta_description = models.TextField(blank=True, null=True)  # Add this line
 
     class Meta:
         unique_together = ('champion', 'language')

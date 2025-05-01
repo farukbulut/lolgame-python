@@ -2,10 +2,6 @@
 {% load static %}
 {% load i18n %}
 
-{% block page_title %}
-    {{ title }}
-{% endblock %}
-
 {% block content %}
 <div class="hero">
     <h1>{% trans 'Game' %} <span>{% trans 'History' %}</span></h1>
@@ -96,7 +92,7 @@
     const championModal = document.getElementById('champion-modal');
     const championDetail = document.getElementById('champion-detail');
     const closeModal = document.querySelector('.close-modal');
-    
+    const currentLanguage = window.location.pathname.split('/')[1];
     // Game history variables
     let currentPage = 1;
     let hasMoreGames = true;
@@ -149,7 +145,7 @@
         isLoading = true;
         
         try {
-            const response = await fetch(`/api/game-history?page=1&game_type=${gameType}`);
+            const response = await fetch("/"+currentLanguage+`/api/game-history?page=1&game_type=${gameType}`);
             const data = await response.json();
             
             // Hide loading spinner
@@ -191,7 +187,7 @@
         
         try {
             currentPage++;
-            const response = await fetch(`/api/game-history?page=${currentPage}&game_type=${gameType}`);
+            const response = await fetch("/"+currentLanguage+`/api/game-history?page=${currentPage}&game_type=${gameType}`);
             const data = await response.json();
             
             // Hide loading more indicator
@@ -238,6 +234,7 @@
         
         // Champion image and info
         if (game.target_champion) {
+            const championData = JSON.stringify(game.target_champion).replace(/'/g, "&apos;");
             cardContent += `
                 <div class="game-champion">
                     <div class="champion-image">
@@ -245,12 +242,13 @@
                     </div>
                     <div class="champion-info">
                         <div class="champion-name">${game.target_champion.name}</div>
-                        <button class="btn-view-details" data-champion='${JSON.stringify(game.target_champion)}'>
+                        <button class="btn-view-details" data-champion='${championData}'>
                             {% trans "Details" %}
                         </button>
                     </div>
                 </div>`;
-        } else if (game.last_guess) {
+        }
+        else if (game.last_guess) {
             cardContent += `
                 <div class="game-champion">
                     <div class="champion-image wrong">
@@ -592,7 +590,7 @@
     }
     
     .no-games p {
-        margin-bottom: na10px;
+        margin-bottom: 10px;
     }
     
     .no-games .btn-primary {

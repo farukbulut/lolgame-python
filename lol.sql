@@ -13,6 +13,7 @@ CREATE TABLE languages (
 -- Şampiyonlar ana tablosu (İngilizce temel veri)
 CREATE TABLE champions (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(100) NOT NULL, UNIQUE ,         -- İngilizce isim
     name VARCHAR(100) NOT NULL,         -- İngilizce isim
     title VARCHAR(100),                 -- İngilizce unvan
     release_year INT,
@@ -31,6 +32,7 @@ CREATE TABLE champion_translations (
     name VARCHAR(100) NOT NULL,         -- Çevrilmiş isim
     title VARCHAR(100),                 -- Çevrilmiş unvan
     lore TEXT,                          -- Çevrilmiş hikaye
+    meta_description TEXT,                          -- Çevrilmiş hikaye
     FOREIGN KEY (champion_id) REFERENCES champions(id) ON DELETE CASCADE,
     FOREIGN KEY (language_id) REFERENCES languages(id) ON DELETE CASCADE,
     UNIQUE KEY (champion_id, language_id)
@@ -368,7 +370,7 @@ INSERT INTO languages (code, name, is_active) VALUES
 ('nl', 'Nederlands', 1),
 ('zh', '中文', 1),
 ('jp', '日本語', 1),
-('ko', '한국어', 1);
+('kr', '한국어', 1);
 
 
 -- Pozisyonlar (İngilizce)

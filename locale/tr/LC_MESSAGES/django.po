@@ -139,6 +139,33 @@ msgstr "Zor"
 msgid "Showing"
 msgstr "Gösteriliyor"
 
+msgid "Guess a Champion"
+msgstr "Bir Şampiyon Tahmin Et"
+
+msgid "Win or Lose"
+msgstr "Kazan veya Kaybet"
+
+msgid "Check the Feedback"
+msgstr "Geri Bildirimi Kontrol Et"
+
+msgid "Overview"
+msgstr "Genel Bakış"
+
+msgid "Abilities"
+msgstr "Yetenekler"
+
+msgid "Skins"
+msgstr "Kostümler"
+
+msgid "Think you know this champion?"
+msgstr "Bu şampiyonu tanıdığını mı düşünüyorsun?"
+
+msgid "Combat Range"
+msgstr "Savaş Menzili"
+
+msgid "Release Year"
+msgstr "Çıkış Yılı"
+
 msgid "of"
 msgstr "için"
 
@@ -393,3 +420,51 @@ msgstr "Bölge"
 #: templates/partial/base.html:46
 msgid "Release"
 msgstr "Çıkış"
+
+msgid "Biography"
+msgstr "Biyografi"
+
+msgid "Champion Info"
+msgstr "Şampiyon Bilgisi"
+
+msgid "Home"
+msgstr "Anasayfa"
+
+msgid "LoL Champion Details"
+msgstr "LoL Şampiyon Detayları"
+
+msgid "Main Site Title"
+msgstr "LoL Şampiyon Tahmin Oyunu | En Eğlenceli League of Legends Bilgi Yarışması"
+
+msgid "Main Site Desc"
+msgstr "League of Legends bilginizi test edin! LoL Şampiyon Tahmin Oyunu ile şampiyonları ipuçlarına göre tahmin edin, skorunuzu yükseltin ve liderliğe oynayın!"
+
+msgid "Game Page Title"
+msgstr "LoL Şampiyon Tahmin Et | Ücretsiz League of Legends Bilgi Oyunu"
+
+msgid "Game Page Desc"
+msgstr "LoL bilginizi test edin! İpuçlarına göre şampiyonları tahmin edin, skorunuzu artırın ve League of Legends tutkunlarıyla rekabet edin. Şimdi ücretsiz oynayın!"
+
+msgid "HowToPlay Page Title"
+msgstr "LoL Şampiyon Tahmin Oyunu Nasıl Oynanır? | Kurallar ve İpuçları"
+
+msgid "HowToPlay Page Desc"
+msgstr "LoL Şampiyon Tahmin Oyunu'nun nasıl oynandığını öğrenin. Zorluk seviyeleri, ipuçları, deneme hakları ve liderlik sistemi hakkında detaylı bilgi edinin."
+
+msgid "GameHistory Page Title"
+msgstr "LoL Şampiyon Tahmin Oyunu Geçmişi | Oynadığın Tüm Oyunları Gör"
+
+msgid "GameHistory Page Desc"
+msgstr "LoL şampiyon tahmin geçmişini görüntüle. Hangi oyunları kazandın, kaç puan aldın ve en iyi skorların nelerdi? Şimdi geçmişini incele!"
+
+msgid "Leaderboard Page Title"
+msgstr "LoL Şampiyon Tahmin Oyunu Liderlik Tablosu | En İyi Oyuncular"
+
+msgid "Leaderboard Page Desc"
+msgstr "LoL Şampiyon Tahmin Oyunu’nda en yüksek puanı alan oyuncuları görün. Zirveye kim oynuyor? Liderlik tablosunu şimdi inceleyin!"
+
+msgid "Champions Page Title"
+msgstr "Tüm LoL Şampiyonları | League of Legends Şampiyon Listesi ve Detayları"
+
+msgid "Champions Page Desc"
+msgstr "League of Legends evrenindeki tüm şampiyonları keşfedin. Şampiyon yetenekleri, zorluk dereceleri, çıkış tarihleri ve daha fazlası burada!"

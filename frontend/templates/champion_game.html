@@ -2,10 +2,6 @@
 {% load static %}
 {% load i18n %}
 
-{% block page_title %}
-    {{ title }}
-{% endblock %}
-
 {% block content %}
     <div class="hero">
         <p>{% trans 'Difficulty' %}: <span class="highlight">{{ difficulty_title }}</span></p>
@@ -98,6 +94,9 @@
     let guessCount = attemptsUsedInitial;
     let userName = '';
 
+    // Mevcut dili almak için URL'den çıkar
+    const currentLanguage = window.location.pathname.split('/')[1];
+
     // DOM elements
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -181,7 +180,9 @@
         }
 
         try {
-            const response = await fetch(`/api/search-champions?query=${encodeURIComponent(query)}`);
+            // Dil ayarına göre doğru URL oluşturuluyor
+            const apiUrl = `/${currentLanguage}/api/search-champions?query=${encodeURIComponent(query)}`;
+            const response = await fetch(apiUrl);
             const data = await response.json();
 
             if (data.champions && data.champions.length > 0) {
@@ -243,7 +244,9 @@
         }
 
         try {
-            const response = await fetch('/api/make-guess', {
+            // Dil ayarına göre doğru URL oluşturuluyor
+            const apiUrl = `/${currentLanguage}/api/make-guess`;
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -417,7 +420,9 @@
 
     async function handleRestart() {
         try {
-            const response = await fetch('/api/new-game', {
+            // Dil ayarına göre doğru URL oluşturuluyor
+            const apiUrl = `/${currentLanguage}/api/new-game`;
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

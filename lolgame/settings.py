@@ -143,6 +143,9 @@ LANGUAGES = [
     ('fr', _('French')),
     ('ru', _('Russian')),
     ('br', _('Brazilian Portuguese')),
+    ('zh', _('Chinese')),
+    ('jp', _('Japanese')),
+    ('ko', _('Korean')),
 ]
 
 LOCALE_PATHS = [
@@ -158,6 +161,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'public')
 ]
 
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365 * 5  # 5 yıl
+
+LANGUAGE_COOKIE_SAMESITE = 'Lax'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

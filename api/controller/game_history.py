@@ -59,7 +59,7 @@ def game_history(request):
                 if last_guess_obj and last_guess_obj.champion:
                     last_guess = {
                         'name': last_guess_obj.champion.name,
-                        'image': f"https://wiki.leagueoflegends.com/en-us/images/thumb/{last_guess_obj.champion.name}_OriginalSquare.png/128px-{last_guess_obj.champion.name}_OriginalSquare.png?54659",
+                        'image': last_guess_obj.champion.image_main
                     }
 
             # Calculate score (for display only if not stored)
