@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from django.utils import translation
+from django.views.generic import TemplateView
 
 from frontend.controller import index
 from lolgame import settings
@@ -39,6 +40,8 @@ def language_redirect(request):
 # API ve dil öneki olmayan URL'ler
 urlpatterns = [
     path('', language_redirect),
+    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path("ads.txt", TemplateView.as_view(template_name="ads.txt", content_type="text/plain")),
     path('i18n/', include('django.conf.urls.i18n')),  # Dil değiştirme görünümü
 ]
 

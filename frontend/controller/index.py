@@ -484,7 +484,6 @@ def champion_detail(request, champion_slug):
     }
 
     return render(request, 'champion_detail.html', {
-        'title': champion_data['name'],
         'champion': champion_data,
         'abilities': abilities,
         'skins': skins,
