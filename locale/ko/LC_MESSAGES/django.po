@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=((n%10 == 1) && (n%100 != 11) && (n%100 !"
+"=71) && (n%100 !=91) ? 0 :(n%10 == 2) && (n%100 != 12) && (n%100 !=72) && (n"
+"%100 !=92) ? 1 :(n%10 ==3 || n%10==4 || n%10==9) && (n%100 < 10 || n% 100 > "
+"19) && (n%100 < 70 || n%100 > 79) && (n%100 < 90 || n%100 > 99) ? 2 :(n != 0 "
+"&& n % 1000000 == 0) ? 3 : 4);\n"
+
+msgid "LoL Champion Guessing Game"
+msgstr "LoL 챔피언 추측 게임"
+
+msgid "Guess the Champion"
+msgstr "챔피언을 맞혀보세요"
+
+msgid "CHAMPION"
+msgstr "챔피언"
+
+msgid "Games"
+msgstr "게임"
+
+msgid "How To Play"
+msgstr "게임 방법"
+
+msgid "Game History"
+msgstr "게임 기록"
+
+msgid "Player:"
+msgstr "플레이어:"
+
+msgid "POINTS"
+msgstr "포인트"
+
+msgid "History"
+msgstr "기록"
+
+msgid "Your Stats"
+msgstr "내 통계"
+
+msgid "Your Game History"
+msgstr "내 게임 기록"
+
+msgid "Top Players"
+msgstr "상위 플레이어"
+
+msgid "Rank"
+msgstr "순위"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "챔피언 추측 게임의 상위 플레이어를 확인하세요!"
+
+msgid "Player"
+msgstr "플레이어"
+
+msgid "View Champion"
+msgstr "챔피언 보기"
+
+msgid "Details"
+msgstr "세부 정보"
+
+msgid "Victory"
+msgstr "승리"
+
+msgid "Defeat"
+msgstr "패배"
+
+msgid "Leaderboard"
+msgstr "리더보드"
+
+msgid "Max"
+msgstr "최대"
+
+msgid "Min"
+msgstr "최소"
+
+msgid "Average"
+msgstr "평균"
+
+msgid "Total"
+msgstr "총합"
+
+msgid "points"
+msgstr "포인트"
+
+msgid "View Leaderboard"
+msgstr "리더보드 보기"
+
+msgid "Gender"
+msgstr "성별"
+
+msgid "Resource"
+msgstr "자원"
+
+msgid "PREDICTION GAME"
+msgstr "예측 게임"
+
+msgid "Champion"
+msgstr "챔피언"
+
+msgid "Champions"
+msgstr "챔피언 목록"
+
+msgid "Guessing"
+msgstr "추측"
+
+msgid "Difficulty"
+msgstr "난이도"
+
+msgid "easy"
+msgstr "쉬움"
+
+msgid "medium"
+msgstr "보통"
+
+msgid "hard"
+msgstr "어려움"
+
+msgid "Showing"
+msgstr "표시 중"
+
+msgid "Guess a Champion"
+msgstr "챔피언을 추측하세요"
+
+msgid "Win or Lose"
+msgstr "승리 또는 패배"
+
+msgid "Check the Feedback"
+msgstr "피드백 확인"
+
+msgid "Overview"
+msgstr "개요"
+
+msgid "Abilities"
+msgstr "능력"
+
+msgid "Skins"
+msgstr "스킨"
+
+msgid "Think you know this champion?"
+msgstr "이 챔피언을 안다고 생각하세요?"
+
+msgid "Combat Range"
+msgstr "전투 범위"
+
+msgid "Release Year"
+msgstr "출시 연도"
+
+msgid "of"
+msgstr "~의"
+
+msgid "champions"
+msgstr "챔피언"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "모든 리그 오브 레전드 챔피언과 그들의 정보를 살펴보세요"
+
+msgid "Sort by:"
+msgstr "정렬 기준:"
+
+msgid "Name (A-Z)"
+msgstr "이름 (A-Z)"
+
+msgid "Name (Z-A)"
+msgstr "이름 (Z-A)"
+
+msgid "Newest First"
+msgstr "최신순"
+
+msgid "Oldest First"
+msgstr "오래된 순"
+
+msgid "Easiest First"
+msgstr "쉬운 순"
+
+msgid "Hardest First"
+msgstr "어려운 순"
+
+msgid "View Details"
+msgstr "세부 정보 보기"
+
+msgid "Load More Champions"
+msgstr "더 많은 챔피언 불러오기"
+
+msgid "Games Played"
+msgstr "플레이한 게임"
+
+msgid "Games Won"
+msgstr "승리한 게임"
+
+msgid "Win Rate"
+msgstr "승률"
+
+msgid "Total Score"
+msgstr "총 점수"
+
+msgid "Average Score"
+msgstr "평균 점수"
+
+msgid "Best Score"
+msgstr "최고 점수"
+
+msgid "Avg. Attempts"
+msgstr "평균 시도 횟수"
+
+msgid "Game Type"
+msgstr "게임 종류"
+
+msgid "Attempts"
+msgstr "시도"
+
+msgid "Score"
+msgstr "점수"
+
+msgid "Ability"
+msgstr "능력"
+
+msgid "Item"
+msgstr "아이템"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "게임을 찾을 수 없습니다. 게임을 시작하고 기록을 확인해보세요!"
+
+msgid "Search champions..."
+msgstr "챔피언 검색..."
+
+msgid "Game"
+msgstr "게임"
+
+msgid "Loading games..."
+msgstr "게임 로딩 중..."
+
+msgid "Loading champions..."
+msgstr "챔피언 로딩 중..."
+
+msgid "Type champion name..."
+msgstr "챔피언 이름 입력..."
+
+msgid "Step"
+msgstr "단계"
+
+msgid "Attempts Left"
+msgstr "남은 시도"
+
+msgid "Champion not found."
+msgstr "챔피언을 찾을 수 없습니다."
+
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "아직 추측이 없습니다. 챔피언 이름을 입력해보세요!"
+
+msgid "Correct"
+msgstr "정답"
+
+msgid "Wrong"
+msgstr "오답"
+
+msgid "Higher"
+msgstr "더 높음"
+
+msgid "Lower"
+msgstr "더 낮음"
+
+msgid "Play Again"
+msgstr "다시 플레이"
+
+msgid "Can you guess the League of Legends champion?"
+msgstr "리그 오브 레전드 챔피언을 맞힐 수 있을까요?"
+
+msgid "Select Difficulty"
+msgstr "난이도 선택"
+
+msgid "Easy"
+msgstr "쉬움"
+
+msgid "attempts"
+msgstr "시도"
+
+msgid "Medium"
+msgstr "보통"
+
+msgid "Hard"
+msgstr "어려움"
+
+msgid "How to"
+msgstr "방법"
+
+msgid "Play"
+msgstr "플레이"
+
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "쉬움(10회), 보통(8회), 어려움(6회) 중에서 선택하세요"
+
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "챔피언 이름을 입력하고 목록에서 선택하거나 검색 버튼을 누르세요"
+
+msgid "After each guess, you'll see colored indicators:"
+msgstr "각 추측 후 색상 지표가 표시됩니다:"
+
+msgid "Green means correct"
+msgstr "초록색은 정답입니다"
+
+msgid "Yellow means wrong"
+msgstr "노란색은 오답입니다"
+
+msgid "Blue means the target value is higher"
+msgstr "파란색은 목표값이 더 높음을 의미합니다"
+
+msgid "Purple means the target value is lower"
+msgstr "보라색은 목표값이 더 낮음을 의미합니다"
+
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "시도 횟수가 끝나기 전에 챔피언을 맞히면 승리입니다"
+
+msgid "Play Now"
+msgstr "지금 플레이"
+
+msgid "English"
+msgstr "영어"
+
+msgid "German"
+msgstr "독일어"
+
+msgid "Turkish"
+msgstr "터키어"
+
+msgid "Spanish"
+msgstr "스페인어"
+
+msgid "Italian"
+msgstr "이탈리아어"
+
+msgid "Dutch"
+msgstr "네덜란드어"
+
+msgid "Portuguese"
+msgstr "포르투갈어"
+
+msgid "French"
+msgstr "프랑스어"
+
+msgid "Russian"
+msgstr "러시아어"
+
+msgid "Brazilian Portuguese"
+msgstr "브라질 포르투갈어"
+
+msgid "Position"
+msgstr "포지션"
+
+msgid "Species"
+msgstr "종족"
+
+msgid "Range"
+msgstr "사거리"
+
+msgid "Region"
+msgstr "지역"
+
+msgid "Release"
+msgstr "출시"
+
+msgid "Biography"
+msgstr "전기"
+
+msgid "Champion Info"
+msgstr "챔피언 정보"
+
+msgid "Home"
+msgstr "홈"
+
+msgid "LoL Champion Details"
+msgstr "LoL 챔피언 세부 정보"
+
+msgid "Main Site Title"
+msgstr "LoL 챔피언 추측 게임 | 가장 재미있는 리그 오브 레전드 퀴즈"
+
+msgid "Main Site Desc"
+msgstr "리그 오브 레전드 지식을 테스트하세요! 단서를 통해 챔피언을 맞히고 점수를 올려 순위에 도전하세요!"
+
+msgid "Game Page Title"
+msgstr "LoL 챔피언 맞추기 | 무료 리그 오브 레전드 퀴즈 게임"
+
+msgid "Game Page Desc"
+msgstr "LoL 지식을 테스트하세요! 단서를 바탕으로 챔피언을 맞추고 점수를 올려보세요. 지금 무료로 플레이하세요!"
+
+msgid "HowToPlay Page Title"
+msgstr "LoL 챔피언 추측 게임 플레이 방법 | 규칙 및 팁"
+
+msgid "HowToPlay Page Desc"
+msgstr "LoL 챔피언 추측 게임의 플레이 방법을 알아보세요. 난이도, 힌트, 시도 횟수 및 순위 시스템에 대해 자세히 설명합니다."
+
+msgid "GameHistory Page Title"
+msgstr "LoL 챔피언 추측 게임 기록 | 내 모든 게임 보기"
+
+msgid "GameHistory Page Desc"
+msgstr "LoL 추측 게임 기록을 확인하세요. 승리한 경기, 점수, 최고 기록을 지금 바로 살펴보세요!"
+
+msgid "Leaderboard Page Title"
+msgstr "LoL 챔피언 추측 게임 순위표 | 최고의 플레이어들"
+
+msgid "Leaderboard Page Desc"
+msgstr "LoL 추측 게임에서 가장 높은 점수를 받은 플레이어를 확인하세요. 누가 1위일까요? 지금 순위표 확인!"
+
+msgid "Champions Page Title"
+msgstr "모든 LoL 챔피언 | 리그 오브 레전드 챔피언 목록 및 정보"
+
+msgid "Champions Page Desc"
+msgstr "리그 오브 레전드 세계의 모든 챔피언을 확인하세요. 능력치, 난이도, 출시일 등 다양한 정보를 제공합니다!"

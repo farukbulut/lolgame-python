@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=((n%10 == 1) && (n%100 != 11) && (n%100 !"
+"=71) && (n%100 !=91) ? 0 :(n%10 == 2) && (n%100 != 12) && (n%100 !=72) && (n"
+"%100 !=92) ? 1 :(n%10 ==3 || n%10==4 || n%10==9) && (n%100 < 10 || n% 100 > "
+"19) && (n%100 < 70 || n%100 > 79) && (n%100 < 90 || n%100 > 99) ? 2 :(n != 0 "
+"&& n % 1000000 == 0) ? 3 : 4);\n"
+
+msgid "LoL Champion Guessing Game"
+msgstr "LoL 英雄猜猜看遊戲"
+
+msgid "Guess the Champion"
+msgstr "猜猜看是誰的英雄"
+
+msgid "CHAMPION"
+msgstr "英雄"
+
+msgid "Games"
+msgstr "遊戲"
+
+msgid "How To Play"
+msgstr "玩法說明"
+
+msgid "Game History"
+msgstr "遊戲記錄"
+
+msgid "Player:"
+msgstr "玩家："
+
+msgid "POINTS"
+msgstr "分數"
+
+msgid "History"
+msgstr "記錄"
+
+msgid "Your Stats"
+msgstr "你的統計資料"
+
+msgid "Your Game History"
+msgstr "你的遊戲記錄"
+
+msgid "Top Players"
+msgstr "頂尖玩家"
+
+msgid "Rank"
+msgstr "排名"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "看看誰是英雄猜猜看遊戲中的頂尖高手！"
+
+msgid "Player"
+msgstr "玩家"
+
+msgid "View Champion"
+msgstr "查看英雄"
+
+msgid "Details"
+msgstr "詳細資料"
+
+msgid "Victory"
+msgstr "勝利"
+
+msgid "Defeat"
+msgstr "失敗"
+
+msgid "Leaderboard"
+msgstr "排行榜"
+
+msgid "Max"
+msgstr "最大值"
+
+msgid "Min"
+msgstr "最小值"
+
+msgid "Average"
+msgstr "平均"
+
+msgid "Total"
+msgstr "總計"
+
+msgid "points"
+msgstr "分"
+
+msgid "View Leaderboard"
+msgstr "查看排行榜"
+
+msgid "Gender"
+msgstr "性別"
+
+msgid "Resource"
+msgstr "資源"
+
+msgid "PREDICTION GAME"
+msgstr "預測遊戲"
+
+msgid "Champion"
+msgstr "英雄"
+
+msgid "Champions"
+msgstr "所有英雄"
+
+msgid "Guessing"
+msgstr "猜測中"
+
+msgid "Difficulty"
+msgstr "難度"
+
+msgid "easy"
+msgstr "簡單"
+
+msgid "medium"
+msgstr "中等"
+
+msgid "hard"
+msgstr "困難"
+
+msgid "Showing"
+msgstr "顯示中"
+
+msgid "Guess a Champion"
+msgstr "猜一位英雄"
+
+msgid "Win or Lose"
+msgstr "勝或敗"
+
+msgid "Check the Feedback"
+msgstr "檢查回饋"
+
+msgid "Overview"
+msgstr "總覽"
+
+msgid "Abilities"
+msgstr "技能"
+
+msgid "Skins"
+msgstr "造型"
+
+msgid "Think you know this champion?"
+msgstr "你覺得你認識這位英雄嗎？"
+
+msgid "Combat Range"
+msgstr "戰鬥範圍"
+
+msgid "Release Year"
+msgstr "發行年份"
+
+msgid "of"
+msgstr "之"
+
+msgid "champions"
+msgstr "英雄"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "探索所有《英雄聯盟》的英雄與他們的詳細資料"
+
+msgid "Sort by:"
+msgstr "排序依據："
+
+msgid "Name (A-Z)"
+msgstr "名稱（A-Z）"
+
+msgid "Name (Z-A)"
+msgstr "名稱（Z-A）"
+
+msgid "Newest First"
+msgstr "最新優先"
+
+msgid "Oldest First"
+msgstr "最舊優先"
+
+msgid "Easiest First"
+msgstr "最簡單優先"
+
+msgid "Hardest First"
+msgstr "最困難優先"
+
+msgid "View Details"
+msgstr "查看詳情"
+
+msgid "Load More Champions"
+msgstr "載入更多英雄"
+
+msgid "Games Played"
+msgstr "已玩遊戲"
+
+msgid "Games Won"
+msgstr "已贏遊戲"
+
+msgid "Win Rate"
+msgstr "勝率"
+
+msgid "Total Score"
+msgstr "總分"
+
+msgid "Average Score"
+msgstr "平均分數"
+
+msgid "Best Score"
+msgstr "最高分數"
+
+msgid "Avg. Attempts"
+msgstr "平均嘗試次數"
+
+msgid "Game Type"
+msgstr "遊戲類型"
+
+msgid "Attempts"
+msgstr "嘗試次數"
+
+msgid "Score"
+msgstr "分數"
+
+msgid "Ability"
+msgstr "技能"
+
+msgid "Item"
+msgstr "道具"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "尚未找到遊戲，開始遊玩以查看你的遊戲記錄！"
+
+msgid "Search champions..."
+msgstr "搜尋英雄..."
+
+msgid "Game"
+msgstr "遊戲"
+
+msgid "Loading games..."
+msgstr "正在載入遊戲..."
+
+msgid "Loading champions..."
+msgstr "正在載入英雄..."
+
+msgid "Type champion name..."
+msgstr "輸入英雄名稱..."
+
+msgid "Step"
+msgstr "步驟"
+
+msgid "Attempts Left"
+msgstr "剩餘嘗試次數"
+
+msgid "Champion not found."
+msgstr "找不到該英雄。"
+
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "尚未有猜測，開始輸入英雄名稱吧！"
+
+msgid "Correct"
+msgstr "正確"
+
+msgid "Wrong"
+msgstr "錯誤"
+
+msgid "Higher"
+msgstr "更高"
+
+msgid "Lower"
+msgstr "更低"
+
+msgid "Play Again"
+msgstr "再玩一次"
+
+msgid "Can you guess the League of Legends champion?"
+msgstr "你能猜出這位《英雄聯盟》的英雄嗎？"
+
+msgid "Select Difficulty"
+msgstr "選擇難度"
+
+msgid "Easy"
+msgstr "簡單"
+
+msgid "attempts"
+msgstr "次嘗試"
+
+msgid "Medium"
+msgstr "中等"
+
+msgid "Hard"
+msgstr "困難"
+
+msgid "How to"
+msgstr "如何"
+
+msgid "Play"
+msgstr "遊玩"
+
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "選擇簡單（10次）、中等（8次）或困難（6次）"
+
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "輸入英雄名稱，從下拉選單中選擇或點擊搜尋按鈕"
+
+msgid "After each guess, you'll see colored indicators:"
+msgstr "每次猜測後，你會看到彩色指示器："
+
+msgid "Green means correct"
+msgstr "綠色表示正確"
+
+msgid "Yellow means wrong"
+msgstr "黃色表示錯誤"
+
+msgid "Blue means the target value is higher"
+msgstr "藍色表示目標值較高"
+
+msgid "Purple means the target value is lower"
+msgstr "紫色表示目標值較低"
+
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "在用完所有次數前猜對英雄即可獲勝"
+
+msgid "Play Now"
+msgstr "立即遊玩"
+
+msgid "English"
+msgstr "英文"
+
+msgid "German"
+msgstr "德文"
+
+msgid "Turkish"
+msgstr "土耳其文"
+
+msgid "Spanish"
+msgstr "西班牙文"
+
+msgid "Italian"
+msgstr "義大利文"
+
+msgid "Dutch"
+msgstr "荷蘭文"
+
+msgid "Portuguese"
+msgstr "葡萄牙文"
+
+msgid "French"
+msgstr "法文"
+
+msgid "Russian"
+msgstr "俄文"
+
+msgid "Brazilian Portuguese"
+msgstr "巴西葡萄牙文"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Species"
+msgstr "種族"
+
+msgid "Range"
+msgstr "範圍"
+
+msgid "Region"
+msgstr "地區"
+
+msgid "Release"
+msgstr "推出"
+
+msgid "Biography"
+msgstr "背景故事"
+
+msgid "Champion Info"
+msgstr "英雄資訊"
+
+msgid "Home"
+msgstr "首頁"
+
+msgid "LoL Champion Details"
+msgstr "LoL 英雄詳細資料"
+
+msgid "Main Site Title"
+msgstr "LoL 英雄猜猜看遊戲 | 最有趣的英雄聯盟知識問答"
+
+msgid "Main Site Desc"
+msgstr "測試你對英雄聯盟的了解！透過提示猜出英雄，提高分數，爭奪排行榜冠軍！"
+
+msgid "Game Page Title"
+msgstr "LoL 英雄猜猜看 | 免費英雄聯盟問答遊戲"
+
+msgid "Game Page Desc"
+msgstr "測試你的LoL知識！根據提示猜英雄，提升分數，與其他粉絲一較高下。立即免費遊玩！"
+
+msgid "HowToPlay Page Title"
+msgstr "LoL 英雄猜猜看怎麼玩？| 規則與提示"
+
+msgid "HowToPlay Page Desc"
+msgstr "了解 LoL 英雄猜猜看的遊玩方式，包括難度、提示、嘗試次數與排行榜系統的說明。"
+
+msgid "GameHistory Page Title"
+msgstr "LoL 英雄猜猜看遊戲紀錄 | 檢視所有對局"
+
+msgid "GameHistory Page Desc"
+msgstr "查看你的 LoL 猜英雄遊戲紀錄。檢視勝場、分數與最佳表現！"
+
+msgid "Leaderboard Page Title"
+msgstr "LoL 英雄猜猜看排行榜 | 頂尖玩家"
+
+msgid "Leaderboard Page Desc"
+msgstr "查看 LoL 英雄猜猜看遊戲的頂尖玩家。誰在排行榜上稱霸？現在就看看吧！"
+
+msgid "Champions Page Title"
+msgstr "所有LoL英雄 | 英雄聯盟英雄列表與資料"
+
+msgid "Champions Page Desc"
+msgstr "探索英雄聯盟世界的所有英雄。查看技能、難度、推出時間及更多資訊！"

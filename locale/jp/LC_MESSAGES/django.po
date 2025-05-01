@@ -1,0 +1,423 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 14:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=((n%10 == 1) && (n%100 != 11) && (n%100 !"
+"=71) && (n%100 !=91) ? 0 :(n%10 == 2) && (n%100 != 12) && (n%100 !=72) && (n"
+"%100 !=92) ? 1 :(n%10 ==3 || n%10==4 || n%10==9) && (n%100 < 10 || n% 100 > "
+"19) && (n%100 < 70 || n%100 > 79) && (n%100 < 90 || n%100 > 99) ? 2 :(n != 0 "
+"&& n % 1000000 == 0) ? 3 : 4);\n"
+
+
+msgid "LoL Champion Guessing Game"
+msgstr "LoLチャンピオン当てゲーム"
+
+msgid "Guess the Champion"
+msgstr "チャンピオンを当てよう"
+
+msgid "CHAMPION"
+msgstr "チャンピオン"
+
+msgid "Games"
+msgstr "ゲーム"
+
+msgid "How To Play"
+msgstr "遊び方"
+
+msgid "Game History"
+msgstr "ゲーム履歴"
+
+msgid "Player:"
+msgstr "プレイヤー："
+
+msgid "POINTS"
+msgstr "ポイント"
+
+msgid "History"
+msgstr "履歴"
+
+msgid "Your Stats"
+msgstr "あなたの統計"
+
+msgid "Your Game History"
+msgstr "あなたのゲーム履歴"
+
+msgid "Top Players"
+msgstr "トッププレイヤー"
+
+msgid "Rank"
+msgstr "ランク"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "チャンピオン当てゲームのトッププレイヤーをチェックしよう！"
+
+msgid "Player"
+msgstr "プレイヤー"
+
+msgid "View Champion"
+msgstr "チャンピオンを見る"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "Victory"
+msgstr "勝利"
+
+msgid "Defeat"
+msgstr "敗北"
+
+msgid "Leaderboard"
+msgstr "ランキング"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Average"
+msgstr "平均"
+
+msgid "Total"
+msgstr "合計"
+
+msgid "points"
+msgstr "ポイント"
+
+msgid "View Leaderboard"
+msgstr "ランキングを見る"
+
+msgid "Gender"
+msgstr "性別"
+
+msgid "Resource"
+msgstr "リソース"
+
+msgid "PREDICTION GAME"
+msgstr "予想ゲーム"
+
+msgid "Champion"
+msgstr "チャンピオン"
+
+msgid "Champions"
+msgstr "チャンピオン一覧"
+
+msgid "Guessing"
+msgstr "推測中"
+
+msgid "Difficulty"
+msgstr "難易度"
+
+msgid "easy"
+msgstr "簡単"
+
+msgid "medium"
+msgstr "普通"
+
+msgid "hard"
+msgstr "難しい"
+
+msgid "Showing"
+msgstr "表示中"
+
+msgid "Guess a Champion"
+msgstr "チャンピオンを推測する"
+
+msgid "Win or Lose"
+msgstr "勝ちか負けか"
+
+msgid "Check the Feedback"
+msgstr "フィードバックを確認"
+
+msgid "Overview"
+msgstr "概要"
+
+msgid "Abilities"
+msgstr "アビリティ"
+
+msgid "Skins"
+msgstr "スキン"
+
+msgid "Think you know this champion?"
+msgstr "このチャンピオンを知っていると思う？"
+
+msgid "Combat Range"
+msgstr "戦闘範囲"
+
+msgid "Release Year"
+msgstr "リリース年"
+
+msgid "of"
+msgstr "の"
+
+msgid "champions"
+msgstr "チャンピオン"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "すべてのLoLチャンピオンと詳細を探索しよう"
+
+msgid "Sort by:"
+msgstr "並び替え："
+
+msgid "Name (A-Z)"
+msgstr "名前（A〜Z）"
+
+msgid "Name (Z-A)"
+msgstr "名前（Z〜A）"
+
+msgid "Newest First"
+msgstr "新しい順"
+
+msgid "Oldest First"
+msgstr "古い順"
+
+msgid "Easiest First"
+msgstr "簡単な順"
+
+msgid "Hardest First"
+msgstr "難しい順"
+
+msgid "View Details"
+msgstr "詳細を見る"
+
+msgid "Load More Champions"
+msgstr "さらにチャンピオンを読み込む"
+
+msgid "Games Played"
+msgstr "プレイしたゲーム"
+
+msgid "Games Won"
+msgstr "勝利数"
+
+msgid "Win Rate"
+msgstr "勝率"
+
+msgid "Total Score"
+msgstr "合計スコア"
+
+msgid "Average Score"
+msgstr "平均スコア"
+
+msgid "Best Score"
+msgstr "最高スコア"
+
+msgid "Avg. Attempts"
+msgstr "平均試行数"
+
+msgid "Game Type"
+msgstr "ゲームタイプ"
+
+msgid "Attempts"
+msgstr "試行"
+
+msgid "Score"
+msgstr "スコア"
+
+msgid "Ability"
+msgstr "アビリティ"
+
+msgid "Item"
+msgstr "アイテム"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "ゲームが見つかりません。プレイを開始して履歴を確認しましょう！"
+
+msgid "Search champions..."
+msgstr "チャンピオンを検索..."
+
+msgid "Game"
+msgstr "ゲーム"
+
+msgid "Loading games..."
+msgstr "ゲームを読み込み中..."
+
+msgid "Loading champions..."
+msgstr "チャンピオンを読み込み中..."
+
+msgid "Type champion name..."
+msgstr "チャンピオン名を入力..."
+
+msgid "Step"
+msgstr "ステップ"
+
+msgid "Attempts Left"
+msgstr "残り試行数"
+
+msgid "Champion not found."
+msgstr "チャンピオンが見つかりません。"
+
+msgid "No guesses yet. Start typing a champion name!"
+msgstr "まだ推測がありません。チャンピオン名を入力してください！"
+
+msgid "Correct"
+msgstr "正解"
+
+msgid "Wrong"
+msgstr "不正解"
+
+msgid "Higher"
+msgstr "より高い"
+
+msgid "Lower"
+msgstr "より低い"
+
+msgid "Play Again"
+msgstr "もう一度プレイ"
+
+msgid "Can you guess the League of Legends champion?"
+msgstr "League of Legendsのチャンピオンを当てられるかな？"
+
+msgid "Select Difficulty"
+msgstr "難易度を選択"
+
+msgid "Easy"
+msgstr "簡単"
+
+msgid "attempts"
+msgstr "試行"
+
+msgid "Medium"
+msgstr "普通"
+
+msgid "Hard"
+msgstr "難しい"
+
+msgid "How to"
+msgstr "方法"
+
+msgid "Play"
+msgstr "プレイ"
+
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "簡単（10回）、普通（8回）、難しい（6回）から選択"
+
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "チャンピオン名を入力し、ドロップダウンから選ぶか検索ボタンを押してください"
+
+msgid "After each guess, you'll see colored indicators:"
+msgstr "各推測後に色付きの指標が表示されます："
+
+msgid "Green means correct"
+msgstr "緑は正解"
+
+msgid "Yellow means wrong"
+msgstr "黄色は不正解"
+
+msgid "Blue means the target value is higher"
+msgstr "青は目標値がより高いことを意味します"
+
+msgid "Purple means the target value is lower"
+msgstr "紫は目標値がより低いことを意味します"
+
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "試行回数がなくなる前に正解すれば勝利です"
+
+msgid "Play Now"
+msgstr "今すぐプレイ"
+
+msgid "English"
+msgstr "英語"
+
+msgid "German"
+msgstr "ドイツ語"
+
+msgid "Turkish"
+msgstr "トルコ語"
+
+msgid "Spanish"
+msgstr "スペイン語"
+
+msgid "Italian"
+msgstr "イタリア語"
+
+msgid "Dutch"
+msgstr "オランダ語"
+
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+msgid "French"
+msgstr "フランス語"
+
+msgid "Russian"
+msgstr "ロシア語"
+
+msgid "Brazilian Portuguese"
+msgstr "ブラジルポルトガル語"
+
+msgid "Position"
+msgstr "ポジション"
+
+msgid "Species"
+msgstr "種族"
+
+msgid "Range"
+msgstr "射程"
+
+msgid "Region"
+msgstr "地域"
+
+msgid "Release"
+msgstr "リリース"
+
+msgid "Biography"
+msgstr "バイオグラフィー"
+
+msgid "Champion Info"
+msgstr "チャンピオン情報"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "LoL Champion Details"
+msgstr "LoLチャンピオン詳細"
+
+msgid "Main Site Title"
+msgstr "LoLチャンピオン当てゲーム | 最も楽しいリーグ・オブ・レジェンドクイズ"
+
+msgid "Main Site Desc"
+msgstr "League of Legendsの知識を試そう！ヒントをもとにチャンピオンを当てて、スコアを上げてランキングを目指そう！"
+
+msgid "Game Page Title"
+msgstr "LoLチャンピオン当て | 無料のLeague of Legendsクイズゲーム"
+
+msgid "Game Page Desc"
+msgstr "LoLの知識を試そう！ヒントをもとにチャンピオンを当てて、スコアを上げ、他のファンと競おう。今すぐ無料でプレイ！"
+
+msgid "HowToPlay Page Title"
+msgstr "LoLチャンピオン当てゲームの遊び方 | ルールとヒント"
+
+msgid "HowToPlay Page Desc"
+msgstr "LoLチャンピオン当てゲームの遊び方をご紹介します。難易度、ヒント、試行回数、ランキングシステムの詳細をチェック！"
+
+msgid "GameHistory Page Title"
+msgstr "LoLチャンピオン当てゲームの履歴 | あなたのすべての試合を見る"
+
+msgid "GameHistory Page Desc"
+msgstr "LoLチャンピオン当てゲームの履歴を確認しましょう。勝利、スコア、ベストスコアをチェック！"
+
+msgid "Leaderboard Page Title"
+msgstr "LoLチャンピオン当てゲーム ランキング | トッププレイヤー"
+
+msgid "Leaderboard Page Desc"
+msgstr "LoLチャンピオン当てゲームで最高得点を獲得したプレイヤーをチェックしよう。今すぐランキングを確認！"
+
+msgid "Champions Page Title"
+msgstr "すべてのLoLチャンピオン | League of Legendsのチャンピオンリストと詳細"
+
+msgid "Champions Page Desc"
+msgstr "League of Legendsのすべてのチャンピオンをチェックしよう。スキル、難易度、リリース日などの詳細も確認！"
