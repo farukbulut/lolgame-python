@@ -11,7 +11,7 @@ import uuid
 # Change this import to use frontend.models instead of lolgame.models
 from frontend.models import GameMode, Champion, Game, Language, ChampionTranslation, PositionTranslation, Guess, User, \
     UserStat, CombatRangeTranslation, RegionTranslation, SpeciesTranslation, GenderTranslation, ResourceTranslation, \
-    Region, Species, Resource, CombatRange, Gender, Position, ChampionSkinTranslation, AbilityTranslation
+    Region, Species, Resource, CombatRange, Gender, Position, ChampionSkinTranslation, AbilityTranslation, Ability
 from function.general import get_champion_details, prepare_guess_feedback
 
 
@@ -490,4 +490,193 @@ def champion_detail(request, champion_slug):
         'meta_description': meta_description,
         'canonical_url': canonical_url,
         'structured_data': json.dumps(structured_data)
+    })
+
+
+def ability_game(request):
+    """Ability guessing game page - new version"""
+    # Get current language
+    current_language = request.LANGUAGE_CODE
+
+    # Get game difficulty from query parameters or default to medium
+    difficulty = request.GET.get('difficulty', 'medium')
+    is_grey_mode = request.GET.get('grey_mode', 'false').lower() == 'true'
+
+    # Get the game mode from the database
+    game_mode = GameMode.objects.filter(name__iexact=difficulty).first()
+    if not game_mode:
+        # If game mode doesn't exist, create default game modes
+        GameMode.objects.get_or_create(name='Easy', defaults={'max_attempts': 10})
+        GameMode.objects.get_or_create(name='Medium', defaults={'max_attempts': 8})
+        GameMode.objects.get_or_create(name='Hard', defaults={'max_attempts': 6})
+        game_mode = GameMode.objects.filter(name__iexact=difficulty).first()
+
+    # Get session or create new one
+    session_id = request.session.get('session_id')
+    if not session_id:
+        session_id = str(uuid.uuid4())
+        request.session['session_id'] = session_id
+        request.session.modified = True  # Force session save
+
+    # Get or create user
+    current_user = None
+    if hasattr(request, 'user') and request.user.is_authenticated:
+        current_user = request.user
+    else:
+        # Try to get anonymous user by session_id or create a new one
+        anon_username = f"anon_{session_id[:8]}"
+        anon_user = User.objects.filter(username=anon_username).first()
+        if not anon_user:
+            anon_user = User.objects.create(
+                username=anon_username,
+                email=None,
+                password_hash=None
+            )
+        current_user = anon_user
+
+    # Check if there's an existing game in progress
+    game_id = request.session.get('game_id')
+    existing_game = None
+    if game_id:
+        try:
+            existing_game = Game.objects.get(id=game_id)
+            # Only use existing game if it's not completed, matches the requested difficulty,
+            # is an ability game, and matches the grey mode setting
+            if (existing_game.is_completed or
+                    existing_game.game_mode.name.lower() != difficulty.lower() or
+                    existing_game.game_type != 'ability' or
+                    existing_game.is_grey_mode != is_grey_mode):
+                existing_game = None
+        except Game.DoesNotExist:
+            existing_game = None
+
+    # Variables to pass to template
+    target_champion_id = None
+    target_ability_key = None
+    ability_image = None
+    clues = []
+
+    if existing_game:
+        # Continue with existing game
+        game = existing_game
+        attempts_used = game.attempts_used
+
+        # Get target champion and ability info
+        target_champion = game.target_champion
+        target_ability = game.target_ability
+
+        # Güvenlik kontrolleri
+        if not target_champion or not target_ability:
+            # Eğer hedef şampiyon veya yetenek yoksa, yeni oyun başlat
+            existing_game = None
+            game = None
+            attempts_used = 0
+        else:
+            # Get ability image
+            ability_image = target_ability.image_url if target_ability else "/static/img/ability_placeholder.png"
+
+            # Set target values
+            target_champion_id = target_champion.id if target_champion else None
+            target_ability_key = target_ability.ability_key if target_ability else None
+
+            # Get existing clues
+            clues = get_existing_clues(game)
+
+    # Eğer mevcut oyun yoksa veya geçersizse, yeni bir oyun başlat
+    if not existing_game:
+        # Choose a random champion and one of their abilities
+        target_champion, target_ability = select_random_champion_and_ability()
+
+        if target_champion and target_ability:
+            # Create a new game instance
+            game = Game.objects.create(
+                session_id=session_id,
+                game_mode=game_mode,
+                game_type='ability',
+                target_champion=target_champion,
+                target_ability=target_ability,
+                is_completed=False,
+                user=current_user,
+                is_grey_mode=is_grey_mode
+            )
+
+            # Store the game ID in session
+            request.session['game_id'] = game.id
+            request.session.modified = True  # Force session save
+
+            # Set variables for template
+            ability_image = target_ability.image_url if target_ability else "/static/img/ability_placeholder.png"
+            target_champion_id = target_champion.id
+            target_ability_key = target_ability.ability_key
+            attempts_used = 0
+        else:
+            # Hiçbir şampiyon ya da yetenek bulunamadıysa hata mesajı döndür
+            game = None
+            attempts_used = 0
+            # Buraya bir hata mesajı ekleyebilirsiniz
+
+    # Get max attempts for this difficulty
+    max_attempts = game_mode.max_attempts if game_mode else 8  # Default to medium
+
+    # Calculate attempts left
+    attempts_left = max_attempts - attempts_used
+
+    # Get username
+    user_name = current_user.username if current_user else None
+
+    # Önce yetenek resminin geçerli olduğunu kontrol et
+    if ability_image is None or not ability_image.strip():
+        ability_image = "/static/img/ability_placeholder.png"
+
+    return render(request, 'ability_game.html', {
+        'title': _('Ability Game Page Title'),
+        'seo_desc': _('Ability Game Page Description'),
+        'difficulty': difficulty,
+        'difficulty_title': _(difficulty),
+        'is_grey_mode': is_grey_mode,
+        'max_attempts': max_attempts,
+        'game_id': game.id if game else None,
+        'attempts_used': attempts_used,
+        'attempts_left': attempts_left,
+        'ability_image': ability_image,
+        'target_champion_id': target_champion_id,
+        'target_ability_key': target_ability_key,
+        'initial_clues': json.dumps(clues) if clues else '[]',
+        'user_name': user_name
+    })
+
+def select_random_champion_and_ability():
+    """Select a random champion and one of their abilities"""
+    # Get all champions that have abilities
+    champions_with_abilities = Champion.objects.filter(abilities__isnull=False).distinct()
+
+    if not champions_with_abilities.exists():
+        return None, None
+
+    # Select a random champion
+    target_champion = random.choice(list(champions_with_abilities))
+
+    # Get all abilities for this champion
+    abilities = Ability.objects.filter(champion=target_champion)
+
+    if not abilities.exists():
+        return target_champion, None
+
+    # Select a random ability
+    target_ability = random.choice(list(abilities))
+
+    return target_champion, target_ability
+
+
+def get_existing_clues(game):
+    """Get existing clues for a game in progress"""
+    # In a real implementation, you would store clues in the database
+    # For now, we'll return an empty list
+    return []
+
+def games_menu(request):
+    """Games menu page showing all available games"""
+    return render(request, 'games_menu.html', {
+        'title': _('Games Menu Page Title'),
+        'seo_desc': _('Games Menu Page Description')
     })

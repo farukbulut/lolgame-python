@@ -421,3 +421,6 @@ msgstr "すべてのLoLチャンピオン | League of Legendsのチャンピオ�
 
 msgid "Champions Page Desc"
 msgstr "League of Legendsのすべてのチャンピオンをチェックしよう。スキル、難易度、リリース日などの詳細も確認！"
+
+msgid "No data available"
+msgstr "データがありません"

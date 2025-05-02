@@ -468,3 +468,6 @@ msgstr "Tüm LoL Şampiyonları | League of Legends Şampiyon Listesi ve Detayla
 
 msgid "Champions Page Desc"
 msgstr "League of Legends evrenindeki tüm şampiyonları keşfedin. Şampiyon yetenekleri, zorluk dereceleri, çıkış tarihleri ve daha fazlası burada!"
+
+msgid "No data available"
+msgstr "Veri mevcut değil"

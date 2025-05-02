@@ -1,7 +1,6 @@
 from django.urls import path
 
-from api.controller import champions, guess, games, game_history, champion_updater
-
+from api.controller import champions, guess, games, game_history, ability_game
 
 urlpatterns = [
     path('search-champions', champions.search_champions, name='search_champions'),
@@ -10,5 +9,10 @@ urlpatterns = [
     path('game-history', game_history.game_history, name='game_history_api'),
     path('champions', champions.champions_api, name='champions_api'),
     path('champion-details', champions.champion_details, name='champion_details_api'),
-    path('update-champions/', champion_updater.update_champions, name='update_champions'),
+
+    path('user-stats', game_history.user_stats, name='user_stats_api'),  # Add this line
+    path('new-ability-game', games.new_ability_game, name='new_ability_game'),
+    path('make-ability-guess', guess.make_ability_guess, name='make_ability_guess'),
+    path('check-champion-guess', ability_game.check_champion_guess, name='check_champion_guess'),
+    path('new-ability-game', ability_game.new_ability_game, name='new_ability_game'),
 ]

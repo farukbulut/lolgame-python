@@ -420,3 +420,6 @@ msgstr "所有LoL英雄 | 英雄聯盟英雄列表與資料"
 
 msgid "Champions Page Desc"
 msgstr "探索英雄聯盟世界的所有英雄。查看技能、難度、推出時間及更多資訊！"
+
+msgid "No data available"
+msgstr "沒有可用的數據"

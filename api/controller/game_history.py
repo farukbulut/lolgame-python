@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 
 # Change this import to use frontend.models instead of lolgame.models
-from frontend.models import Game, Language, Guess, User
+from frontend.models import Game, Language, Guess, User, UserStat
 from function.general import get_champion_details
 
 
@@ -100,6 +100,61 @@ def game_history(request):
         return JsonResponse({
             'games': games_data,
             'has_more': has_more
+        })
+
+    return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+def user_stats(request):
+    """API endpoint to get user stats for a specific game type"""
+    if request.method == 'GET':
+        # Get game type from query parameters
+        game_type = request.GET.get('game_type', 'champion')
+
+        # Get current user
+        current_user = None
+        if hasattr(request, 'user') and request.user.is_authenticated:
+            current_user = request.user
+        else:
+            session_id = request.session.get('session_id')
+            if session_id:
+                anon_username = f"anon_{session_id[:8]}"
+                current_user = User.objects.filter(username=anon_username).first()
+
+        # If no user found, return empty response
+        if not current_user:
+            return JsonResponse({'error': 'User not found'}, status=404)
+
+        # Get user stats for the specified game type
+        user_stat = UserStat.objects.filter(
+            user=current_user,
+            game_type=game_type
+        ).first()
+
+        if not user_stat:
+            # Return default empty stats if no stats found
+            return JsonResponse({
+                'games_played': 0,
+                'games_won': 0,
+                'win_rate': 0,
+                'average_attempts': 0,
+                'total_score': 0,
+                'best_score': 0
+            })
+
+        # Calculate win rate
+        win_rate = 0
+        if user_stat.games_played > 0:
+            win_rate = int((user_stat.games_won / user_stat.games_played) * 100)
+
+        # Return user stats
+        return JsonResponse({
+            'games_played': user_stat.games_played,
+            'games_won': user_stat.games_won,
+            'win_rate': win_rate,
+            'average_attempts': round(user_stat.average_attempts, 1),
+            'total_score': user_stat.total_score,
+            'best_score': user_stat.best_score
         })
 
     return JsonResponse({'error': 'Invalid request method'}, status=400)

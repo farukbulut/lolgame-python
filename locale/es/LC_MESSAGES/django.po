@@ -413,3 +413,6 @@ msgstr "Todos los Campeones de LoL | Lista y Detalles de Campeones de League of 
 
 msgid "Champions Page Desc"
 msgstr "Explora todos los campeones del universo de League of Legends. Conoce sus habilidades, dificultad, fechas de lanzamiento y más."
+
+msgid "No data available"
+msgstr "No hay datos disponibles"

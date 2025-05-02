@@ -1,5 +1,5 @@
 from frontend.models import ChampionTranslation, GenderTranslation, PositionTranslation, SpeciesTranslation, \
-    CombatRangeTranslation, RegionTranslation, ResourceTranslation
+    CombatRangeTranslation, RegionTranslation, ResourceTranslation, AbilityTranslation
 
 
 def prepare_guess_feedback(target_champion, guessed_champion, language):
@@ -379,4 +379,126 @@ def get_champion_summary(champion, language):
         'resource': resource,
         'release_year': champion.release_year,
         'difficulty': champion.difficulty
+    }
+
+
+def prepare_ability_guess_feedback(target_ability, guessed_ability, language):
+    """Compare the guessed ability with the target and prepare feedback"""
+    ability_name = guessed_ability.name
+
+    if language:
+        translation = AbilityTranslation.objects.filter(
+            ability=guessed_ability,
+            language=language
+        ).first()
+
+        if translation:
+            ability_name = translation.name
+
+    feedback = {
+        'ability_name': ability_name,
+        'image': guessed_ability.image_url,
+        'key': guessed_ability.ability_key,
+        'champion': guessed_ability.champion.name
+    }
+
+    # Yetenek tuşu karşılaştırması
+    key_match = target_ability.ability_key == guessed_ability.ability_key
+    feedback['ability_key'] = {
+        'status': 'correct' if key_match else 'wrong',
+        'value': guessed_ability.ability_key
+    }
+
+    # Hasar tipi karşılaştırması (eğer modelde varsa)
+    if target_ability.damage_type and guessed_ability.damage_type:
+        damage_match = target_ability.damage_type == guessed_ability.damage_type
+        feedback['damage_type'] = {
+            'status': 'correct' if damage_match else 'wrong',
+            'value': guessed_ability.damage_type
+        }
+
+    # Maliyet karşılaştırması (eğer modelde varsa)
+    if target_ability.cost and guessed_ability.cost:
+        # Burada basitçe aynı kaynak tipini kullanıp kullanmadığını kontrol ediyoruz
+        # Tam maliyet değil, sadece "mana", "energy" vb.
+        cost_type_target = target_ability.cost.split()[
+            0].lower() if ' ' in target_ability.cost else target_ability.cost.lower()
+        cost_type_guessed = guessed_ability.cost.split()[
+            0].lower() if ' ' in guessed_ability.cost else guessed_ability.cost.lower()
+
+        cost_match = cost_type_target == cost_type_guessed
+        feedback['cost_type'] = {
+            'status': 'correct' if cost_match else 'wrong',
+            'value': guessed_ability.cost
+        }
+
+    # Şampiyon karşılaştırması
+    champ_match = target_ability.champion.id == guessed_ability.champion.id
+    feedback['champion'] = {
+        'status': 'correct' if champ_match else 'wrong',
+        'value': guessed_ability.champion.name
+    }
+
+    # Burada daha fazla özellik karşılaştırması eklenebilir
+    # ...
+
+    return feedback
+
+
+def get_ability_details(ability, language):
+    """Get detailed information about an ability"""
+    # İsim ve açıklamayı çeviriden al (eğer varsa)
+    name = ability.name
+    description = ability.description or ""
+
+    if language:
+        translation = AbilityTranslation.objects.filter(
+            ability=ability,
+            language=language
+        ).first()
+
+        if translation:
+            name = translation.name
+            description = translation.description or ""
+
+    return {
+        'id': ability.id,
+        'name': name,
+        'key': ability.ability_key,
+        'description': description,
+        'image_url': ability.image_url,
+        'champion': ability.champion.name,
+        'champion_id': ability.champion.id,
+        'cooldown': ability.cooldown,
+        'cost': ability.cost,
+        'damage_type': ability.damage_type
+    }
+
+def get_ability_details(ability, language):
+    """Get detailed information about an ability"""
+    # İsim ve açıklamayı çeviriden al (eğer varsa)
+    name = ability.name
+    description = ability.description or ""
+
+    if language:
+        translation = AbilityTranslation.objects.filter(
+            ability=ability,
+            language=language
+        ).first()
+
+        if translation:
+            name = translation.name
+            description = translation.description or ""
+
+    return {
+        'id': ability.id,
+        'name': name,
+        'key': ability.ability_key,
+        'description': description,
+        'image_url': ability.image_url,
+        'champion': ability.champion.name,
+        'champion_id': ability.champion.id,
+        'cooldown': ability.cooldown,
+        'cost': ability.cost,
+        'damage_type': ability.damage_type
     }

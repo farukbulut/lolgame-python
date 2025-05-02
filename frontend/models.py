@@ -380,6 +380,7 @@ class Game(models.Model):
     is_completed = models.BooleanField(default=False)
     is_won = models.BooleanField(default=False)
     attempts_used = models.IntegerField(default=0)
+    is_grey_mode = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
@@ -495,6 +496,7 @@ class ChampionSkin(models.Model):
     champion = models.ForeignKey(Champion, on_delete=models.CASCADE, related_name='skins')
     name = models.CharField(max_length=100)  # İngilizce adı (asıl ad)
     image_url = models.CharField(max_length=255)
+    source_url = models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

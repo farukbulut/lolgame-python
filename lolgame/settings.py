@@ -27,10 +27,12 @@ SECRET_KEY = "django-insecure-%&tg(r6i^7ylynoysui_4=w7l04bei$@$j06f4$0mvb^6%9llo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*' , 'http://127.0.0.1/']
+ALLOWED_HOSTS = ['*' , 'http://127.0.0.1/', 'http://localhost:8000', 'http://localhost:8000/']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://lolgame.net'
+    'https://lolgame.net',
+    'http://127.0.0.1/',
+    'http://localhost:8000',
 ]
 
 
@@ -44,11 +46,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     "frontend",
     "api",
     "function"
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",

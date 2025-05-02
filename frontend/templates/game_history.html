@@ -11,35 +11,60 @@
 </div>
 
 <div class="history-container">
-    {% if user_stat %}
-    <div class="history-stats">
+    <div class="history-stats" id="user-stats-section">
+        {% if user_stat %}
         <div class="stat-box">
-            <span class="stat-value">{{ user_stat.games_played }}</span>
+            <span class="stat-value" id="games-played">{{ user_stat.games_played }}</span>
             <span class="stat-label">{% trans 'Games Played' %}</span>
         </div>
         <div class="stat-box">
-            <span class="stat-value">{{ user_stat.games_won }}</span>
+            <span class="stat-value" id="games-won">{{ user_stat.games_won }}</span>
             <span class="stat-label">{% trans 'Games Won' %}</span>
         </div>
         <div class="stat-box">
-            <span class="stat-value">{% widthratio user_stat.games_won user_stat.games_played 100 %}%</span>
+            <span class="stat-value" id="win-rate">{% widthratio user_stat.games_won user_stat.games_played 100 %}%</span>
             <span class="stat-label">{% trans 'Win Rate' %}</span>
         </div>
         <div class="stat-box">
-            <span class="stat-value">{{ user_stat.total_score }}</span>
+            <span class="stat-value" id="total-score">{{ user_stat.total_score }}</span>
             <span class="stat-label">{% trans 'Total Score' %}</span>
         </div>
         <div class="stat-box">
-            <span class="stat-value">{{ user_stat.best_score }}</span>
+            <span class="stat-value" id="best-score">{{ user_stat.best_score }}</span>
             <span class="stat-label">{% trans 'Best Score' %}</span>
         </div>
         <div class="stat-box">
-            <span class="stat-value">{{ user_stat.average_attempts|floatformat:1 }}</span>
+            <span class="stat-value" id="avg-attempts">{{ user_stat.average_attempts|floatformat:1 }}</span>
             <span class="stat-label">{% trans 'Avg. Attempts' %}</span>
         </div>
+        {% else %}
+        <div class="stat-box">
+            <span class="stat-value" id="games-played">0</span>
+            <span class="stat-label">{% trans 'Games Played' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value" id="games-won">0</span>
+            <span class="stat-label">{% trans 'Games Won' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value" id="win-rate">0%</span>
+            <span class="stat-label">{% trans 'Win Rate' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value" id="total-score">0</span>
+            <span class="stat-label">{% trans 'Total Score' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value" id="best-score">0</span>
+            <span class="stat-label">{% trans 'Best Score' %}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-value" id="avg-attempts">0.0</span>
+            <span class="stat-label">{% trans 'Avg. Attempts' %}</span>
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
-    
+
     <div class="history-filter">
         <div class="filter-group">
             <label>{% trans 'Game Type' %}:</label>
@@ -50,7 +75,7 @@
             </select>
         </div>
     </div>
-    
+
     <div id="history-list" class="history-list">
         <!-- Games will be loaded here by JavaScript -->
         <div id="loading-spinner" class="loading-spinner">
@@ -58,12 +83,12 @@
             <p>{% trans 'Loading games...' %}</p>
         </div>
     </div>
-    
+
     <div id="no-games" class="no-games hidden">
         <p>{% trans 'No games found. Start playing to see your game history!' %}</p>
         <a href="{% url 'games' %}" class="btn-primary">{% trans 'Play Now' %}</a>
     </div>
-    
+
     <div id="loading-more" class="loading-more hidden">
         <div class="spinner small"></div>
         <p>{% trans 'Loading more games...' %}</p>
@@ -93,27 +118,36 @@
     const championDetail = document.getElementById('champion-detail');
     const closeModal = document.querySelector('.close-modal');
     const currentLanguage = window.location.pathname.split('/')[1];
+
+    // Stats elements
+    const gamesPlayedEl = document.getElementById('games-played');
+    const gamesWonEl = document.getElementById('games-won');
+    const winRateEl = document.getElementById('win-rate');
+    const totalScoreEl = document.getElementById('total-score');
+    const bestScoreEl = document.getElementById('best-score');
+    const avgAttemptsEl = document.getElementById('avg-attempts');
+
     // Game history variables
     let currentPage = 1;
     let hasMoreGames = true;
     let isLoading = false;
     let gameType = '{{ game_type }}';
-    
+
     // Modal events
     closeModal.addEventListener('click', () => {
         championModal.style.display = 'none';
     });
-    
+
     window.addEventListener('click', (event) => {
         if (event.target === championModal) {
             championModal.style.display = 'none';
         }
     });
-    
+
     // Load initial games
     document.addEventListener('DOMContentLoaded', () => {
         loadGames();
-        
+
         // Handle filter changes
         gameTypeFilter.addEventListener('change', function() {
             gameType = this.value;
@@ -124,12 +158,37 @@
             loadingSpinner.classList.remove('hidden');
             noGames.classList.add('hidden');
             loadingMore.classList.add('hidden');
+
+            // Update stats for the new game type
+            updateUserStats(gameType);
+
+            // Load games for the new game type
             loadGames();
         });
-        
+
         // Add scroll event listener for infinite scrolling
         window.addEventListener('scroll', handleScroll);
     });
+
+    // Function to update user stats based on game type
+    async function updateUserStats(gameType) {
+        try {
+            const response = await fetch("/"+currentLanguage+`/api/user-stats?game_type=${gameType}`);
+            if (response.ok) {
+                const data = await response.json();
+
+                // Update stats elements
+                gamesPlayedEl.textContent = data.games_played;
+                gamesWonEl.textContent = data.games_won;
+                winRateEl.textContent = data.win_rate + '%';
+                totalScoreEl.textContent = data.total_score;
+                bestScoreEl.textContent = data.best_score;
+                avgAttemptsEl.textContent = data.average_attempts;
+            }
+        } catch (error) {
+            console.error('Error updating user stats:', error);
+        }
+    }
     
     function handleScroll() {
         if (isLoading || !hasMoreGames) return;

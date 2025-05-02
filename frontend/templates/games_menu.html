@@ -1,0 +1,439 @@
+{% extends 'partial/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="hero">
+    <h1>{% trans 'LoL' %} <span>{% trans 'GAMES' %}</span></h1>
+    <p>{% trans 'Choose a game mode to play' %}</p>
+</div>
+
+<div class="games-container">
+    <!-- ŞAMPIYON TAHMİN OYUNU -->
+    <div class="game-card">
+        <div class="game-icon">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <h2>{% trans 'Champion Guessing Game' %}</h2>
+        <p>{% trans 'Try to guess the target champion with clues about their position, region, and more.' %}</p>
+        
+        <div class="difficulty-select">
+            <h3>{% trans 'Select Difficulty' %}</h3>
+            <div class="diff-buttons">
+                <a href="{% url 'games' %}?difficulty=easy" class="diff-btn easy">
+                    <span class="diff-name">{% trans 'Easy' %}</span>
+                    <span class="diff-desc">10 {% trans 'attempts' %}</span>
+                    <span class="diff-points">{% trans 'Max' %} 20 {% trans 'points' %}</span>
+                </a>
+                <a href="{% url 'games' %}?difficulty=medium" class="diff-btn medium">
+                    <span class="diff-name">{% trans 'Medium' %}</span>
+                    <span class="diff-desc">8 {% trans 'attempts' %}</span>
+                    <span class="diff-points">{% trans 'Max' %} 28 {% trans 'points' %}</span>
+                </a>
+                <a href="{% url 'games' %}?difficulty=hard" class="diff-btn hard">
+                    <span class="diff-name">{% trans 'Hard' %}</span>
+                    <span class="diff-desc">6 {% trans 'attempts' %}</span>
+                    <span class="diff-points">{% trans 'Max' %} 36 {% trans 'points' %}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- YETENEK TAHMİN OYUNU -->
+    <div class="game-card">
+        <div class="game-icon">
+            <i class="fas fa-bolt"></i>
+        </div>
+        <h2>{% trans 'Ability Guessing Game' %}</h2>
+        <p>{% trans 'Guess which champion the ability belongs to and then identify the ability for bonus points!' %}</p>
+
+        <div class="difficulty-select">
+            <h3>{% trans 'Select Difficulty' %}</h3>
+            <div class="diff-buttons">
+                <a href="{% url 'ability_game' %}?difficulty=easy" class="diff-btn easy">
+                    <span class="diff-name">{% trans 'Easy' %}</span>
+                    <span class="diff-desc">10 {% trans 'attempts' %}</span>
+                    <span class="diff-points">{% trans 'Max' %} 20 {% trans 'points' %}</span>
+                </a>
+                <a href="{% url 'ability_game' %}?difficulty=medium" class="diff-btn medium">
+                    <span class="diff-name">{% trans 'Medium' %}</span>
+                    <span class="diff-desc">8 {% trans 'attempts' %}</span>
+                    <span class="diff-points">{% trans 'Max' %} 28 {% trans 'points' %}</span>
+                </a>
+                <a href="{% url 'ability_game' %}?difficulty=hard" class="diff-btn hard">
+                    <span class="diff-name">{% trans 'Hard' %}</span>
+                    <span class="diff-desc">6 {% trans 'attempts' %}</span>
+                    <span class="diff-points">{% trans 'Max' %} 36 {% trans 'points' %}</span>
+                </a>
+            </div>
+
+            <div class="grey-mode-container">
+                <label class="grey-mode-toggle">
+                    <input type="checkbox" id="grey-mode-toggle">
+                    <span class="grey-mode-slider"></span>
+                </label>
+                <span class="grey-mode-label">{% trans 'Grey Mode' %} (+10 {% trans 'points' %})</span>
+                <div class="grey-mode-tooltip">
+                    <i class="fas fa-question-circle"></i>
+                    <span class="tooltip-text">{% trans 'Grey Mode shows ability images in greyscale, making it harder to identify. Earn +10 points for correct guesses.' %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- LEADERBOARD VE GEÇMİŞ KAYITLAR -->
+    <div class="stats-cards">
+        <a href="{% url 'leaderboard' %}" class="stats-card leaderboard">
+            <div class="stats-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stats-text">
+                <h3>{% trans 'Leaderboard' %}</h3>
+                <p>{% trans 'See who ranks at the top' %}</p>
+            </div>
+        </a>
+        
+        <a href="{% url 'game_history_page' %}" class="stats-card history">
+            <div class="stats-icon">
+                <i class="fas fa-history"></i>
+            </div>
+            <div class="stats-text">
+                <h3>{% trans 'Game History' %}</h3>
+                <p>{% trans 'View your past games' %}</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- Grey Mode Handling -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const greyModeToggle = document.getElementById('grey-mode-toggle');
+        const difficultyLinks = document.querySelectorAll('.game-card:nth-child(2) .diff-btn');
+        
+        // Update links when grey mode toggle is changed
+        greyModeToggle.addEventListener('change', function() {
+            const isGreyMode = this.checked;
+            
+            difficultyLinks.forEach(link => {
+                let href = link.getAttribute('href');
+                
+                // Remove existing grey_mode parameter if any
+                href = href.replace(/[?&]grey_mode=(true|false)/, '');
+                
+                // Add grey_mode parameter based on toggle state
+                if (href.includes('?')) {
+                    href += `&grey_mode=${isGreyMode}`;
+                } else {
+                    href += `?grey_mode=${isGreyMode}`;
+                }
+                
+                link.setAttribute('href', href);
+            });
+        });
+    });
+</script>
+
+<style>
+    .games-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    
+    .game-card {
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #333;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 30px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .game-icon {
+        font-size: 42px;
+        color: #d4af37;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .game-card h2 {
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .game-card p {
+        color: #aaa;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .difficulty-select {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+    .difficulty-select h3 {
+        text-align: center;
+        font-size: 18px;
+        color: #d4af37;
+        margin-bottom: 15px;
+    }
+    
+    .diff-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .diff-btn {
+        flex: 1;
+        min-width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        border-radius: 8px;
+        color: #fff;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .diff-btn:hover {
+        transform: translateY(-3px);
+    }
+    
+    .diff-btn.easy {
+        background: #27ae60;
+    }
+    
+    .diff-btn.medium {
+        background: #f39c12;
+    }
+    
+    .diff-btn.hard {
+        background: #e74c3c;
+    }
+    
+    .diff-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    .diff-desc {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+    
+    .diff-points {
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 3px 8px;
+        border-radius: 20px;
+    }
+    
+    /* Grey Mode Toggle */
+    .grey-mode-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .grey-mode-toggle {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        margin-right: 10px;
+    }
+    
+    .grey-mode-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .grey-mode-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #333;
+        transition: .4s;
+        border-radius: 24px;
+    }
+    
+    .grey-mode-slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    
+    input:checked + .grey-mode-slider {
+        background-color: #555;
+    }
+    
+    input:checked + .grey-mode-slider:before {
+        transform: translateX(26px);
+        background-color: #d4af37;
+    }
+    
+    .grey-mode-label {
+        color: #ddd;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .grey-mode-tooltip {
+        position: relative;
+        margin-left: 10px;
+        color: #aaa;
+        cursor: help;
+    }
+    
+    .tooltip-text {
+        visibility: hidden;
+        width: 200px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+        font-weight: normal;
+    }
+    
+    .tooltip-text::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }
+    
+    .grey-mode-tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    /* Stats Cards */
+    .stats-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .stats-card {
+        flex: 1;
+        max-width: 300px;
+        display: flex;
+        align-items: center;
+        background: rgba(21, 24, 35, 0.8);
+        border: 1px solid #333;
+        border-radius: 10px;
+        padding: 20px;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .stats-card.leaderboard:hover {
+        border-color: #d4af37;
+    }
+    
+    .stats-card.history:hover {
+        border-color: #3498db;
+    }
+    
+    .stats-icon {
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .leaderboard .stats-icon {
+        background: rgba(212, 175, 55, 0.1);
+        color: #d4af37;
+    }
+    
+    .history .stats-icon {
+        background: rgba(52, 152, 219, 0.1);
+        color: #3498db;
+    }
+    
+    .stats-text h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    
+    .stats-text p {
+        font-size: 14px;
+        color: #aaa;
+        margin: 0;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .diff-buttons {
+            flex-direction: column;
+        }
+        
+        .diff-btn {
+            width: 100%;
+        }
+        
+        .stats-cards {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stats-card {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}

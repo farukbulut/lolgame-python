@@ -420,3 +420,6 @@ msgstr "모든 LoL 챔피언 | 리그 오브 레전드 챔피언 목록 및 정�
 
 msgid "Champions Page Desc"
 msgstr "리그 오브 레전드 세계의 모든 챔피언을 확인하세요. 능력치, 난이도, 출시일 등 다양한 정보를 제공합니다!"
+
+msgid "No data available"
+msgstr "데이터 없음"

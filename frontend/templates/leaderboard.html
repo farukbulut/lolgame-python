@@ -21,31 +21,31 @@
     </div>
 
     {% if user_stat %}
-    <div class="user-stats">
+    <div class="user-stats" id="user-stats-section">
         <h3>{% trans 'Your Stats' %}</h3>
         <div class="user-stats-content">
             <div class="user-stat-box">
-                <span class="stat-value">{{ user_rank }}</span>
+                <span class="stat-value" id="user-rank">{{ user_rank }}</span>
                 <span class="stat-label">{% trans 'Rank' %}</span>
             </div>
             <div class="user-stat-box">
-                <span class="stat-value">{{ user_stat.total_score }}</span>
+                <span class="stat-value" id="total-score">{{ user_stat.total_score }}</span>
                 <span class="stat-label">{% trans 'Total Score' %}</span>
             </div>
             <div class="user-stat-box">
-                <span class="stat-value">{{ user_stat.best_score }}</span>
+                <span class="stat-value" id="best-score">{{ user_stat.best_score }}</span>
                 <span class="stat-label">{% trans 'Best Score' %}</span>
             </div>
             <div class="user-stat-box">
-                <span class="stat-value">{{ user_stat.games_played }}</span>
+                <span class="stat-value" id="games-played">{{ user_stat.games_played }}</span>
                 <span class="stat-label">{% trans 'Games Played' %}</span>
             </div>
             <div class="user-stat-box">
-                <span class="stat-value">{{ user_stat.games_won }}</span>
+                <span class="stat-value" id="games-won">{{ user_stat.games_won }}</span>
                 <span class="stat-label">{% trans 'Games Won' %}</span>
             </div>
             <div class="user-stat-box">
-                <span class="stat-value">{{ user_stat.average_attempts|floatformat:1 }}</span>
+                <span class="stat-value" id="avg-attempts">{{ user_stat.average_attempts|floatformat:1 }}</span>
                 <span class="stat-label">{% trans 'Avg. Attempts' %}</span>
             </div>
         </div>
@@ -65,7 +65,7 @@
                     <th>{% trans 'Win Rate' %}</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="leaderboard-body">
                 {% for player in top_players %}
                 <tr {% if player.user.username == request.user.username or player.user.username == 'anon_'|add:request.session.session_id|slice:":8" %}class="highlight-row"{% endif %}>
                     <td>{{ forloop.counter }}</td>
@@ -91,22 +91,22 @@
         margin: 20px auto;
         padding: 20px;
     }
-    
+
     .leaderboard-filters {
         display: flex;
         justify-content: center;
         margin-bottom: 30px;
     }
-    
+
     .filter-group {
         margin: 0 15px;
     }
-    
+
     .filter-group label {
         margin-right: 10px;
         color: #aaa;
     }
-    
+
     .filter-group select {
         background-color: #151823;
         color: #fff;
@@ -114,15 +114,15 @@
         padding: 8px 12px;
         border-radius: 5px;
     }
-    
+
     .user-stats {
         background: rgba(21, 24, 35, 0.8);
         border: 1px solid #d4af37;
         border-radius: 10px;
-        padding: a2px;
+        padding: 2px;
         margin-bottom: 30px;
     }
-    
+
     .user-stats h3 {
         text-align: center;
         padding: 15px 0;
@@ -130,53 +130,53 @@
         font-size: 18px;
         border-bottom: 1px solid #222;
     }
-    
+
     .user-stats-content {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         padding: 20px;
     }
-    
+
     .user-stat-box {
         width: 120px;
         text-align: center;
         margin: 10px;
     }
-    
+
     .stat-value {
         font-size: 28px;
         font-weight: 600;
         color: #d4af37;
         display: block;
     }
-    
+
     .stat-label {
         font-size: 14px;
         color: #aaa;
         margin-top: 5px;
         display: block;
     }
-    
+
     .leaderboard-table {
         background: rgba(21, 24, 35, 0.8);
         border: 1px solid #222;
         border-radius: 10px;
         padding: 20px;
     }
-    
+
     .leaderboard-table h3 {
         text-align: center;
         padding-bottom: 15px;
         color: #d4af37;
         font-size: 18px;
     }
-    
+
     table {
         width: 100%;
         border-collapse: collapse;
     }
-    
+
     thead th {
         background-color: rgba(0, 0, 0, 0.2);
         color: #d4af37;
@@ -184,32 +184,32 @@
         text-align: left;
         font-weight: 600;
     }
-    
+
     tbody td {
         padding: 12px;
         border-top: 1px solid #222;
         color: #ddd;
     }
-    
+
     .highlight-row {
         background-color: rgba(212, 175, 55, 0.1);
     }
-    
+
     .no-data {
         text-align: center;
         color: #777;
         padding: 20px 0;
     }
-    
+
     @media (max-width: 768px) {
         .leaderboard-table {
             overflow-x: auto;
         }
-        
+
         .user-stat-box {
             width: 90px;
         }
-        
+
         .stat-value {
             font-size: 22px;
         }
@@ -222,11 +222,23 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const gameTypeFilter = document.getElementById('game-type-filter');
-        
+        const currentLanguage = window.location.pathname.split('/')[1];
+
+        // DOM elements for user stats (if they exist)
+        const userStatsSection = document.getElementById('user-stats-section');
+        const userRankEl = document.getElementById('user-rank');
+        const totalScoreEl = document.getElementById('total-score');
+        const bestScoreEl = document.getElementById('best-score');
+        const gamesPlayedEl = document.getElementById('games-played');
+        const gamesWonEl = document.getElementById('games-won');
+        const avgAttemptsEl = document.getElementById('avg-attempts');
+
         // Handle filter changes
         gameTypeFilter.addEventListener('change', function() {
             const gameType = this.value;
-            window.location.href = `{% url 'leaderboard' %}?game_type=${gameType}`;
+
+            // Redirect to leaderboard with new game type
+            window.location.href = `/${currentLanguage}/leaderboard/?game_type=${gameType}`;
         });
     });
 </script>

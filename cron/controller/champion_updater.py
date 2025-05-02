@@ -185,6 +185,8 @@ def scrape_champion_details(champion_id, lang_code):
                         # Skin resmini al
                         if 'content' in group and 'media' in group['content'] and 'url' in group['content']['media']:
                             skin['image'] = group['content']['media']['url']
+                            # Orijinal LoL site URL'ini kaydet
+                            skin['source_url'] = group['content']['media']['url']
 
                         # İsim ve resim varsa sonuçlara ekle
                         if skin.get('name') and skin.get('image'):
@@ -338,7 +340,7 @@ def update_champion_abilities(champion, language, champion_details):
 
 
 def update_skin_translations(champion, language, champion_details):
-    """Kostüm çevirilerini günceller - JSON'dan gelen net veri yapısına optimize edildi"""
+    """Kostüm çevirilerini günceller - source_url temelli eşleştirme ile geliştirildi"""
     updated_translations = []
 
     if 'skins' not in champion_details or not champion_details['skins']:
@@ -350,78 +352,95 @@ def update_skin_translations(champion, language, champion_details):
     # Bu şampiyon için tüm kostümleri al
     champion_skins = ChampionSkin.objects.filter(champion=champion)
 
-    # Kostüm isimlendirmelerini karşılaştırmayı kolaylaştıracak fonksiyon
-    def normalize_skin_name(name):
-        return name.lower().replace(champion.name.lower(), "").strip()
-
-    # İngilizce kostüm adları ile kostüm nesnelerini eşleştiren bir harita oluştur
-    skin_map = {}
-    for skin in champion_skins:
-        normalized = normalize_skin_name(skin.name)
-        skin_map[normalized] = skin
-        # Tam adı da ekle
-        skin_map[skin.name.lower()] = skin
-
     for skin_data in champion_details['skins']:
         translated_name = skin_data.get('name', '')
+        source_url = skin_data.get('source_url', '')
 
         if not translated_name:
             continue
 
-        # Kostüm adını normalize et
-        normalized_name = normalize_skin_name(translated_name)
+        # Önce source_url ile eşleştirmeyi dene (en güvenilir yöntem)
+        matching_skin = None
+        if source_url:
+            try:
+                # source_url alanına göre eşleşen kostümü bul
+                matching_skin = champion_skins.filter(source_url=source_url).first()
+                if matching_skin:
+                    print(f"Found skin match by source_url: {matching_skin.name}")
+            except Exception as e:
+                # source_url alanı henüz yoksa hata alınabilir, devam et
+                print(f"Note: Could not query by source_url, field might not exist yet: {e}")
 
-        # İlk olarak tam eşleşmeyi dene
-        if translated_name.lower() in skin_map:
-            skin = skin_map[translated_name.lower()]
-        # Sonra normalize edilmiş adı dene
-        elif normalized_name in skin_map:
-            skin = skin_map[normalized_name]
-        else:
-            # Eşleşme bulunamazsa, benzerlik veya sıra indeksi ile en iyi eşleşeni bul
-            best_match = None
-            best_score = 0
+        # source_url ile eşleşme bulunamadıysa, isim bazlı eşleştirmeye geri dön
+        if not matching_skin:
+            # İsim normalizasyonu ve eşleştirme fonksiyonu
+            def normalize_skin_name(name):
+                return name.lower().replace(champion.name.lower(), "").strip()
 
-            # Basit benzerlik kontrolü
-            for en_name in skin_map:
-                # Eğer çevirilen kostüm adı İngilizce kostüm adını içeriyorsa veya tam tersi
-                if normalized_name in en_name or en_name in normalized_name:
-                    score = len(en_name) / max(len(normalized_name), len(en_name))
-                    if score > best_score:
-                        best_score = score
-                        best_match = skin_map[en_name]
+            # İsim bazlı eşleştirme haritası oluştur
+            skin_map = {}
+            for skin in champion_skins:
+                normalized = normalize_skin_name(skin.name)
+                skin_map[normalized] = skin
+                # Tam adı da ekle
+                skin_map[skin.name.lower()] = skin
 
-            if best_match:
-                skin = best_match
-            elif champion_skins.exists():
-                # Sıra numarası bazlı eşleme
-                skin_index = champion_details['skins'].index(skin_data)
-                if skin_index < champion_skins.count():
-                    skin = champion_skins[skin_index]
-                else:
-                    # İlk kostümü kullan
-                    skin = champion_skins.first()
+            # Kostüm adını normalize et
+            normalized_name = normalize_skin_name(translated_name)
+
+            # İlk olarak tam eşleşmeyi dene
+            if translated_name.lower() in skin_map:
+                matching_skin = skin_map[translated_name.lower()]
+            # Sonra normalize edilmiş adı dene
+            elif normalized_name in skin_map:
+                matching_skin = skin_map[normalized_name]
             else:
-                print(f"No skins found for champion, cannot create translation")
-                continue
+                # Eşleşme bulunamazsa, benzerlik veya sıra indeksi ile en iyi eşleşeni bul
+                best_match = None
+                best_score = 0
 
-        # Çeviriyi ekle
-        try:
-            ChampionSkinTranslation.objects.update_or_create(
-                skin=skin,
-                language=language,
-                defaults={
-                    'name': translated_name
-                }
-            )
-            updated_translations.append({
-                'skin': skin.name,
-                'translation': translated_name,
-                'language': language.code
-            })
-            print(f"Added translation for '{skin.name}' in {language.code}: '{translated_name}'")
-        except Exception as e:
-            print(f"Error adding translation for {translated_name}: {str(e)}")
+                # Basit benzerlik kontrolü
+                for en_name in skin_map:
+                    # Eğer çevirilen kostüm adı İngilizce kostüm adını içeriyorsa veya tam tersi
+                    if normalized_name in en_name or en_name in normalized_name:
+                        score = len(en_name) / max(len(normalized_name), len(en_name))
+                        if score > best_score:
+                            best_score = score
+                            best_match = skin_map[en_name]
+
+                if best_match:
+                    matching_skin = best_match
+                elif champion_skins.exists():
+                    # Sıra numarası bazlı eşleme
+                    skin_index = champion_details['skins'].index(skin_data)
+                    if skin_index < champion_skins.count():
+                        matching_skin = champion_skins[skin_index]
+                    else:
+                        # İlk kostümü kullan
+                        matching_skin = champion_skins.first()
+                else:
+                    print(f"No skins found for champion, cannot create translation")
+                    continue
+
+        # Eşleşen kostüm bulunduysa çeviriyi ekle
+        if matching_skin:
+            try:
+                ChampionSkinTranslation.objects.update_or_create(
+                    skin=matching_skin,
+                    language=language,
+                    defaults={
+                        'name': translated_name
+                    }
+                )
+                updated_translations.append({
+                    'skin': matching_skin.name,
+                    'translation': translated_name,
+                    'language': language.code,
+                    'matched_by': 'source_url' if source_url and matching_skin.source_url == source_url else 'name'
+                })
+                print(f"Added translation for '{matching_skin.name}' in {language.code}: '{translated_name}'")
+            except Exception as e:
+                print(f"Error adding translation for {translated_name}: {str(e)}")
 
     return updated_translations
 
@@ -684,7 +703,7 @@ def update_champion_story(champion, language, champion_details):
 
 
 def update_champion_skins(champion, champion_details, is_primary=False):
-    """Şampiyon kostümlerini ana tabloya ekler (sadece İngilizce)"""
+    """Şampiyon kostümlerini ana tabloya ekler - source_url alanı eklenmiş hali"""
     added_skins = []
 
     if 'skins' in champion_details and champion_details['skins'] and is_primary:
@@ -693,9 +712,22 @@ def update_champion_skins(champion, champion_details, is_primary=False):
 
         print(f"Processing {len(champion_details['skins'])} skins for {champion.name}")
 
+        # Önce mevcut kostümleri al ve bir haritada sakla
+        existing_skins = {}
+        for skin in ChampionSkin.objects.filter(champion=champion):
+            # Kostüm adını normalize et ve haritada sakla
+            normalized_name = slugify(skin.name).replace("-", "_")
+            existing_skins[normalized_name] = skin
+            # Tam adı da ekle
+            existing_skins[skin.name.lower()] = skin
+            # Eğer source_url varsa, onu da eşleştirme için kullan
+            if hasattr(skin, 'source_url') and skin.source_url:
+                existing_skins[skin.source_url] = skin
+
         for skin_data in champion_details['skins']:
             skin_name = skin_data.get('name', '')
             skin_image = skin_data.get('image', '')
+            source_url = skin_data.get('source_url', '')  # LoL site URL'i
 
             if not skin_image or not skin_name or skin_name == champion.name:
                 if skin_name == champion.name:
@@ -708,24 +740,65 @@ def update_champion_skins(champion, champion_details, is_primary=False):
 
             # Create sanitized name for file paths
             sanitized_name = slugify(skin_name).replace("-", "_")
-            file_path = f'public/champions/skins/{champion.id}_{champion.name.lower().replace(" ", "_")}_{sanitized_name}.jpg'
+            normalized_name = skin_name.lower()
 
-            # Download the skin image first
-            download_result = download_file(skin_image, file_path)
+            # Önce source_url ile mevcut kostümü bulmayı dene (en güvenilir yöntem)
+            existing_skin = None
+            if source_url and source_url in existing_skins:
+                existing_skin = existing_skins[source_url]
+                print(f"Found existing skin by source_url: {existing_skin.name}")
+            # Sonra isim ile bulmayı dene
+            elif sanitized_name in existing_skins:
+                existing_skin = existing_skins[sanitized_name]
+                print(f"Found existing skin by sanitized name: {existing_skin.name}")
+            elif normalized_name in existing_skins:
+                existing_skin = existing_skins[normalized_name]
+                print(f"Found existing skin by normalized name: {existing_skin.name}")
+
+            # Eğer kostüm zaten varsa ve geçerli bir image_url'ye sahipse,
+            # o image_url'yi kullan, yoksa yeni bir tane oluştur
+            if existing_skin and existing_skin.image_url and os.path.exists(existing_skin.image_url.lstrip('/')):
+                file_path = existing_skin.image_url.lstrip('/')
+                print(f"Using existing image path: {file_path}")
+                download_result = True  # Mevcut dosyayı kullanıyoruz
+            else:
+                # Yeni kostüm veya geçersiz resim yolu - yeni dosya yolu oluştur
+                file_path = f'public/champions/skins/{champion.id}_{champion.name.lower().replace(" ", "_")}_{sanitized_name}.jpg'
+                # Download the skin image
+                download_result = download_file(skin_image, file_path)
+                print(f"Downloaded new image to path: {file_path}, result: {download_result}")
 
             if download_result:
                 try:
-                    # Kostümü ana tabloya ekle
-                    skin, created = ChampionSkin.objects.update_or_create(
-                        champion=champion,
-                        name=skin_name,
-                        defaults={
-                            'image_url': "/" + file_path  # Use local path
-                        }
-                    )
+                    # Kostüm güncellemesi veya oluşturma için varsayılan değerler
+                    defaults = {
+                        'name': skin_name,  # API'den gelen en son adı kullan
+                        'image_url': "/" + file_path
+                    }
 
-                    # İngilizce çeviriyi ekle - bu gerçekten gerekli mi?
-                    # Ana tabloya zaten İngilizce adı ekleniyor
+                    # source_url alanı için destek ekle
+                    if source_url:
+                        defaults['source_url'] = source_url
+
+                    # Update or create skin
+                    if existing_skin:
+                        # Mevcut kostümü güncelle
+                        for key, value in defaults.items():
+                            setattr(existing_skin, key, value)
+                        existing_skin.save()
+                        skin = existing_skin
+                        created = False
+                        print(f"Updated existing skin: {skin.name}")
+                    else:
+                        # Yeni kostüm oluştur
+                        skin = ChampionSkin.objects.create(
+                            champion=champion,
+                            **defaults
+                        )
+                        created = True
+                        print(f"Created new skin: {skin.name}")
+
+                    # İngilizce çeviriyi ekle veya güncelle
                     ChampionSkinTranslation.objects.update_or_create(
                         skin=skin,
                         language=english,
@@ -739,10 +812,11 @@ def update_champion_skins(champion, champion_details, is_primary=False):
                         'name': skin_name,
                         'status': status,
                         'image_downloaded': download_result,
-                        'image_path': file_path
+                        'image_path': file_path,
+                        'source_url': source_url
                     })
 
-                    print(f"Skin {status}: {skin_name}, image downloaded and saved to {file_path}")
+                    print(f"Skin {status}: {skin_name}, image path: {file_path}")
                 except Exception as e:
                     print(f"Error processing skin {skin_name}: {str(e)}")
                     import traceback
@@ -759,6 +833,34 @@ def update_champion_skins(champion, champion_details, is_primary=False):
             print(f"Skipping skins for non-primary language")
 
     return added_skins
+
+
+# Veritabanı değişikliği için hazırlık bloğu
+# Bu bloğu update_champions fonksiyonuna ekleyin:
+def update_champions(request):
+    # ... mevcut kod ...
+
+    # ChampionSkin modelinde source_url alanı kontrolü
+    try:
+        from django.db import connection
+        with connection.cursor() as cursor:
+            # source_url sütununun varlığını kontrol et
+            cursor.execute("""
+                SELECT column_name 
+                FROM information_schema.columns 
+                WHERE table_name='frontend_championskin' 
+                  AND column_name='source_url'
+            """)
+            has_source_url = bool(cursor.fetchone())
+
+            # source_url alanı yoksa ekle
+            if not has_source_url:
+                print("Adding source_url field to ChampionSkin model...")
+                cursor.execute("ALTER TABLE frontend_championskin ADD COLUMN source_url VARCHAR(255) NULL")
+                print("✓ Added source_url field to ChampionSkin model")
+    except Exception as e:
+        print(f"Error checking/adding source_url field: {e}")
+        print("Will try to proceed anyway, but errors may occur if field is missing")
 
 
 def normalize_ability_key(ability_key_raw, language_code=None):

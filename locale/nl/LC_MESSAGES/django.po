@@ -416,3 +416,6 @@ msgstr "Alle LoL Kampioenen | Overzicht & Details van League of Legends Kampioen
 
 msgid "Champions Page Desc"
 msgstr "Ontdek alle kampioenen uit het League of Legends-universum. Bekijk vaardigheden, moeilijkheidsgraden, release data en meer!"
+
+msgid "No data available"
+msgstr "Geen gegevens beschikbaar"

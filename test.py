@@ -3,7 +3,7 @@ import json
 import requests
 import time
 
-url = "http://localhost:8000/api/update-champions/"
+url = "http://localhost:8000/cron/update-champions/"
 
 # Tüm 170 şampiyonun isimleri (örnek olarak burada kısaca gösterdim, bunu kendi listenle değiştir)
 champion_list = [
@@ -13,12 +13,14 @@ champion_list = [
     "Akali",
     "Akshan",
     "Alistar",
+    "Ambessa",
     "Amumu",
     "Anivia",
     "Annie",
     "Aphelios",
     "Ashe",
     "Aurelion Sol",
+    "Aurora",
     "Azir",
     "Bard",
     "Bel'Veth",
@@ -51,6 +53,7 @@ champion_list = [
     "Gwen",
     "Hecarim",
     "Heimerdinger",
+    "Hwei,"
     "Illaoi",
     "Irelia",
     "Ivern",
@@ -86,6 +89,7 @@ champion_list = [
     "Malzahar",
     "Maokai",
     "Master Yi",
+    "Mel",
     "Milio",
     "Miss Fortune",
     "Mordekaiser",
@@ -174,12 +178,7 @@ champion_list = [
     "Zilean",
     "Zoe",
     "Zyra",
-    "Ambessa",
-    "Mel",
-    "Aurora",
-    "Hwei"
 ]
-
 
 languages = ["en", "tr", "de", "fr", "es", "it", "ru", "pt", "br", "nl", "zh", "jp", "kr"]
 
