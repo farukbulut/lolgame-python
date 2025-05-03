@@ -1,18 +1,354 @@
 {% load i18n %}
-<header>
-    <nav class="top-nav">
-        <ul class="menu">
-            <li><a href="{% url 'front_home' %}">{% trans 'Home' %}</a></li>
-            <li><a href="{% url 'games_menu' %}">{% trans 'Games' %}</a></li>
-            <li><a href="{% url 'champions_page' %}">{% trans 'Champions' %}</a></li>
-            <li><a href="{% url 'how_to_play' %}">{% trans 'How To Play' %}</a></li>
-            <li><a href="{% url 'game_history_page' %}">{% trans 'Game History' %}</a></li>
-            <li><a href="{% url 'leaderboard' %}">{% trans 'Leaderboard' %}</a></li>
-        </ul>
-        <div class="nav-icons">
-            <i class="fab fa-whatsapp"></i>
-            <i class="fas fa-times"></i>
-            <i class="fas fa-share-alt"></i>
+{% load static %}
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="{% url 'front_home' %}">
+                <img src="{% static 'img/logo.png' %}" alt="LoL Game" class="site-logo">
+            </a>
         </div>
-    </nav>
+
+        <div class="menu-container">
+            <nav class="desktop-menu">
+                <ul>
+                    <li><a href="{% url 'front_home' %}">{% trans 'Home' %}</a></li>
+                    <li><a href="{% url 'games_menu' %}">{% trans 'Games' %}</a></li>
+                    <li><a href="{% url 'champions_page' %}">{% trans 'Champions' %}</a></li>
+                    <li><a href="{% url 'how_to_play' %}">{% trans 'How To Play' %}</a></li>
+                    <li><a href="{% url 'game_history_page' %}">{% trans 'Game History' %}</a></li>
+                    <li><a href="{% url 'leaderboard' %}">{% trans 'Leaderboard' %}</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-tools">
+            <div class="language-select">
+                <form action="{% url 'set_language' %}" method="post" id="language-form">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.path }}">
+                    <select name="language" id="language-select" onchange="this.form.submit()">
+                        {% get_current_language as CURRENT_LANGUAGE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
+                                {{ lang_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="toggle-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav>
+            <ul>
+                <li><a href="{% url 'front_home' %}">{% trans 'Home' %}</a></li>
+                <li><a href="{% url 'games_menu' %}">{% trans 'Games' %}</a></li>
+                <li><a href="{% url 'champions_page' %}">{% trans 'Champions' %}</a></li>
+                <li><a href="{% url 'how_to_play' %}">{% trans 'How To Play' %}</a></li>
+                <li><a href="{% url 'game_history_page' %}">{% trans 'Game History' %}</a></li>
+                <li><a href="{% url 'leaderboard' %}">{% trans 'Leaderboard' %}</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
+
+<style>
+/* Reset and Base Styles */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #000000e3;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Logo Styles */
+.logo-container {
+    flex: 0 0 auto;
+}
+
+.site-logo {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+/* Desktop Menu Styles */
+.menu-container {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.desktop-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-menu li {
+    position: relative;
+}
+
+.desktop-menu a {
+    display: block;
+    padding: 0 15px;
+    line-height: 70px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.desktop-menu a:hover {
+    color: #d4af37;
+}
+
+.desktop-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #d4af37;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.desktop-menu a:hover::after {
+    width: 70%;
+}
+
+/* Header Tools */
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Language Select */
+.language-select {
+    position: relative;
+}
+
+#language-select {
+    padding: 8px 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #d4af37;
+    border: 1px solid #444;
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23d4af37" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"><path d="M7 10l5 5 5-5H7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
+}
+
+#language-select:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+#language-select option {
+    background-color: #151823;
+    color: #fff;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    padding: 0;
+}
+
+.toggle-icon,
+.toggle-icon::before,
+.toggle-icon::after {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.toggle-icon {
+    top: 13px;
+}
+
+.toggle-icon::before {
+    content: '';
+    top: -8px;
+}
+
+.toggle-icon::after {
+    content: '';
+    bottom: -8px;
+}
+
+/* Mobile Menu Toggle Active State */
+.mobile-menu-toggle.active .toggle-icon {
+    background-color: transparent;
+}
+
+.mobile-menu-toggle.active .toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.mobile-menu-toggle.active .toggle-icon::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: rgba(21, 24, 35, 0.98);
+    border-top: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .menu-container {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+
+    .site-logo {
+        width: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-container {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .site-logo {
+        width: 70px;
+    }
+
+    .mobile-menu {
+        top: 60px;
+        max-height: calc(100vh - 60px);
+    }
+
+    .language-select {
+        margin-right: 5px;
+    }
+
+    #language-select {
+        padding: 6px 24px 6px 8px;
+        font-size: 12px;
+        min-width: 80px;
+        background-size: 14px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        });
+    });
+
+    // Close mobile menu on window resize (if desktop view)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
+    });
+});
+</script>

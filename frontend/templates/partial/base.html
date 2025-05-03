@@ -7,11 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page_title %}LoL Game{% endblock %} {{ title }}</title>
     <meta name="description" content="{{ seo_desc }}">
+
+    <!-- Language alternates for SEO -->
+    {% get_available_languages as languages %}
+    {% get_current_language as current_language %}
+    {% get_language_info_list for languages as languages_info %}
+    {% for language in languages_info %}
+        {% with current_path=request.path|slice:"3:" %}
+        <link rel="alternate" hreflang="{{ language.code }}" href="{{ request.scheme }}://{{ request.get_host }}/{{ language.code }}{{ current_path }}" />
+        {% endwith %}
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}/en{{ request.path|slice:"3:" }}" />
+    <!-- Additional SEO meta tags -->
+    <meta property="og:title" content="{% block og_title %}LoL Game{% endblock %} {{ title }}">
+    <meta property="og:description" content="{{ seo_desc }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ request.LANGUAGE_CODE }}">
+    {% block og_image %}<meta property="og:image" content="{% static 'img/lol-game-share.jpg' %}">{% endblock %}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}LoL Game{% endblock %} {{ title }}">
+    <meta name="twitter:description" content="{{ seo_desc }}">
+    {% block twitter_image %}<meta name="twitter:image" content="{% static 'img/lol-game-share.jpg' %}">{% endblock %}
+
     {% block meta %}{% endblock %}
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJB6WD3Y49"></script>
     <script>

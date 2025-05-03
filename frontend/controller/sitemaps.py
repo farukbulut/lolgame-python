@@ -1,5 +1,3 @@
-# Create a new file: lolgame/sitemaps.py
-
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from frontend.models import Champion, Language
@@ -12,7 +10,6 @@ class StaticViewSitemap(Sitemap):
     """Sitemap for static pages"""
     i18n = True  # This makes the sitemap multilingual
     protocol = 'https'  # veya http
-    domain = 'lolgame.net'  # kendi domain adınız
 
     def items(self):
         # List of all static URL names with priority and change frequency
@@ -75,7 +72,6 @@ class StaticViewSitemap(Sitemap):
 class ChampionSitemap(Sitemap):
     """Sitemap for champion detail pages"""
     protocol = 'https'  # veya http
-    domain = 'lolgame.net'  # kendi domain adınız
     changefreq = 'monthly'
     priority = 0.7
     i18n = True  # This makes the sitemap multilingual

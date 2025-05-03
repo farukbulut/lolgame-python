@@ -1,3 +1,5 @@
+# settings.py dosyasını şu şekilde düzenleyin:
+
 """
 Django settings for lolgame project.
 
@@ -25,16 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-%&tg(r6i^7ylynoysui_4=w7l04bei$@$j06f4$0mvb^6%9llo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*' , 'http://127.0.0.1/', 'http://localhost:8000', 'http://localhost:8000/']
+ALLOWED_HOSTS = ['*','https://lolgame.net']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://lolgame.net',
-    'http://127.0.0.1/',
-    'http://localhost:8000',
+    'https://lolgame.net'
 ]
-
 
 
 # Application definition
@@ -90,10 +89,10 @@ WSGI_APPLICATION = "lolgame.wsgi.application"
 
 DATABASES = {
         'default': {
-            'ENGINE': 'mysql.connector.django',
-            'NAME': 'lol_game',
-            'USER': 'root',
-            'PASSWORD': '',
+            'ENGINE': 'django.db.backends.mysql',  # 'mysql.connector.django' yerine bu değeri kullanın
+            'NAME': 'lolgame',
+            'USER': 'lolgame',
+            'PASSWORD': 'ytAXI03jSDUqcO6WMnUp',
             'HOST': '127.0.0.1',
             'PORT': '3306',
             'OPTIONS': {
@@ -125,8 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-
-
 TIME_ZONE = "UTC"
 
 USE_I18N = True
@@ -136,6 +133,37 @@ USE_TZ = True
 LANGUAGE_COOKIE_NAME = "langs"
 LANGUAGE_CODE = 'en'
 
+# Özel dil kodları tanımlaması
+from django.conf import global_settings
+
+# Tüm özel dil kodları için tanımlamalar
+EXTRA_LANG_INFO = {
+    'zh': {
+        'bidi': False,
+        'code': 'zh',
+        'name': 'Chinese',
+        'name_local': '中文',
+    },
+    'jp': {
+        'bidi': False,
+        'code': 'jp',
+        'name': 'Japanese',
+        'name_local': '日本語',
+    },
+    'br': {
+        'bidi': False,
+        'code': 'br',
+        'name': 'Brazilian Portuguese',
+        'name_local': 'Português Brasileiro',
+    },
+}
+
+# Django'nun dil bilgi sözlüğünü güncelle
+import django.conf.locale
+LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+django.conf.locale.LANG_INFO = LANG_INFO
+
+# Desteklenen diller listesi - orijinal listesiyle aynı şekilde bırakıyoruz
 LANGUAGES = [
     ('en', _('English')),
     ('de', _('German')),
