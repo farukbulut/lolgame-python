@@ -3,7 +3,7 @@ from django.http import JsonResponse
 
 from frontend.models import Champion, Language, ChampionTranslation, PositionTranslation
 from function.general import get_champion_summary, get_champion_details
-
+from django.utils.translation import gettext as _
 
 def search_champions(request):
     """AJAX endpoint to search champions as the user types"""
@@ -69,7 +69,7 @@ def search_champions(request):
                 })
             return JsonResponse({'champions': results})
 
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    return JsonResponse({'error': _('Invalid request')}, status=400)
 
 def champions_api(request):
     """API endpoint to get champions with filtering and sorting"""
@@ -236,7 +236,7 @@ def champions_api(request):
             'total_items': total_items
         })
 
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+    return JsonResponse({'error': _('Invalid request method')}, status=400)
 
 def champion_details(request):
     """API endpoint to get detailed information about a specific champion"""
@@ -244,13 +244,13 @@ def champion_details(request):
         champion_id = request.GET.get('id')
 
         if not champion_id or not champion_id.isdigit():
-            return JsonResponse({'error': 'Invalid champion ID'}, status=400)
+            return JsonResponse({'error': _('Invalid champion ID')}, status=400)
 
         # Get champion
         try:
             champion = Champion.objects.get(id=champion_id)
         except Champion.DoesNotExist:
-            return JsonResponse({'error': 'Champion not found'}, status=404)
+            return JsonResponse({'error': _('Champion not found')}, status=404)
 
         # Get current language
         current_language = request.LANGUAGE_CODE
@@ -261,4 +261,4 @@ def champion_details(request):
 
         return JsonResponse({'champion': champion_data})
 
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+    return JsonResponse({'error': _('Invalid request method')}, status=400)

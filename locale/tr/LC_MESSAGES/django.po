@@ -498,3 +498,111 @@ msgstr "Geçmiş oyunlarını görüntüle"
 
 msgid "Clues"
 msgstr "İpuçları"
+
+msgid "Champion Guessing Game"
+msgstr "Şampiyon Tahmin Oyunu"
+
+msgid "Missing parameters"
+msgstr "Eksik parametreler"
+
+msgid "Game not found"
+msgstr "Oyun bulunamadı"
+
+msgid "Game has no target champion"
+msgstr "Oyun hedef şampiyona sahip değil"
+
+msgid "Game has no target ability"
+msgstr "Oyun hedef yeteneğe sahip değil"
+
+msgid "Game already completed"
+msgstr "Oyun zaten tamamlandı"
+
+msgid "Champion not found"
+msgstr "Şampiyon bulunamadı"
+
+msgid "You have already guessed this champion"
+msgstr "Bu şampiyonu zaten tahmin ettiniz"
+
+msgid "No champion information available"
+msgstr "Şampiyon bilgisi mevcut değil"
+
+msgid "Champion plays %s position"
+msgstr "Şampiyon %s pozisyonunu oynar"
+
+msgid "Champion is from %s region"
+msgstr "Şampiyon %s bölgesindendir"
+
+msgid "Champion uses %s"
+msgstr "Şampiyon %s kullanır"
+
+msgid "Champion is from %s"
+msgstr "Şampiyon %s'dendir"
+
+msgid "Champion gender is %s"
+msgstr "Şampiyon cinsiyeti %s'dir"
+
+msgid "Champion species is %s"
+msgstr "Şampiyon türü %s'dir"
+
+msgid "Champion was released in %s"
+msgstr "Şampiyon %s yılında oyuna eklendi"
+
+msgid "Champion combat range is %s"
+msgstr "Şampiyon savaş menzili %s'dir"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "Bu yeteneğe sahip şampiyonu tahmin etmeye çalışın"
+
+msgid "Invalid request"
+msgstr "Geçersiz istek"
+
+msgid "Invalid request method"
+msgstr "Geçersiz istek yöntemi"
+
+msgid "Invalid champion ID"
+msgstr "Geçersiz şampiyon kimliği"
+
+msgid "User not found"
+msgstr "Kullanıcı bulunamadı"
+
+msgid "Invalid difficulty"
+msgstr "Geçersiz zorluk"
+
+msgid "No champions available"
+msgstr "Mevcut şampiyon yok"
+
+msgid "No abilities available"
+msgstr "Mevcut yetenek yok"
+
+msgid "Congratulations!"
+msgstr "Tebrikler!"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "Şampiyonu doğru bir şekilde tanımladınız. Şimdi bu yeteneğin hangisi olduğunu tahmin edin!"
+
+msgid "Now guess which ability this is!"
+msgstr "Şimdi bu yeteneğin hangisi olduğunu tahmin edin!"
+
+msgid "Passive"
+msgstr "Pasif"
+
+msgid "Q Ability"
+msgstr "Q Yeteneği"
+
+msgid "W Ability"
+msgstr "W Yeteneği"
+
+msgid "E Ability"
+msgstr "E Yeteneği"
+
+msgid "Ultimate (R)"
+msgstr "R Yeteneği"
+
+msgid "Now guess which ability this is"
+msgstr "Şimdi bu yeteneğin hangisi olduğunu tahmin edin"
+
+msgid "Ability Game Page Title"
+msgstr "LoL Yetenek Tahmin Oyunu | Ücretsiz League of Legends Bilgi Oyunu"
+
+msgid "Ability Game Page Desc"
+msgstr "LoL bilginizi test edin! İpuçlarına göre şampiyon yeteneklerini tahmin edin, skorunuzu artırın ve League of Legends tutkunlarıyla rekabet edin. Şimdi ücretsiz oynayın!"

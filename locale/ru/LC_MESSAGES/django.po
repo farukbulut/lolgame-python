@@ -419,3 +419,138 @@ msgstr "Исследуйте всех чемпионов во вселенной
 
 msgid "No data available"
 msgstr "Нет доступных данных"
+
+msgid "Clues:"
+msgstr "Подсказки:"
+
+msgid "Guess the champion that owns this ability"
+msgstr "Угадайте, какому чемпиону принадлежит эта способность"
+
+msgid "Choose a game mode to play"
+msgstr "Выберите режим игры"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "Попробуйте угадать цель-чемпиона по подсказкам о его позиции, регионе и другим признакам."
+
+msgid "Ability Guessing Game"
+msgstr "Игра: Угадай Способность"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "Угадайте, какому чемпиону принадлежит способность, а затем назовите её, чтобы получить бонусные очки!"
+
+msgid "See who ranks at the top"
+msgstr "Посмотрите, кто на вершине рейтинга"
+
+msgid "View your past games"
+msgstr "Посмотреть историю игр"
+
+msgid "Clues"
+msgstr "Подсказки"
+
+msgid "Champion Guessing Game"
+msgstr "Игра: Угадай Чемпиона"
+
+msgid "Missing parameters"
+msgstr "Отсутствуют параметры"
+
+msgid "Game not found"
+msgstr "Игра не найдена"
+
+msgid "Game has no target champion"
+msgstr "В игре не указан целевой чемпион"
+
+msgid "Game has no target ability"
+msgstr "В игре не указана целевая способность"
+
+msgid "Game already completed"
+msgstr "Игра уже завершена"
+
+msgid "Champion not found"
+msgstr "Чемпион не найден"
+
+msgid "You have already guessed this champion"
+msgstr "Вы уже угадывали этого чемпиона"
+
+msgid "No champion information available"
+msgstr "Информация о чемпионе недоступна"
+
+msgid "Champion plays %s position"
+msgstr "Чемпион играет на позиции %s"
+
+msgid "Champion is from %s region"
+msgstr "Чемпион из региона %s"
+
+msgid "Champion uses %s"
+msgstr "Чемпион использует %s"
+
+msgid "Champion is from %s"
+msgstr "Чемпион родом из %s"
+
+msgid "Champion gender is %s"
+msgstr "Пол чемпиона: %s"
+
+msgid "Champion species is %s"
+msgstr "Раса чемпиона: %s"
+
+msgid "Champion was released in %s"
+msgstr "Чемпион был выпущен в %s году"
+
+msgid "Champion combat range is %s"
+msgstr "Дальность боя чемпиона: %s"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "Попробуйте угадать, какому чемпиону принадлежит эта способность"
+
+msgid "Invalid request"
+msgstr "Недопустимый запрос"
+
+msgid "Invalid request method"
+msgstr "Недопустимый метод запроса"
+
+msgid "Invalid champion ID"
+msgstr "Недопустимый ID чемпиона"
+
+msgid "User not found"
+msgstr "Пользователь не найден"
+
+msgid "Invalid difficulty"
+msgstr "Недопустимый уровень сложности"
+
+msgid "No champions available"
+msgstr "Нет доступных чемпионов"
+
+msgid "No abilities available"
+msgstr "Нет доступных способностей"
+
+msgid "Congratulations!"
+msgstr "Поздравляем!"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "Вы правильно определили чемпиона. Теперь угадайте, какая это способность!"
+
+msgid "Now guess which ability this is!"
+msgstr "Теперь угадайте, какая это способность!"
+
+msgid "Passive"
+msgstr "Пассивная"
+
+msgid "Q Ability"
+msgstr "Способность Q"
+
+msgid "W Ability"
+msgstr "Способность W"
+
+msgid "E Ability"
+msgstr "Способность E"
+
+msgid "Ultimate (R)"
+msgstr "Ультимейт (R)"
+
+msgid "Now guess which ability this is"
+msgstr "Теперь угадайте, какая это способность"
+
+msgid "Ability Game Page Title"
+msgstr "Игра: Угадай Способность LoL | Викторина по League of Legends"
+
+msgid "Ability Game Page Desc"
+msgstr "Проверь свои знания о League of Legends! Угадывай способности чемпионов по подсказкам, набирай очки и поднимайся в рейтинге! Играй бесплатно прямо сейчас!"

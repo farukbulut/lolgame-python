@@ -423,3 +423,138 @@ msgstr "探索英雄聯盟世界的所有英雄。查看技能、難度、推出
 
 msgid "No data available"
 msgstr "沒有可用的數據"
+
+msgid "Clues:"
+msgstr "線索："
+
+msgid "Guess the champion that owns this ability"
+msgstr "猜猜是哪位英雄擁有這個技能"
+
+msgid "Choose a game mode to play"
+msgstr "選擇一個遊戲模式開始遊戲"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "根據位置、地區等線索，嘗試猜出目標英雄。"
+
+msgid "Ability Guessing Game"
+msgstr "技能猜謎遊戲"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "先猜技能屬於哪位英雄，再猜出具體技能以獲得額外分數！"
+
+msgid "See who ranks at the top"
+msgstr "查看排行榜前幾名"
+
+msgid "View your past games"
+msgstr "查看你過去的遊戲紀錄"
+
+msgid "Clues"
+msgstr "線索"
+
+msgid "Champion Guessing Game"
+msgstr "英雄猜謎遊戲"
+
+msgid "Missing parameters"
+msgstr "缺少參數"
+
+msgid "Game not found"
+msgstr "找不到遊戲"
+
+msgid "Game has no target champion"
+msgstr "遊戲中沒有設定目標英雄"
+
+msgid "Game has no target ability"
+msgstr "遊戲中沒有設定目標技能"
+
+msgid "Game already completed"
+msgstr "遊戲已經完成"
+
+msgid "Champion not found"
+msgstr "找不到英雄"
+
+msgid "You have already guessed this champion"
+msgstr "你已經猜過這位英雄了"
+
+msgid "No champion information available"
+msgstr "無英雄資訊可用"
+
+msgid "Champion plays %s position"
+msgstr "英雄擔任 %s 位置"
+
+msgid "Champion is from %s region"
+msgstr "英雄來自 %s 地區"
+
+msgid "Champion uses %s"
+msgstr "英雄使用 %s"
+
+msgid "Champion is from %s"
+msgstr "英雄來自 %s"
+
+msgid "Champion gender is %s"
+msgstr "英雄的性別是 %s"
+
+msgid "Champion species is %s"
+msgstr "英雄的種族是 %s"
+
+msgid "Champion was released in %s"
+msgstr "英雄於 %s 年推出"
+
+msgid "Champion combat range is %s"
+msgstr "英雄的戰鬥距離為 %s"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "試著猜猜是哪位英雄擁有這個技能"
+
+msgid "Invalid request"
+msgstr "無效的請求"
+
+msgid "Invalid request method"
+msgstr "無效的請求方法"
+
+msgid "Invalid champion ID"
+msgstr "無效的英雄 ID"
+
+msgid "User not found"
+msgstr "找不到用戶"
+
+msgid "Invalid difficulty"
+msgstr "無效的難度設定"
+
+msgid "No champions available"
+msgstr "無可用的英雄"
+
+msgid "No abilities available"
+msgstr "無可用的技能"
+
+msgid "Congratulations!"
+msgstr "恭喜你！"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "你正確地猜出了英雄！現在猜猜是哪個技能吧！"
+
+msgid "Now guess which ability this is!"
+msgstr "現在猜猜是哪個技能吧！"
+
+msgid "Passive"
+msgstr "被動技能"
+
+msgid "Q Ability"
+msgstr "Q 技能"
+
+msgid "W Ability"
+msgstr "W 技能"
+
+msgid "E Ability"
+msgstr "E 技能"
+
+msgid "Ultimate (R)"
+msgstr "大絕招（R）"
+
+msgid "Now guess which ability this is"
+msgstr "現在猜猜是哪個技能"
+
+msgid "Ability Game Page Title"
+msgstr "LoL 英雄猜猜看 | 猜猜這是什麼技能"
+
+msgid "Ability Game Page Desc"
+msgstr "測試你的 LoL 知識！根據提示猜技能，提升分數，與其他粉絲一較高下。立即免費遊玩！"

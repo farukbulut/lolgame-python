@@ -373,7 +373,7 @@ INSERT INTO languages (code, name, is_active) VALUES
 ('nl', 'Nederlands', 1),
 ('zh', '中文', 1),
 ('jp', '日本語', 1),
-('kr', '한국어', 1);
+('ko', '한국어', 1);
 
 
 -- Pozisyonlar (İngilizce)

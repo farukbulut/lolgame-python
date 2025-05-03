@@ -3,7 +3,7 @@ from django.http import JsonResponse
 # Change this import to use frontend.models instead of lolgame.models
 from frontend.models import Game, Language, Guess, User, UserStat
 from function.general import get_champion_details
-
+from django.utils.translation import gettext as _
 
 def game_history(request):
     """API endpoint to get user's game history with pagination"""
@@ -102,7 +102,7 @@ def game_history(request):
             'has_more': has_more
         })
 
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+    return JsonResponse({'error': _('Invalid request method')}, status=400)
 
 
 def user_stats(request):
@@ -123,7 +123,7 @@ def user_stats(request):
 
         # If no user found, return empty response
         if not current_user:
-            return JsonResponse({'error': 'User not found'}, status=404)
+            return JsonResponse({'error': _('User not found')}, status=404)
 
         # Get user stats for the specified game type
         user_stat = UserStat.objects.filter(
@@ -157,4 +157,4 @@ def user_stats(request):
             'best_score': user_stat.best_score
         })
 
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+    return JsonResponse({'error': _('Invalid request method')}, status=400)

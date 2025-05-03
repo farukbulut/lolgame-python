@@ -419,3 +419,139 @@ msgstr "Ontdek alle kampioenen uit het League of Legends-universum. Bekijk vaard
 
 msgid "No data available"
 msgstr "Geen gegevens beschikbaar"
+
+msgid "Clues:"
+msgstr "Hints:"
+
+msgid "Guess the champion that owns this ability"
+msgstr "Raad welke kampioen deze vaardigheid bezit"
+
+msgid "Choose a game mode to play"
+msgstr "Kies een spelmodus om te spelen"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "Probeer de doelkampioen te raden aan de hand van hints over hun positie, regio en meer."
+
+msgid "Ability Guessing Game"
+msgstr "Vaardigheid Raadspel"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "Raad bij welke kampioen de vaardigheid hoort en benoem daarna de vaardigheid voor bonuspunten!"
+
+msgid "See who ranks at the top"
+msgstr "Bekijk wie er bovenaan staan"
+
+msgid "View your past games"
+msgstr "Bekijk je eerdere spellen"
+
+msgid "Clues"
+msgstr "Hints"
+
+msgid "Champion Guessing Game"
+msgstr "Kampioen Raadspel"
+
+msgid "Missing parameters"
+msgstr "Ontbrekende parameters"
+
+msgid "Game not found"
+msgstr "Spel niet gevonden"
+
+msgid "Game has no target champion"
+msgstr "Spel heeft geen doelkampioen"
+
+msgid "Game has no target ability"
+msgstr "Spel heeft geen doelvaardigheid"
+
+msgid "Game already completed"
+msgstr "Spel is al voltooid"
+
+msgid "Champion not found"
+msgstr "Kampioen niet gevonden"
+
+msgid "You have already guessed this champion"
+msgstr "Je hebt deze kampioen al geraden"
+
+msgid "No champion information available"
+msgstr "Geen kampioensinformatie beschikbaar"
+
+msgid "Champion plays %s position"
+msgstr "Kampioen speelt op positie %s"
+
+msgid "Champion is from %s region"
+msgstr "Kampioen komt uit regio %s"
+
+msgid "Champion uses %s"
+msgstr "Kampioen gebruikt %s"
+
+msgid "Champion is from %s"
+msgstr "Kampioen komt uit %s"
+
+msgid "Champion gender is %s"
+msgstr "Het geslacht van de kampioen is %s"
+
+msgid "Champion species is %s"
+msgstr "De soort van de kampioen is %s"
+
+msgid "Champion was released in %s"
+msgstr "Kampioen werd uitgebracht in %s"
+
+msgid "Champion combat range is %s"
+msgstr "Het gevechtsbereik van de kampioen is %s"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "Probeer te raden welke kampioen deze vaardigheid bezit"
+
+msgid "Invalid request"
+msgstr "Ongeldige aanvraag"
+
+msgid "Invalid request method"
+msgstr "Ongeldige aanvraagmethode"
+
+msgid "Invalid champion ID"
+msgstr "Ongeldig kampioen-ID"
+
+msgid "User not found"
+msgstr "Gebruiker niet gevonden"
+
+msgid "Invalid difficulty"
+msgstr "Ongeldige moeilijkheidsgraad"
+
+msgid "No champions available"
+msgstr "Geen kampioenen beschikbaar"
+
+msgid "No abilities available"
+msgstr "Geen vaardigheden beschikbaar"
+
+msgid "Congratulations!"
+msgstr "Gefeliciteerd!"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "Je hebt de juiste kampioen geraden. Raad nu welke vaardigheid het is!"
+
+msgid "Now guess which ability this is!"
+msgstr "Raad nu welke vaardigheid dit is!"
+
+msgid "Passive"
+msgstr "Passief"
+
+msgid "Q Ability"
+msgstr "Q Vaardigheid"
+
+msgid "W Ability"
+msgstr "W Vaardigheid"
+
+msgid "E Ability"
+msgstr "E Vaardigheid"
+
+msgid "Ultimate (R)"
+msgstr "Ultieme (R)"
+
+msgid "Now guess which ability this is"
+msgstr "Raad nu welke vaardigheid dit is"
+
+
+msgid "Ability Game Page Title"
+msgstr "LoL Kampioen Raadspel | Raad de Vaardigheid van de Kampioen"
+
+msgid "Ability Game Page Desc"
+msgstr "Test je kennis van League of Legends! Raad de kampioen en hun vaardigheden met hints, verhoog je score en klim naar de top van de ranglijst!"

@@ -630,7 +630,7 @@ def ability_game(request):
 
     return render(request, 'ability_game.html', {
         'title': _('Ability Game Page Title'),
-        'seo_desc': _('Ability Game Page Description'),
+        'seo_desc': _('Ability Game Page Desc'),
         'difficulty': difficulty,
         'difficulty_title': _(difficulty),
         'is_grey_mode': is_grey_mode,

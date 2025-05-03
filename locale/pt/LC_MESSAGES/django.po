@@ -420,3 +420,138 @@ msgstr "Explora todos os campeões do universo League of Legends. Vê as habilid
 
 msgid "No data available"
 msgstr "Nenhum dado disponível"
+
+msgid "Clues:"
+msgstr "Pistas:"
+
+msgid "Guess the champion that owns this ability"
+msgstr "Adivinha qual campeão possui esta habilidade"
+
+msgid "Choose a game mode to play"
+msgstr "Escolhe um modo de jogo para jogar"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "Tenta adivinhar o campeão-alvo com pistas sobre a sua posição, região e muito mais."
+
+msgid "Ability Guessing Game"
+msgstr "Jogo de Adivinhação de Habilidades"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "Adivinha a que campeão pertence a habilidade e identifica-a para ganhar pontos bónus!"
+
+msgid "See who ranks at the top"
+msgstr "Vê quem está no topo da classificação"
+
+msgid "View your past games"
+msgstr "Vê os teus jogos anteriores"
+
+msgid "Clues"
+msgstr "Pistas"
+
+msgid "Champion Guessing Game"
+msgstr "Jogo de Adivinhação de Campeões"
+
+msgid "Missing parameters"
+msgstr "Parâmetros em falta"
+
+msgid "Game not found"
+msgstr "Jogo não encontrado"
+
+msgid "Game has no target champion"
+msgstr "O jogo não tem um campeão-alvo"
+
+msgid "Game has no target ability"
+msgstr "O jogo não tem uma habilidade-alvo"
+
+msgid "Game already completed"
+msgstr "Jogo já concluído"
+
+msgid "Champion not found"
+msgstr "Campeão não encontrado"
+
+msgid "You have already guessed this champion"
+msgstr "Já adivinhaste este campeão"
+
+msgid "No champion information available"
+msgstr "Nenhuma informação disponível sobre o campeão"
+
+msgid "Champion plays %s position"
+msgstr "O campeão joga na posição %s"
+
+msgid "Champion is from %s region"
+msgstr "O campeão é da região %s"
+
+msgid "Champion uses %s"
+msgstr "O campeão usa %s"
+
+msgid "Champion is from %s"
+msgstr "O campeão é de %s"
+
+msgid "Champion gender is %s"
+msgstr "O género do campeão é %s"
+
+msgid "Champion species is %s"
+msgstr "A espécie do campeão é %s"
+
+msgid "Champion was released in %s"
+msgstr "O campeão foi lançado em %s"
+
+msgid "Champion combat range is %s"
+msgstr "O alcance de combate do campeão é %s"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "Tenta adivinhar qual campeão possui esta habilidade"
+
+msgid "Invalid request"
+msgstr "Pedido inválido"
+
+msgid "Invalid request method"
+msgstr "Método de pedido inválido"
+
+msgid "Invalid champion ID"
+msgstr "ID de campeão inválido"
+
+msgid "User not found"
+msgstr "Utilizador não encontrado"
+
+msgid "Invalid difficulty"
+msgstr "Dificuldade inválida"
+
+msgid "No champions available"
+msgstr "Nenhum campeão disponível"
+
+msgid "No abilities available"
+msgstr "Nenhuma habilidade disponível"
+
+msgid "Congratulations!"
+msgstr "Parabéns!"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "Identificaste correctamente o campeão. Agora tenta adivinhar qual é a habilidade!"
+
+msgid "Now guess which ability this is!"
+msgstr "Agora tenta adivinhar qual é a habilidade!"
+
+msgid "Passive"
+msgstr "Passiva"
+
+msgid "Q Ability"
+msgstr "Habilidade Q"
+
+msgid "W Ability"
+msgstr "Habilidade W"
+
+msgid "E Ability"
+msgstr "Habilidade E"
+
+msgid "Ultimate (R)"
+msgstr "Habilidade Suprema (R)"
+
+msgid "Now guess which ability this is"
+msgstr "Agora tenta adivinhar qual é a habilidade"
+
+msgid "Ability Game Page Title"
+msgstr "Jogo de Adivinhação de Habilidades LoL | Adivinha a Habilidade do Campeão"
+
+msgid "Ability Game Page Desc"
+msgstr "Testa os teus conhecimentos de LoL! Adivinha a habilidade do campeão com pistas, melhora a tua pontuação e compete com outros fãs. Joga grátis agora!"

@@ -416,3 +416,138 @@ msgstr "Entdecke alle Champions im League of Legends-Universum. Fähigkeiten, Sc
 
 msgid "No data available"
 msgstr "Keine Daten verfügbar"
+
+msgid "Clues:"
+msgstr "Hinweise:"
+
+msgid "Guess the champion that owns this ability"
+msgstr "Errate den Champion, dem diese Fähigkeit gehört"
+
+msgid "Choose a game mode to play"
+msgstr "Wähle einen Spielmodus zum Spielen"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "Versuche, den Ziel-Champion anhand von Hinweisen zu Position, Region und mehr zu erraten."
+
+msgid "Ability Guessing Game"
+msgstr "Fähigkeiten-Ratespiel"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "Errate, zu welchem Champion die Fähigkeit gehört, und bestimme dann die Fähigkeit für Bonuspunkte!"
+
+msgid "See who ranks at the top"
+msgstr "Sieh dir die Bestenliste an"
+
+msgid "View your past games"
+msgstr "Sieh dir deine vergangenen Spiele an"
+
+msgid "Clues"
+msgstr "Hinweise"
+
+msgid "Champion Guessing Game"
+msgstr "Champion-Ratespiel"
+
+msgid "Missing parameters"
+msgstr "Fehlende Parameter"
+
+msgid "Game not found"
+msgstr "Spiel nicht gefunden"
+
+msgid "Game has no target champion"
+msgstr "Spiel hat keinen Ziel-Champion"
+
+msgid "Game has no target ability"
+msgstr "Spiel hat keine Ziel-Fähigkeit"
+
+msgid "Game already completed"
+msgstr "Spiel bereits abgeschlossen"
+
+msgid "Champion not found"
+msgstr "Champion nicht gefunden"
+
+msgid "You have already guessed this champion"
+msgstr "Diesen Champion hast du bereits geraten"
+
+msgid "No champion information available"
+msgstr "Keine Champion-Informationen verfügbar"
+
+msgid "Champion plays %s position"
+msgstr "Champion spielt die Position %s"
+
+msgid "Champion is from %s region"
+msgstr "Champion stammt aus der Region %s"
+
+msgid "Champion uses %s"
+msgstr "Champion verwendet %s"
+
+msgid "Champion is from %s"
+msgstr "Champion stammt aus %s"
+
+msgid "Champion gender is %s"
+msgstr "Champion-Geschlecht ist %s"
+
+msgid "Champion species is %s"
+msgstr "Champion-Spezies ist %s"
+
+msgid "Champion was released in %s"
+msgstr "Champion wurde %s veröffentlicht"
+
+msgid "Champion combat range is %s"
+msgstr "Champion-Kampfreichweite ist %s"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "Versuche zu erraten, welchem Champion diese Fähigkeit gehört"
+
+msgid "Invalid request"
+msgstr "Ungültige Anfrage"
+
+msgid "Invalid request method"
+msgstr "Ungültige Anfragemethode"
+
+msgid "Invalid champion ID"
+msgstr "Ungültige Champion-ID"
+
+msgid "User not found"
+msgstr "Benutzer nicht gefunden"
+
+msgid "Invalid difficulty"
+msgstr "Ungültiger Schwierigkeitsgrad"
+
+msgid "No champions available"
+msgstr "Keine Champions verfügbar"
+
+msgid "No abilities available"
+msgstr "Keine Fähigkeiten verfügbar"
+
+msgid "Congratulations!"
+msgstr "Glückwunsch!"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "Du hast den Champion richtig erkannt. Errate jetzt, welche Fähigkeit das ist!"
+
+msgid "Now guess which ability this is!"
+msgstr "Errate jetzt, welche Fähigkeit das ist!"
+
+msgid "Passive"
+msgstr "Passiv"
+
+msgid "Q Ability"
+msgstr "Q-Fähigkeit"
+
+msgid "W Ability"
+msgstr "W-Fähigkeit"
+
+msgid "E Ability"
+msgstr "E-Fähigkeit"
+
+msgid "Ultimate (R)"
+msgstr "Ultimative Fähigkeit (R)"
+
+msgid "Now guess which ability this is"
+msgstr "Errate jetzt, welche Fähigkeit das ist"
+
+msgid "Ability Game Page Title"
+msgstr "LoL Ability Guessing Game | Rate die Fähigkeiten der Champions"
+
+msgid "Ability Game Page Desc"
+msgstr "Teste dein Wissen über League of Legends-Fähigkeiten! Rate die Fähigkeiten der Champions und verbessere deine Punktzahl. Jetzt kostenlos spielen!"

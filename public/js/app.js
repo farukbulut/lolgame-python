@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('visible');
         }, 100);
     });
+
+    // Bildirim kapatma butonunu ayarla
+    const notificationClose = document.getElementById('notification-close');
+    if (notificationClose) {
+        notificationClose.addEventListener('click', () => {
+            document.getElementById('notification').classList.add('hidden');
+        });
+    }
 });
 
 // Track game statistics in localStorage
@@ -151,4 +159,23 @@ function startConfetti() {
     // Konfeti başlat
     canvas.style.display = 'block';
     animate();
+}
+
+// Bildirim gösterme fonksiyonu
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    const messageElement = document.getElementById('notification-message');
+
+    messageElement.textContent = message;
+    notification.classList.remove('hidden');
+
+    // Otomatik kapanma süresi
+    setTimeout(() => {
+        notification.classList.add('hidden');
+    }, 5000);
+
+    // Kapatma butonu
+    document.getElementById('notification-close').addEventListener('click', () => {
+        notification.classList.add('hidden');
+    });
 }

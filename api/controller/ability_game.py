@@ -4,7 +4,8 @@ import uuid
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
 from frontend.models import Game, Champion, Language, User, UserStat, Guess, GameMode, CombatRangeTranslation, \
-    RegionTranslation, SpeciesTranslation, ResourceTranslation, GenderTranslation, PositionTranslation
+    RegionTranslation, SpeciesTranslation, ResourceTranslation, GenderTranslation, PositionTranslation, \
+    AbilityTranslation
 
 
 def check_champion_guess(request):
@@ -41,6 +42,15 @@ def check_champion_guess(request):
             except Champion.DoesNotExist:
                 return JsonResponse({'error': _('Champion not found')}, status=404)
 
+            previous_guess = Guess.objects.filter(
+                game_id=game_id,
+                champion_id=champion_id
+            ).exists()
+
+            if previous_guess:
+                return JsonResponse({
+                    'error': _('You have already guessed this champion')
+                }, status=400)
             # Update attempts used
             game.attempts_used += 1
 
@@ -54,7 +64,6 @@ def check_champion_guess(request):
                 champion=guessed_champion,
                 guess_number=game.attempts_used
             )
-            print(f"Tahmin kaydedildi: Oyun ID {game_id}, Şampiyon ID {champion_id}, Doğru mu: {is_correct}")
 
             # Calculate score if correct
             score = 0
@@ -71,7 +80,7 @@ def check_champion_guess(request):
 
                 # Calculate score based on attempts used
                 remaining_percentage = (
-                                                   game.game_mode.max_attempts - game.attempts_used + 1) / game.game_mode.max_attempts
+                                               game.game_mode.max_attempts - game.attempts_used + 1) / game.game_mode.max_attempts
                 score = int(max_score * remaining_percentage)
 
                 # Ensure first guess gets full max score
@@ -126,9 +135,23 @@ def check_champion_guess(request):
                     'image': game.target_champion.image_main
                 }
 
+                # YENİ KOD: Hedef yeteneğin çevirisini getir
+                ability_key = game.target_ability.ability_key
+                ability_name = game.target_ability.name
+
+                # Eğer dil varsa, yetenek adının çevirisini bul
+                if language:
+                    ability_translation = AbilityTranslation.objects.filter(
+                        ability=game.target_ability,
+                        language=language
+                    ).first()
+
+                    if ability_translation and ability_translation.name:
+                        ability_name = ability_translation.name
+
                 response_data['target_ability'] = {
-                    'key': game.target_ability.ability_key,
-                    'name': game.target_ability.name
+                    'key': ability_key,
+                    'name': ability_name  # Çevrilmiş yetenek adı
                 }
 
             return JsonResponse(response_data)

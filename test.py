@@ -180,7 +180,7 @@ champion_list = [
     "Zyra",
 ]
 
-languages = ["en", "tr", "de", "fr", "es", "it", "ru", "pt", "br", "nl", "zh", "jp", "kr"]
+languages = ["en", "tr", "de", "fr", "es", "it", "ru", "pt", "br", "nl", "zh", "jp", "ko"]
 
 results = []
 

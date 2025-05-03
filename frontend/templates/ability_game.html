@@ -144,6 +144,11 @@
     <!-- CONFETTI CANVAS -->
     <canvas id="confetti-canvas"></canvas>
 
+    <div id="notification" class="notification hidden">
+        <span id="notification-message"></span>
+        <button id="notification-close" class="notification-close">&times;</button>
+    </div>
+
     <input type="hidden" id="game-id" value="{{ game_id }}">
     <input type="hidden" id="max-attempts" value="{{ max_attempts }}">
     <input type="hidden" id="attempts-used-initial" value="{{ attempts_used }}">
@@ -339,39 +344,162 @@
         });
     });
 
-    // Load ability image to canvas
+    // Yetenek resmini canvas'a yükleme ve başlangıçta bir köşe açma
     function loadAbilityImageToCanvas() {
         const ctx = abilityCanvas.getContext('2d');
         const img = new Image();
+        const difficulty = '{{ difficulty }}'; // Zorluk seviyesini şablondan al
 
-        // Handle errors - show placeholder if image can't be loaded
+        // Hata durumunda - resim yüklenemezse yer tutucu göster
         img.onerror = function() {
-            console.error("Failed to load ability image");
-            // Draw placeholder image or color
-            ctx.fillStyle = '#333';
+            console.error("Yetenek resmi yüklenemedi");
+            // Yer tutucu resim veya renk çiz
+            ctx.fillStyle = '#000';
             ctx.fillRect(0, 0, abilityCanvas.width, abilityCanvas.height);
             ctx.fillStyle = '#aaa';
             ctx.font = '14px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText('Ability', abilityCanvas.width/2, abilityCanvas.height/2);
+            ctx.fillText('{% trans "Ability" %}', abilityCanvas.width/2, abilityCanvas.height/2);
         };
 
         img.onload = function() {
-            // Draw image to canvas
-            ctx.drawImage(img, 0, 0, abilityCanvas.width, abilityCanvas.height);
+            // Orijinal resmi ileride kullanmak üzere sakla
+            window.originalImage = img;
 
-            // Apply greyscale filter if grey mode is enabled
-            if (isGreyMode) {
-                applyGreyscaleFilter(ctx, abilityCanvas.width, abilityCanvas.height);
+            // İlk başta siyah bir fon hazırla
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, abilityCanvas.width, abilityCanvas.height);
+
+            // Başlangıçta açılma aşamasını 1 olarak ayarla (sol üst köşe açık)
+            window.revealStage = 1;
+
+            // Zorluk seviyesini sakla
+            window.gameDifficulty = difficulty;
+
+            // Eğer zor moddaysa, görüntüyü döndür
+            if (difficulty === 'hard') {
+                // Rastgele bir dönüş açısı sakla (-45 ile +45 derece arası)
+                window.currentRotation = Math.random() * 90 - 45;
+                // Zorluk aşaması (0: döndürülmüş ve gri, 1: düz ama gri, 2: düz ve renkli)
+                window.hardStage = 0;
             }
+
+            // Başlangıç durumunu çiz (ilk köşe açık)
+            drawRevealedImage(ctx, window.originalImage, window.revealStage, difficulty);
         };
 
-        // Add a cache-busting parameter to prevent browser from caching the image
+        // Önbelleklemeyi önlemek için bir parametre ekle
         const cacheBuster = new Date().getTime();
         img.src = abilityImageUrl + '?v=' + cacheBuster;
     }
 
-    // Apply greyscale filter to canvas
+    // Tahminde bulunulan adım sayısına göre resmin açılma aşamasını güncelle
+    function updateCanvasBasedOnAttempts() {
+        if (!window.originalImage) return;
+
+        const ctx = abilityCanvas.getContext('2d');
+        const attemptsUsed = currentAttempt - 1;
+        const maxAttempts = parseInt(document.getElementById('max-attempts').value);
+        const difficulty = window.gameDifficulty || '{{ difficulty }}';
+
+        // Kaç aşamalı olacak (4 köşe)
+        const totalRevealStages = 4;
+
+        // Mevcut aşamayı hesapla (tahminde bulunulan sayıya göre)
+        // Başlangıçta 1, her yanlış tahminde bir köşe daha açılır (maks 4)
+        const newRevealStage = Math.min(attemptsUsed + 1, totalRevealStages);
+
+        // Aşamayı güncelle ve kaydet
+        window.revealStage = newRevealStage;
+
+        // Zor mod için özel aşama hesaplaması
+        if (difficulty === 'hard') {
+            if (attemptsUsed >= totalRevealStages && attemptsUsed < totalRevealStages + 1) {
+                // 4. tahminden sonraki adımda resmi düz çevir
+                window.hardStage = 1;
+            } else if (attemptsUsed >= totalRevealStages + 1) {
+                // 5. tahminden sonraki adımda resmi renkli hale getir
+                window.hardStage = 2;
+            }
+        }
+
+        // Canvas'ı temizle
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, abilityCanvas.width, abilityCanvas.height);
+
+        // Resmi aşamaya göre çiz
+        drawRevealedImage(ctx, window.originalImage, window.revealStage, difficulty);
+    }
+
+    // Resmi belirtilen aşamaya göre köşelerden açarak çiz
+    function drawRevealedImage(ctx, img, stage, difficulty) {
+        const width = abilityCanvas.width;
+        const height = abilityCanvas.height;
+
+        // Geçici bir canvas oluştur
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = width;
+        tempCanvas.height = height;
+        const tempCtx = tempCanvas.getContext('2d');
+
+        // Orijinal resmi geçici canvas'a çiz
+        tempCtx.drawImage(img, 0, 0, width, height);
+
+        // Zorluk seviyesine göre efektleri uygula
+        if (difficulty === 'medium') {
+            // Medium zorlukta 3. aşamadan sonra renkli göster
+            if (stage < 3) {
+                applyGreyscaleFilter(tempCtx, width, height);
+            }
+        } else if (difficulty === 'hard') {
+            // Hard modda özel aşamalar
+            const hardStage = window.hardStage || 0;
+
+            if (hardStage < 2) {
+                // Aşama 2'den önce gri ton
+                applyGreyscaleFilter(tempCtx, width, height);
+            }
+
+            if (hardStage === 0) {
+                // Aşama 0'da döndürülmüş
+                applyRotation(tempCtx, width, height, window.currentRotation || 45);
+            }
+        }
+
+        // Şimdi köşe açma maskesi oluştur ve ana canvas'a çiz
+        const quarterWidth = width / 2;
+        const quarterHeight = height / 2;
+
+        // İlk olarak tüm maskeyi siyah yap
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, width, height);
+
+        // Aşamaya göre açılan köşeleri belirle ve çiz
+        switch(stage) {
+            case 1: // Sol üst köşe
+                ctx.drawImage(tempCanvas, 0, 0, quarterWidth, quarterHeight, 0, 0, quarterWidth, quarterHeight);
+                break;
+            case 2: // Sol üst + Sağ üst
+                ctx.drawImage(tempCanvas, 0, 0, quarterWidth, quarterHeight, 0, 0, quarterWidth, quarterHeight);
+                ctx.drawImage(tempCanvas, quarterWidth, 0, quarterWidth, quarterHeight, quarterWidth, 0, quarterWidth, quarterHeight);
+                break;
+            case 3: // Sol üst + Sağ üst + Sol alt
+                ctx.drawImage(tempCanvas, 0, 0, quarterWidth, quarterHeight, 0, 0, quarterWidth, quarterHeight);
+                ctx.drawImage(tempCanvas, quarterWidth, 0, quarterWidth, quarterHeight, quarterWidth, 0, quarterWidth, quarterHeight);
+                ctx.drawImage(tempCanvas, 0, quarterHeight, quarterWidth, quarterHeight, 0, quarterHeight, quarterWidth, quarterHeight);
+                break;
+            case 4: // Tüm köşeler (tam görüntü)
+                ctx.drawImage(tempCanvas, 0, 0, width, height);
+                break;
+        }
+
+        // Canvas'ın etrafına bir kenarlık çiz
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(0, 0, width, height);
+    }
+
+    // Gri ton filtresi uygula
     function applyGreyscaleFilter(ctx, width, height) {
         const imageData = ctx.getImageData(0, 0, width, height);
         const data = imageData.data;
@@ -381,17 +509,134 @@
             const g = data[i + 1];
             const b = data[i + 2];
 
-            // Convert to greyscale
+            // Gri tona dönüştür
             const grey = 0.3 * r + 0.59 * g + 0.11 * b;
 
             data[i] = grey;
             data[i + 1] = grey;
             data[i + 2] = grey;
-            // data[i + 3] unchanged (alpha channel)
+            // data[i + 3] değişmez (alfa kanalı)
         }
 
         ctx.putImageData(imageData, 0, 0);
     }
+
+    // Döndürme efekti uygula
+    function applyRotation(ctx, width, height, angle) {
+        // Mevcut resmi geçici değişkende sakla
+        const imageData = ctx.getImageData(0, 0, width, height);
+
+        // Canvas'ı temizle
+        ctx.clearRect(0, 0, width, height);
+
+        // Canvas'ın merkezine taşı ve döndür
+        ctx.save();
+        ctx.translate(width/2, height/2);
+        ctx.rotate(angle * Math.PI / 180);
+
+        // Geçici bir canvas oluştur
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = width;
+        tempCanvas.height = height;
+        const tempCtx = tempCanvas.getContext('2d');
+
+        // Görüntüyü geçici canvas'a yerleştir
+        tempCtx.putImageData(imageData, 0, 0);
+
+        // Döndürülmüş resmi çiz
+        ctx.drawImage(tempCanvas, -width/2, -height/2);
+
+        // Canvas'ı eski haline getir
+        ctx.restore();
+    }
+
+    // Şampiyon tahminini kontrol eden fonksiyonu güncelle
+    async function checkChampionGuess(championId, name, image) {
+        try {
+            // Şampiyon tahminini kontrol etmek için API URL'si
+            const apiUrl = `/${currentLanguage}/api/check-champion-guess`;
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    champion_id: championId,
+                    game_id: gameId
+                })
+            });
+
+            const data = await response.json();
+            if (!response.ok) {
+                // Hata mesajını göster
+                if (data.error) {
+                    showNotification(data.error);
+                    return; // İşlemi sonlandır
+                }
+                console.error('Tahmin kontrol edilirken hata:', data.error);
+                return;
+            }
+
+            if (response.ok) {
+                // Tahmin yok mesajını gizle
+                noGuesses.classList.add('hidden');
+
+                // Tahmin geçmişine ekle
+                addToGuessHistory(championId, name, image, data.is_correct);
+
+                if (data.is_correct) {
+                    // Şampiyon doğru tahmin edildi
+                    totalScore = data.score || 0;
+                    championGuessed = true;
+
+                    // Görüntüyü güncelle
+                    displayChampion(name, image);
+
+                    // Resmin tamamını göster
+                    if (window.originalImage) {
+                        const ctx = abilityCanvas.getContext('2d');
+                        ctx.clearRect(0, 0, abilityCanvas.width, abilityCanvas.height);
+                        ctx.drawImage(window.originalImage, 0, 0, abilityCanvas.width, abilityCanvas.height);
+                    }
+
+                    // Başarılı şampiyon tahmini için konfeti
+                    startConfetti();
+
+                    // Yetenek tahmin modalını göster
+                    showAbilitySelectionModal(name, image);
+                } else {
+                    // Yanlış tahmin, deneme sayısını güncelle
+                    currentAttempt = data.attempts_used;
+
+                    // Sayaçları güncelle
+                    currentAttemptEl.textContent = currentAttempt;
+                    attemptsWrongEl.textContent = data.attempts_used;
+                    attemptsLeftEl.textContent = maxAttempts - data.attempts_used;
+
+                    // Resmi daha fazla açığa çıkarmak için canvas'ı güncelle
+                    updateCanvasBasedOnAttempts();
+
+                    // Yeni ipucu ekle
+                    if (data.clue) {
+                        clues.push(data.clue);
+                        updateClueList();
+                    }
+
+                    // Maksimum deneme sayısına ulaşılıp ulaşılmadığını kontrol et
+                    if (data.game_completed && !data.is_correct) {
+                        // Oyun bitti - oyuncu kaybetti
+                        showGameOver(false, data.target_champion, data.target_ability);
+                    }
+                }
+            } else {
+                console.error('Tahmin kontrol edilirken hata:', data.error);
+            }
+        } catch (error) {
+            console.error('Tahmin kontrol edilirken hata:', error);
+        }
+    }
+
 
     // Game initialization
     function initGame() {
@@ -447,6 +692,14 @@
                     currentAttemptEl.textContent = currentAttempt;
                     attemptsWrongEl.textContent = currentAttempt;
                     attemptsLeftEl.textContent = maxAttempts - currentAttempt;
+
+                    // Sayfa yeniden yüklendiğinde, mevcut köşe sayısını güncelle
+                    if (window.originalImage) {
+                        const ctx = abilityCanvas.getContext('2d');
+                        window.revealStage = Math.min(currentAttempt, 4);
+                        drawRevealedImage(ctx, window.originalImage, window.revealStage, window.gameDifficulty);
+                        console.log(`Tahmin geçmişinden sonra köşe sayısı: ${window.revealStage}`);
+                    }
                 }
             }
 
@@ -547,73 +800,6 @@
         }
     }
 
-    // Check champion guess against target
-    async function checkChampionGuess(championId, name, image) {
-        try {
-            // URL for checking champion guess
-            const apiUrl = `/${currentLanguage}/api/check-champion-guess`;
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken')
-                },
-                body: JSON.stringify({
-                    champion_id: championId,
-                    game_id: gameId
-                })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                // Hide no guesses message
-                noGuesses.classList.add('hidden');
-
-                // Tahmin geçmişine ekle
-                addToGuessHistory(championId, name, image, data.is_correct);
-
-                if (data.is_correct) {
-                    // Champion guessed correctly
-                    totalScore = data.score || 0;
-                    championGuessed = true;
-
-                    // Update display
-                    displayChampion(name, image);
-
-                    // Başarılı şampiyon tahmini için konfeti
-                    startConfetti();
-
-                    // Yetenek tahmin modalını göster
-                    showAbilitySelectionModal(name, image);
-                } else {
-                    // Wrong guess, update attempts
-                    currentAttempt = data.attempts_used;
-
-                    // Update counters
-                    currentAttemptEl.textContent = currentAttempt;
-                    attemptsWrongEl.textContent = data.attempts_used;
-                    attemptsLeftEl.textContent = maxAttempts - data.attempts_used;
-
-                    // Add new clue
-                    if (data.clue) {
-                        clues.push(data.clue);
-                        updateClueList();
-                    }
-
-                    // Check if max attempts reached
-                    if (data.game_completed && !data.is_correct) {
-                        // Game over - player lost
-                        showGameOver(false, data.target_champion, data.target_ability);
-                    }
-                }
-            } else {
-                console.error('Error checking guess:', data.error);
-            }
-        } catch (error) {
-            console.error('Error checking guess:', error);
-        }
-    }
 
     // Yetenek tahmin modalını göster
     function showAbilitySelectionModal(championName, championImage) {
@@ -704,11 +890,11 @@
 
         // Set result content
         if (isWin) {
-            resultImage.src = "{% static 'img/zafer.png' %}";
+            resultImage.src = "/public/img/zafer_"+currentLanguage+".png";
             scoreValue.textContent = totalScore;
             scoreValue.parentElement.style.display = 'block';
         } else {
-            resultImage.src = "{% static 'img/defeat.png' %}";
+            resultImage.src = "/public/img/bozgun_"+currentLanguage+".png";
             scoreValue.parentElement.style.display = 'none';
         }
 

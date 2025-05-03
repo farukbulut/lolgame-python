@@ -423,3 +423,138 @@ msgstr "리그 오브 레전드 세계의 모든 챔피언을 확인하세요. �
 
 msgid "No data available"
 msgstr "데이터 없음"
+
+msgid "Clues:"
+msgstr "단서:"
+
+msgid "Guess the champion that owns this ability"
+msgstr "이 스킬을 가진 챔피언을 맞혀보세요"
+
+msgid "Choose a game mode to play"
+msgstr "플레이할 게임 모드를 선택하세요"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "포지션, 지역 등 다양한 단서를 통해 대상 챔피언을 맞혀보세요."
+
+msgid "Ability Guessing Game"
+msgstr "스킬 맞히기 게임"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "이 스킬이 어떤 챔피언의 것인지 맞히고, 스킬 이름까지 맞히면 보너스 포인트 획득!"
+
+msgid "See who ranks at the top"
+msgstr "상위 랭킹을 확인하세요"
+
+msgid "View your past games"
+msgstr "이전 게임 기록 보기"
+
+msgid "Clues"
+msgstr "단서"
+
+msgid "Champion Guessing Game"
+msgstr "챔피언 맞히기 게임"
+
+msgid "Missing parameters"
+msgstr "누락된 매개변수"
+
+msgid "Game not found"
+msgstr "게임을 찾을 수 없습니다"
+
+msgid "Game has no target champion"
+msgstr "게임에 대상 챔피언이 없습니다"
+
+msgid "Game has no target ability"
+msgstr "게임에 대상 스킬이 없습니다"
+
+msgid "Game already completed"
+msgstr "이미 완료된 게임입니다"
+
+msgid "Champion not found"
+msgstr "챔피언을 찾을 수 없습니다"
+
+msgid "You have already guessed this champion"
+msgstr "이 챔피언은 이미 맞히셨습니다"
+
+msgid "No champion information available"
+msgstr "챔피언 정보가 없습니다"
+
+msgid "Champion plays %s position"
+msgstr "챔피언은 %s 포지션을 맡습니다"
+
+msgid "Champion is from %s region"
+msgstr "챔피언은 %s 지역 출신입니다"
+
+msgid "Champion uses %s"
+msgstr "챔피언은 %s을(를) 사용합니다"
+
+msgid "Champion is from %s"
+msgstr "챔피언은 %s 출신입니다"
+
+msgid "Champion gender is %s"
+msgstr "챔피언의 성별은 %s입니다"
+
+msgid "Champion species is %s"
+msgstr "챔피언의 종족은 %s입니다"
+
+msgid "Champion was released in %s"
+msgstr "챔피언은 %s년에 출시되었습니다"
+
+msgid "Champion combat range is %s"
+msgstr "챔피언의 전투 사거리는 %s입니다"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "이 스킬을 가진 챔피언을 맞혀보세요"
+
+msgid "Invalid request"
+msgstr "잘못된 요청입니다"
+
+msgid "Invalid request method"
+msgstr "잘못된 요청 방식입니다"
+
+msgid "Invalid champion ID"
+msgstr "잘못된 챔피언 ID입니다"
+
+msgid "User not found"
+msgstr "사용자를 찾을 수 없습니다"
+
+msgid "Invalid difficulty"
+msgstr "잘못된 난이도입니다"
+
+msgid "No champions available"
+msgstr "사용 가능한 챔피언이 없습니다"
+
+msgid "No abilities available"
+msgstr "사용 가능한 스킬이 없습니다"
+
+msgid "Congratulations!"
+msgstr "축하합니다!"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "챔피언을 정확히 맞혔습니다. 이제 어떤 스킬인지 맞혀보세요!"
+
+msgid "Now guess which ability this is!"
+msgstr "이 스킬이 무엇인지 맞혀보세요!"
+
+msgid "Passive"
+msgstr "패시브"
+
+msgid "Q Ability"
+msgstr "Q 스킬"
+
+msgid "W Ability"
+msgstr "W 스킬"
+
+msgid "E Ability"
+msgstr "E 스킬"
+
+msgid "Ultimate (R)"
+msgstr "궁극기 (R)"
+
+msgid "Now guess which ability this is"
+msgstr "이 스킬이 무엇인지 맞혀보세요"
+
+msgid "Ability Game Page Title"
+msgstr "LoL 챔피언 스킬 맞히기 | 무료 리그 오브 레전드 퀴즈 게임"
+
+msgid "Ability Game Page Desc"
+msgstr "LoL 스킬을 맞혀보세요! 단서를 바탕으로 챔피언의 스킬을 맞히고 점수를 올려보세요. 지금 무료로 플레이하세요!"

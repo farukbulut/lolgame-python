@@ -4,7 +4,7 @@ import uuid
 
 # Change this import to use frontend.models instead of lolgame.models
 from frontend.models import GameMode, Champion, Game, User, Ability
-
+from django.utils.translation import gettext as _
 
 def new_game(request):
     """AJAX endpoint to start a new game"""
@@ -14,12 +14,12 @@ def new_game(request):
         # Get game mode
         game_mode = GameMode.objects.filter(name__iexact=difficulty).first()
         if not game_mode:
-            return JsonResponse({'error': 'Invalid difficulty'}, status=400)
+            return JsonResponse({'error': _('Invalid difficulty')}, status=400)
 
         # Choose a random champion
         champions = Champion.objects.all()
         if not champions.exists():
-            return JsonResponse({'error': 'No champions available'}, status=500)
+            return JsonResponse({'error': _('No champions available')}, status=500)
 
         target_champion = random.choice(list(champions))
 
@@ -66,7 +66,7 @@ def new_game(request):
             'user': current_user.username if current_user else 'Anonymous'
         })
 
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    return JsonResponse({'error': _('Invalid request')}, status=400)
 
 def new_ability_game(request):
     """AJAX endpoint to start a new ability guessing game"""
@@ -77,12 +77,12 @@ def new_ability_game(request):
         # Get game mode
         game_mode = GameMode.objects.filter(name__iexact=difficulty).first()
         if not game_mode:
-            return JsonResponse({'error': 'Invalid difficulty'}, status=400)
+            return JsonResponse({'error': _('Invalid difficulty')}, status=400)
 
         # Choose a random ability
         abilities = Ability.objects.all()
         if not abilities.exists():
-            return JsonResponse({'error': 'No abilities available'}, status=500)
+            return JsonResponse({'error': _('No abilities available')}, status=500)
 
         target_ability = random.choice(list(abilities))
 
@@ -131,4 +131,4 @@ def new_ability_game(request):
             'grey_mode': is_grey_mode
         })
 
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    return JsonResponse({'error': _('Invalid request')}, status=400)

@@ -424,3 +424,138 @@ msgstr "League of Legendsのすべてのチャンピオンをチェックしよ�
 
 msgid "No data available"
 msgstr "データがありません"
+
+msgid "Clues:"
+msgstr "手がかり："
+
+msgid "Guess the champion that owns this ability"
+msgstr "このスキルを持っているチャンピオンを当ててください"
+
+msgid "Choose a game mode to play"
+msgstr "プレイするゲームモードを選んでください"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "ポジション、地域などの手がかりをもとに、対象のチャンピオンを当ててみましょう。"
+
+msgid "Ability Guessing Game"
+msgstr "スキル当てゲーム"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "スキルがどのチャンピオンのものかを当て、さらにスキル名を当てるとボーナスポイント！"
+
+msgid "See who ranks at the top"
+msgstr "ランキング上位をチェック"
+
+msgid "View your past games"
+msgstr "過去のゲームを表示"
+
+msgid "Clues"
+msgstr "手がかり"
+
+msgid "Champion Guessing Game"
+msgstr "チャンピオン当てゲーム"
+
+msgid "Missing parameters"
+msgstr "パラメーターが不足しています"
+
+msgid "Game not found"
+msgstr "ゲームが見つかりません"
+
+msgid "Game has no target champion"
+msgstr "ゲームに対象のチャンピオンが設定されていません"
+
+msgid "Game has no target ability"
+msgstr "ゲームに対象のスキルが設定されていません"
+
+msgid "Game already completed"
+msgstr "ゲームはすでに完了しています"
+
+msgid "Champion not found"
+msgstr "チャンピオンが見つかりません"
+
+msgid "You have already guessed this champion"
+msgstr "このチャンピオンはすでに当てています"
+
+msgid "No champion information available"
+msgstr "チャンピオンの情報がありません"
+
+msgid "Champion plays %s position"
+msgstr "チャンピオンのポジション：%s"
+
+msgid "Champion is from %s region"
+msgstr "チャンピオンの出身地域：%s"
+
+msgid "Champion uses %s"
+msgstr "チャンピオンの使用武器：%s"
+
+msgid "Champion is from %s"
+msgstr "チャンピオンは%s出身です"
+
+msgid "Champion gender is %s"
+msgstr "チャンピオンの性別：%s"
+
+msgid "Champion species is %s"
+msgstr "チャンピオンの種族：%s"
+
+msgid "Champion was released in %s"
+msgstr "チャンピオンの実装年：%s"
+
+msgid "Champion combat range is %s"
+msgstr "チャンピオンの戦闘範囲：%s"
+
+msgid "Try to guess the champion that owns this ability"
+msgstr "このスキルを持つチャンピオンを当ててみてください"
+
+msgid "Invalid request"
+msgstr "無効なリクエストです"
+
+msgid "Invalid request method"
+msgstr "無効なリクエスト方法です"
+
+msgid "Invalid champion ID"
+msgstr "無効なチャンピオンIDです"
+
+msgid "User not found"
+msgstr "ユーザーが見つかりません"
+
+msgid "Invalid difficulty"
+msgstr "難易度が無効です"
+
+msgid "No champions available"
+msgstr "利用可能なチャンピオンがいません"
+
+msgid "No abilities available"
+msgstr "利用可能なスキルがありません"
+
+msgid "Congratulations!"
+msgstr "おめでとうございます！"
+
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "チャンピオンを正しく当てました。次はこのスキルがどれかを当ててみましょう！"
+
+msgid "Now guess which ability this is!"
+msgstr "このスキルがどれかを当ててください！"
+
+msgid "Passive"
+msgstr "パッシブ"
+
+msgid "Q Ability"
+msgstr "Qスキル"
+
+msgid "W Ability"
+msgstr "Wスキル"
+
+msgid "E Ability"
+msgstr "Eスキル"
+
+msgid "Ultimate (R)"
+msgstr "アルティメット（R）"
+
+msgid "Now guess which ability this is"
+msgstr "このスキルがどれかを当ててください"
+
+msgid "Ability Game Page Title"
+msgstr "LoLスキル当てゲーム | League of Legendsのスキルを当てよう"
+
+msgid "Ability Game Page Desc"
+msgstr "LoLのスキルを当てるゲーム。ヒントをもとにスキルを当てて、スコアを上げてランキングを目指そう！"

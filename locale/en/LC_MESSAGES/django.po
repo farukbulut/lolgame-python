@@ -1,3559 +1,607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 14:33+0000\n"
+"POT-Creation-Date: 2025-04-28 14:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: frontend/controller/index.py:18
+#: frontend/controller/index.py:20
 msgid "LoL Champion Guessing Game"
-msgstr ""
+msgstr "LoL Champion Guessing Game"
+
+#: frontend/controller/index.py:59
+msgid "Guess the Champion"
+msgstr "Guess the Champion"
+
+msgid "CHAMPION"
+msgstr "CHAMPION"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "How To Play"
+msgstr "How To Play"
+
+msgid "Game History"
+msgstr "Game History"
+
+msgid "Player:"
+msgstr "Player:"
+
+msgid "POINTS"
+msgstr "POINTS"
+
+msgid "History"
+msgstr "History"
+
+msgid "Your Stats"
+msgstr "Your Stats"
+
+msgid "Your Game History"
+msgstr "Your Game History"
+
+msgid "Top Players"
+msgstr "Top Players"
+
+msgid "Rank"
+msgstr "Rank"
+
+msgid "See who ranks at the top of the champion guessing game!"
+msgstr "See who ranks at the top of the champion guessing game!"
+
+msgid "Player"
+msgstr "Player"
+
+msgid "View Champion"
+msgstr "View Champion"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Victory"
+msgstr "Victory"
+
+msgid "Defeat"
+msgstr "Defeat"
+
+msgid "Leaderboard"
+msgstr "Leaderboard"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Average"
+msgstr "Average"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "points"
+msgstr "points"
+
+msgid "View Leaderboard"
+msgstr "View Leaderboard"
+
+msgid "Gender"
+msgstr "Gender"
+
+msgid "Resource"
+msgstr "Resource"
+
+msgid "PREDICTION GAME"
+msgstr "PREDICTION GAME"
 
 #: frontend/controller/index.py:70
-msgid "Guess the Champion"
-msgstr ""
-
-#: frontend/controller/index.py:80 frontend/templates/partial/base.html:24
 msgid "How to Play"
-msgstr ""
+msgstr "How to Play"
 
-#: frontend/templates/champion_game.html:11
-#: frontend/templates/champion_game.html:236
+#: templates/frontend/champion_game.html:9
 msgid "Champion"
-msgstr ""
+msgstr "Champion"
 
-#: frontend/templates/champion_game.html:11
-#, fuzzy
-#| msgid "Leasing"
+msgid "Champions"
+msgstr "Champions"
+
+#: templates/frontend/champion_game.html:9
 msgid "Guessing"
-msgstr "Leasing"
+msgstr "Guessing"
 
-#: frontend/templates/champion_game.html:12
+#: templates/frontend/champion_game.html:10
 msgid "Difficulty"
-msgstr ""
+msgstr "Difficulty"
 
-#: frontend/templates/champion_game.html:17
+msgid "easy"
+msgstr "easy"
+
+msgid "medium"
+msgstr "medium"
+
+msgid "hard"
+msgstr "hard"
+
+msgid "Showing"
+msgstr "Showing"
+
+msgid "Guess a Champion"
+msgstr "Guess a Champion"
+
+msgid "Win or Lose"
+msgstr "Win or Lose"
+
+msgid "Check the Feedback"
+msgstr "Check the Feedback"
+
+msgid "Overview"
+msgstr "Overview"
+
+msgid "Abilities"
+msgstr "Abilities"
+
+msgid "Skins"
+msgstr "Skins"
+
+msgid "Think you know this champion?"
+msgstr "Think you know this champion?"
+
+msgid "Combat Range"
+msgstr "Combat Range"
+
+msgid "Release Year"
+msgstr "Release Year"
+
+msgid "of"
+msgstr "of"
+
+msgid "champions"
+msgstr "champions"
+
+msgid "Explore all League of Legends champions and their details"
+msgstr "Explore all League of Legends champions and their details"
+
+msgid "Sort by:"
+msgstr "Sort by:"
+
+msgid "Name (A-Z)"
+msgstr "Name (A-Z)"
+
+msgid "Name (Z-A)"
+msgstr "Name (Z-A)"
+
+msgid "Newest First"
+msgstr "Newest First"
+
+msgid "Oldest First"
+msgstr "Oldest First"
+
+msgid "Easiest First"
+msgstr "Easiest First"
+
+msgid "Hardest First"
+msgstr "Hardest First"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Load More Champions"
+msgstr "Load More Champions"
+
+msgid "Games Played"
+msgstr "Games Played"
+
+msgid "Games Won"
+msgstr "Games Won"
+
+msgid "Win Rate"
+msgstr "Win Rate"
+
+msgid "Total Score"
+msgstr "Total Score"
+
+msgid "Average Score"
+msgstr "Average Score"
+
+msgid "Best Score"
+msgstr "Best Score"
+
+msgid "Avg. Attempts"
+msgstr "Avg. Attempts"
+
+msgid "Game Type"
+msgstr "Game Type"
+
+msgid "Attempts"
+msgstr "Attempts"
+
+msgid "Score"
+msgstr "Score"
+
+msgid "Ability"
+msgstr "Ability"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "No games found. Start playing to see your game history!"
+msgstr "No games found. Start playing to see your game history!"
+
+msgid "Search champions..."
+msgstr "Search champions..."
+
+msgid "Game"
+msgstr "Game"
+
+msgid "Loading games..."
+msgstr "Loading games..."
+
+msgid "Loading champions..."
+msgstr "Loading champions..."
+
+#: templates/frontend/champion_game.html:15
 msgid "Type champion name..."
-msgstr ""
+msgstr "Type champion name..."
 
-#: frontend/templates/champion_game.html:19
+#: templates/frontend/champion_game.html:17
 msgid "Step"
-msgstr ""
+msgstr "Step"
 
-#: frontend/templates/champion_game.html:22
+#: templates/frontend/champion_game.html:19
 msgid "Attempts Left"
-msgstr ""
+msgstr "Attempts Left"
 
-#: frontend/templates/champion_game.html:30
-#, fuzzy
-#| msgid "Location not found"
+#: templates/frontend/champion_game.html:29
 msgid "Champion not found."
-msgstr "Location not found"
+msgstr "Champion not found."
 
-#: frontend/templates/champion_game.html:37
+#: templates/frontend/champion_game.html:35
 msgid "No guesses yet. Start typing a champion name!"
-msgstr ""
+msgstr "No guesses yet. Start typing a champion name!"
 
-#: frontend/templates/champion_game.html:43
+#: templates/frontend/champion_game.html:41
 msgid "Correct"
-msgstr ""
+msgstr "Correct"
 
-#: frontend/templates/champion_game.html:44
+#: templates/frontend/champion_game.html:42
 msgid "Wrong"
-msgstr ""
+msgstr "Wrong"
 
-#: frontend/templates/champion_game.html:45
+#: templates/frontend/champion_game.html:43
 msgid "Higher"
-msgstr ""
+msgstr "Higher"
 
-#: frontend/templates/champion_game.html:46
+#: templates/frontend/champion_game.html:44
 msgid "Lower"
-msgstr ""
+msgstr "Lower"
 
-#: frontend/templates/champion_game.html:54
+#: templates/frontend/champion_game.html:52
 msgid "Play Again"
-msgstr ""
+msgstr "Play Again"
 
-#: frontend/templates/champion_game.html:244
-#: frontend/templates/champion_game.html:308
-#, fuzzy
-#| msgid "station"
+#: templates/frontend/home.html:9
+msgid "Can you guess the League of Legends champion?"
+msgstr "Can you guess the League of Legends champion?"
+
+#: templates/frontend/home.html:13
+msgid "Select Difficulty"
+msgstr "Select Difficulty"
+
+#: templates/frontend/home.html:17
+msgid "Easy"
+msgstr "Easy"
+
+#: templates/frontend/home.html:18 templates/frontend/home.html:23 templates/frontend/home.html:28
+msgid "attempts"
+msgstr "attempts"
+
+#: templates/frontend/home.html:22
+msgid "Medium"
+msgstr "Medium"
+
+#: templates/frontend/home.html:27
+msgid "Hard"
+msgstr "Hard"
+
+#: templates/frontend/how_to_play.html:9
+msgid "How to"
+msgstr "How to"
+
+#: templates/frontend/how_to_play.html:9
+msgid "Play"
+msgstr "Play"
+
+#: templates/frontend/how_to_play.html:15
+msgid "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+msgstr "Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
+
+#: templates/frontend/how_to_play.html:21
+msgid "Type a champion name and select from the dropdown or press the search button"
+msgstr "Type a champion name and select from the dropdown or press the search button"
+
+#: templates/frontend/how_to_play.html:27
+msgid "After each guess, you'll see colored indicators:"
+msgstr "After each guess, you'll see colored indicators:"
+
+#: templates/frontend/how_to_play.html:29
+msgid "Green means correct"
+msgstr "Green means correct"
+
+#: templates/frontend/how_to_play.html:30
+msgid "Yellow means wrong"
+msgstr "Yellow means wrong"
+
+#: templates/frontend/how_to_play.html:31
+msgid "Blue means the target value is higher"
+msgstr "Blue means the target value is higher"
+
+#: templates/frontend/how_to_play.html:32
+msgid "Purple means the target value is lower"
+msgstr "Purple means the target value is lower"
+
+#: templates/frontend/how_to_play.html:39
+msgid "You win if you guess the correct champion before running out of attempts"
+msgstr "You win if you guess the correct champion before running out of attempts"
+
+#: templates/frontend/how_to_play.html:42
+msgid "Play Now"
+msgstr "Play Now"
+
+#: templates/partial/base.html:23
+msgid "English"
+msgstr "English"
+
+#: templates/partial/base.html:24
+msgid "German"
+msgstr "German"
+
+#: templates/partial/base.html:25
+msgid "Turkish"
+msgstr "Turkish"
+
+#: templates/partial/base.html:26
+msgid "Spanish"
+msgstr "Spanish"
+
+#: templates/partial/base.html:27
+msgid "Italian"
+msgstr "Italian"
+
+#: templates/partial/base.html:28
+msgid "Dutch"
+msgstr "Dutch"
+
+#: templates/partial/base.html:29
+msgid "Portuguese"
+msgstr "Portuguese"
+
+#: templates/partial/base.html:30
+msgid "French"
+msgstr "French"
+
+#: templates/partial/base.html:31
+msgid "Russian"
+msgstr "Russian"
+
+#: templates/partial/base.html:32
+msgid "Brazilian Portuguese"
+msgstr "Brazilian Portuguese"
+
+#: templates/partial/base.html:42
 msgid "Position"
-msgstr "Station Wagon"
+msgstr "Position"
 
-#: frontend/templates/champion_game.html:249
-#: frontend/templates/champion_game.html:309
-#, fuzzy
-#| msgid "Special Request"
+#: templates/partial/base.html:43
 msgid "Species"
-msgstr "Special Request"
+msgstr "Species"
 
-#: frontend/templates/champion_game.html:254
-#: frontend/templates/champion_game.html:310
-#, fuzzy
-#| msgid "Year Range"
+#: templates/partial/base.html:44
 msgid "Range"
-msgstr "Year Range"
+msgstr "Range"
 
-#: frontend/templates/champion_game.html:259
-#: frontend/templates/champion_game.html:311
+#: templates/partial/base.html:45
 msgid "Region"
 msgstr "Region"
 
-#: frontend/templates/champion_game.html:271
-#: frontend/templates/champion_game.html:312
+#: templates/partial/base.html:46
 msgid "Release"
-msgstr ""
+msgstr "Release"
 
-#: frontend/templates/home/home.html:8
-msgid "Can you guess the League of Legends champion?"
-msgstr ""
+msgid "Biography"
+msgstr "Biography"
 
-#: frontend/templates/home/home.html:12 frontend/templates/how_to_play.html:17
-#, fuzzy
-#| msgid "Select Date"
-msgid "Select Difficulty"
-msgstr "Select Date"
+msgid "Champion Info"
+msgstr "Champion Info"
 
-#: frontend/templates/home/home.html:16
-msgid "Easy"
-msgstr ""
+msgid "Home"
+msgstr "Home"
 
-#: frontend/templates/home/home.html:17 frontend/templates/home/home.html:22
-#: frontend/templates/home/home.html:27
-msgid "attempts"
-msgstr ""
+msgid "LoL Champion Details"
+msgstr "LoL Champion Details"
 
-#: frontend/templates/home/home.html:21
-msgid "Medium"
-msgstr ""
+msgid "Main Site Title"
+msgstr "LoL Champion Guessing Game | Most Fun League of Legends Quiz"
 
-#: frontend/templates/home/home.html:26
-msgid "Hard"
-msgstr ""
+msgid "Main Site Desc"
+msgstr "Test your League of Legends knowledge! Guess champions based on clues with the LoL Champion Guessing Game, increase your score and aim for the top of the leaderboard!"
 
-#: frontend/templates/how_to_play.html:11
-msgid "How to"
-msgstr ""
+msgid "Game Page Title"
+msgstr "LoL Guess the Champion | Free League of Legends Knowledge Game"
 
-#: frontend/templates/how_to_play.html:11
-#: frontend/templates/partial/base.html:23
-msgid "Play"
-msgstr ""
+msgid "Game Page Desc"
+msgstr "Test your LoL knowledge! Guess champions based on clues, increase your score and compete with League of Legends enthusiasts. Play for free now!"
 
-#: frontend/templates/how_to_play.html:18
-msgid ""
-"Choose between Easy (10 attempts), Medium (8 attempts), or Hard (6 attempts)"
-msgstr ""
+msgid "HowToPlay Page Title"
+msgstr "How to Play LoL Champion Guessing Game? | Rules and Tips"
 
-#: frontend/templates/how_to_play.html:23
-msgid "Guess a Champion"
-msgstr ""
+msgid "HowToPlay Page Desc"
+msgstr "Learn how to play the LoL Champion Guessing Game. Get detailed information about difficulty levels, clues, attempt limits, and the leaderboard system."
 
-#: frontend/templates/how_to_play.html:24
-msgid ""
-"Type a champion name and select from the dropdown or press the search button"
-msgstr ""
+msgid "GameHistory Page Title"
+msgstr "LoL Champion Guessing Game History | See All Your Played Games"
 
-#: frontend/templates/how_to_play.html:29
-msgid "Check the Feedback"
-msgstr ""
+msgid "GameHistory Page Desc"
+msgstr "View your LoL champion guessing history. Which games did you win, how many points did you score, and what were your best scores? Check your history now!"
 
-#: frontend/templates/how_to_play.html:30
-msgid "After each guess, you\\"
-msgstr ""
+msgid "Leaderboard Page Title"
+msgstr "LoL Champion Guessing Game Leaderboard | Top Players"
 
-#: frontend/templates/how_to_play.html:32
-msgid "Green means correct"
-msgstr ""
+msgid "Leaderboard Page Desc"
+msgstr "See the players with the highest scores in the LoL Champion Guessing Game. Who's competing for the top? Check the leaderboard now!"
 
-#: frontend/templates/how_to_play.html:33
-msgid "Yellow means wrong"
-msgstr ""
+msgid "Champions Page Title"
+msgstr "All LoL Champions | League of Legends Champion List and Details"
 
-#: frontend/templates/how_to_play.html:34
-msgid "Blue means the target value is higher"
-msgstr ""
+msgid "Champions Page Desc"
+msgstr "Explore all champions in the League of Legends universe. Champion abilities, difficulty levels, release dates and more are here!"
 
-#: frontend/templates/how_to_play.html:35
-msgid "Purple means the target value is lower"
-msgstr ""
+msgid "No data available"
+msgstr "No data available"
 
-#: frontend/templates/how_to_play.html:41
-msgid "Win or Lose"
-msgstr ""
+msgid "Clues:"
+msgstr "Clues:"
 
-#: frontend/templates/how_to_play.html:42
-msgid ""
-"You win if you guess the correct champion before running out of attempts"
-msgstr ""
+msgid "Guess the champion that owns this ability"
+msgstr "Guess the champion that owns this ability"
 
-#: frontend/templates/how_to_play.html:45
-msgid "Play Now"
-msgstr ""
+msgid "Choose a game mode to play"
+msgstr "Choose a game mode to play"
 
-#: lolgame/settings.py:134
-msgid "English"
-msgstr ""
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "Try to guess the target champion with clues about their position, region, and more."
 
-#: lolgame/settings.py:135
-msgid "German"
-msgstr ""
+msgid "Ability Guessing Game"
+msgstr "Ability Guessing Game"
 
-#: lolgame/settings.py:136
-msgid "Turkish"
-msgstr ""
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "Guess which champion the ability belongs to and then identify the ability for bonus points!"
 
-#: lolgame/settings.py:137
-msgid "Spanish"
-msgstr ""
+msgid "See who ranks at the top"
+msgstr "See who ranks at the top"
 
-#: lolgame/settings.py:138
-msgid "Italian"
-msgstr ""
+msgid "View your past games"
+msgstr "View your past games"
 
-#: lolgame/settings.py:139
-msgid "Dutch"
-msgstr ""
+msgid "Clues"
+msgstr "Clues"
 
-#: lolgame/settings.py:140
-msgid "Portuguese"
-msgstr ""
+msgid "Champion Guessing Game"
+msgstr "Champion Guessing Game"
 
-#: lolgame/settings.py:141
-msgid "French"
-msgstr ""
+msgid "Missing parameters"
+msgstr "Missing parameters"
 
-#: lolgame/settings.py:142
-msgid "Russian"
-msgstr ""
+msgid "Game not found"
+msgstr "Game not found"
 
-#: lolgame/settings.py:143
-msgid "Brazilian Portuguese"
-msgstr ""
+msgid "Game has no target champion"
+msgstr "Game has no target champion"
 
-#~ msgid "dashboard"
-#~ msgstr "Dashboard"
+msgid "Game has no target ability"
+msgstr "Game has no target ability"
 
-#~ msgid "dealer_list"
-#~ msgstr "Dealer List"
+msgid "Game already completed"
+msgstr "Game already completed"
 
-#~ msgid "Home Page"
-#~ msgstr "Home Page"
+msgid "Champion not found"
+msgstr "Champion not found"
 
-#~ msgid "Contact"
-#~ msgstr "Contact"
+msgid "You have already guessed this champion"
+msgstr "You have already guessed this champion"
 
-#~ msgid "Settings"
-#~ msgstr "Settings"
+msgid "No champion information available"
+msgstr "No champion information available"
 
-#~ msgid "Back"
-#~ msgstr "Back"
+msgid "Champion plays %s position"
+msgstr "Champion plays %s position"
 
-# Home page
-#~ msgid "Door"
-#~ msgstr "Door"
+msgid "Champion is from %s region"
+msgstr "Champion is from %s region"
 
-#~ msgid "choose"
-#~ msgstr "Choose"
+msgid "Champion uses %s"
+msgstr "Champion uses %s"
 
-#~ msgid "sedan"
-#~ msgstr "Sedan"
+msgid "Champion is from %s"
+msgstr "Champion is from %s"
 
-#~ msgid "small"
-#~ msgstr "Small Car"
+msgid "Champion gender is %s"
+msgstr "Champion gender is %s"
 
-#~ msgid "suv"
-#~ msgstr "SUV / Off-Road Vehicle / Pickup"
+msgid "Champion species is %s"
+msgstr "Champion species is %s"
 
-#~ msgid "cabrio"
-#~ msgstr "Cabrio / Roadster"
+msgid "Champion was released in %s"
+msgstr "Champion was released in %s"
 
-#~ msgid "sport"
-#~ msgstr "Sports Car / Coupé"
+msgid "Champion combat range is %s"
+msgstr "Champion combat range is %s"
 
-#~ msgid "van"
-#~ msgstr "Van / Minibus"
+msgid "Try to guess the champion that owns this ability"
+msgstr "Try to guess the champion that owns this ability"
 
-#~ msgid "other"
-#~ msgstr "Other"
+msgid "Invalid request"
+msgstr "Invalid request"
 
-#~ msgid "start_sell"
-#~ msgstr "Start Selling"
+msgid "Invalid request method"
+msgstr "Invalid request method"
 
-#~ msgid "get_offer"
-#~ msgstr "Get Offer"
+msgid "Invalid champion ID"
+msgstr "Invalid champion ID"
 
-#~ msgid "get_offer_now"
-#~ msgstr "Get Offer Now"
+msgid "User not found"
+msgstr "User not found"
 
-#~ msgid "Home_page Sell ​​in 3 Steps title"
-#~ msgstr "Sell in 3 Steps"
+msgid "Invalid difficulty"
+msgstr "Invalid difficulty"
 
-#~ msgid "Home_page Step 1 title"
-#~ msgstr "Request a free and non-binding price offer"
+msgid "No champions available"
+msgstr "No champions available"
 
-#~ msgid "Home_page Step 1 text"
-#~ msgstr "Fast processing and payment within 24 hours if requested"
+msgid "No abilities available"
+msgstr "No abilities available"
 
-#~ msgid "Home_page Step 2 title"
-#~ msgstr "Easily arrange an online purchase appointment near you"
+msgid "Congratulations!"
+msgstr "Congratulations!"
 
-#~ msgid "Home_page Step 2 text"
-#~ msgstr ""
-#~ "We will immediately deregister your vehicle and complete all formalities"
+msgid "You've correctly identified the champion. Now guess which ability this is!"
+msgstr "You've correctly identified the champion. Now guess which ability this is!"
 
-#~ msgid "Home_page Step 3 title"
-#~ msgstr ""
-#~ "If the offer meets your expectations, you can sell directly and receive "
-#~ "your money instantly"
+msgid "Now guess which ability this is!"
+msgstr "Now guess which ability this is!"
 
-#~ msgid "Home_page Step 3 text"
-#~ msgstr "Safe transaction by a certified partner!"
+msgid "Passive"
+msgstr "Passive"
 
-#~ msgid "advantages_sub_1"
-#~ msgstr "Professional Service"
+msgid "Q Ability"
+msgstr "Q Ability"
 
-#~ msgid "advantages_sub_2"
-#~ msgstr "Efficient Process"
+msgid "W Ability"
+msgstr "W Ability"
 
-#~ msgid "advantages_sub_3"
-#~ msgstr "Certified Dealers"
+msgid "E Ability"
+msgstr "E Ability"
 
-#~ msgid "sell_section_title_1"
-#~ msgstr "Evaluation of Your Vehicle"
+msgid "Ultimate (R)"
+msgstr "Ultimate (R)"
 
-#~ msgid "sell_section_desc_1"
-#~ msgstr ""
-#~ "Request a free and non-binding price evaluation for your car. In "
-#~ "calculating the online guide price, we take into account both your basic "
-#~ "vehicle data and the market price of comparable models. A final price can "
-#~ "only be given after a personal inspection. Factors such as technical "
-#~ "condition, general condition, special equipment, or current market demand "
-#~ "can influence the price either upwards or downwards."
+msgid "Now guess which ability this is"
+msgstr "Now guess which ability this is"
 
-#~ msgid "sell_section_title_2"
-#~ msgstr "Schedule an Appointment"
+msgid "Ability Game Page Title"
+msgstr "LoL Ability Guessing Game | Free League of Legends Knowledge Game"
 
-#~ msgid "sell_section_desc_2"
-#~ msgstr ""
-#~ "To find out the current and accurate market value of your vehicle, simply "
-#~ "and conveniently arrange an appointment online with one of our partners "
-#~ "near you in just a few clicks. We have over 500 purchase stations across "
-#~ "Germany, and some are certainly in your region. You can have your vehicle "
-#~ "inspected free of charge there. The best part is that the entire service "
-#~ "is completely free for you! Often, your vehicle is sold within 24 hours."
-
-#~ msgid "sell_section_title_3"
-#~ msgstr "Purchase Contract and Payment"
-
-#~ msgid "sell_section_desc_3"
-#~ msgstr ""
-#~ "The purchase station will thoroughly inspect your vehicle and evaluate "
-#~ "it, considering all technical aspects, special equipment, and the general "
-#~ "condition of your vehicle. You will then receive a realistic offer "
-#~ "immediately, with an explanation of how the amount was calculated. If you "
-#~ "agree on the price, you can immediately finalize the purchase contract in "
-#~ "writing with our partner and sell your car directly. You will receive "
-#~ "your money in cash or via bank transfer as agreed with the buyer."
-
-#~ msgid "Coming Soon"
-#~ msgstr "Coming Soon"
-
-#~ msgid "Our Mobile App"
-#~ msgstr "Our Mobile App"
-
-#~ msgid "Mobile_App_Desc"
-#~ msgstr ""
-#~ "Our mobile app, which allows our customers to schedule appointments at "
-#~ "our branches for selling their vehicles, is under development. It will be "
-#~ "available as soon as possible!"
-
-#~ msgid "Client"
-#~ msgstr "Client"
-
-# Footer
-# Footer tab 1
-#~ msgid "Number 1 in Germany"
-#~ msgstr "Number 1 in Germany"
-
-#~ msgid "The Largest Auto Dealer Network"
-#~ msgstr "The Largest Auto Dealer Network"
-
-# Footer tab 2
-#~ msgid "Fast & Secure Sale"
-#~ msgstr "Fast & Secure Sale"
-
-#~ msgid "Over 1000+ registered dealers"
-#~ msgstr "Over 1000+ Registered Dealers"
-
-# Footer tab 3
-#~ msgid "Best Service"
-#~ msgstr "Best Service"
-
-#~ msgid "Free appointment scheduling"
-#~ msgstr "Free Appointment Scheduling"
-
-# Footer tab 4
-#~ msgid "Smart & Simple"
-#~ msgstr "Smart & Simple"
-
-#~ msgid "Find dealers near you"
-#~ msgstr "Find Dealers Near You"
-
-#~ msgid "Dealers"
-#~ msgstr "Dealers"
-
-#~ msgid "Show"
-#~ msgstr "Show"
-
-#~ msgid "entries"
-#~ msgstr "Entries"
-
-#~ msgid "Status"
-#~ msgstr "Status"
-
-#~ msgid "Search"
-#~ msgstr "Search"
-
-#~ msgid "Total Cars"
-#~ msgstr "Total Cars"
-
-#~ msgid "Actions"
-#~ msgstr "Actions"
-
-#~ msgid "Edit"
-#~ msgstr "Edit"
-
-#~ msgid "Delete"
-#~ msgstr "Delete"
-
-#~ msgid "Inactive Dealer"
-#~ msgstr "Inactive Dealer"
-
-#~ msgid "Potential"
-#~ msgstr "Potential"
-
-#~ msgid "Inactive Potential"
-#~ msgstr "Inactive Potential"
-
-#~ msgid "Are you sure?"
-#~ msgstr "Are you sure?"
-
-#~ msgid "Yes"
-#~ msgstr "Yes"
-
-#~ msgid "No"
-#~ msgstr "No"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancel"
-
-#~ msgid "recall_date"
-#~ msgstr "Recall Date"
-
-#~ msgid "select_date"
-#~ msgstr "Select Date"
-
-#~ msgid "Select Time"
-#~ msgstr "Select Time"
-
-#~ msgid "Time"
-#~ msgstr "Time"
-
-#~ msgid "Hour"
-#~ msgstr "Hour"
-
-#~ msgid "Minute"
-#~ msgstr "Minute"
-
-#~ msgid "Now"
-#~ msgstr "Now"
-
-#~ msgid "Done"
-#~ msgstr "Done"
-
-#~ msgid "Close"
-#~ msgstr "Close"
-
-#~ msgid "Previous"
-#~ msgstr "Previous"
-
-#~ msgid "Next"
-#~ msgstr "Next"
-
-#~ msgid "Today"
-#~ msgstr "Today"
-
-#~ msgid "January"
-#~ msgstr "January"
-
-#~ msgid "February"
-#~ msgstr "February"
-
-#~ msgid "March"
-#~ msgstr "March"
-
-#~ msgid "April"
-#~ msgstr "April"
-
-#~ msgid "May"
-#~ msgstr "May"
-
-#~ msgid "June"
-#~ msgstr "June"
-
-#~ msgid "July"
-#~ msgstr "July"
-
-#~ msgid "August"
-#~ msgstr "August"
-
-#~ msgid "September"
-#~ msgstr "September"
-
-#~ msgid "October"
-#~ msgstr "October"
-
-#~ msgid "November"
-#~ msgstr "November"
-
-#~ msgid "December"
-#~ msgstr "December"
-
-#~ msgid "Jan"
-#~ msgstr "Jan"
-
-#~ msgid "Feb"
-#~ msgstr "Feb"
-
-#~ msgid "Mar"
-#~ msgstr "Mar"
-
-#~ msgid "Apr"
-#~ msgstr "Apr"
-
-#~ msgid "Jun"
-#~ msgstr "Jun"
-
-#~ msgid "Jul"
-#~ msgstr "Jul"
-
-#~ msgid "Aug"
-#~ msgstr "Aug"
-
-#~ msgid "Sep"
-#~ msgstr "Sep"
-
-#~ msgid "Oct"
-#~ msgstr "Oct"
-
-#~ msgid "Nov"
-#~ msgstr "Nov"
-
-#~ msgid "Dec"
-#~ msgstr "Dec"
-
-#~ msgid "Sunday"
-#~ msgstr "Sunday"
-
-#~ msgid "Monday"
-#~ msgstr "Monday"
-
-#~ msgid "Tuesday"
-#~ msgstr "Tuesday"
-
-#~ msgid "Wednesday"
-#~ msgstr "Wednesday"
-
-#~ msgid "Thursday"
-#~ msgstr "Thursday"
-
-#~ msgid "Friday"
-#~ msgstr "Friday"
-
-#~ msgid "Saturday"
-#~ msgstr "Saturday"
-
-#~ msgid "Sun"
-#~ msgstr "Sun"
-
-#~ msgid "Mon"
-#~ msgstr "Mon"
-
-#~ msgid "Tue"
-#~ msgstr "Tue"
-
-#~ msgid "Wed"
-#~ msgstr "Wed"
-
-#~ msgid "Thu"
-#~ msgstr "Thu"
-
-#~ msgid "Fri"
-#~ msgstr "Fri"
-
-#~ msgid "Sat"
-#~ msgstr "Sat"
-
-#~ msgid "Su"
-#~ msgstr "Su"
-
-#~ msgid "Mo"
-#~ msgstr "Mo"
-
-#~ msgid "Tu"
-#~ msgstr "Tu"
-
-#~ msgid "We"
-#~ msgstr "We"
-
-#~ msgid "Th"
-#~ msgstr "Th"
-
-#~ msgid "Fr"
-#~ msgstr "Fr"
-
-#~ msgid "Sa"
-#~ msgstr "Sa"
-
-#~ msgid "Wk"
-#~ msgstr "Wk"
-
-#~ msgid "gallery_title"
-#~ msgstr "Gallery List"
-
-#~ msgid "Action"
-#~ msgstr "Actions"
-
-#~ msgid "Detail"
-#~ msgstr "Detail"
-
-#~ msgid "Recall date updated successfully"
-#~ msgstr "Recall date updated successfully"
-
-#~ msgid "Select date"
-#~ msgstr "Select date"
-
-#~ msgid "missing_required_fields"
-#~ msgstr "Missing required fields"
-
-#~ msgid "recall_date_updated_successfully"
-#~ msgstr "Recall date updated successfully"
-
-#~ msgid "invalid_recall_date_format"
-#~ msgstr "Invalid recall date format"
-
-#~ msgid "object_not_found"
-#~ msgstr "Record not found"
-
-#~ msgid "recall_date_update_error"
-#~ msgstr "An error occurred while updating the recall date"
-
-#~ msgid "dealer_detail_title"
-#~ msgstr "Dealer Details"
-
-#~ msgid "Update Dealer"
-#~ msgstr "Update Dealer"
-
-#~ msgid "Dealer Information"
-#~ msgstr "Dealer Information"
-
-#~ msgid "Company Name"
-#~ msgstr "Company Name"
-
-#~ msgid "Please enter company name"
-#~ msgstr "Please enter company name"
-
-#~ msgid "Email"
-#~ msgstr "Email"
-
-#~ msgid "Please enter a valid email"
-#~ msgstr "Please enter a valid email"
-
-#~ msgid "Invoice Email"
-#~ msgstr "Invoice Email"
-
-#~ msgid "First Name"
-#~ msgstr "First Name"
-
-#~ msgid "Please enter first name"
-#~ msgstr "Please enter first name"
-
-#~ msgid "Last Name"
-#~ msgstr "Last Name"
-
-#~ msgid "Please enter last name"
-#~ msgstr "Please enter last name"
-
-#~ msgid "Phone"
-#~ msgstr "Phone"
-
-#~ msgid "Please enter phone number"
-#~ msgstr "Please enter phone number"
-
-#~ msgid "Cell Phone"
-#~ msgstr "Cell Phone"
-
-#~ msgid "Tax Number"
-#~ msgstr "Tax Number"
-
-#~ msgid "Website"
-#~ msgstr "Website"
-
-#~ msgid "Google Maps Link"
-#~ msgstr "Google Maps Link"
-
-#~ msgid "Google Rating"
-#~ msgstr "Google Rating"
-
-#~ msgid "Mobile Rating Link"
-#~ msgstr "Mobile.de Rating Link"
-
-#~ msgid "Mobile.de Link"
-#~ msgstr "Mobile.de Link"
-
-#~ msgid "AutoScout24 Link"
-#~ msgstr "AutoScout24 Link"
-
-#~ msgid "Reserved By"
-#~ msgstr "Reserved By"
-
-#~ msgid "Recall Date"
-#~ msgstr "Recall Date"
-
-#~ msgid "Description"
-#~ msgstr "Description"
-
-#~ msgid "Update"
-#~ msgstr "Update"
-
-#~ msgid "Success"
-#~ msgstr "Success"
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#~ msgid "An error occurred while updating the dealer"
-#~ msgstr "An error occurred while updating the dealer"
-
-#~ msgid "Invalid recall date format"
-#~ msgstr "Invalid recall date format"
-
-#~ msgid "Please fill in all required fields"
-#~ msgstr "Please fill in all required fields"
-
-#~ msgid "Dealer information updated successfully"
-#~ msgstr "Dealer information updated successfully"
-
-#~ msgid "Dealer not found"
-#~ msgstr "Dealer not found"
-
-#~ msgid "An error occurred while updating dealer information"
-#~ msgstr "An error occurred while updating dealer information"
-
-#~ msgid "Potential Deleted"
-#~ msgstr "Potential Deleted"
-
-#~ msgid "Potential Inactive"
-#~ msgstr "Potential Inactive"
-
-#~ msgid "Dealer"
-#~ msgstr "Dealer"
-
-#~ msgid "Dealer Inactive"
-#~ msgstr "Dealer Inactive"
-
-#~ msgid "Dealer Deleted"
-#~ msgstr "Dealer Deleted"
-
-#~ msgid "Create New Dealer"
-#~ msgstr "Create New Dealer"
-
-#~ msgid "Add"
-#~ msgstr "Add"
-
-#~ msgid "New Dealer Information"
-#~ msgstr "New Dealer Information"
-
-#~ msgid "Create"
-#~ msgstr "Create"
-
-#~ msgid "An error occurred while creating the dealer"
-#~ msgstr "An error occurred while creating the dealer"
-
-#~ msgid "An error occurred"
-#~ msgstr "An error occurred"
-
-#~ msgid "Dealer created successfully"
-#~ msgstr "Dealer created successfully"
-
-#~ msgid "Clear Form"
-#~ msgstr "Clear Form"
-
-#~ msgid "Add Another Dealer"
-#~ msgstr "Add Another Dealer"
-
-#~ msgid "Save and Add Another"
-#~ msgstr "Save and Add Another"
-
-#~ msgid "Save and Continue Editing"
-#~ msgstr "Save and Continue Editing"
-
-#~ msgid "Save and View Details"
-#~ msgstr "Save and View Details"
-
-#~ msgid "Changes will be lost"
-#~ msgstr "Changes will be lost"
-
-#~ msgid "Are you sure you want to clear the form?"
-#~ msgstr "Are you sure you want to clear the form?"
-
-#~ msgid "Dealer has been created and you will be redirected to edit page"
-#~ msgstr "Dealer has been created and you will be redirected to edit page"
-
-#~ msgid "Creating dealer..."
-#~ msgstr "Creating dealer..."
-
-#~ msgid "Please wait while the dealer is being created"
-#~ msgstr "Please wait while the dealer is being created"
-
-#~ msgid "Basic Information"
-#~ msgstr "Basic Information"
-
-#~ msgid "Contact Details"
-#~ msgstr "Contact Details"
-
-#~ msgid "Business Details"
-#~ msgstr "Business Details"
-
-#~ msgid "Online Properties"
-#~ msgstr "Online Properties"
-
-#~ msgid "Additional Details"
-#~ msgstr "Additional Details"
-
-# Tooltips and help texts
-#~ msgid "Enter the official company name"
-#~ msgstr "Enter the official company name"
-
-#~ msgid "Enter a valid business email"
-#~ msgstr "Enter a valid business email"
-
-#~ msgid "Enter the tax/VAT number"
-#~ msgstr "Enter the tax/VAT number"
-
-#~ msgid "Enter total number of cars in stock"
-#~ msgstr "Enter total number of cars in stock"
-
-#~ msgid "Enter the Google Maps listing URL"
-#~ msgstr "Enter the Google Maps listing URL"
-
-#~ msgid "Enter the Mobile.de dealer page URL"
-#~ msgstr "Enter the Mobile.de dealer page URL"
-
-#~ msgid "Enter the AutoScout24 dealer page URL"
-#~ msgstr "Enter the AutoScout24 dealer page URL"
-
-#~ msgid "Status updated successfully"
-#~ msgstr "Status updated successfully"
-
-# Notes related messages
-#~ msgid "note_added_successfully"
-#~ msgstr "Note added successfully"
-
-#~ msgid "note_add_error"
-#~ msgstr "An error occurred while adding the note"
-
-#~ msgid "note_deleted_successfully"
-#~ msgstr "Note deleted successfully"
-
-#~ msgid "note_not_found"
-#~ msgstr "Note not found"
-
-#~ msgid "note_delete_error"
-#~ msgstr "An error occurred while deleting the note"
-
-#~ msgid "notes_fetch_error"
-#~ msgstr "An error occurred while fetching notes"
-
-#~ msgid "no_notes_found"
-#~ msgstr "No notes found"
-
-# Note form and modal text
-#~ msgid "Notes"
-#~ msgstr "Notes"
-
-#~ msgid "Add Note"
-#~ msgstr "Add Note"
-
-#~ msgid "Note Text"
-#~ msgstr "Note Text"
-
-#~ msgid "Enter note"
-#~ msgstr "Enter note"
-
-#~ msgid "Save"
-#~ msgstr "Save"
-
-#~ msgid "Are you sure to delete?"
-#~ msgstr "Are you sure you want to delete?"
-
-#~ msgid "Logout"
-#~ msgstr "Logout"
-
-#~ msgid "Profile"
-#~ msgstr "Profile"
-
-#~ msgid "User List"
-#~ msgstr "User List"
-
-#~ msgid "User"
-#~ msgstr "User"
-
-#~ msgid "Username"
-#~ msgstr "Username"
-
-#~ msgid "Name"
-#~ msgstr "Name"
-
-#~ msgid "Surname"
-#~ msgstr "Surname"
-
-#~ msgid "User Role"
-#~ msgstr "User Role"
-
-#~ msgid "User Create Date"
-#~ msgstr "Creation Date"
-
-#~ msgid "Last Login Date"
-#~ msgstr "Last Login Date"
-
-#~ msgid "User Detail"
-#~ msgstr "User Details"
-
-#~ msgid "User Edit"
-#~ msgstr "Edit User"
-
-#~ msgid "Programmer"
-#~ msgstr "Programmer"
-
-#~ msgid "An error occurred while updating"
-#~ msgstr "An error occurred while updating"
-
-#~ msgid "Name Lastname"
-#~ msgstr "Name Surname"
-
-#~ msgid "Section"
-#~ msgstr "Section"
-
-#~ msgid "Staff"
-#~ msgstr "Staff"
-
-#~ msgid "Email or phone is required"
-#~ msgstr "Email or phone is required"
-
-#~ msgid "All fields are required"
-#~ msgstr "All fields are required"
-
-#~ msgid "Staff created successfully"
-#~ msgstr "Staff created successfully"
-
-#~ msgid "An error occurred while creating staff"
-#~ msgstr "An error occurred while creating staff"
-
-#~ msgid "Method not allowed"
-#~ msgstr "Method not allowed"
-
-#~ msgid "Are you sure you want to delete this staff member?"
-#~ msgstr "Are you sure you want to delete this staff member?"
-
-#~ msgid "Staff not found"
-#~ msgstr "Staff not found"
-
-#~ msgid "Staff updated successfully"
-#~ msgstr "Staff updated successfully"
-
-#~ msgid "Staff deleted successfully"
-#~ msgstr "Staff deleted successfully"
-
-#~ msgid "You will not be able to recover this staff member!"
-#~ msgstr "You will not be able to recover this staff member!"
-
-#~ msgid "Yes, delete it!"
-#~ msgstr "Yes, delete it!"
-
-#~ msgid "Deleted!"
-#~ msgstr "Deleted!"
-
-#~ msgid "Error!"
-#~ msgstr "Error!"
-
-#~ msgid "Inactive"
-#~ msgstr "Inactive"
-
-#~ msgid "Active"
-#~ msgstr "Active"
-
-#~ msgid "New Password"
-#~ msgstr "New Password"
-
-#~ msgid "Add New Password"
-#~ msgstr "Enter New Password"
-
-#~ msgid "Your account is not active"
-#~ msgstr "Your account is not active"
-
-#~ msgid "Invalid login information"
-#~ msgstr "Invalid login information"
-
-#~ msgid "edit_profile"
-#~ msgstr "Edit Profile"
-
-#~ msgid "Avatar"
-#~ msgstr "Avatar"
-
-#~ msgid "upload_a_new_avatar"
-#~ msgstr "Upload a new avatar"
-
-#~ msgid "choose_file"
-#~ msgstr "Choose file"
-
-#~ msgid "avatar_error"
-#~ msgstr ""
-#~ "PNG, JPG, SVG size (400 * 400), maximum file size should not exceed 4 MB"
-
-#~ msgid "Registration successful"
-#~ msgstr "Registration successful"
-
-#~ msgid "Registration failed"
-#~ msgstr "Registration failed"
-
-#~ msgid "Login failed"
-#~ msgstr "Login failed"
-
-#~ msgid "Please login to access this page"
-#~ msgstr "Please login to access this page"
-
-#~ msgid "Display Name"
-#~ msgstr "Display Name"
-
-#~ msgid "Login"
-#~ msgstr "Login"
-
-#~ msgid "Your account is inactive. Please contact support."
-#~ msgstr "Your account is inactive. Please contact support."
-
-#~ msgid "Your account has been deleted. Please contact support."
-#~ msgstr "Your account has been deleted. Please contact support."
-
-#~ msgid "Login successful"
-#~ msgstr "Login successful"
-
-#~ msgid "Your account has been upgraded to dealer status"
-#~ msgstr "Your account has been upgraded to dealer status"
-
-#~ msgid "Register"
-#~ msgstr "Register"
-
-#~ msgid "User name"
-#~ msgstr "User Name"
-
-#~ msgid "User name is required"
-#~ msgstr "User name is required"
-
-#~ msgid "Email address"
-#~ msgstr "Email Address"
-
-#~ msgid "Phone is required"
-#~ msgstr "Phone is required"
-
-#~ msgid "Invalid phone format"
-#~ msgstr "Invalid phone format"
-
-#~ msgid "Password is required"
-#~ msgstr "Password is required"
-
-#~ msgid "Confirm password"
-#~ msgstr "Confirm Password"
-
-#~ msgid "Password confirmation is required"
-#~ msgstr "Password confirmation is required"
-
-#~ msgid "Passwords do not match"
-#~ msgstr "Passwords do not match"
-
-#~ msgid "Sign Up"
-#~ msgstr "Sign Up"
-
-#~ msgid "Already have an account?"
-#~ msgstr "Already have an account?"
-
-#~ msgid "or Register with"
-#~ msgstr "or Register with"
-
-#~ msgid "registration_failed_please_try_again"
-#~ msgstr "Registration failed. Please try again."
-
-#~ msgid "Email already exists"
-#~ msgstr "Email already exists"
-
-#~ msgid "Company name is required"
-#~ msgstr "Company name is required"
-
-#~ msgid "Email address is required"
-#~ msgstr "Email address is required"
-
-#~ msgid "Invalid email format"
-#~ msgstr "Invalid email format"
-
-#~ msgid "Password"
-#~ msgstr "Password"
-
-#~ msgid "Password must be at least 6 characters"
-#~ msgstr "Password must be at least 6 characters"
-
-#~ msgid "Your email"
-#~ msgstr "Your email"
-
-#~ msgid "Your password"
-#~ msgstr "Your password"
-
-#~ msgid "Forgot password"
-#~ msgstr "Forgot password"
-
-#~ msgid "Don't you have an account?"
-#~ msgstr "Don't you have an account?"
-
-#~ msgid "or login with"
-#~ msgstr "or login with"
-
-#~ msgid "Please fill in all fields"
-#~ msgstr "Please fill in all fields"
-
-#~ msgid "Login failed. Please try again."
-#~ msgstr "Login failed. Please try again."
-
-#~ msgid "Welcome"
-#~ msgstr "Welcome"
-
-#~ msgid "My Profile"
-#~ msgstr "My Profile"
-
-#~ msgid "My Dashboard"
-#~ msgstr "My Dashboard"
-
-#~ msgid "Account Settings"
-#~ msgstr "Account Settings"
-
-# Google messages
-#~ msgid "Google login failed"
-#~ msgstr "Google login failed"
-
-#~ msgid "Information"
-#~ msgstr "Information"
-
-#~ msgid "Please select a file"
-#~ msgstr "Please select a file"
-
-#~ msgid "File size must be less than 4MB"
-#~ msgstr "File size must be less than 4MB"
-
-#~ msgid "Phone number is required"
-#~ msgstr "Phone number is required"
-
-#~ msgid "Please enter a valid phone number (10-11 digits)"
-#~ msgstr "Please enter a valid phone number (10-11 digits)"
-
-#~ msgid "Phone number must be 10-11 digits"
-#~ msgstr "Phone number must be 10-11 digits"
-
-#~ msgid "Invalid phone number format"
-#~ msgstr "Invalid phone number format"
-
-#~ msgid "Please enter a valid invoice email address"
-#~ msgstr "Please enter a valid invoice email address"
-
-#~ msgid "Invalid invoice email format"
-#~ msgstr "Invalid invoice email format"
-
-#~ msgid "First name must be at least 2 characters"
-#~ msgstr "First name must be at least 2 characters"
-
-#~ msgid "Last name must be at least 2 characters"
-#~ msgstr "Last name must be at least 2 characters"
-
-#~ msgid "Company name must be at least 3 characters"
-#~ msgstr "Company name must be at least 3 characters"
-
-#~ msgid "First name contains invalid characters"
-#~ msgstr "First name contains invalid characters"
-
-#~ msgid "Last name contains invalid characters"
-#~ msgstr "Last name contains invalid characters"
-
-#~ msgid "Change passwords"
-#~ msgstr "Change Passwords"
-
-#~ msgid "Old password"
-#~ msgstr "Old Password"
-
-#~ msgid "New password"
-#~ msgstr "New Password"
-
-#~ msgid "Profile updated successfully"
-#~ msgstr "Profile updated successfully"
-
-#~ msgid "Invalid request method"
-#~ msgstr "Invalid request method"
-
-#~ msgid "Current password is incorrect"
-#~ msgstr "Current password is incorrect"
-
-#~ msgid "Password must be at least 8 characters long"
-#~ msgstr "Password must be at least 8 characters long"
-
-#~ msgid "Password updated successfully"
-#~ msgstr "Password updated successfully"
-
-#~ msgid "Update failed. Please try again."
-#~ msgstr "Update failed. Please try again."
-
-#~ msgid "Password update failed. Please try again."
-#~ msgstr "Password update failed. Please try again."
-
-#~ msgid "Please meet all password requirements"
-#~ msgstr "Please meet all password requirements"
-
-#~ msgid "One number"
-#~ msgstr "One number"
-
-#~ msgid "One lowercase character"
-#~ msgstr "One lowercase character"
-
-#~ msgid "One uppercase character"
-#~ msgstr "One uppercase character"
-
-#~ msgid "8 characters minimum"
-#~ msgstr "8 characters minimum"
-
-#~ msgid "Emails sent"
-#~ msgstr "Emails Sent"
-
-#~ msgid "Subject"
-#~ msgstr "Subject"
-
-#~ msgid "Date"
-#~ msgstr "Date"
-
-#~ msgid "Send Email"
-#~ msgstr "Send Email"
-
-#~ msgid "An error occurred while sending the email"
-#~ msgstr "An error occurred while sending the email"
-
-#~ msgid "Mail sent successfully"
-#~ msgstr "Mail sent successfully"
-
-# Dealer settings page
-#~ msgid "Work Shift"
-#~ msgstr "Work Shift"
-
-#~ msgid "No Break"
-#~ msgstr "No Break"
-
-#~ msgid "Closed"
-#~ msgstr "Closed"
-
-#~ msgid "Opens at"
-#~ msgstr "Opens at"
-
-#~ msgid "Closes at"
-#~ msgstr "Closes at"
-
-#~ msgid "Break Start"
-#~ msgstr "Break Start"
-
-#~ msgid "Break End"
-#~ msgstr "Break End"
-
-#~ msgid "Time Schedule Format"
-#~ msgstr "Time Schedule Format"
-
-#~ msgid "Hourly Schedule"
-#~ msgstr "Hourly Schedule"
-
-#~ msgid "Half-Hour Schedule"
-#~ msgstr "Half-Hour Schedule"
-
-#~ msgid "Address"
-#~ msgstr "Address"
-
-#~ msgid "Addresses"
-#~ msgstr "Addresses"
-
-#~ msgid "Address Type"
-#~ msgstr "Address Type"
-
-#~ msgid "Street"
-#~ msgstr "Street"
-
-#~ msgid "City"
-#~ msgstr "City"
-
-#~ msgid "Postal Code"
-#~ msgstr "Postal Code"
-
-#~ msgid "Country"
-#~ msgstr "Country"
-
-#~ msgid "Main Address"
-#~ msgstr "Main Address"
-
-#~ msgid "Type"
-#~ msgstr "Type"
-
-#~ msgid "Main"
-#~ msgstr "Main"
-
-#~ msgid "Home"
-#~ msgstr "Home"
-
-#~ msgid "Work"
-#~ msgstr "Work"
-
-#~ msgid "Other"
-#~ msgstr "Other"
-
-#~ msgid "Required fields are missing"
-#~ msgstr "Required fields are missing"
-
-#~ msgid "Address created successfully"
-#~ msgstr "Address created successfully"
-
-#~ msgid "Address deleted successfully"
-#~ msgstr "Address deleted successfully"
-
-#~ msgid "Address not found"
-#~ msgstr "Address not found"
-
-#~ msgid "Address updated successfully"
-#~ msgstr "Address updated successfully"
-
-#~ msgid "An error occurred while creating address"
-#~ msgstr "An error occurred while creating address"
-
-#~ msgid "An error occurred while updating address"
-#~ msgstr "An error occurred while updating address"
-
-#~ msgid "An error occurred while deleting address"
-#~ msgstr "An error occurred while deleting address"
-
-#~ msgid "Main address updated successfully"
-#~ msgstr "Main address updated successfully"
-
-#~ msgid "You won't be able to revert this!"
-#~ msgstr "You won't be able to revert this!"
-
-#~ msgid "Failed to load addresses"
-#~ msgstr "Failed to load addresses"
-
-#~ msgid "Invoice"
-#~ msgstr "Invoice"
-
-#~ msgid "Note has been deleted."
-#~ msgstr "Note has been deleted."
-
-#~ msgid "Lang"
-#~ msgstr "Language"
-
-#~ msgid "No results"
-#~ msgstr "No results"
-
-#~ msgid "Car Preferences"
-#~ msgstr "Car Preferences"
-
-#~ msgid "Preferred Car Models"
-#~ msgstr "Preferred Car Models"
-
-#~ msgid "Brand"
-#~ msgstr "Brand"
-
-#~ msgid "Model"
-#~ msgstr "Model"
-
-#~ msgid "Select Brand"
-#~ msgstr "Select Brand"
-
-#~ msgid "Select Models"
-#~ msgstr "Select Models"
-
-#~ msgid "All Models"
-#~ msgstr "All Models"
-
-#~ msgid "Add New"
-#~ msgstr "Add New"
-
-#~ msgid "Interested"
-#~ msgstr "Interested"
-
-#~ msgid "Not Interested"
-#~ msgstr "Not Interested"
-
-#~ msgid "Settings updated successfully"
-#~ msgstr "Settings updated successfully"
-
-#~ msgid "Failed to update settings"
-#~ msgstr "Failed to update settings"
-
-#~ msgid "Work hours saved successfully"
-#~ msgstr "Work hours saved successfully"
-
-#~ msgid "Failed to save work hours"
-#~ msgstr "Failed to save work hours"
-
-#~ msgid "Loading..."
-#~ msgstr "Loading..."
-
-#~ msgid "Processing..."
-#~ msgstr "Processing..."
-
-#~ msgid "Failed to load models"
-#~ msgstr "Failed to load models"
-
-#~ msgid "Failed to save preferences"
-#~ msgstr "Failed to save preferences"
-
-#~ msgid "Are you sure you want to delete this item?"
-#~ msgstr "Are you sure you want to delete this item?"
-
-#~ msgid "Changes saved successfully"
-#~ msgstr "Changes saved successfully"
-
-# Missing translations for Dealer Settings page:
-#~ msgid "Failed to get dealer settings"
-#~ msgstr "Failed to get dealer settings"
-
-#~ msgid "Failed to get preferences"
-#~ msgstr "Failed to get preferences"
-
-#~ msgid "Error while getting models"
-#~ msgstr "Error while getting models"
-
-#~ msgid "Failed to get brand models"
-#~ msgstr "Failed to get brand models"
-
-#~ msgid "Error in dealer preferences"
-#~ msgstr "Error in dealer preferences"
-
-#~ msgid "Error while updating work shift"
-#~ msgstr "Error while updating work shift"
-
-# Exception messages:
-#~ msgid "An error occurred in dealer settings"
-#~ msgstr "An error occurred in dealer settings"
-
-#~ msgid "Database error occurred"
-#~ msgstr "Database error occurred"
-
-#~ msgid "Failed to process request"
-#~ msgstr "Failed to process request"
-
-# Form validation messages:
-#~ msgid "Invalid brand ID"
-#~ msgstr "Invalid brand ID"
-
-#~ msgid "Invalid model ID"
-#~ msgstr "Invalid model ID"
-
-#~ msgid "Brand not found"
-#~ msgstr "Brand not found"
-
-#~ msgid "Model not found"
-#~ msgstr "Model not found"
-
-#~ msgid "Invalid preference data"
-#~ msgstr "Invalid preference data"
-
-# Success messages:
-#~ msgid "Work shift updated successfully"
-#~ msgstr "Work shift updated successfully"
-
-#~ msgid "Brand models fetched successfully"
-#~ msgstr "Brand models fetched successfully"
-
-#~ msgid "Settings loaded successfully"
-#~ msgstr "Settings loaded successfully"
-
-#~ msgid "Preferences saved successfully"
-#~ msgstr "Preferences saved successfully"
-
-#~ msgid "Search Settings"
-#~ msgstr "Search Settings"
-
-#~ msgid "Vehicle Types"
-#~ msgstr "Vehicle Types"
-
-#~ msgid "Fuel Types"
-#~ msgstr "Fuel Types"
-
-#~ msgid "Kilometer Range"
-#~ msgstr "Kilometer Range"
-
-#~ msgid "Price Range"
-#~ msgstr "Price Range"
-
-#~ msgid "Distance (KM)"
-#~ msgstr "Distance (KM)"
-
-# Input Placeholders
-#~ msgid "Min KM"
-#~ msgstr "Min KM"
-
-#~ msgid "Max KM"
-#~ msgstr "Max KM"
-
-#~ msgid "Min Year"
-#~ msgstr "Min Year"
-
-#~ msgid "Max Year"
-#~ msgstr "Max Year"
-
-#~ msgid "Min Price"
-#~ msgstr "Min Price"
-
-#~ msgid "Max Price"
-#~ msgstr "Max Price"
-
-# Fuel Types
-#~ msgid "Gasoline"
-#~ msgstr "Gasoline"
-
-#~ msgid "Diesel"
-#~ msgstr "Diesel"
-
-#~ msgid "Hybrid"
-#~ msgstr "Hybrid"
-
-#~ msgid "Hybrid Diesel"
-#~ msgstr "Hybrid Diesel"
-
-# Vehicle Types
-#~ msgid "Electric Vehicle"
-#~ msgstr "Electric Vehicle"
-
-#~ msgid "Antique Car"
-#~ msgstr "Antique Car"
-
-#~ msgid "Accident Vehicle"
-#~ msgstr "Accident Vehicle"
-
-# Buttons
-#~ msgid "Save Settings"
-#~ msgstr "Save Settings"
-
-# Validation Messages
-#~ msgid "Maximum 1,000,000 km allowed"
-#~ msgstr "Maximum 1,000,000 km allowed"
-
-#~ msgid "Min KM cannot be greater than Max KM"
-#~ msgstr "Min KM cannot be greater than Max KM"
-
-#~ msgid "Minimum year is 1950"
-#~ msgstr "Minimum year is 1950"
-
-#~ msgid "Maximum year cannot exceed current year"
-#~ msgstr "Maximum year cannot exceed current year"
-
-#~ msgid "Min year cannot be greater than Max year"
-#~ msgstr "Min year cannot be greater than Max year"
-
-#~ msgid "Price cannot be negative"
-#~ msgstr "Price cannot be negative"
-
-#~ msgid "Maximum price must be greater than minimum price"
-#~ msgstr "Maximum price must be greater than minimum price"
-
-# Success/Error Messages
-#~ msgid "Settings saved successfully"
-#~ msgstr "Settings saved successfully"
-
-#~ msgid "Failed to save settings"
-#~ msgstr "Failed to save settings"
-
-#~ msgid "Settings not found"
-#~ msgstr "Settings not found"
-
-#~ msgid "An error occurred while saving settings"
-#~ msgstr "An error occurred while saving settings"
-
-#~ msgid "An error occurred while fetching settings"
-#~ msgstr "An error occurred while fetching settings"
-
-#~ msgid "Invalid data provided"
-#~ msgstr "Invalid data provided"
-
-#~ msgid "Invalid price range"
-#~ msgstr "Invalid price range"
-
-#~ msgid "Invalid kilometer range"
-#~ msgstr "Invalid kilometer range"
-
-#~ msgid "Invalid year range"
-#~ msgstr "Invalid year range"
-
-#~ msgid "Invalid input values"
-#~ msgstr "Invalid input values"
-
-#~ msgid "Error loading settings"
-#~ msgstr "Error loading settings"
-
-#~ msgid "Loading settings..."
-#~ msgstr "Loading settings..."
-
-#~ msgid "Saving settings..."
-#~ msgstr "Saving settings..."
-
-# Form Validation Messages
-#~ msgid "This field is required"
-#~ msgstr "This field is required"
-
-#~ msgid "Please enter a valid number"
-#~ msgstr "Please enter a valid number"
-
-#~ msgid "Value must be greater than or equal to 0"
-#~ msgstr "Value must be greater than or equal to 0"
-
-#~ msgid "Please enter a valid year"
-#~ msgstr "Please enter a valid year"
-
-#~ msgid "Please enter a valid distance"
-#~ msgstr "Please enter a valid distance"
-
-#~ msgid "Value cannot exceed maximum limit"
-#~ msgstr "Value cannot exceed maximum limit"
-
-# General Messages
-#~ msgid "Are you sure you want to reset settings?"
-#~ msgstr "Are you sure you want to reset settings?"
-
-#~ msgid "Confirm"
-#~ msgstr "Confirm"
-
-#~ msgid "agb_check_register"
-#~ msgstr ""
-#~ "By submitting the form, I confirm that I have read and accept the <a "
-#~ "style='color:#FF7101' target='_blank' href='/agb-handler'>General Terms "
-#~ "and Conditions for Dealers</a>."
-
-#~ msgid "privacy_policy_check_register"
-#~ msgstr ""
-#~ "By submitting the form, I confirm that I have read and accept the <a "
-#~ "style='color:#FF7101' target='_blank' href='/datenschutz'>Privacy Policy</"
-#~ "a>."
-
-#~ msgid "Please accept the terms and conditions"
-#~ msgstr "Please accept the terms and conditions"
-
-#~ msgid "Please accept the privacy policy"
-#~ msgstr "Please accept the privacy policy"
-
-#~ msgid "URL field cannot be empty"
-#~ msgstr "URL field cannot be empty"
-
-#~ msgid "Please enter a valid URL"
-#~ msgstr "Please enter a valid URL"
-
-#~ msgid "URL must start with: %(schemes)s"
-#~ msgstr "URL must start with: %(schemes)s"
-
-#~ msgid "Invalid URL domain"
-#~ msgstr "Invalid URL domain"
-
-#~ msgid "URL is too short"
-#~ msgstr "URL is too short"
-
-#~ msgid "URL is too long (maximum 2048 characters)"
-#~ msgstr "URL is too long (maximum 2048 characters)"
-
-#~ msgid "Invalid Mobile.de URL. URL must contain mobile.de domain"
-#~ msgstr "Invalid Mobile.de URL. URL must contain mobile.de domain"
-
-#~ msgid "Invalid AutoScout24 URL. URL must contain autoscout24.de domain"
-#~ msgstr "Invalid AutoScout24 URL. URL must contain autoscout24.de domain"
-
-#~ msgid "URL must be from mobile.de website"
-#~ msgstr "URL must be from mobile.de website"
-
-#~ msgid "URL must be from autoscout24.de website"
-#~ msgstr "URL must be from autoscout24.de website"
-
-#~ msgid "Please enter a valid mobile.de URL"
-#~ msgstr "Please enter a valid mobile.de URL"
-
-#~ msgid "Please enter a valid autoscout24.de URL"
-#~ msgstr "Please enter a valid autoscout24.de URL"
-
-# Address Management
-#~ msgid "Address Management"
-#~ msgstr "Address Management"
-
-#~ msgid "Add New Address"
-#~ msgstr "Add New Address"
-
-#~ msgid "Select Type"
-#~ msgstr "Select Type"
-
-#~ msgid "Office"
-#~ msgstr "Office"
-
-#~ msgid "Warehouse"
-#~ msgstr "Warehouse"
-
-#~ msgid "Branch"
-#~ msgstr "Branch"
-
-#~ msgid "Latitude"
-#~ msgstr "Latitude"
-
-#~ msgid "Longitude"
-#~ msgstr "Longitude"
-
-#~ msgid "Invoice Address"
-#~ msgstr "Invoice Address"
-
-#~ msgid "Edit Address"
-#~ msgstr "Edit Address"
-
-#~ msgid "Are you sure you want to delete this address?"
-#~ msgstr "Are you sure you want to delete this address?"
-
-#~ msgid "Error adding address"
-#~ msgstr "Error adding address"
-
-#~ msgid "Error updating address"
-#~ msgstr "Error updating address"
-
-#~ msgid "Error deleting address"
-#~ msgstr "Error deleting address"
-
-#~ msgid "You won`t be able to revert this!"
-#~ msgstr "You won't be able to revert this!"
-
-#~ msgid "Contact us"
-#~ msgstr "Contact us"
-
-#~ msgid "Do you have a car in mind? Get in touch with us!"
-#~ msgstr "Get in touch with us!"
-
-#~ msgid "contact_description"
-#~ msgstr ""
-#~ "We are here to assist and answer your questions. We look forward to "
-#~ "hearing from you. If you need help, feel free to contact us or visit our "
-#~ "office for a coffee."
-
-#~ msgid "Infomation"
-#~ msgstr "Information"
-
-#~ msgid "contact_seo_desc"
-#~ msgstr ""
-#~ "Contact the largest online car dealership for used cars in Germany. ➤ "
-#~ "WIVEDA helps with all car-related matters!"
-
-#~ msgid "Working Hours"
-#~ msgstr "Working Hours"
-
-#~ msgid "Message"
-#~ msgstr "Message"
-
-#~ msgid "Send Message"
-#~ msgstr "Send Message"
-
-#~ msgid "Follow Us:"
-#~ msgstr "Follow Us:"
-
-#~ msgid "About Us"
-#~ msgstr "About Us"
-
-#~ msgid "Blog"
-#~ msgstr "Blog"
-
-#~ msgid "FAQ"
-#~ msgstr "FAQ"
-
-#~ msgid "Advantages"
-#~ msgstr "Advantages"
-
-#~ msgid "Follow Us"
-#~ msgstr "Follow Us"
-
-#~ msgid "Company"
-#~ msgstr "Company"
-
-#~ msgid "Quality Policy"
-#~ msgstr "Quality Policy"
-
-#~ msgid "Vehicle Purchase"
-#~ msgstr "Vehicle Purchase"
-
-#~ msgid "Vehicle Sale"
-#~ msgstr "Vehicle Sale"
-
-#~ msgid "Vehicle Valuation"
-#~ msgstr "Vehicle Valuation"
-
-#~ msgid "Financing"
-#~ msgstr "Financing"
-
-#~ msgid "Help"
-#~ msgstr "Help"
-
-#~ msgid "Secure Trading"
-#~ msgstr "Secure Trading"
-
-#~ msgid "Dealer Benefits"
-#~ msgstr "Dealer Benefits"
-
-#~ msgid "Services"
-#~ msgstr "Services"
-
-#~ msgid "Hero 1 Title"
-#~ msgstr "Your Trusted Partner for Used Cars"
-
-#~ msgid "Hero 1 Sub Title"
-#~ msgstr "Over 5,000 quality-checked vehicles in our inventory"
-
-#~ msgid "Hero 2 Title"
-#~ msgstr "Your partner for successful vehicle sales."
-
-#~ msgid "Hero 2 Sub Title"
-#~ msgstr "Fair prices, happy customers – our recipe for success."
-
-#~ msgid "Why Us Short 1"
-#~ msgstr "5,000 satisfied customers"
-
-#~ msgid "Why Us Short 2"
-#~ msgstr "Over 300 partners nationwide"
-
-#~ msgid "Why Us Short 3"
-#~ msgstr "20 years of experience"
-
-#~ msgid "Why Us Title"
-#~ msgstr "Why Innovative Performance?"
-
-#~ msgid "Why Us Sub Title"
-#~ msgstr ""
-#~ "Our experienced team stands for excellent service and quality. With many "
-#~ "years of experience, we offer you the best advice for vehicle sales."
-
-#~ msgid "Why Us Step 1 Title"
-#~ msgstr "Stress-Free"
-
-#~ msgid "Why Us Step 1 Content"
-#~ msgstr "Innovative solutions for stress-free vehicle sales."
-
-#~ msgid "Why Us Step 2 Title"
-#~ msgstr "Safety"
-
-#~ msgid "Why Us Step 2 Content"
-#~ msgstr "No risks, only results – your safety is our priority."
-
-#~ msgid "Why Us Step 3 Title"
-#~ msgstr "Fast"
-
-#~ msgid "Why Us Step 3 Content"
-#~ msgstr "Time is precious – we make your sale quick and stress-free."
-
-#~ msgid "Why Us Step 4 Title"
-#~ msgstr "Fair Price"
-
-#~ msgid "Why Us Step 4 Content"
-#~ msgstr ""
-#~ "Fair, transparent, and customer-focused – we ensure your desired price."
-
-#~ msgid "Services Title"
-#~ msgstr "Your Advantages at Innovative Performance"
-
-#~ msgid "Services Sub Title"
-#~ msgstr ""
-#~ "Professional advice and first-class service for the highest expectations"
-
-#~ msgid "Services Step 1 Title"
-#~ msgstr "Video Meeting"
-
-#~ msgid "Services Step 1 Content"
-#~ msgstr "Individual solutions, live and direct – video meetings available."
-
-#~ msgid "Services Step 2 Title"
-#~ msgstr "Quality Guarantee"
-
-#~ msgid "Services Step 2 Content"
-#~ msgstr "Our certified dealers stand for quality and reliability."
-
-#~ msgid "Services Step 3 Title"
-#~ msgstr "Deregistration Service"
-
-#~ msgid "Services Step 3 Content"
-#~ msgstr ""
-#~ "We handle the deregistration of your vehicle – free of charge for you."
-
-#~ msgid "Services Step 4 Title"
-#~ msgstr "Fast Payment"
-
-#~ msgid "Services Step 4 Content"
-#~ msgstr ""
-#~ "Sold today and received the sale price today – it doesn't get faster than "
-#~ "this."
-
-#~ msgid "Testimonial Title"
-#~ msgstr "What Our Customers Say"
-
-#~ msgid "Testimonial Sub Title"
-#~ msgstr "Real reviews from our valued customers"
-
-#~ msgid "Review 1"
-#~ msgstr ""
-#~ "The consultation at Innovative Performance was first-class. The "
-#~ "transparent and honest communication throughout the buying process "
-#~ "particularly impressed me."
-
-#~ msgid "Review 2"
-#~ msgstr ""
-#~ "A big thank you to the entire team. The vehicle delivery was perfectly "
-#~ "prepared, and the financing consultation was very professional."
-
-#~ msgid "Review 3"
-#~ msgstr ""
-#~ "From my first contact to the delivery of my Range Rover, everything was "
-#~ "extremely professional. Highly recommended!"
-
-#~ msgid "Review 4"
-#~ msgstr ""
-#~ "A very pleasant atmosphere and expert advice. The entire process was "
-#~ "completed smoothly and quickly."
-
-#~ msgid "Review 5"
-#~ msgstr ""
-#~ "Fair prices and first-class service. The quality of the vehicles is "
-#~ "excellent. I would choose them again!"
-
-#~ msgid "Review 6"
-#~ msgstr ""
-#~ "The trade-in of my old car was seamless and fair. My new vehicle exceeded "
-#~ "all my expectations."
-
-#~ msgid "via Google"
-#~ msgstr "via Google"
-
-#~ msgid "via Trustpilot"
-#~ msgstr "via Trustpilot"
-
-#~ msgid "Footer Banner Title 1"
-#~ msgstr "Premium Dealer"
-
-#~ msgid "Footer Banner Content 1"
-#~ msgstr "First-Class Service"
-
-#~ msgid "Footer Banner Title 2"
-#~ msgstr "Vehicle Sale"
-
-#~ msgid "Footer Banner Content 2"
-#~ msgstr "Fast & Secure"
-
-#~ msgid "Footer Banner Title 3"
-#~ msgstr "Offers"
-
-#~ msgid "Footer Banner Content 3"
-#~ msgstr "Best Terms"
-
-#~ msgid "Footer Banner Title 4"
-#~ msgstr "Compare"
-
-#~ msgid "Footer Banner Content 4"
-#~ msgstr "Transparent Choice"
-
-#~ msgid "Help & Legal"
-#~ msgstr "Help & Legal"
-
-#~ msgid "Newsletter"
-#~ msgstr "Newsletter"
-
-#~ msgid "Newsletter Content"
-#~ msgstr "Stay updated with the latest offers and news."
-
-#~ msgid "Submit"
-#~ msgstr "Submit"
-
-#~ msgid "Newsletter Placeholder"
-#~ msgstr "Your email address"
-
-#~ msgid "Terms and Conditions"
-#~ msgstr "Terms and Conditions (Private)"
-
-#~ msgid "Terms and Conditions Dealer"
-#~ msgstr "Terms and Conditions (Dealer)"
-
-#~ msgid "Data Protection"
-#~ msgstr "Data Protection"
-
-#~ msgid "Imprint"
-#~ msgstr "Imprint"
-
-#~ msgid "All rights reserved"
-#~ msgstr "All rights reserved"
-
-#~ msgid "Company Header Title"
-#~ msgstr "Your trusted premium vehicle intermediary since 2014"
-
-#~ msgid "Company Header Sub Title"
-#~ msgstr ""
-#~ "Innovative Performance stands for first-class quality and excellent "
-#~ "service in the premium segment of the automotive industry."
-
-#~ msgid "Company Header Content"
-#~ msgstr ""
-#~ "<p class='mb2'><strong>Innovative Performance</strong> has stood for "
-#~ "quality, transparency, and customer satisfaction in the automotive "
-#~ "industry since 2005. With over 20 years of experience and more than 5,000 "
-#~ "satisfied customers, we have established ourselves as one of the leading "
-#~ "vehicle brokers in Germany.</p><p class='mb2'>Our goal is to make vehicle "
-#~ "sales as simple, fast, and stress-free as possible for our customers. We "
-#~ "rely on a strong network of certified dealers, transparent processes, and "
-#~ "fair prices.</p><p class='mb2'>From the first consultation to vehicle "
-#~ "evaluation to secure same-day payouts – we accompany you every step of "
-#~ "the way. Our all-inclusive service also includes deregistering your "
-#~ "vehicle so you don't have to worry about anything.</p>"
-
-#~ msgid "Company Header Sub Content"
-#~ msgstr ""
-#~ "Innovative Performance – Your reliable partner for a worry-free vehicle "
-#~ "sale."
-
-#~ msgid "Company Header Statistics 1"
-#~ msgstr "Satisfied customers"
-
-#~ msgid "Company Header Statistics 2"
-#~ msgstr "Partners"
-
-#~ msgid "Company Header Statistics 3"
-#~ msgstr "Customer Satisfaction"
-
-#~ msgid "Company Header Statistics"
-#~ msgstr ""
-#~ "<div class='key-numbers row mt-5'> <div class='col-4 text-left'> <span "
-#~ "class='header-statistics-1'>over</span> <h3 class='fw-bold text-"
-#~ "orange'>5,000</h3> <p class='text-muted'>satisfied customers</p> </div> "
-#~ "<div class='col-4 text-left'> <span class='header-"
-#~ "statistics-1'>nationwide over</span> <h3 class='fw-bold text-"
-#~ "primary'>300</h3> <p class='text-muted'>partners</p> </div> <div "
-#~ "class='col-4 text-left'> <span class='header-statistics-1'>&nbsp;</span> "
-#~ "<h3 class='fw-bold text-primary'>91%</h3> <p class='text-muted'>customer "
-#~ "satisfaction</p> </div> </div>"
-
-#~ msgid "Years of Experience"
-#~ msgstr "Years of Experience"
-
-#~ msgid "Our Core Competencies"
-#~ msgstr "This is what we stand for!"
-
-#~ msgid "What makes us unique"
-#~ msgstr "What makes us special and unique"
-
-#~ msgid "Premium Expertise"
-#~ msgstr "Trust"
-
-#~ msgid "premium_expertise_content"
-#~ msgstr "Your trust is our greatest asset – and our commitment."
-
-#~ msgid "Quality Assurance"
-#~ msgstr "Quality Assurance"
-
-#~ msgid "quality_assurance_content"
-#~ msgstr ""
-#~ "Every vehicle undergoes a comprehensive 150-point quality inspection by "
-#~ "our certified experts."
-
-#~ msgid "Personal Service"
-#~ msgstr "Personal Service"
-
-#~ msgid "personal_service_content"
-#~ msgstr ""
-#~ "Personalized advice and tailored solutions from our experienced vehicle "
-#~ "experts."
-
-#~ msgid "Our Mission"
-#~ msgstr "Our Mission"
-
-#~ msgid "mission_content"
-#~ msgstr ""
-#~ "We strive to revolutionize vehicle trading by combining the highest "
-#~ "quality with exceptional service."
-
-#~ msgid "Maximum transparency"
-#~ msgstr "Maximum transparency in all processes"
-
-#~ msgid "Fair pricing"
-#~ msgstr "Fair and market-appropriate pricing"
-
-#~ msgid "Quality and service"
-#~ msgstr "Maximum quality and service"
-
-#~ msgid "Premium Service Badge"
-#~ msgstr "Premium Service"
-
-#~ msgid "Success Story Title"
-#~ msgstr "Be Part of Our Success Story"
-
-#~ msgid "Success Story Content"
-#~ msgstr "Whether as a customer or a partner – benefit from our reach."
-
-#~ msgid "Contact Now"
-#~ msgstr "Contact Now"
-
-#~ msgid "ISO Certificate"
-#~ msgstr "ISO 9001:2015 Certified"
-
-#~ msgid "Quality Policy Title"
-#~ msgstr "Quality Policy"
-
-#~ msgid "Quality Policy Intro"
-#~ msgstr ""
-#~ "At Innovative Performance, quality is at the core of all our activities. "
-#~ "Our quality management system is based on international standards and is "
-#~ "continuously improved."
-
-#~ msgid "Quality Management"
-#~ msgstr "Quality Management"
-
-#~ msgid "Quality Principles Title"
-#~ msgstr "Our Quality Principles"
-
-#~ msgid "Quality Principles Subtitle"
-#~ msgstr ""
-#~ "The foundation for first-class premium vehicles and excellent service"
-
-#~ msgid "150 Point Check Title"
-#~ msgstr "150-Point Quality Check"
-
-#~ msgid "150 Point Check Content"
-#~ msgstr ""
-#~ "Every vehicle undergoes a comprehensive quality check against strict "
-#~ "criteria conducted by our certified experts."
-
-#~ msgid "Technical Check"
-#~ msgstr "Technical Check"
-
-#~ msgid "Visual Assessment"
-#~ msgstr "Visual Assessment"
-
-#~ msgid "Document Check"
-#~ msgstr "Document Check"
-
-#~ msgid "Certified Experts Title"
-#~ msgstr "Certified Experts"
-
-#~ msgid "Certified Experts Content"
-#~ msgstr ""
-#~ "Our vehicle experts have years of experience and receive regular training."
-
-#~ msgid "Continuous Training"
-#~ msgstr "Continuous Training"
-
-#~ msgid "Manufacturer Certifications"
-#~ msgstr "Manufacturer Certifications"
-
-#~ msgid "Quality Guarantee Title"
-#~ msgstr "Quality Guarantee"
-
-#~ msgid "Quality Guarantee Content"
-#~ msgstr ""
-#~ "We guarantee the highest quality standards and advocate for transparency "
-#~ "in all processes."
-
-#~ msgid "Comprehensive Warranty"
-#~ msgstr "Comprehensive Warranty"
-
-#~ msgid "Documented History"
-#~ msgstr "Documented History"
-
-#~ msgid "Satisfaction Guarantee"
-#~ msgstr "Satisfaction Guarantee"
-
-#~ msgid "Quality Process Title"
-#~ msgstr "Our Quality Process"
-
-#~ msgid "Quality Process Subtitle"
-#~ msgstr "From vehicle selection to delivery"
-
-#~ msgid "Process Step 1 Title"
-#~ msgstr "Careful Selection"
-
-#~ msgid "Process Step 1 Content"
-#~ msgstr "Only premium vehicles with a complete history"
-
-#~ msgid "Process Step 2 Title"
-#~ msgstr "Technical Inspection"
-
-#~ msgid "Process Step 2 Content"
-#~ msgstr "150-point quality check by experts"
-
-#~ msgid "Process Step 3 Title"
-#~ msgstr "Preparation"
-
-#~ msgid "Process Step 3 Content"
-#~ msgstr "Professional vehicle preparation"
-
-#~ msgid "Process Step 4 Title"
-#~ msgstr "Quality Control"
-
-#~ msgid "Process Step 4 Content"
-#~ msgstr "Final check before delivery"
-
-#~ msgid "Premium Selection Badge"
-#~ msgstr "Premium Selection"
-
-#~ msgid "Vehicle Purchase Title"
-#~ msgstr "Your Journey to Premium Vehicle Ownership"
-
-#~ msgid "Vehicle Purchase Intro"
-#~ msgstr ""
-#~ "Discover our exclusive collection of carefully selected premium vehicles. "
-#~ "We offer a curated selection of the finest models from Range Rover, "
-#~ "Defender, and Discovery."
-
-#~ msgid "Premium Vehicles"
-#~ msgstr "Premium Vehicles"
-
-#~ msgid "Purchase Process Title"
-#~ msgstr "Your Path to Your Dream Car"
-
-#~ msgid "Purchase Process Subtitle"
-#~ msgstr "A simple and transparent process in three steps"
-
-#~ msgid "Purchase Step 1 Title"
-#~ msgstr "Selection & Consultation"
-
-#~ msgid "Purchase Step 1 Content"
-#~ msgstr ""
-#~ "Personalized advice from our experts and selection of the perfect vehicle "
-#~ "from our premium collection."
-
-#~ msgid "Purchase Step 2 Title"
-#~ msgstr "Quality Check"
-
-#~ msgid "Purchase Step 2 Content"
-#~ msgstr ""
-#~ "150-point quality check and comprehensive vehicle history documentation "
-#~ "for your peace of mind."
-
-#~ msgid "Purchase Step 3 Title"
-#~ msgstr "Delivery"
-
-#~ msgid "Purchase Step 3 Content"
-#~ msgstr ""
-#~ "Professional vehicle delivery with detailed information and personal "
-#~ "support."
-
-#~ msgid "Purchase CTA Title"
-#~ msgstr "Ready for Your Premium Vehicle?"
-
-#~ msgid "Purchase CTA Content"
-#~ msgstr ""
-#~ "Schedule your personal consultation appointment with our experts now."
-
-#~ msgid "Schedule Appointment"
-#~ msgstr "Schedule Appointment"
-
-#~ msgid "Sale Badge"
-#~ msgstr "Fast & Fair"
-
-#~ msgid "Vehicle Sale Title"
-#~ msgstr "Your Vehicle in Good Hands"
-
-#~ msgid "Vehicle Sale Intro"
-#~ msgstr ""
-#~ "Take advantage of our efficient vehicle purchase process. Fair prices, "
-#~ "fast processing, and professional service – guaranteed."
-
-#~ msgid "Quick Processing"
-#~ msgstr "Quick Processing"
-
-#~ msgid "Express Purchase Title"
-#~ msgstr "Express Purchase"
-
-#~ msgid "Express Purchase Content"
-#~ msgstr "Quick valuation and payment within 24 hours."
-
-#~ msgid "Best Price Title"
-#~ msgstr "Best Prices"
-
-#~ msgid "Best Price Content"
-#~ msgstr "Market-appropriate prices with professional vehicle valuation."
-
-#~ msgid "Safe Process Title"
-#~ msgstr "Safe & Reliable"
-
-#~ msgid "Safe Process Content"
-#~ msgstr "Professional transaction process with all legal guarantees."
-
-#~ msgid "Valuation Badge"
-#~ msgstr "Professional Valuation"
-
-#~ msgid "Valuation Title"
-#~ msgstr "Fair & Transparent Vehicle Valuation"
-
-#~ msgid "Valuation Intro"
-#~ msgstr ""
-#~ "Get a market-appropriate price for your vehicle with our professional "
-#~ "valuation service. Our experts consider all relevant factors."
-
-#~ msgid "Valuation Process Title"
-#~ msgstr "Our Valuation Process"
-
-#~ msgid "Valuation Process Subtitle"
-#~ msgstr "Transparent and fair valuation in three steps"
-
-#~ msgid "Initial Assessment Title"
-#~ msgstr "Initial Assessment"
-
-#~ msgid "Initial Assessment Content"
-#~ msgstr ""
-#~ "We create an initial market analysis based on vehicle data such as model, "
-#~ "production year, and equipment."
-
-#~ msgid "On Site Inspection Title"
-#~ msgstr "On-Site Inspection"
-
-#~ msgid "On Site Inspection Content"
-#~ msgstr ""
-#~ "Our experts thoroughly inspect your vehicle and document its overall "
-#~ "condition."
-
-#~ msgid "Final Offer Title"
-#~ msgstr "Final Offer"
-
-#~ msgid "Final Offer Content"
-#~ msgstr ""
-#~ "Receive a transparent offer based on our expertise and current market "
-#~ "data."
-
-#~ msgid "Tailored Financing"
-#~ msgstr "Tailored Financing"
-
-#~ msgid "Flexible Financing Solutions"
-#~ msgstr "Flexible Financing Solutions"
-
-#~ msgid ""
-#~ "We offer you individual financing options for your dream vehicle. Benefit "
-#~ "from attractive conditions and transparent processes."
-#~ msgstr ""
-#~ "We offer you individual financing options for your dream vehicle. Benefit "
-#~ "from attractive conditions and transparent processes."
-
-#~ msgid "Attractive Interest Rates"
-#~ msgstr "Attractive Interest Rates"
-
-#~ msgid "Quick Approval"
-#~ msgstr "Quick Approval"
-
-#~ msgid "Our Financing Options"
-#~ msgstr "Our Financing Options"
-
-#~ msgid "Choose the right solution for your needs"
-#~ msgstr "Choose the right solution for your needs"
-
-#~ msgid "Classic Financing"
-#~ msgstr "Classic Financing"
-
-#~ msgid ""
-#~ "Flexible terms and rates, low interest rates and a transparent cost "
-#~ "structure."
-#~ msgstr ""
-#~ "Flexible terms and rates, low interest rates and a transparent cost "
-#~ "structure."
-
-#~ msgid "Flexible Terms"
-#~ msgstr "Flexible Terms"
-
-#~ msgid "Low Monthly Payments"
-#~ msgstr "Low Monthly Payments"
-
-#~ msgid "Early Repayment Possible"
-#~ msgstr "Early Repayment Possible"
-
-#~ msgid ""
-#~ "Attractive leasing offers for maximum flexibility and regular vehicle "
-#~ "changes."
-#~ msgstr ""
-#~ "Attractive leasing offers for maximum flexibility and regular vehicle "
-#~ "changes."
-
-#~ msgid "Regular Vehicle Change"
-#~ msgstr "Regular Vehicle Change"
-
-#~ msgid "Predictable Costs"
-#~ msgstr "Predictable Costs"
-
-#~ msgid "Full Warranty"
-#~ msgstr "Full Warranty"
-
-#~ msgid "Balloon Financing"
-#~ msgstr "Balloon Financing"
-
-#~ msgid ""
-#~ "Low monthly rates through an increased final rate at the end of the term."
-#~ msgstr ""
-#~ "Low monthly rates through an increased final rate at the end of the term."
-
-#~ msgid "Low Monthly Rates"
-#~ msgstr "Low Monthly Rates"
-
-#~ msgid "Flexible Final Payment"
-#~ msgstr "Flexible Final Payment"
-
-#~ msgid "Various End Options"
-#~ msgstr "Various End Options"
-
-#~ msgid "Secure Vehicle Trading"
-#~ msgstr "Secure Vehicle Trading"
-
-#~ msgid "Your Partner for Secure Premium Vehicle Trading"
-#~ msgstr "Your Partner for Secure Premium Vehicle Trading"
-
-#~ msgid ""
-#~ "At Innovative Performance, your security comes first. Benefit from our "
-#~ "certified trading process and years of expertise in the premium segment."
-#~ msgstr ""
-#~ "At Innovative Performance, your security comes first. Benefit from our "
-#~ "certified trading process and years of expertise in the premium segment."
-
-#~ msgid "Certified Processes"
-#~ msgstr "Certified Processes"
-
-#~ msgid "Verified Dealers"
-#~ msgstr "Verified Dealers"
-
-#~ msgid "Legally Secured"
-#~ msgstr "Legally Secured"
-
-#~ msgid ""
-#~ "All transactions are secured through standardized contracts and legal "
-#~ "guarantees."
-#~ msgstr ""
-#~ "All transactions are secured through standardized contracts and legal "
-#~ "guarantees."
-
-#~ msgid "Standardized Purchase Contracts"
-#~ msgstr "Standardized Purchase Contracts"
-
-#~ msgid "Legal Consultation"
-#~ msgstr "Legal Consultation"
-
-#~ msgid "Verified Quality"
-#~ msgstr "Verified Quality"
-
-#~ msgid "Every vehicle undergoes our comprehensive quality and safety check."
-#~ msgstr "Every vehicle undergoes our comprehensive quality and safety check."
-
-#~ msgid "150-Point Check"
-#~ msgstr "150-Point Check"
-
-#~ msgid "Secure Processing"
-#~ msgstr "Secure Processing"
-
-#~ msgid "Transparent and secure payment processing for every transaction."
-#~ msgstr "Transparent and secure payment processing for every transaction."
-
-#~ msgid "Secured Payment"
-#~ msgstr "Secured Payment"
-
-#~ msgid "Escrow Service"
-#~ msgstr "Escrow Service"
-
-#~ msgid "Premium Partner Program"
-#~ msgstr "Premium Partner Program"
-
-#~ msgid "Become a Premium Partner"
-#~ msgstr "Become a Premium Partner"
-
-#~ msgid ""
-#~ "As an authorized dealer, benefit from exclusive advantages and a strong "
-#~ "network in the premium segment."
-#~ msgstr ""
-#~ "As an authorized dealer, you benefit from exclusive advantages and a "
-#~ "strong, nationwide network."
-
-#~ msgid "Strong Partnership"
-#~ msgstr "Strong Partnership"
-
-#~ msgid "High Growth Potential"
-#~ msgstr "High Growth Potential"
-
-#~ msgid "Become a Partner"
-#~ msgstr "Become a Partner"
-
-#~ msgid "Qualified Leads"
-#~ msgstr "Qualified Leads"
-
-#~ msgid "Benefit from pre-qualified prospects and a high closure rate."
-#~ msgstr "Benefit from pre-qualified prospects and a high closure rate."
-
-#~ msgid "Verified Inquiries"
-#~ msgstr "Verified Inquiries"
-
-#~ msgid "High Conversion"
-#~ msgstr "High Conversion"
-
-#~ msgid "Professional Tools"
-#~ msgstr "Professional Tools"
-
-#~ msgid "Access to modern sales tools and a powerful dealer dashboard."
-#~ msgstr "Access to modern sales tools and a powerful dealer dashboard."
-
-#~ msgid "Digital Dashboard"
-#~ msgstr "Digital Dashboard"
-
-#~ msgid "Vehicle Management"
-#~ msgstr "Vehicle Management"
-
-#~ msgid "Marketing Support"
-#~ msgstr "Marketing Support"
-
-#~ msgid "Professional marketing support and strong online presence."
-#~ msgstr "Professional marketing support and strong online presence."
-
-#~ msgid "Online Marketing"
-#~ msgstr "Online Marketing"
-
-#~ msgid "Sales Promotion"
-#~ msgstr "Sales Promotion"
-
-#~ msgid "Your Benefits at a Glance"
-#~ msgstr "Your Benefits at a Glance"
-
-#~ msgid "Attractive Terms"
-#~ msgstr "Attractive Terms"
-
-#~ msgid "Competitive commissions and flexible payment terms."
-#~ msgstr "Competitive commissions and flexible payment terms."
-
-#~ msgid "Training & Support"
-#~ msgstr "Training & Support"
-
-#~ msgid "Regular trainings and personal support."
-#~ msgstr "Regular trainings and personal support."
-
-#~ msgid "Strong Network"
-#~ msgstr "Strong Network"
-
-#~ msgid "Part of an exclusive premium dealer community."
-#~ msgstr "Part of an exclusive premium dealer community."
-
-#~ msgid "Partners Nationwide"
-#~ msgstr "Partners Nationwide"
-
-#~ msgid "Partner Satisfaction"
-#~ msgstr "Partner Satisfaction"
-
-#~ msgid "Brokered Vehicles"
-#~ msgstr "Brokered Vehicles"
-
-#~ msgid "Partner Support"
-#~ msgstr "Partner Support"
-
-#~ msgid "Latest Articles"
-#~ msgstr "Latest Articles"
-
-#~ msgid ""
-#~ "Stay updated with the latest news and insights from the automotive "
-#~ "industry"
-#~ msgstr ""
-#~ "Stay updated with the latest news and insights from the automotive "
-#~ "industry"
-
-#~ msgid "by"
-#~ msgstr "by"
-
-#~ msgid "Read More"
-#~ msgstr "Read More"
-
-#~ msgid "Related Articles"
-#~ msgstr "Related Articles"
-
-#~ msgid "Enter your company name"
-#~ msgstr "Enter your company name"
-
-#~ msgid "Enter your email address"
-#~ msgstr "Enter your email address"
-
-#~ msgid "faq_main_title"
-#~ msgstr "Questions and Answers"
-
-#~ msgid "faq_main_description"
-#~ msgstr ""
-#~ "Here you can find the most important questions and answers about our car "
-#~ "purchase service. If you have any further questions, please feel free to "
-#~ "contact us."
-
-#~ msgid "faq_question_1"
-#~ msgstr "Is it really free?"
-
-#~ msgid "faq_answer_1"
-#~ msgstr ""
-#~ "Yes, the service is <b>absolutely free</b>. The appointment, expert "
-#~ "check, and sale. There is <b>no fee</b>."
-
-#~ msgid "faq_question_2"
-#~ msgstr "Do I have to sell my vehicle at the station?"
-
-#~ msgid "faq_answer_2"
-#~ msgstr "No, only if you choose to do so."
-
-#~ msgid "faq_question_3"
-#~ msgstr "Will I get the online price?"
-
-#~ msgid "faq_answer_3"
-#~ msgstr ""
-#~ "The final price is determined directly at the station. When calculating "
-#~ "the online guide price, we consider both your basic vehicle data and the "
-#~ "standard price of comparable models. A final price can only be given "
-#~ "after a personal inspection. Factors such as technical condition, general "
-#~ "condition, special equipment, or current market demand can change the "
-#~ "price both downward and upward."
-
-#~ msgid "faq_question_4"
-#~ msgstr "What are the purchase stations?"
-
-#~ msgid "faq_answer_4"
-#~ msgstr ""
-#~ "The purchase stations are independent, certified car dealers operating "
-#~ "under their own name."
-
-#~ msgid "faq_question_5"
-#~ msgstr "What documents do I need to bring?"
-
-#~ msgid "faq_answer_5"
-#~ msgstr ""
-#~ "Registration certificate Part 1 (Vehicle registration) <br>Registration "
-#~ "certificate Part 2 (Vehicle title) <br>All vehicle keys <br>Service "
-#~ "booklet (if available) <br>Certificates of the last main and emission "
-#~ "inspections (if available) <br>Workshop invoices and receipts (if "
-#~ "available) <br><br> Best to bring everything that belongs to the vehicle."
-
-#~ msgid "faq_question_6"
-#~ msgstr "Can I also come to a purchase station with a financed vehicle?"
-
-#~ msgid "faq_answer_6"
-#~ msgstr ""
-#~ "Yes. However, please note that the processing takes a bit longer as "
-#~ "arrangements (e.g., redemption value) need to be made."
-
-#~ msgid "faq_question_7"
-#~ msgstr "What are my advantages when selling to a purchase station?"
-
-#~ msgid "faq_answer_7"
-#~ msgstr ""
-#~ "No annoying phone calls and emails, no planned appointments that aren't "
-#~ "canceled, no stressful negotiations, no time-consuming test drives with "
-#~ "interested parties. And no waiting – because you get the money "
-#~ "immediately."
-
-#~ msgid "faq_question_8"
-#~ msgstr "Why can't you give me a price over the phone?"
-
-#~ msgid "faq_answer_8"
-#~ msgstr ""
-#~ "Giving a price without inspection would be unprofessional, therefore a "
-#~ "final price can only be given after an inspection."
-
-#~ msgid "faq_question_9"
-#~ msgstr "Do I get my money immediately?"
-
-#~ msgid "faq_answer_9"
-#~ msgstr ""
-#~ "Yes, either in cash or by direct bank transfer. You can discuss this "
-#~ "directly with the buyer."
-
-#~ msgid "faq_question_10"
-#~ msgstr "How do I make an appointment?"
-
-#~ msgid "faq_answer_10"
-#~ msgstr ""
-#~ "Easily online. For this, we need some information about your vehicle so "
-#~ "that our contact person on site is prepared. Afterward, you will receive "
-#~ "an email with the appointment confirmation and address. The buyer also "
-#~ "receives an email in parallel."
-
-#~ msgid "faq_question_11"
-#~ msgstr "What should I do if I can't keep the appointment?"
-
-#~ msgid "faq_answer_11"
-#~ msgstr ""
-#~ "With the email confirmation, you have the option to cancel the "
-#~ "appointment online or alternatively, make a new appointment."
-
-#~ msgid "This email is already registered in the system"
-#~ msgstr "This email is already registered in the system"
-
-#~ msgid "Dealer Module"
-#~ msgstr "Dealer Module"
-
-#~ msgid "Dealer Staff Module"
-#~ msgstr "Dealer Staff Module"
-
-#~ msgid "Users Module"
-#~ msgstr "Users Module"
-
-#~ msgid "Dashboard Module"
-#~ msgstr "Dashboard Module"
-
-#~ msgid "Page Permissions"
-#~ msgstr "Page Permissions"
-
-#~ msgid "Read"
-#~ msgstr "Read"
-
-#~ msgid "You do not have permission to perform this action"
-#~ msgstr "You do not have permission to perform this action"
-
-#~ msgid "You do not have permission to access this page"
-#~ msgstr "You do not have permission to access this page"
-
-#~ msgid "Administrator"
-#~ msgstr "Administrator"
-
-#~ msgid "Carexpress"
-#~ msgstr "Carexpress"
-
-#~ msgid "Dealer List"
-#~ msgstr "Dealer List"
-
-#~ msgid "Dealer Create"
-#~ msgstr "Create Dealer"
-
-#~ msgid "Dealer Edit"
-#~ msgstr "Edit Dealer"
-
-#~ msgid "Dealer Delete"
-#~ msgstr "Delete Dealer"
-
-#~ msgid "Staff List"
-#~ msgstr "Staff List"
-
-#~ msgid "Staff Create"
-#~ msgstr "Create Staff"
-
-#~ msgid "Staff Edit"
-#~ msgstr "Edit Staff"
-
-#~ msgid "Staff Delete"
-#~ msgstr "Delete Staff"
-
-#~ msgid "User Permissions"
-#~ msgstr "User Permissions"
-
-#~ msgid "Permissions"
-#~ msgstr "Permissions"
-
-#~ msgid "Page"
-#~ msgstr "Page"
-
-#~ msgid "Save Permissions"
-#~ msgstr "Save Permissions"
-
-#~ msgid "Permissions updated successfully"
-#~ msgstr "Permissions updated successfully"
-
-#~ msgid "An error occurred while updating permissions"
-#~ msgstr "An error occurred while updating permissions"
-
-#~ msgid "Image deleted successfully"
-#~ msgstr "Image deleted successfully"
-
-#~ msgid "Failed to delete image"
-#~ msgstr "Failed to delete image"
-
-#~ msgid "Information updated successfully"
-#~ msgstr "Information updated successfully"
-
-#~ msgid "Failed to update information"
-#~ msgstr "Failed to update information"
-
-#~ msgid "Note added successfully"
-#~ msgstr "Note added successfully"
-
-#~ msgid "Failed to add note"
-#~ msgstr "Failed to add note"
-
-#~ msgid "Address saved successfully"
-#~ msgstr "Address saved successfully"
-
-#~ msgid "Failed to save address"
-#~ msgstr "Failed to save address"
-
-#~ msgid "Failed to delete address"
-#~ msgstr "Failed to delete address"
-
-#~ msgid "No records found"
-#~ msgstr "No records found"
-
-#~ msgid "Showing _START_ to _END_ of _TOTAL_ entries"
-#~ msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
-
-#~ msgid "Please wait..."
-#~ msgstr "Please wait..."
-
-#~ msgid "Warning"
-#~ msgstr "Warning"
-
-#~ msgid "Session Expired"
-#~ msgstr "Session Expired"
-
-#~ msgid "An unexpected error occurred"
-#~ msgstr "An unexpected error occurred"
-
-#~ msgid "Permission Denied"
-#~ msgstr "Permission Denied"
-
-#~ msgid "You do not have permission to access this module"
-#~ msgstr "You do not have permission to access this module"
-
-#~ msgid "Go back"
-#~ msgstr "Go back"
-
-#~ msgid "Go to homepage"
-#~ msgstr "Go to homepage"
-
-#~ msgid "Login Dealer"
-#~ msgstr "Login Dealer"
-
-#~ msgid "Register Dealer"
-#~ msgstr "Register Dealer"
-
-#~ msgid "Enter your first name"
-#~ msgstr "Enter your first name"
-
-#~ msgid "Enter your last name"
-#~ msgstr "Enter your last name"
-
-#~ msgid "Enter street and number"
-#~ msgstr "Enter street and number"
-
-#~ msgid "Enter postal code"
-#~ msgstr "Enter postal code"
-
-#~ msgid "Enter city"
-#~ msgstr "Enter city"
-
-#~ msgid "Managing Director"
-#~ msgstr "Managing Director"
-
-#~ msgid "Enter your phone number"
-#~ msgstr "Enter your phone number"
-
-#~ msgid "Invalid phone number format. Format should be: +49 XXX XXXX XXX"
-#~ msgstr "Invalid phone number format. Format should be: +49 XXX XXXX XXX"
-
-# İsim validasyonu için
-#~ msgid "First name is required"
-#~ msgstr "First name is required"
-
-#~ msgid "Last name is required"
-#~ msgstr "Last name is required"
-
-# Adres validasyonu için
-#~ msgid "Street address is required"
-#~ msgstr "Street address is required"
-
-#~ msgid "Postal code is required"
-#~ msgstr "Postal code is required"
-
-#~ msgid "City is required"
-#~ msgstr "City is required"
-
-#~ msgid "Car Type"
-#~ msgstr "Car Type"
-
-#~ msgid "Year of manufacture"
-#~ msgstr "Year of Manufacture"
-
-#~ msgid "Month"
-#~ msgstr "Month"
-
-#~ msgid "Fuel Type"
-#~ msgstr "Fuel Type"
-
-#~ msgid "Model variant"
-#~ msgstr "Model Variant"
-
-#~ msgid "Vehicle Information"
-#~ msgstr "Vehicle Information"
-
-#~ msgid "Personal Information"
-#~ msgstr "Personal Information"
-
-#~ msgid "Car Photos"
-#~ msgstr "Car Photos"
-
-# Steps and Titles
-#~ msgid "Select Vehicle Type"
-#~ msgstr "Select Vehicle Type"
-
-#~ msgid "Select Model"
-#~ msgstr "Select Model"
-
-#~ msgid "Select Year"
-#~ msgstr "Select Year"
-
-#~ msgid "Select Month"
-#~ msgstr "Select Month"
-
-#~ msgid "Select Fuel Type"
-#~ msgstr "Select Fuel Type"
-
-#~ msgid "Select Variant"
-#~ msgstr "Select Variant"
-
-#~ msgid "Enter Vehicle Data"
-#~ msgstr "Enter Vehicle Data"
-
-#~ msgid "Enter Personal Data"
-#~ msgstr "Enter Personal Data"
-
-#~ msgid "Upload Vehicle Photos"
-#~ msgstr "Upload Vehicle Photos"
-
-# Vehicle Types
-#~ msgid "Cabrio"
-#~ msgstr "Cabrio"
-
-#~ msgid "Sedan"
-#~ msgstr "Sedan"
-
-#~ msgid "SUV/Off-road"
-#~ msgstr "SUV/Off-road"
-
-#~ msgid "Coupe"
-#~ msgstr "Coupe"
-
-#~ msgid "Station Wagon"
-#~ msgstr "Station Wagon"
-
-#~ msgid "Compact"
-#~ msgstr "Compact"
-
-#~ msgid "Van/Minibus"
-#~ msgstr "Van/Minibus"
-
-# Search Fields
-#~ msgid "Search brand..."
-#~ msgstr "Search brand..."
-
-#~ msgid "Search model..."
-#~ msgstr "Search model..."
-
-#~ msgid "Search year..."
-#~ msgstr "Search year..."
-
-#~ msgid "Search variant..."
-#~ msgstr "Search variant..."
-
-# Brand Sections
-#~ msgid "Popular Brands"
-#~ msgstr "Popular Brands"
-
-#~ msgid "All Brands"
-#~ msgstr "All Brands"
-
-#~ msgid "Otto engine"
-#~ msgstr "Otto Engine"
-
-#~ msgid "Diesel engine"
-#~ msgstr "Diesel Engine"
-
-#~ msgid "Electric"
-#~ msgstr "Electric"
-
-#~ msgid "Electric motor"
-#~ msgstr "Electric Motor"
-
-#~ msgid "Gasoline + Electric"
-#~ msgstr "Gasoline + Electric"
-
-#~ msgid "Plug-in Hybrid"
-#~ msgstr "Plug-in Hybrid"
-
-#~ msgid "Rechargeable"
-#~ msgstr "Rechargeable"
-
-#~ msgid "Autogas"
-#~ msgstr "Autogas"
-
-#~ msgid "LPG"
-#~ msgstr "LPG"
-
-# Vehicle Details
-#~ msgid "Mileage (km)"
-#~ msgstr "Mileage (km)"
-
-#~ msgid "Average consumption (l/100km)"
-#~ msgstr "Average Consumption (l/100km)"
-
-#~ msgid "Consumption"
-#~ msgstr "Consumption"
-
-#~ msgid "Power (HP)"
-#~ msgstr "Power (HP)"
-
-# Personal Information
-#~ msgid "First and Last Name"
-#~ msgstr "First and Last Name"
-
-#~ msgid "Phone Number"
-#~ msgstr "Phone Number"
-
-#~ msgid "Email Address"
-#~ msgstr "Email Address"
-
-#~ msgid "Price Expectation (€)"
-#~ msgstr "Price Expectation (€)"
-
-#~ msgid "I accept the Terms and Privacy Policy"
-#~ msgstr ""
-#~ "I accept the <a href='/agb' class='main-color' target='_blank'>Terms</a> "
-#~ "and <a href='/datenschutz' class='main-color' target='_blank'>Privacy "
-#~ "Policy</a>"
-
-# Photo Upload
-#~ msgid "Drop photos here or"
-#~ msgstr "Drop photos here or"
-
-#~ msgid "Choose Photos"
-#~ msgstr "Choose Photos"
-
-#~ msgid "Maximum file size: 10MB per photo"
-#~ msgstr "Maximum file size: 10MB per photo"
-
-#~ msgid "Allowed formats: JPG, PNG"
-#~ msgstr "Allowed formats: JPG, PNG"
-
-#~ msgid "Photo Categories"
-#~ msgstr "Photo Categories"
-
-#~ msgid "Exterior View"
-#~ msgstr "Exterior View"
-
-#~ msgid "Interior"
-#~ msgstr "Interior"
-
-#~ msgid "Damages"
-#~ msgstr "Damages"
-
-#~ msgid "Others"
-#~ msgstr "Others"
-
-#~ msgid "Uploaded Photos"
-#~ msgstr "Uploaded Photos"
-
-#~ msgid "No variants found for the selected combination"
-#~ msgstr "No variants found for the selected combination"
-
-#~ msgid "Thank you very much!"
-#~ msgstr "Thank you very much!"
-
-#~ msgid "Your request has been successfully submitted"
-#~ msgstr "Your request has been successfully submitted"
-
-#~ msgid "Create a new request"
-#~ msgstr "Create a new request"
-
-#~ msgid "Vehicle information saved successfully"
-#~ msgstr "Vehicle information saved successfully"
-
-#~ msgid "An error occurred while saving your data. Please try again."
-#~ msgstr "An error occurred while saving your data. Please try again."
-
-#~ msgid "Thank you for your inquiry!"
-#~ msgstr "Thank you for your inquiry!"
-
-#~ msgid "Your data has been successfully transmitted."
-#~ msgstr "Your data has been successfully transmitted."
-
-#~ msgid "We will contact you soon."
-#~ msgstr "We will contact you soon."
-
-#~ msgid "Start New Request"
-#~ msgstr "Start New Request"
-
-#~ msgid "Maximum mileage is 1,000,000 km"
-#~ msgstr "Maximum mileage is 1,000,000 km"
-
-#~ msgid "Select gear type"
-#~ msgstr "Select gear type"
-
-#~ msgid "Select door type"
-#~ msgstr "Select door type"
-
-#~ msgid "No variants found for selected combination"
-#~ msgstr "No variants found for selected combination"
-
-#~ msgid "Year of manufacture: up to"
-#~ msgstr "Year of manufacture: up to"
-
-#~ msgid "Technical data"
-#~ msgstr "Technical data"
-
-#~ msgid "Vehicle details"
-#~ msgstr "Vehicle details"
-
-#~ msgid "Elektro"
-#~ msgstr "Electric"
-
-#~ msgid "Hybrid (Benzin/Elektro)"
-#~ msgstr "Hybrid (Gasoline/Electric)"
-
-#~ msgid "Hybrid (Diesel/Elektro)"
-#~ msgstr "Hybrid (Diesel/Electric)"
-
-#~ msgid "Ethanol (FFV, E85 etc.)"
-#~ msgstr "Ethanol (FFV, E85 etc.)"
-
-#~ msgid "Autogas (LPG)"
-#~ msgstr "Autogas (LPG)"
-
-#~ msgid "Erdgas (CNG)"
-#~ msgstr "Natural Gas (CNG)"
-
-#~ msgid "Wasserstoff"
-#~ msgstr "Hydrogen"
-
-#~ msgid "Plug-in-Hybrid"
-#~ msgstr "Plug-in Hybrid"
-
-#~ msgid "Andere"
-#~ msgstr "Other"
-
-#~ msgid "Automatik"
-#~ msgstr "Automatic"
-
-#~ msgid "Halbautomatik"
-#~ msgstr "Semi-automatic"
-
-#~ msgid "Schaltgetriebe"
-#~ msgstr "Manual"
-
-#~ msgid "Cabrio/Roadster"
-#~ msgstr "Cabrio/Roadster"
-
-#~ msgid "Kleinwagen"
-#~ msgstr "Compact"
-
-#~ msgid "Limousine"
-#~ msgstr "Sedan"
-
-#~ msgid "Geländewagen/Pickup/SUV"
-#~ msgstr "SUV/Off-road"
-
-#~ msgid "Kombi"
-#~ msgstr "Station Wagon"
-
-#~ msgid "Sportwagen/Coupé"
-#~ msgstr "Sports Car/Coupe"
-
-#~ msgid "Gear Type"
-#~ msgstr "Gear Type"
-
-#~ msgid "Door Type"
-#~ msgstr "Door Type"
-
-#~ msgid "Power (kW)"
-#~ msgstr "Power (kW)"
-
-#~ msgid "Equivalent to"
-#~ msgstr "Equivalent to"
-
-#~ msgid "Express sale of your vehicle"
-#~ msgstr "Express sale of your vehicle"
-
-#~ msgid "Choose a purchase station near you"
-#~ msgstr "Choose a purchase station near you"
-
-#~ msgid "Password Requirements"
-#~ msgstr "Password Requirements"
-
-#~ msgid "Password has to contains at least one upper character"
-#~ msgstr "Password must contain at least one uppercase character"
-
-#~ msgid "Password has to contains at least one lower character"
-#~ msgstr "Password must contain at least one lowercase character"
-
-#~ msgid "Password has to contains at least one number"
-#~ msgstr "Password must contain at least one number"
-
-#~ msgid "Password has to contains at least one special character"
-#~ msgstr "Password must contain at least one special character"
-
-#~ msgid "Passwords has to match"
-#~ msgstr "Passwords must match"
-
-#~ msgid "Partner With Wiveda"
-#~ msgstr "Partner With Wiveda"
-
-#~ msgid "Continue"
-#~ msgstr "Continue"
-
-#~ msgid "Complete Registration"
-#~ msgstr "Complete Registration"
-
-#~ msgid "I accept the Terms of Service"
-#~ msgstr "I accept the Terms of Service"
-
-#~ msgid "I accept the Dealer Contract"
-#~ msgstr "I accept the Dealer Contract"
-
-#~ msgid "Create Password"
-#~ msgstr "Create Password"
-
-#~ msgid "Confirm Password"
-#~ msgstr "Confirm Password"
-
-#~ msgid "Your Application Has Been Received!"
-#~ msgstr "Your Application Has Been Received!"
-
-#~ msgid ""
-#~ "Your dealer application has been successfully completed. We will contact "
-#~ "you shortly."
-#~ msgstr ""
-#~ "Your dealer application has been successfully completed. We will contact "
-#~ "you shortly."
-
-#~ msgid "Check your email inbox"
-#~ msgstr "Check your email inbox"
-
-#~ msgid "Be ready for a phone call"
-#~ msgstr "Be ready for a phone call"
-
-#~ msgid "Review contract details"
-#~ msgstr "Review contract details"
-
-#~ msgid "Dealer Application Form"
-#~ msgstr "Dealer Application Form"
-
-#~ msgid "Please follow the steps to complete the dealer application process"
-#~ msgstr "Please follow the steps to complete the dealer application process"
-
-#~ msgid "Dealer Name"
-#~ msgstr "Dealer Name"
-
-#~ msgid "Authorized Person"
-#~ msgstr "Authorized Person"
-
-#~ msgid "Redirecting to login page in"
-#~ msgstr "Redirecting to login page in"
-
-#~ msgid "seconds"
-#~ msgstr "seconds"
-
-#~ msgid "Select purchase station"
-#~ msgstr "Select purchase station"
-
-#~ msgid "Pending"
-#~ msgstr "Pending"
-
-#~ msgid "Client Confirmed"
-#~ msgstr "Client Confirmed"
-
-#~ msgid "Dealer Confirmed"
-#~ msgstr "Dealer Confirmed"
-
-#~ msgid "Completed"
-#~ msgstr "Completed"
-
-#~ msgid "Client Cancelled"
-#~ msgstr "Client Cancelled"
-
-#~ msgid "Dealer Cancelled"
-#~ msgstr "Dealer Cancelled"
-
-#~ msgid "Could not determine your location"
-#~ msgstr "Could not determine your location"
-
-#~ msgid "Missing required fields"
-#~ msgstr "Missing required fields"
-
-#~ msgid "Car or Dealer not found"
-#~ msgstr "Car or Dealer not found"
-
-#~ msgid "Invalid date format"
-#~ msgstr "Invalid date format"
-
-#~ msgid "An active appointment already exists for this car"
-#~ msgstr "An active appointment already exists for this car"
-
-#~ msgid "Appointment created successfully"
-#~ msgstr "Appointment created successfully"
-
-#~ msgid "Error updating dealers"
-#~ msgstr "Error updating dealers"
-
-#~ msgid "Purchase Station {city}, {postal_code}"
-#~ msgstr "Purchase Station {city}, {postal_code}"
-
-#~ msgid ""
-#~ "The evaluation takes about 30 minutes. Please arrive 10 minutes before "
-#~ "your appointment."
-#~ msgstr ""
-#~ "The evaluation takes about 30 minutes. Please arrive 10 minutes before "
-#~ "your appointment."
-
-#~ msgid "Appointment successfully arranged!"
-#~ msgstr "Appointment successfully arranged!"
-
-#~ msgid "The appointment details have been sent to your email address."
-#~ msgstr "The appointment details have been sent to your email address."
-
-#~ msgid "Account already exists. Please login."
-#~ msgstr "Account already exists. Please login."
-
-#~ msgid "Error checking account status"
-#~ msgstr "Error checking account status"
-
-#~ msgid "Email already exists. Please login."
-#~ msgstr "Email already exists. Please login."
-
-#~ msgid "Error creating account"
-#~ msgstr "Error creating account"
-
-#~ msgid "Error updating account information"
-#~ msgstr "Error updating account information"
-
-#~ msgid "Registration completed successfully"
-#~ msgstr "Registration completed successfully"
-
-#~ msgid "An error occurred while submitting the form"
-#~ msgstr "An error occurred while submitting the form"
-
-#~ msgid "Your Appointment Details"
-#~ msgstr "Your Appointment Details"
-
-#~ msgid "Purchase Station"
-#~ msgstr "Purchase Station"
-
-#~ msgid "Created at"
-#~ msgstr "Created at"
-
-#~ msgid "Postal Code Short"
-#~ msgstr "Postal Code"
-
-#~ msgid "City Short"
-#~ msgstr "City"
-
-#~ msgid "Available"
-#~ msgstr "Available"
-
-#~ msgid "km away"
-#~ msgstr "km away"
-
-#~ msgid "Choose Appointment"
-#~ msgstr "Choose Appointment"
-
-#~ msgid "Confirm Appointment"
-#~ msgstr "Confirm Appointment"
-
-#~ msgid "Selected Appointment Details"
-#~ msgstr "Selected Appointment Details"
-
-#~ msgid "Your Notes"
-#~ msgstr "Your Notes"
-
-#~ msgid "Dealer settings not found."
-#~ msgstr "Dealer settings not found."
-
-#~ msgid "National holiday"
-#~ msgstr "National holiday"
-
-#~ msgid "No working hours defined for this day"
-#~ msgstr "No working hours defined for this day"
-
-#~ msgid "Dealer is closed on {day}"
-#~ msgstr "Dealer is closed on {day}"
-
-#~ msgid "Thank you very much for your efforts!"
-#~ msgstr "Thank you very much for your efforts!"
-
-#~ msgid "form_success_message"
-#~ msgstr ""
-#~ "You will soon receive an email where you can confirm your email address. "
-#~ "Once the confirmation is completed, you will receive further information "
-#~ "about the next step and the process."
-
-#~ msgid "Appointments"
-#~ msgstr "Appointments"
-
-#~ msgid "online_price_text"
-#~ msgstr ""
-#~ "Last month, our customers received an average purchase price within this "
-#~ "range for a comparable model. When determining the price, special "
-#~ "equipment, retrofits, technical, and general condition were not taken "
-#~ "into account and will be considered on-site."
-
-#~ msgid "No file was uploaded"
-#~ msgstr "No file was uploaded"
-
-#~ msgid "File size exceeds 10MB limit"
-#~ msgstr "File size exceeds 10MB limit"
-
-#~ msgid "Invalid file format. Please upload PDF, JPG, JPEG or PNG files only"
-#~ msgstr "Invalid file format. Please upload PDF, JPG, JPEG or PNG files only"
-
-#~ msgid "Please select a file to upload"
-#~ msgstr "Please select a file to upload"
-
-#~ msgid "File selected successfully"
-#~ msgstr "File selected successfully"
-
-#~ msgid "Please select a file before submitting"
-#~ msgstr "Please select a file before submitting"
-
-#~ msgid "Contract uploaded successfully"
-#~ msgstr "Contract uploaded successfully"
-
-#~ msgid "Upload failed"
-#~ msgstr "Upload failed"
-
-#~ msgid "An error occurred while uploading the contract"
-#~ msgstr "An error occurred while uploading the contract"
-
-#~ msgid "Drop file here"
-#~ msgstr "Drop file here"
-
-#~ msgid "File removed"
-#~ msgstr "File removed"
-
-#~ msgid "Uploading..."
-#~ msgstr "Uploading..."
-
-#~ msgid "Info"
-#~ msgstr "Info"
-
-# Contract Upload UI
-#~ msgid "Contract Upload"
-#~ msgstr "Contract Upload"
-
-#~ msgid "Please upload your signed contract to activate your account"
-#~ msgstr "Please upload your signed contract to activate your account"
-
-#~ msgid "Drag and drop your file here"
-#~ msgstr "Drag and drop your file here"
-
-#~ msgid "Browse Files"
-#~ msgstr "Browse Files"
-
-#~ msgid "Accepted formats: PDF, JPG, JPEG, PNG"
-#~ msgstr "Accepted formats: PDF, JPG, JPEG, PNG"
-
-#~ msgid "Maximum file size: 10MB"
-#~ msgstr "Maximum file size: 10MB"
-
-#~ msgid "Submit Contract"
-#~ msgstr "Submit Contract"
-
-#~ msgid "or"
-#~ msgstr "or"
-
-#~ msgid "Dealer Contract Pending"
-#~ msgstr "Dealer Contract Pending"
-
-#~ msgid "Dealer Contract Send"
-#~ msgstr "Dealer Contract Send"
-
-#~ msgid "Pdf Files"
-#~ msgstr "Pdf Files"
-
-#~ msgid "Images"
-#~ msgstr "Images"
-
-#~ msgid "Files"
-#~ msgstr "Files"
-
-#~ msgid "Invalid email or password"
-#~ msgstr "Invalid email or password"
-
-#~ msgid "Confirmed"
-#~ msgstr "Confirmed"
-
-#~ msgid "Cancelled"
-#~ msgstr "Cancelled"
-
-#~ msgid "No appointments found"
-#~ msgstr "No appointments found"
-
-#~ msgid "Kilometers"
-#~ msgstr "Kilometers"
-
-#~ msgid "Registration Date"
-#~ msgstr "Registration Date"
-
-#~ msgid "Cars"
-#~ msgstr "Cars"
-
-#~ msgid "No Files Found"
-#~ msgstr "No Files Found"
-
-#~ msgid "Sold"
-#~ msgstr "Sold"
-
-#~ msgid "Purchased"
-#~ msgstr "Purchased"
-
-#~ msgid "Not Purchased"
-#~ msgstr "Not Purchased"
-
-#~ msgid "Appointment List"
-#~ msgstr "Appointment List"
-
-#~ msgid "Appointment Details"
-#~ msgstr "Appointment Details"
-
-#~ msgid "Client Information"
-#~ msgstr "Client Information"
-
-#~ msgid "Car Information"
-#~ msgstr "Car Information"
-
-#~ msgid "Appointment Information"
-#~ msgstr "Appointment Information"
-
-#~ msgid "Contact Person"
-#~ msgstr "Contact Person"
-
-#~ msgid "Appointment Date"
-#~ msgstr "Appointment Date"
-
-#~ msgid "Appointment Time"
-#~ msgstr "Appointment Time"
-
-#~ msgid "Client Name"
-#~ msgstr "Client Name"
-
-#~ msgid "Client Phone"
-#~ msgstr "Client Phone"
-
-#~ msgid "Dealer Phone"
-#~ msgstr "Dealer Phone"
-
-#~ msgid "Car List"
-#~ msgstr "Car List"
-
-#~ msgid "Car Details"
-#~ msgstr "Car Details"
-
-#~ msgid "Auto Verkaufen"
-#~ msgstr "Selling a Car"
+msgid "Ability Game Page Desc"
+msgstr "Test your LoL knowledge! Guess champion abilities based on clues, increase your score and compete with League of Legends enthusiasts. Play for free now!"

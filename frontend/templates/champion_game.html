@@ -82,6 +82,11 @@
     <input type="hidden" id="attempts-left-initial" value="{{ attempts_left }}">
 
     <canvas id="confetti-canvas"></canvas>
+
+    <div id="notification" class="notification hidden">
+        <span id="notification-message"></span>
+        <button id="notification-close" class="notification-close">&times;</button>
+    </div>
 {% endblock %}
 
 {% block extra_js %}
@@ -260,8 +265,21 @@
                 })
             });
 
-            const data = await response.json();
 
+            if (!response.ok) {
+                console.error('Error making guess:', response);
+                try {
+                    const data = await response.json();
+                    if (data && data.error) {
+                        showNotification(data.error);
+                    }
+                } catch (jsonError) {
+                    console.error('Could not parse error response:', jsonError);
+                }
+                return;
+            }
+
+            const data = await response.json();
             if (response.ok) {
                 // Hide no guesses message if it's the first guess
                 if (guessCount === 0) {
@@ -379,13 +397,14 @@
 
         // Set the appropriate result image
         resultImage.src = isWon ?
-            "{% static 'img/zafer.png' %}" :
-            "{% static 'img/defeat.png' %}";
+            "/public/img/zafer_"+currentLanguage+".png" :
+            "/public/img/bozgun_"+currentLanguage+".png";
 
         // Show score info if game is won
         if (isWon) {
             scoreInfo.style.display = 'block';
             scoreValue.textContent = score;
+            startConfetti();
         } else {
             scoreInfo.style.display = 'none';
         }
@@ -562,7 +581,7 @@
     }
 
     .result-small-img {
-        width: 80px;
+        width: 200px;
         height: auto;
         margin-right: 15px;
     }
