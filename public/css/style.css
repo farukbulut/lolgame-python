@@ -285,3 +285,492 @@
     .leaderboard-button i {
         margin-right: 8px;
     }
+
+    /* Base styles matching champion guessing game */
+    .ability-preview-container {
+        width: 128px;
+        height: 128px;
+        margin: 20px auto;
+        position: relative;
+    }
+
+    #ability-canvas {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        border: 3px solid #d4af37;
+        background-color: #151823;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Clues Section */
+    .clues-section {
+        max-width: 800px;
+        margin: 0 auto 20px;
+        padding: 15px;
+        background: rgba(21, 24, 35, 0.7);
+        border-radius: 10px;
+    }
+
+    .clues-section h3 {
+        color: #d4af37;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    #clue-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #clue-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #ddd;
+    }
+
+    #clue-list li:last-child {
+        border-bottom: none;
+    }
+
+    .clue-icon {
+        color: #d4af37;
+        margin-right: 8px;
+    }
+
+    .no-results {
+        padding: 15px;
+        text-align: center;
+        color: #aaa;
+    }
+
+    /* Guess History Section */
+    .champion-table {
+        max-width: 800px;
+        margin: 0 auto 20px;
+        background: rgba(21, 24, 35, 0.7);
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .guess-history-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .guess-item {
+        width: 80px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .guess-item:hover {
+        transform: translateY(-3px);
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .guess-item.correct {
+        border: 2px solid #27ae60;
+    }
+
+    .guess-item.wrong {
+        border: 2px solid #e74c3c;
+    }
+
+    .guess-item .champion-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 8px;
+        border: 2px solid #333;
+    }
+
+    .guess-item .champion-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .guess-item .champion-name {
+        font-size: 12px;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    /* Ability Guess Section */
+    .ability-guess-section {
+        max-width: 800px;
+        margin: 0 auto 20px;
+        padding: 20px;
+        background: rgba(21, 24, 35, 0.7);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .champion-revealed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .champion-image-wrapper {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid #d4af37;
+        margin: 0 auto 10px;
+        background: #111;
+    }
+
+    #champion-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .champion-revealed h3 {
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .ability-prompt h3 {
+        color: #fff;
+        margin-bottom: 15px;
+    }
+
+    .ability-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .ability-btn {
+        width: 80px;
+        height: 60px;
+        border: 2px solid #d4af37;
+        background: rgba(212, 175, 55, 0.1);
+        color: #fff;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .ability-btn:hover {
+        background: rgba(212, 175, 55, 0.3);
+        transform: translateY(-3px);
+    }
+
+    /* Result Banner */
+    #result-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        background: rgba(21, 24, 35, 0.95);
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        z-index: 100;
+        animation: slide-up 0.5s ease;
+    }
+
+    @keyframes slide-up {
+        from { transform: translate(-50%, 100px); opacity: 0; }
+        to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    .result-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .result-small-img {
+        width: 80px;
+        height: auto;
+        margin-right: 15px;
+    }
+
+    .result-text {
+        flex: 1;
+    }
+
+    .score-info {
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .score-value {
+        font-size: 36px;
+        font-weight: 700;
+        color: #d4af37;
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+
+    .score-label {
+        font-size: 14px;
+        color: #d4af37;
+        display: block;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .ability-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    .ability-key {
+        background: #d4af37;
+        color: #000;
+        font-weight: bold;
+        padding: 5px 12px;
+        border-radius: 6px;
+    }
+
+    .ability-name {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    /* Player info */
+    .player-info {
+        margin: 5px auto 10px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .player-label {
+        font-weight: 600;
+        margin-right: 5px;
+    }
+
+    .player-name {
+        color: #d4af37;
+        font-weight: 600;
+    }
+
+    .result-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+        background: #d4af37;
+        color: #000;
+    }
+
+    .btn-secondary {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-primary:hover {
+        background: #e5c249;
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        background-color: #151823;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        animation: fade-in 0.3s ease;
+        position: relative;
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+        color: #aaa;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .close-modal:hover {
+        color: #d4af37;
+    }
+
+    /* Champion Detail Styles */
+    .champion-detail {
+        color: #fff;
+    }
+
+    .detail-header {
+        padding: 20px 0;
+    }
+
+    .subheading {
+        font-size: 14px;
+        color: #d4af37;
+        text-transform: uppercase;
+    }
+
+    .champion-name {
+        font-size: 32px;
+        margin: 10px 0;
+        color: #fff;
+    }
+
+    .description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .detail-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 5px;
+        max-height: 300px;
+    }
+
+    .detail-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .detail-stats li {
+        flex: 1 1 120px;
+        background: rgba(0,0,0,0.2);
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 14px;
+        color: #ddd;
+    }
+
+    .detail-stats .label {
+        display: block;
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 4px;
+    }
+
+    /* Hide elements with class "hidden" */
+    .hidden {
+        display: none !important;
+    }
+
+        /* Ability Selection Modal */
+    #ability-selection-modal .modal-content {
+        max-width: 500px;
+        text-align: center;
+    }
+
+    #ability-selection-modal h2 {
+        color: #d4af37;
+        margin-bottom: 10px;
+    }
+
+    #ability-selection-modal .champion-revealed {
+        margin: 20px 0;
+    }
+
+    #ability-selection-modal .ability-image-container {
+        width: 128px;
+        height: 128px;
+        margin: 20px auto;
+        border-radius: 10px;
+        border: 3px solid #d4af37;
+        overflow: hidden;
+    }
+
+    #ability-selection-modal .ability-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #confetti-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .close-ability-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: #aaa;
+        cursor: pointer;
+    }
+
+    .close-ability-modal:hover {
+        color: #d4af37;
+    }

@@ -5,9 +5,6 @@
 {% block content %}
     <div class="hero">
         <p>{% trans 'Difficulty' %}: <span class="highlight">{{ difficulty_title }}</span></p>
-        {% if is_grey_mode %}
-        <p><span class="highlight grey-mode">{% trans 'Grey Mode' %}</span> (+10 points)</p>
-        {% endif %}
         {% if user_name %}
         <p>{% trans 'Player' %}: <span class="highlight">{{ user_name }}</span></p>
         {% endif %}
@@ -99,6 +96,7 @@
             </div>
         </div>
     </section>
+    <input type="hidden" id="previous-guesses" value="{{ previous_guesses|default_if_none:'[]' }}">
 
     <!-- CHAMPION DETAIL MODAL -->
     <div id="champion-modal" class="modal">
@@ -109,6 +107,42 @@
             </div>
         </div>
     </div>
+
+    <!-- ABILITY SELECTION MODAL -->
+    <div id="ability-selection-modal" class="modal">
+        <div class="modal-content ability-modal-content">
+            <span class="close-ability-modal">&times;</span>
+            <div class="ability-selection-content">
+                <h2>{% trans "Congratulations!" %}</h2>
+                <p>{% trans "You've correctly identified the champion. Now guess which ability this is!" %}</p>
+
+                <div class="champion-revealed">
+                    <div class="champion-image-wrapper">
+                        <img id="modal-champion-image" src="/static/img/champion_placeholder.png" alt="Champion">
+                    </div>
+                    <h3 id="modal-champion-name"></h3>
+                </div>
+
+                <div class="ability-image-container">
+                    <img id="modal-ability-image" alt="Ability image">
+                </div>
+
+                <div class="ability-prompt">
+                    <h3>{% trans "Now guess which ability this is" %}</h3>
+                    <div class="ability-buttons">
+                        <button class="ability-btn modal-ability-btn" data-key="P">{% trans "Passive" %}</button>
+                        <button class="ability-btn modal-ability-btn" data-key="Q">Q</button>
+                        <button class="ability-btn modal-ability-btn" data-key="W">W</button>
+                        <button class="ability-btn modal-ability-btn" data-key="E">E</button>
+                        <button class="ability-btn modal-ability-btn" data-key="R">R</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFETTI CANVAS -->
+    <canvas id="confetti-canvas"></canvas>
 
     <input type="hidden" id="game-id" value="{{ game_id }}">
     <input type="hidden" id="max-attempts" value="{{ max_attempts }}">
@@ -196,6 +230,107 @@
             }
         });
 
+        btnViewChampion.addEventListener('click', () => {
+            // Şampiyon verilerini API'den alalım
+            fetchChampionDetails();
+        });
+
+        abilityButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const key = button.getAttribute('data-key');
+                checkAbilityGuess(key);
+            });
+        });
+
+        // Modal kapatma butonlarını ayarla
+        const closeAbilityModal = document.querySelector('.close-ability-modal');
+        if (closeAbilityModal) {
+            closeAbilityModal.addEventListener('click', () => {
+                document.getElementById('ability-selection-modal').style.display = 'none';
+            });
+        }
+
+        // Pencere tıklamalarını düzenle
+        window.addEventListener('click', (event) => {
+            const abilityModal = document.getElementById('ability-selection-modal');
+
+            if (event.target === championModal) {
+                championModal.style.display = 'none';
+            }
+            else if (event.target === abilityModal) {
+                abilityModal.style.display = 'none';
+            }
+        });
+
+        // Bu yeni fonksiyonu ekleyin
+        async function fetchChampionDetails() {
+            try {
+                // Yükleniyor göstergesi
+                championDetail.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Şampiyon bilgileri yükleniyor...</p></div>';
+                championModal.style.display = 'block';
+
+                // Hedef şampiyon ID'sini alın
+                const targetChampionId = document.getElementById('target-champion-id').value;
+
+                if (!targetChampionId) {
+                    championDetail.innerHTML = '<p class="error-message">Şampiyon bilgisi bulunamadı.</p>';
+                    return;
+                }
+
+                // Şampiyon detaylarını API'den al
+                const apiUrl = `/${currentLanguage}/api/champion-details?id=${targetChampionId}`;
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error('Şampiyon verileri alınamadı');
+                }
+
+                const data = await response.json();
+
+                if (data.champion) {
+                    // Modal'ı doldur
+                    populateChampionModal(data.champion);
+                } else {
+                    championDetail.innerHTML = '<p class="error-message">Şampiyon bilgisi bulunamadı.</p>';
+                }
+            } catch (error) {
+                console.error('Şampiyon detayları alınırken hata:', error);
+                championDetail.innerHTML = `<p class="error-message">Hata: ${error.message}</p>`;
+            }
+        }
+
+        // populateChampionModal fonksiyonunu düzenleyin
+        function populateChampionModal(champion) {
+            // Eksik verilere karşı kontrol ekleyin
+            championDetail.innerHTML = `
+                <div class="detail-header">
+                    <span class="subheading">${champion.title || ''}</span>
+                    <h2 class="champion-name">${champion.name || 'Bilinmeyen Şampiyon'}</h2>
+                    <p class="description">${champion.lore || 'Bu şampiyon hakkında bilgi bulunmuyor.'}</p>
+                </div>
+                <div class="detail-image">
+                    <img src="${champion.splash_art || champion.image_main || '/static/img/champion_placeholder.png'}"
+                         alt="${champion.name || 'Şampiyon'}"
+                         onerror="this.src='/static/img/champion_placeholder.png'">
+                </div>
+                <ul class="detail-stats">
+                    <li><span class="label">{% trans "Gender" %}</span> ${champion.gender || 'Bilinmiyor'}</li>
+                    <li><span class="label">{% trans "Resource" %}</span> ${champion.resource || 'Bilinmiyor'}</li>
+                    <li><span class="label">{% trans "Position" %}</span> ${champion.position || 'Bilinmiyor'}</li>
+                    <li><span class="label">{% trans "Species" %}</span> ${champion.species || 'Bilinmiyor'}</li>
+                    <li><span class="label">{% trans "Range" %}</span> ${champion.combat_range || 'Bilinmiyor'}</li>
+                    <li><span class="label">{% trans "Region" %}</span> ${champion.region || 'Bilinmiyor'}</li>
+                    <li><span class="label">{% trans "Release" %}</span> ${champion.release_year || 'Bilinmiyor'}</li>
+                </ul>
+                <div class="modal-actions">
+                    <a href="/${currentLanguage}/champion/${champion.slug || ''}" class="btn-primary"
+                       ${champion.slug ? '' : 'style="display:none"'}>
+                       <i class="fas fa-external-link-alt"></i> {% trans "Champion Page" %}
+                    </a>
+                </div>
+            `;
+        }
+
         // Ability buttons
         abilityButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -260,10 +395,69 @@
 
     // Game initialization
     function initGame() {
-        // If there are existing clues, load them
-        if (window.initialClues && window.initialClues.length) {
-            clues = window.initialClues;
-            updateClueList();
+        // Eğer bir oyun ID'si varsa ve mevcut oyunsa, geçmiş tahminleri yükle
+        const gameId = document.getElementById('game-id').value;
+
+        if (gameId) {
+            // AJAX ile geçmiş tahminleri ve ipuçlarını al
+            fetchGameHistory(gameId);
+        }
+    }
+
+    // Oyun geçmişini ve ipuçlarını AJAX ile alma
+    async function fetchGameHistory(gameId) {
+        try {
+            // API endpoint'i
+            const apiUrl = `/${currentLanguage}/api/get-ability-game-history?game_id=${gameId}`;
+
+            // API isteği yap
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error('API yanıtı başarısız: ' + response.status);
+            }
+
+            const data = await response.json();
+
+            // Geçmiş tahminleri işle
+            if (data.guesses && data.guesses.length > 0) {
+                // "No guesses" mesajını gizle
+                noGuesses.classList.add('hidden');
+
+                // Her tahmini tahmin geçmişine ekle
+                data.guesses.forEach(guess => {
+                    addToGuessHistory(
+                        guess.champion_id,
+                        guess.champion_name,
+                        guess.image,
+                        guess.is_correct
+                    );
+
+                    // Eğer doğru tahmin yapılmışsa, şampiyon tahmin bölümünü göster
+                    if (guess.is_correct) {
+                        championGuessed = true;
+                        displayChampion(guess.champion_name, guess.image);
+                        abilityGuessSection.classList.remove('hidden');
+                    }
+                });
+
+                // Son tahmin numarasına göre attempt sayısını güncelle
+                if (data.guesses.length > 0) {
+                    currentAttempt = data.guesses[data.guesses.length - 1].guess_number;
+                    currentAttemptEl.textContent = currentAttempt;
+                    attemptsWrongEl.textContent = currentAttempt;
+                    attemptsLeftEl.textContent = maxAttempts - currentAttempt;
+                }
+            }
+
+            // İpuçlarını işle
+            if (data.clues && data.clues.length > 0) {
+                clues = data.clues;
+                updateClueList();
+            }
+
+        } catch (error) {
+            console.error('Oyun geçmişi alınırken hata oluştu:', error);
         }
     }
 
@@ -321,7 +515,7 @@
 
             searchItem.innerHTML = `
                 <div class="img-wrapper">
-                    <img src="${champion.image}" alt="${champion.name}" onerror="this.src='/static/img/champion_placeholder.png'">
+                    <img src="${champion.image}" alt="${champion.name}">
                 </div>
                 <div class="search-text">
                     <div class="search-name">${champion.name}</div>
@@ -387,9 +581,11 @@
                     // Update display
                     displayChampion(name, image);
 
-                    // Switch to ability guess section
-                    gameStage = 'ability';
-                    abilityGuessSection.classList.remove('hidden');
+                    // Başarılı şampiyon tahmini için konfeti
+                    startConfetti();
+
+                    // Yetenek tahmin modalını göster
+                    showAbilitySelectionModal(name, image);
                 } else {
                     // Wrong guess, update attempts
                     currentAttempt = data.attempts_used;
@@ -419,15 +615,46 @@
         }
     }
 
+    // Yetenek tahmin modalını göster
+    function showAbilitySelectionModal(championName, championImage) {
+        // Modal için şampiyon bilgilerini güncelle
+        document.getElementById('modal-champion-name').textContent = championName;
+        document.getElementById('modal-champion-image').src = championImage;
+
+        // Yetenek görselini güncelle
+        document.getElementById('modal-ability-image').src = abilityImageUrl;
+
+        // Modalı göster
+        const modal = document.getElementById('ability-selection-modal');
+        modal.style.display = 'block';
+
+        // Modal yetenek butonlarına event listener ekle
+        const modalAbilityButtons = document.querySelectorAll('.modal-ability-btn');
+        modalAbilityButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                checkAbilityGuess(button.getAttribute('data-key'));
+                modal.style.display = 'none'; // Tahmin sonrası modalı kapat
+            });
+        });
+
+        // Kapatma butonuna event listener ekle
+        const closeButton = document.querySelector('.close-ability-modal');
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Modal dışına tıklanınca kapanma
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
     // Update champion display
     function displayChampion(name, image) {
         championImage.src = image || '/static/img/champion_placeholder.png';
         championName.textContent = name || 'Unknown Champion';
-
-        // Eğer görsel yüklenemezse, fallback görsel göster
-        championImage.onerror = function() {
-            this.src = '/static/img/champion_placeholder.png';
-        };
     }
 
     // Check ability guess against target
@@ -435,13 +662,15 @@
         if (!championGuessed) return;
 
         if (abilityKeyGuess === targetAbilityKey) {
-            // Ability guessed correctly
+            // Ability guessed correctly - start confetti again for double victory!
             abilityGuessed = true;
-            totalScore += 5; // Add bonus points
-            if (isGreyMode) {
-                totalScore += 5; // Additional bonus for grey mode
-            }
-            showGameOver(true, null, {key: abilityKeyGuess, name: getAbilityNameFromKey(abilityKeyGuess)});
+
+            // Doğru yetenek tahmini için de konfeti göster
+            startConfetti();
+
+            setTimeout(() => {
+                showGameOver(true, null, {key: abilityKeyGuess, name: getAbilityNameFromKey(abilityKeyGuess)});
+            }, 1000); // Konfetinin görünmesi için biraz beklet
         } else {
             // Wrong ability guess
             showGameOver(true, null, {key: targetAbilityKey, name: getAbilityNameFromKey(targetAbilityKey)});
@@ -601,8 +830,7 @@
         guessItem.innerHTML = `
             <div class="champion-img">
                 <img src="${image || '/static/img/champion_placeholder.png'}"
-                     alt="${name}"
-                     onerror="this.src='/static/img/champion_placeholder.png'">
+                     alt="${name}">
             </div>
             <div class="champion-name">${name}</div>
         `;
@@ -627,442 +855,4 @@
         return cookieValue;
     }
 </script>
-
-<style>
-    /* Base styles matching champion guessing game */
-    .ability-preview-container {
-        width: 128px;
-        height: 128px;
-        margin: 20px auto;
-        position: relative;
-    }
-
-    #ability-canvas {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        border: 3px solid #d4af37;
-        background-color: #151823;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    /* Clues Section */
-    .clues-section {
-        max-width: 800px;
-        margin: 0 auto 20px;
-        padding: 15px;
-        background: rgba(21, 24, 35, 0.7);
-        border-radius: 10px;
-    }
-
-    .clues-section h3 {
-        color: #d4af37;
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
-
-    #clue-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    #clue-list li {
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        color: #ddd;
-    }
-
-    #clue-list li:last-child {
-        border-bottom: none;
-    }
-
-    .clue-icon {
-        color: #d4af37;
-        margin-right: 8px;
-    }
-
-    .no-results {
-        padding: 15px;
-        text-align: center;
-        color: #aaa;
-    }
-
-    /* Guess History Section */
-    .champion-table {
-        max-width: 800px;
-        margin: 0 auto 20px;
-        background: rgba(21, 24, 35, 0.7);
-        border-radius: 10px;
-        padding: 15px;
-    }
-
-    .guess-history-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-    }
-
-    .guess-item {
-        width: 80px;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 8px;
-        padding: 8px;
-        transition: all 0.2s ease;
-    }
-
-    .guess-item:hover {
-        transform: translateY(-3px);
-        background: rgba(0, 0, 0, 0.5);
-    }
-
-    .guess-item.correct {
-        border: 2px solid #27ae60;
-    }
-
-    .guess-item.wrong {
-        border: 2px solid #e74c3c;
-    }
-
-    .guess-item .champion-img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto 8px;
-        border: 2px solid #333;
-    }
-
-    .guess-item .champion-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .guess-item .champion-name {
-        font-size: 12px;
-        color: #fff;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-
-    /* Ability Guess Section */
-    .ability-guess-section {
-        max-width: 800px;
-        margin: 0 auto 20px;
-        padding: 20px;
-        background: rgba(21, 24, 35, 0.7);
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    .champion-revealed {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .champion-image-wrapper {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 2px solid #d4af37;
-        margin: 0 auto 10px;
-        background: #111;
-    }
-
-    #champion-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .champion-revealed h3 {
-        font-size: 20px;
-        color: #fff;
-    }
-
-    .ability-prompt h3 {
-        color: #fff;
-        margin-bottom: 15px;
-    }
-
-    .ability-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .ability-btn {
-        width: 80px;
-        height: 60px;
-        border: 2px solid #d4af37;
-        background: rgba(212, 175, 55, 0.1);
-        color: #fff;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .ability-btn:hover {
-        background: rgba(212, 175, 55, 0.3);
-        transform: translateY(-3px);
-    }
-
-    /* Result Banner */
-    #result-banner {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 500px;
-        background: rgba(21, 24, 35, 0.95);
-        border: 2px solid #d4af37;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        z-index: 100;
-        animation: slide-up 0.5s ease;
-    }
-
-    @keyframes slide-up {
-        from { transform: translate(-50%, 100px); opacity: 0; }
-        to { transform: translate(-50%, 0); opacity: 1; }
-    }
-
-    .result-content {
-        display: flex;
-        align-items: center;
-    }
-
-    .result-small-img {
-        width: 80px;
-        height: auto;
-        margin-right: 15px;
-    }
-
-    .result-text {
-        flex: 1;
-    }
-
-    .score-info {
-        margin: 10px auto;
-        text-align: center;
-    }
-
-    .score-value {
-        font-size: 36px;
-        font-weight: 700;
-        color: #d4af37;
-        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-    }
-
-    .score-label {
-        font-size: 14px;
-        color: #d4af37;
-        display: block;
-        letter-spacing: 2px;
-        font-weight: 600;
-    }
-
-    .ability-info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin: 10px 0;
-    }
-
-    .ability-key {
-        background: #d4af37;
-        color: #000;
-        font-weight: bold;
-        padding: 5px 12px;
-        border-radius: 6px;
-    }
-
-    .ability-name {
-        color: #fff;
-        font-size: 18px;
-    }
-
-    /* Player info */
-    .player-info {
-        margin: 5px auto 10px;
-        text-align: center;
-        color: #fff;
-    }
-
-    .player-label {
-        font-weight: 600;
-        margin-right: 5px;
-    }
-
-    .player-name {
-        color: #d4af37;
-        font-weight: 600;
-    }
-
-    .result-buttons {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        padding: 8px 12px;
-        border-radius: 4px;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-    }
-
-    .btn-primary {
-        background: #d4af37;
-        color: #000;
-    }
-
-    .btn-secondary {
-        background: rgba(255,255,255,0.1);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .btn-primary:hover {
-        background: #e5c249;
-        transform: translateY(-2px);
-    }
-
-    .btn-secondary:hover {
-        background: rgba(255,255,255,0.2);
-        transform: translateY(-2px);
-    }
-
-    /* Modal Styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.8);
-        overflow-y: auto;
-    }
-
-    .modal-content {
-        background-color: #151823;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 800px;
-        animation: fade-in 0.3s ease;
-        position: relative;
-    }
-
-    @keyframes fade-in {
-        from { opacity: 0; transform: translateY(-30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .close-modal {
-        color: #aaa;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 10;
-    }
-
-    .close-modal:hover {
-        color: #d4af37;
-    }
-
-    /* Champion Detail Styles */
-    .champion-detail {
-        color: #fff;
-    }
-
-    .detail-header {
-        padding: 20px 0;
-    }
-
-    .subheading {
-        font-size: 14px;
-        color: #d4af37;
-        text-transform: uppercase;
-    }
-
-    .champion-name {
-        font-size: 32px;
-        margin: 10px 0;
-        color: #fff;
-    }
-
-    .description {
-        font-size: 15px;
-        line-height: 1.6;
-        color: #ccc;
-        max-height: 150px;
-        overflow-y: auto;
-        margin-bottom: 20px;
-    }
-
-    .detail-image img {
-        width: 100%;
-        display: block;
-        object-fit: cover;
-        border-radius: 5px;
-        max-height: 300px;
-    }
-
-    .detail-stats {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 20px;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    .detail-stats li {
-        flex: 1 1 120px;
-        background: rgba(0,0,0,0.2);
-        border: 1px solid #333;
-        border-radius: 6px;
-        padding: 10px;
-        font-size: 14px;
-        color: #ddd;
-    }
-
-    .detail-stats .label {
-        display: block;
-        font-size: 12px;
-        color: #777;
-        margin-bottom: 4px;
-    }
-
-    /* Hide elements with class "hidden" */
-    .hidden {
-        display: none !important;
-    }
-</style>
 {% endblock %}

@@ -500,7 +500,7 @@ def ability_game(request):
 
     # Get game difficulty from query parameters or default to medium
     difficulty = request.GET.get('difficulty', 'medium')
-    is_grey_mode = request.GET.get('grey_mode', 'false').lower() == 'true'
+    is_grey_mode = True
 
     # Get the game mode from the database
     game_mode = GameMode.objects.filter(name__iexact=difficulty).first()

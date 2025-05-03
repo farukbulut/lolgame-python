@@ -81,3 +81,74 @@ function getGameStats(gameType) {
     const stats = JSON.parse(localStorage.getItem('lolGameStats') || '{}');
     return stats[gameType] || null;
 }
+
+// Konfeti efekti
+function startConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 150;
+    const gravity = 0.3;
+    const colors = ['#d4af37', '#FFD700', '#FFA500', '#FF4500', '#9370DB', '#00BFFF'];
+    const spread = 60;
+
+    // Parça oluştur
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            size: Math.random() * 10 + 5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            vx: Math.random() * spread - spread/2,
+            vy: Math.random() * -15 - 5,
+            rotation: Math.random() * 360,
+            rotationSpeed: Math.random() * 10 - 5
+        });
+    }
+
+    // Animasyon
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let particlesLeft = false;
+
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            ctx.fillStyle = p.color;
+
+            // Parçaları çiz
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation * Math.PI / 180);
+
+            // Konfeti parçası - dikdörtgen
+            ctx.fillRect(-p.size/2, -p.size/4, p.size, p.size/2);
+
+            ctx.restore();
+
+            // Fizik
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += gravity;
+            p.rotation += p.rotationSpeed;
+
+            // Ekrandan çıktı mı kontrol et
+            if (p.y < canvas.height + 100) {
+                particlesLeft = true;
+            }
+        }
+
+        // Hala parçalar varsa animasyona devam et
+        if (particlesLeft) {
+            requestAnimationFrame(animate);
+        } else {
+            canvas.style.display = 'none';
+        }
+    }
+
+    // Konfeti başlat
+    canvas.style.display = 'block';
+    animate();
+}

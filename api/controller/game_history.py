@@ -67,11 +67,11 @@ def game_history(request):
             if game.is_won:
                 # Recalculate score based on game mode and attempts
                 if game.game_mode.name.lower() == 'easy':
-                    max_score = 24
-                elif game.game_mode.name.lower() == 'medium':
                     max_score = 20
-                elif game.game_mode.name.lower() == 'hard':
+                elif game.game_mode.name.lower() == 'medium':
                     max_score = 28
+                elif game.game_mode.name.lower() == 'hard':
+                    max_score = 36
                 else:
                     max_score = 36
 

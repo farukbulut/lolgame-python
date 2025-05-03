@@ -80,6 +80,8 @@
     <input type="hidden" id="previous-guesses" value="{{ previous_guesses|default_if_none:'[]' }}">
     <input type="hidden" id="attempts-used-initial" value="{{ attempts_used }}">
     <input type="hidden" id="attempts-left-initial" value="{{ attempts_left }}">
+
+    <canvas id="confetti-canvas"></canvas>
 {% endblock %}
 
 {% block extra_js %}

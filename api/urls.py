@@ -15,4 +15,5 @@ urlpatterns = [
     path('make-ability-guess', guess.make_ability_guess, name='make_ability_guess'),
     path('check-champion-guess', ability_game.check_champion_guess, name='check_champion_guess'),
     path('new-ability-game', ability_game.new_ability_game, name='new_ability_game'),
+    path('get-ability-game-history', ability_game.get_ability_game_history, name='get-ability-game-history'),
 ]

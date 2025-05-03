@@ -471,3 +471,30 @@ msgstr "League of Legends evrenindeki tüm şampiyonları keşfedin. Şampiyon y
 
 msgid "No data available"
 msgstr "Veri mevcut değil"
+
+msgid "Clues:"
+msgstr "İpuçları:"
+
+msgid "Guess the champion that owns this ability"
+msgstr "Bu yeteneğe sahip şampiyonu tahmin et"
+
+msgid "Choose a game mode to play"
+msgstr "Oynamak için bir oyun modu seçin"
+
+msgid "Try to guess the target champion with clues about their position, region, and more."
+msgstr "Hedef şampiyonu pozisyonu, bölgesi ve daha fazlası hakkında ipuçları ile tahmin etmeye çalışın."
+
+msgid "Ability Guessing Game"
+msgstr "Yetenek Tahmin Oyunu"
+
+msgid "Guess which champion the ability belongs to and then identify the ability for bonus points!"
+msgstr "Hangi şampiyona ait olduğunu tahmin edin ve ardından bonus puanlar için yeteneği tanımlayın!"
+
+msgid "See who ranks at the top"
+msgstr "En üst sırada kimlerin olduğunu görün"
+
+msgid "View your past games"
+msgstr "Geçmiş oyunlarını görüntüle"
+
+msgid "Clues"
+msgstr "İpuçları"

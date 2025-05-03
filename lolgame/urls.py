@@ -64,7 +64,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     # Sayfa URL'leri için dil öneklerini kullan
     path('', index.main, name='front_home'),
-    path('games/', index.games, name='games'),
+    path('games-champions/', index.games, name='games'),
     path('ability-game/', index.ability_game, name='ability_game'),
     path('games-menu/', index.games_menu, name='games_menu'),  # Yeni oyun menüsü URL'si
     path('how-to-play/', index.how_to_play, name='how_to_play'),  # Fixed URL pattern
