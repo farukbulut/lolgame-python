@@ -39,12 +39,6 @@ Players can test their knowledge of LoL champions by guessing them with limited 
 
 ---
 
-## 🛠️ Tech Stack  
-- Frontend: *(to be specified, e.g., React / Vue / Vanilla JS)*  
-- Backend: *(to be specified, e.g., Node.js, Django, PHP, etc.)*  
-- Database: *(to be specified, e.g., MySQL, MongoDB, PostgreSQL)*  
-
----
 
 ## 📄 License  
 This project is developed for educational and entertainment purposes.  
